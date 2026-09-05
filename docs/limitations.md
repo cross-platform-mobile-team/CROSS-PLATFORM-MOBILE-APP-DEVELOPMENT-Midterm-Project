@@ -3,9 +3,11 @@
 This basic project is not ready for final coursework submission.
 
 - Notes/priority/dates/tags, edit/delete/undo and filters remain planned.
-- Golden/native E2E tests, persistence runtime verification, accessibility audit,
+- Golden/full E2E suites, accessibility audit,
   defect experiment and stability benchmarks remain.
-- Native runners have not been built/run due to missing toolchains.
+- Windows release was built/launched, and one real-storage integration workflow
+  passed. The test remounts the app with a fresh repository; it does not test an
+  OS reboot or process restart. Android remains unverified due to missing SDK.
 - No CI execution, APK, report, video or clean-machine reproduction claim.
 - Local preferences have no backup/migration/multi-tab coordination. Invalid
   JSON is preserved and surfaced as an error rather than replaced silently.

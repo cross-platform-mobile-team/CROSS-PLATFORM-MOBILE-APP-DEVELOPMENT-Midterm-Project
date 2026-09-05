@@ -5,7 +5,9 @@
 - SDK: C:/Users/LENOVO/flutter-sdk, not on PATH.
 - Chrome 149.0.7827.201; Edge 152.0.4191.62.
 - Android SDK missing; Android build/device tests NOT RUN.
-- Visual Studio C++ workload missing; Windows build/device tests NOT RUN.
+- Visual Studio Build Tools 2022 17.14.39 installed at D:/VSBuildTools2022;
+  C++ workload, CMake and Windows SDK 10.0.26100 available. Doctor PASS for Windows.
+  Windows release build and native integration test PASS.
 - Git initially had an invalid unborn HEAD and incorrect flutter/flutter remote.
 
 Recheck using flutter doctor -v and flutter devices on each test machine.

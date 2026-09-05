@@ -12,4 +12,6 @@
 
 Command: flutter test --coverage. Tests isolate repositories and use finite UI
 settling. Source: test/unit/task_controller_test.dart and test/widget/task_screen_test.dart.
-Golden and native E2E suites remain future work.
+Native smoke: integration_test/windows_workflow_test.dart runs create/complete/
+reload against real local preferences under a separate test key. PASS on Windows.
+Golden and the full multi-scenario E2E suite remain future work.

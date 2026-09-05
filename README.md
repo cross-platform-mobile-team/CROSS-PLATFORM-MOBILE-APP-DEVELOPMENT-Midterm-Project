@@ -44,9 +44,28 @@ flutter test --coverage
 flutter build web --release
 ```
 
-Local analysis, seven tests with coverage, and Web compilation passed. Android and
-Windows runners are generated but not verified: install Android SDK/device tools
-or Visual Studio Desktop development with C++ before native builds/tests.
+Local analysis, seven unit/widget tests, Web compilation, Windows release build
+and one Windows integration test passed. Android remains unverified.
+
+## Windows desktop
+
+Windows toolchain: Visual Studio Build Tools 2022 17.14.39 with C++ workload,
+CMake and Windows SDK 10.0.26100. Installed locally at D:/VSBuildTools2022.
+
+```powershell
+.\scripts\run-windows.ps1
+# Or with Flutter on PATH:
+flutter run -d windows
+flutter test integration_test/windows_workflow_test.dart -d windows
+flutter build windows --release
+```
+
+Launch `build/windows/x64/runner/Release/taskflow_qa_lab.exe`. Distribute the entire
+Release directory, including flutter_windows.dll and data, not just the executable.
+The local archive `build/TaskFlow-Windows-x64.zip` contains this directory's contents.
+Other machines may need the Microsoft Visual C++ x64 Redistributable; the archive
+has only been launched on the development machine, not a clean Windows machine.
+Native test output: [Windows evidence](docs/evidence/windows-integration.txt).
 
 ## Continue development
 

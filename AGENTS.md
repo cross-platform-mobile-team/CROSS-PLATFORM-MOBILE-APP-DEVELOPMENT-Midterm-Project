@@ -40,9 +40,17 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ## 3. Current repository state
 
-- Verified working repository: `D:/flutter`; development branch `main/test`.
-  Remote: `https://github.com/Long-D176/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project.git`.
-  Clone with `--branch main/test`; do not assume the remote default branch is current.
+- Verified working repository: `D:/flutter`; local development branch `main/test`.
+  The configured Long-D176 remote redirects to
+  `https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project.git`.
+  At the final 2026-09-06 check, GitHub HEAD and its only branch are `main`, at
+  `2f5983614f37c44b2cd298f89db6657eb11bdbc1` (merge of the previous milestone).
+  Push of the new milestone was REJECTED: Git cannot create `main/test` while
+  `main` exists. Ask the user to choose a non-conflicting publication branch;
+  do not delete/force-push remote main to work around this.
+  Local `origin/main/test` is stale; a fetch also encountered this local tracking
+  ref namespace collision. FETCH_HEAD contains remote main for read-only inspection.
+  The new work is committed locally but NOT published yet.
 - Environment rechecked 2026-09-06: Flutter 3.47.1 (6655482ec0), Dart 3.13.1,
   SDK at `C:/Users/LENOVO/flutter-sdk`. Neither executable is on PATH; use the
   `.bat` files in its `bin` directory. Recheck on each machine/session.

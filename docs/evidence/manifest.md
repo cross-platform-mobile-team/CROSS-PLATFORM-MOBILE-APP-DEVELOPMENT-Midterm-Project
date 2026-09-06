@@ -44,6 +44,12 @@ debug mode; this milestone does not claim a fresh-machine release smoke test.
 Coverage was collected, but no coverage percentage or stability claim is inferred
 from the count of passing tests. CI/report/video are still incomplete.
 
+Publication status: local implementation commit `9466681` succeeded; push to
+`main/test` was REJECTED because the migrated remote already contains `main`.
+Read-only remote inspection found only main at `2f5983614f37c44b2cd298f89db6657eb11bdbc1`,
+whose source tree matches the previous metadata milestone. No remote branch was
+deleted or overwritten. A user-selected non-conflicting branch is needed to publish.
+
 ## Historical bootstrap verification - 2026-09-05
 
 Observed local results with Flutter 3.47.1:

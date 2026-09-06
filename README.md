@@ -23,17 +23,15 @@ Baseline: Flutter 3.47.1 and Dart 3.13.1. Keep pubspec.lock.
 After installing Flutter and adding its bin directory to PATH:
 
 ```sh
-git clone --branch main https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project.git
+git clone --branch main-test https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project.git
 cd CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project
 flutter pub get
 flutter run -d chrome --web-port 7357
 ```
 
-Publication note (2026-09-06): the remote has moved and currently exposes `main`.
-The new visual/accessibility milestone is committed on local `main/test` but its
-push was rejected because Git cannot have both `main` and `main/test`. Until a
-non-conflicting publication branch is selected, the clone command above retrieves
-the previous milestone, not the new tests described in this working copy.
+Development branch: `main-test` (published 2026-09-06). The remote default remains
+`main`; use the explicit clone branch above for this milestone. The repository
+has moved from Long-D176 to cross-platform-mobile-team.
 
 On the original Windows machine Flutter is installed outside PATH:
 

@@ -48,7 +48,12 @@ Publication status: local implementation commit `9466681` succeeded; push to
 `main/test` was REJECTED because the migrated remote already contains `main`.
 Read-only remote inspection found only main at `2f5983614f37c44b2cd298f89db6657eb11bdbc1`,
 whose source tree matches the previous metadata milestone. No remote branch was
-deleted or overwritten. A user-selected non-conflicting branch is needed to publish.
+deleted or overwritten. This historical naming blocker was resolved on 2026-09-06:
+with user approval of a name without an agent-name prefix, the local branch was
+renamed to `main-test` and successfully pushed, including commits `9466681` and
+`286c69e`. Its upstream is `origin/main-test`; remote main remains unchanged.
+Only branch/configuration and documentation changed during publication; the app
+and tests are unchanged from the quality-gate runs above, which were not repeated.
 
 ## Historical bootstrap verification - 2026-09-05
 

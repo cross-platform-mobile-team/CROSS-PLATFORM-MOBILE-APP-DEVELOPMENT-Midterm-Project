@@ -1,6 +1,7 @@
 # Implementation milestones
 
-Current request: continue necessary work, update AGENTS.md and push to main/test.
+Current request: publish the completed increment on `main-test`, a branch name
+without an agent-name prefix approved by the user after the `main/test` conflict.
 The full coursework specification remains the roadmap, not a claim of completion.
 
 1. Verify SDK and repository. Preserve existing instructions.

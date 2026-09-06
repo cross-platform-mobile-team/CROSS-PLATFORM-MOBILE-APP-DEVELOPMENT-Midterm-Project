@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 
 import '../domain/task_item.dart';
 import '../domain/task_repository.dart';
+import '../domain/task_details.dart';
+import '../domain/task_filters.dart';
 
 class TaskController extends ChangeNotifier {
   TaskController(
@@ -23,17 +25,10 @@ class TaskController extends ChangeNotifier {
   String? error;
   bool _disposed = false;
   List<TaskItem> get tasks => List.unmodifiable(_tasks);
-  List<TaskItem> matching(String query) {
-    final normalized = query.trim().toLowerCase();
-    final result = _tasks
-        .where((task) => task.title.toLowerCase().contains(normalized))
-        .toList();
-    result.sort((a, b) {
-      final date = b.createdAt.compareTo(a.createdAt);
-      return date == 0 ? a.id.compareTo(b.id) : date;
-    });
-    return result;
-  }
+  List<TaskItem> matching(
+    String query, {
+    TaskFilters filters = const TaskFilters(),
+  }) => filters.apply(_tasks, query, clock());
 
   void _emit() {
     if (!_disposed) notifyListeners();
@@ -59,13 +54,17 @@ class TaskController extends ChangeNotifier {
   Future<bool> load() => _run(() async {
     _tasks = await repository.load();
   });
-  Future<bool> add(String title) async {
-    if (TaskItem.validateTitle(title) != null) return false;
+  Future<bool> add(String title, {TaskDetails? details}) async {
+    if (TaskItem.validateTitle(title) != null ||
+        details?.validationError != null) {
+      return false;
+    }
     return _run(() async {
       final task = TaskItem(
         id: idGenerator(),
         title: title.trim(),
         createdAt: clock(),
+        details: details,
       );
       final next = [..._tasks, task];
       await repository.save(next);
@@ -81,8 +80,11 @@ class TaskController extends ChangeNotifier {
     _tasks = next;
   });
 
-  Future<bool> rename(String id, String title) async {
-    if (TaskItem.validateTitle(title) != null) return false;
+  Future<bool> rename(String id, String title, {TaskDetails? details}) async {
+    if (TaskItem.validateTitle(title) != null ||
+        details?.validationError != null) {
+      return false;
+    }
     return _run(() async {
       final current = _tasks.firstWhere((item) => item.id == id);
       final updated = TaskItem(
@@ -90,6 +92,7 @@ class TaskController extends ChangeNotifier {
         title: title.trim(),
         createdAt: current.createdAt,
         completed: current.completed,
+        details: details ?? current.details,
       );
       final next = _tasks
           .map((item) => item.id == id ? updated : item)

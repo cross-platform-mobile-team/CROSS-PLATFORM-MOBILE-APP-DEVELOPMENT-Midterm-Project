@@ -1,0 +1,26 @@
+00:00 +0: loading D:/flutter/test/unit/task_controller_test.dart
+00:00 +0: D:/flutter/test/unit/task_controller_test.dart: rejects blank and oversized titles
+00:00 +1: D:/flutter/test/unit/task_crud_test.dart: edit preserves identity, creation time and completed state
+00:00 +2: D:/flutter/test/unit/task_controller_test.dart: creates deterministic task and finds a case-insensitive substring
+00:00 +3: D:/flutter/test/unit/task_controller_test.dart: creates deterministic task and finds a case-insensitive substring
+00:00 +4: D:/flutter/test/unit/task_crud_test.dart: delete and undo preserve all fields and deterministic ordering
+00:00 +5: D:/flutter/test/unit/task_crud_test.dart: delete and undo preserve all fields and deterministic ordering
+00:00 +6: D:/flutter/test/unit/task_controller_test.dart: task JSON round trip preserves fields
+00:00 +7: D:/flutter/test/unit/task_controller_test.dart: task JSON round trip preserves fields
+00:00 +8: D:/flutter/test/unit/task_crud_test.dart: only latest successful deletion is undoable
+00:00 +9: D:/flutter/test/unit/task_crud_test.dart: in-flight deletion prevents concurrent mutation
+00:00 +10: D:/flutter/test/unit/task_metadata_test.dart: legacy JSON receives defaults without losing old fields
+00:00 +11: D:/flutter/test/unit/task_metadata_test.dart: tags normalize, deduplicate, sort and cannot be mutated
+00:00 +12: D:/flutter/test/unit/task_metadata_test.dart: calendar date round trips without time-of-day or timezone
+00:00 +13: D:/flutter/test/unit/task_metadata_test.dart: combined filters use AND, exact normalized tag and note search
+00:00 +14: D:/flutter/test/unit/task_metadata_test.dart: due boundaries exclude completed overdue and separate future/no date
+00:00 +15: D:/flutter/test/unit/task_metadata_test.dart: priority and due sorting use stable IDs; no-date tasks sort last
+00:00 +16: D:/flutter/test/unit/task_metadata_test.dart: save, rename-only, toggle, delete/undo preserve metadata; edit can clear date
+00:00 +17: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:03 +18: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:03 +19: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:03 +20: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:04 +21: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:04 +22: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:04 +23: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 1100.0
+00:06 +24: All tests passed!

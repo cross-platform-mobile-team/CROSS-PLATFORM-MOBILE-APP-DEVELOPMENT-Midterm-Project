@@ -25,3 +25,14 @@ Golden and the full multi-scenario E2E suite remain future work.
 - Windows: create/edit/complete/delete/undo/remount with real isolated preferences.
 - Raw unit/widget output: evidence/crud-tests-20260906.txt (15 tests total).
 - Native output: evidence/windows-crud-20260906.txt.
+
+## Metadata milestone (2026-09-06)
+
+- Legacy JSON gets defaults; new metadata survives serialization and task mutations.
+- Tag normalization/immutability/limits; notes limit; invalid calendar dates rejected.
+- Combined filters, exact tag, note search, overdue/today/future/no-date boundaries.
+- Stable priority/due sorting, with null dates last.
+- Phone/wide forms: create metadata, reject invalid date, filter to empty, clear,
+  edit fields and remove date. Shared interaction helper also runs on Windows with
+  real isolated local preferences and remount verification.
+- Current total: 24 unit/widget tests and 2 native Windows tests.

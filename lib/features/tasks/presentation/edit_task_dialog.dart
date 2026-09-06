@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../domain/task_item.dart';
+import '../domain/task_details.dart';
+import 'task_details_fields.dart';
 
 class EditTaskDialog extends StatefulWidget {
   const EditTaskDialog({super.key, required this.task, required this.save});
   final TaskItem task;
-  final Future<bool> Function(String) save;
+  final Future<bool> Function(String, TaskDetails) save;
 
   @override
   State<EditTaskDialog> createState() => _EditTaskDialogState();
@@ -18,6 +20,7 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
   final form = GlobalKey<FormState>();
   bool saving = false;
   bool failed = false;
+  late TaskDetails details = widget.task.details;
 
   @override
   void dispose() {
@@ -31,7 +34,7 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
       saving = true;
       failed = false;
     });
-    final success = await widget.save(title.text);
+    final success = await widget.save(title.text, details);
     if (!mounted) return;
     if (success) {
       Navigator.of(context).pop();
@@ -70,6 +73,11 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
                     'Could not save. Your changes are still here. Try again.',
                   ),
                 ),
+              TaskDetailsFields(
+                initial: widget.task.details,
+                enabled: !saving,
+                onChanged: (value) => details = value,
+              ),
             ],
           ),
         ),

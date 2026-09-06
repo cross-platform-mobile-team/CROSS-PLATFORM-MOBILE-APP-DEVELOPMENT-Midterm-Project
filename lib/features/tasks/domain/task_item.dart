@@ -1,10 +1,14 @@
+import 'task_details.dart';
+
 class TaskItem {
-  const TaskItem({
+  TaskItem({
     required this.id,
     required this.title,
     required this.createdAt,
     this.completed = false,
-  });
+    TaskDetails? details,
+  }) : details = details ?? TaskDetails();
+  final TaskDetails details;
   final String id;
   final String title;
   final DateTime createdAt;
@@ -20,17 +24,20 @@ class TaskItem {
     title: title,
     createdAt: createdAt,
     completed: !completed,
+    details: details,
   );
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,
     'createdAt': createdAt.toIso8601String(),
     'completed': completed,
+    ...details.toJson(),
   };
   factory TaskItem.fromJson(Map<String, dynamic> json) => TaskItem(
     id: json['id'] as String,
     title: json['title'] as String,
     createdAt: DateTime.parse(json['createdAt'] as String),
     completed: json['completed'] as bool,
+    details: TaskDetails.fromJson(json),
   );
 }

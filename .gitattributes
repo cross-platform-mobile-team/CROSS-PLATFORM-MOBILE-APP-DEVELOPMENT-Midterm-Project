@@ -1,0 +1,2 @@
+# Preserve authentic test output, including whitespace emitted by the runner.
+docs/evidence/*.txt whitespace=-blank-at-eol

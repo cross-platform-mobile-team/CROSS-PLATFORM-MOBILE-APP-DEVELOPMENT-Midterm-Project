@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../application/task_controller.dart';
 import '../domain/task_item.dart';
 import '../domain/task_repository.dart';
+import 'edit_task_dialog.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key, required this.repository});
@@ -36,6 +37,38 @@ class _TaskScreenState extends State<TaskScreen> {
       title.clear();
       form.currentState!.reset();
     }
+  }
+
+  Future<void> edit(TaskItem task) => showDialog<void>(
+    context: context,
+    barrierDismissible: false,
+    builder: (_) => EditTaskDialog(
+      task: task,
+      save: (value) => controller.rename(task.id, value),
+    ),
+  );
+
+  Future<void> delete(TaskItem task) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Delete task?'),
+        content: Text(
+          'Delete "${task.title}"? You can undo the most recent deletion during this session.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed == true && mounted) await controller.delete(task.id);
   }
 
   @override
@@ -98,6 +131,30 @@ class _TaskScreenState extends State<TaskScreen> {
                     onChanged: (value) => setState(() => query = value),
                   ),
                   const SizedBox(height: 16),
+                  if (controller.deletedTask != null)
+                    Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Semantics(
+                              liveRegion: true,
+                              child: Text(
+                                'Deleted: ${controller.deletedTask!.title}',
+                              ),
+                            ),
+                            TextButton.icon(
+                              onPressed: controller.busy
+                                  ? null
+                                  : controller.undoDelete,
+                              icon: const Icon(Icons.undo),
+                              label: const Text('Undo delete'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   if (controller.busy)
                     const LinearProgressIndicator(
                       semanticsLabel: 'Loading tasks',
@@ -136,23 +193,53 @@ class _TaskScreenState extends State<TaskScreen> {
                     ),
                   for (final task in tasks)
                     Card(
-                      child: CheckboxListTile(
-                        value: task.completed,
-                        onChanged: controller.busy
-                            ? null
-                            : (_) => controller.toggle(task),
-                        title: Text(
-                          task.title,
-                          style: TextStyle(
-                            decoration: task.completed
-                                ? TextDecoration.lineThrough
-                                : null,
+                      child: Column(
+                        children: [
+                          CheckboxListTile(
+                            value: task.completed,
+                            onChanged: controller.busy
+                                ? null
+                                : (_) => controller.toggle(task),
+                            title: Text(
+                              task.title,
+                              style: TextStyle(
+                                decoration: task.completed
+                                    ? TextDecoration.lineThrough
+                                    : null,
+                              ),
+                            ),
+                            subtitle: Text(
+                              task.completed ? 'Completed' : 'Pending',
+                            ),
+                            controlAffinity: ListTileControlAffinity.leading,
                           ),
-                        ),
-                        subtitle: Text(
-                          task.completed ? 'Completed' : 'Pending',
-                        ),
-                        controlAffinity: ListTileControlAffinity.leading,
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 12,
+                              right: 12,
+                              bottom: 8,
+                            ),
+                            child: Wrap(
+                              spacing: 8,
+                              children: [
+                                TextButton.icon(
+                                  onPressed: controller.busy
+                                      ? null
+                                      : () => edit(task),
+                                  icon: const Icon(Icons.edit_outlined),
+                                  label: const Text('Edit'),
+                                ),
+                                TextButton.icon(
+                                  onPressed: controller.busy
+                                      ? null
+                                      : () => delete(task),
+                                  icon: const Icon(Icons.delete_outline),
+                                  label: const Text('Delete'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                 ],

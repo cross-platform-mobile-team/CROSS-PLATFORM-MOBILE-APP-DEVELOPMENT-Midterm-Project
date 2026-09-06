@@ -5,11 +5,13 @@ End-to-End Testing (503107). This is a starting project, not the final submissio
 
 ## Included
 
-- Validated task creation, completion/reopening and substring search.
+- Validated task creation/editing, completion/reopening and substring search.
+- Delete confirmation and one-level undo of the latest deletion in the current session.
+- Failed edits retain the draft; failed deletes/undo preserve retryable state.
 - Local JSON persistence using SharedPreferencesAsync.
 - Loading, empty, error and retry states; constrained responsive layout.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
-- Seven unit/widget tests, including phone and wide layouts.
+- Fifteen unit/widget tests, including phone and wide layouts.
 
 ## Run
 
@@ -30,7 +32,10 @@ On the original Windows machine Flutter is installed outside PATH:
 ```
 
 Enter a title and select Add task. Select a checkbox to complete/reopen a task.
-Search matches any part of a title. No account is needed; initial storage is empty.
+Use Edit to change a title. Delete opens a confirmation dialog; Undo delete restores
+the latest deleted task, including its completion status. Undo lasts until another
+successful deletion or until the app session ends. Search matches any part of a title.
+No account is needed; initial storage is empty.
 Web storage belongs to the browser origin: retain the same port between sessions.
 Preferences are for small non-critical demo data and do not guarantee durability.
 
@@ -44,7 +49,7 @@ flutter test --coverage
 flutter build web --release
 ```
 
-Local analysis, seven unit/widget tests, Web compilation, Windows release build
+Local analysis, fifteen unit/widget tests, Web compilation, Windows release build
 and one Windows integration test passed. Android remains unverified.
 
 ## Windows desktop
@@ -73,7 +78,7 @@ Read [AGENTS.md](AGENTS.md), [implementation prompt](PROJECT_IMPLEMENTATION_PROM
 [plan](docs/project-plan.md), [traceability](docs/requirements-traceability.md),
 [tests](docs/test-matrix.md), and [limitations](docs/limitations.md).
 
-Next: edit/delete/undo, task metadata, advanced filters, goldens, native E2E,
+Next: task metadata, advanced filters, goldens, broader native E2E,
 defect experiment, platform evidence and report/video.
 
 This bootstrap was created with AI assistance for team review and understanding.

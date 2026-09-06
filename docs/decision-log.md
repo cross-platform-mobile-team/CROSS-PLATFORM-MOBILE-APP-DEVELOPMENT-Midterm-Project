@@ -16,3 +16,17 @@
   completed tasks. Other due filters combine with the selected status via AND.
 - Keep quick creation compact with optional details; share metadata form fields
   between creation and editing. No additional dependencies were introduced.
+
+## Visual verification decisions - 2026-09-06
+
+- Use Flutter's built-in golden matcher and accessibility guidelines, no new
+  package. Vendor test-only Roboto files with their Apache 2.0 licence and load
+  SDK MaterialIcons explicitly to avoid missing glyphs in goldens.
+- Fix host/SDK, locale, pixel ratio, sizes, rendering variant and seed data.
+  Keep exact image comparison. Host/SDK changes require reviewed baseline changes.
+- Darker/larger/semibold inline error text addresses the observed contrast failure;
+  no guideline suppression or lower threshold was introduced.
+- Keep the search mutation as two patches and authentic logs, never as active
+  buggy source. Its test verifies saved task UI rather than matching input text.
+- Prefer independent, meaningful test scenarios over inflating test counts;
+  these checks supplement, not replace, device E2E and manual accessibility.

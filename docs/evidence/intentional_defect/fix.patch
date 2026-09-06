@@ -1,0 +1,13 @@
+diff --git b/lib/features/tasks/domain/task_filters.dart a/lib/features/tasks/domain/task_filters.dart
+index 671bab2..393cb69 100644
+--- b/lib/features/tasks/domain/task_filters.dart
++++ a/lib/features/tasks/domain/task_filters.dart
+@@ -29,7 +29,7 @@ class TaskFilters {
+       final details = task.details;
+       if (!'${task.title} ${details.notes} ${details.tags.join(' ')}'
+           .toLowerCase()
+-          .startsWith(search)) {
++          .contains(search)) {
+         return false;
+       }
+       if (status == TaskStatusFilter.pending && task.completed) return false;

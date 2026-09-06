@@ -14,7 +14,8 @@ Command: flutter test --coverage. Tests isolate repositories and use finite UI
 settling. Source: test/unit/task_controller_test.dart and test/widget/task_screen_test.dart.
 Native smoke: integration_test/windows_workflow_test.dart runs create/complete/
 reload against real local preferences under a separate test key. PASS on Windows.
-Golden and the full multi-scenario E2E suite remain future work.
+This paragraph describes the initial smoke test; later milestones below supersede
+its scope. The independent full multi-scenario E2E suite is still pending.
 
 ## CRUD milestone (2026-09-06)
 
@@ -35,4 +36,19 @@ Golden and the full multi-scenario E2E suite remain future work.
 - Phone/wide forms: create metadata, reject invalid date, filter to empty, clear,
   edit fields and remove date. Shared interaction helper also runs on Windows with
   real isolated local preferences and remount verification.
-- Current total: 24 unit/widget tests and 2 native Windows tests.
+- Metadata milestone total: 24 unit/widget tests and 2 native Windows tests.
+
+## Visual, accessibility and regression milestone (2026-09-06)
+
+| Risk | Scenario | Level | Command from repository root |
+|---|---|---|---|
+| Layout changes unnoticed | Empty/populated/validation/error at 390x960 and 1280x900 | 8 golden cases | flutter test test/golden |
+| Inaccessible controls/text | Labels, tap sizes and contrast in four visible states | 4 widget cases | flutter test test/widget/accessibility_test.dart |
+| Keyboard/text-scale breakage | Tab and submit; edit/cancel at 200% phone text | 2 widget cases | flutter test test/widget/accessibility_test.dart |
+| Prefix-only search regression | Search padded uppercase middle word, verify saved card | 1 widget case | flutter test test/widget/search_regression_test.dart |
+
+Current total: 39 unit/widget/golden cases plus 2 Windows integration workflows.
+See golden-testing.md for controlled environment, review process and coverage
+limits; evidence/intentional_defect/README.md for mutation reproduction.
+Full suite: `flutter test --coverage --reporter expanded`.
+Native: `flutter test integration_test/windows_workflow_test.dart -d windows --reporter expanded`.

@@ -40,12 +40,58 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ## 3. Current repository state
 
-- The repository started essentially empty, with only `.git` present.
-- On 2026-08-26, `flutter` was not available on `PATH`. Recheck rather than
-  assuming this is still true.
+- Verified working repository: `D:/flutter`; development branch `main-test`,
+  tracking `origin/main-test`. The configured remote is
+  `https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project.git`.
+  On 2026-09-06 the user approved a branch name without an agent-name prefix;
+  local `main/test` was renamed to `main-test` and successfully pushed.
+  Clone with `--branch main-test` to obtain the latest development milestone.
+  Remote HEAD remains `main`, at `2f5983614f37c44b2cd298f89db6657eb11bdbc1`
+  when checked. It was not modified by this publication.
+  The previous `main/test` push failed because Git cannot have both `main` and
+  `main/test`. Stale remote-tracking refs were pruned; normal fetch now succeeds.
+- Environment rechecked 2026-09-06: Flutter 3.47.1 (6655482ec0), Dart 3.13.1,
+  SDK at `C:/Users/LENOVO/flutter-sdk`. Neither executable is on PATH; use the
+  `.bat` files in its `bin` directory. Recheck on each machine/session.
+- Windows 11 build 10.0.26200.9168; Visual Studio Build Tools 2022 17.14.39 at
+  `D:/VSBuildTools2022`, Windows SDK 10.0.26100.0. Windows, Chrome and Edge are
+  discoverable. Android SDK is missing; Android/APK checks remain NOT RUN.
+- Implemented: persisted CRUD, completion, one-level session undo, notes,
+  priority, calendar due dates, normalized tags, combined filters and stable
+  sorting; injected repository, clock and ID seams. No backend or login.
+- Verification milestone: 39 unit/widget/golden cases (8 golden baselines),
+  plus 2 native Windows integration workflows. See the latest dated section of
+  `docs/evidence/manifest.md` for exact commands, results and remaining gates.
+- Golden configuration and font licences: `docs/golden-testing.md`. Do not
+  automatically regenerate baselines to make a failure disappear. Their Android
+  rendering variant is NOT evidence of running on an Android device.
+- Intentional search defect has genuine baseline/fail/fix-pass logs and patches
+  under `docs/evidence/intentional_defect/`. Production search must use
+  `contains(search)`; keep `test/widget/search_regression_test.dart` permanently.
+- Native tests register/unregister `binding.testTextInput` per test to avoid
+  Windows IME interference during injected typing. Keep isolated preference keys,
+  value assertions and bounded scroll/settle helpers. These tests do not test IME.
+- Build products and ZIPs belong in ignored `build/`, not source control.
+  Distribute the complete Windows Release directory, not only its executable.
 - Do not install an SDK, IDE, emulator, system package, or global tool without
   the user's approval.
 - Do not edit a Flutter SDK checkout. All project work belongs in this repo.
+
+### Next increments (not completed coursework)
+
+1. Expand the native E2E suite into the independent scenarios in section 7,
+   including deterministic search/filter/sort order and failure/retry; extend
+   browser automation and collect readable platform evidence.
+2. Complete screen-reader/manual keyboard and focus-order checks, expanded form
+   accessibility coverage, stable demo-data entry point and clean-machine setup.
+3. Add reproducible repeated-run timing/stability experiments and CI using the
+   pinned golden environment. Do not report a stability rate from one run.
+4. Obtain authorized Android tooling if that target is required; otherwise
+   explicitly document the demonstrated Windows/Web pair and Android limitation.
+5. Research and prepare report/presentation/oral materials; obtain official
+   template and team details from the user. No invented metadata or contributions.
+
+This snapshot is a continuation aid, not a replacement for the requirements below.
 
 ## 4. Required working behavior
 

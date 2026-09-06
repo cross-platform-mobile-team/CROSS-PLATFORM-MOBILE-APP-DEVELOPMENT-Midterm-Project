@@ -1,4 +1,4 @@
-# Environment checked 2026-09-05
+# Environment rechecked 2026-09-06
 
 - Windows 11 Home Single Language, 10.0.26200.9168.
 - Flutter 3.47.1 stable (6655482ec0), Dart 3.13.1.
@@ -11,3 +11,9 @@
 - Git initially had an invalid unborn HEAD and incorrect flutter/flutter remote.
 
 Recheck using flutter doctor -v and flutter devices on each test machine.
+
+Latest recheck used the SDK's explicit bin/flutter.bat and bin/dart.bat paths:
+version commands, doctor -v and devices. Engine revision: 5d53178869;
+DevTools 2.60.0. Doctor still reports PATH warnings and missing Android SDK.
+Golden rendering parameters and font sources are recorded in golden-testing.md;
+the host's vi-VN locale is overridden to en-US in visual fixtures.

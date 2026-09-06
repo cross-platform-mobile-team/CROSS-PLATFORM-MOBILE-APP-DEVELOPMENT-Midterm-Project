@@ -13,7 +13,9 @@ End-to-End Testing (503107). This is a starting project, not the final submissio
 - Local JSON persistence using SharedPreferencesAsync.
 - Loading, empty, error and retry states; constrained responsive layout.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
-- Twenty-four unit/widget tests, including phone and wide layouts.
+- 39 unit/widget/golden tests, including 8 phone/wide visual baselines,
+  accessibility guidelines, text scaling and keyboard interaction.
+- Reproducible intentional search-defect experiment with real fail/fix logs.
 
 ## Run
 
@@ -55,15 +57,19 @@ Preferences are for small non-critical demo data and do not guarantee durability
 ## Verify
 
 ```sh
-dart format --output=none --set-exit-if-changed lib test
+dart format --output=none --set-exit-if-changed .
 flutter analyze
 flutter test
 flutter test --coverage
 flutter build web --release
 ```
 
-Local analysis, twenty-four unit/widget tests, Web compilation, Windows release build
-and two Windows integration tests passed. Android remains unverified.
+Latest commands and results: [evidence manifest](docs/evidence/manifest.md).
+The 39-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
+read [golden and accessibility setup](docs/golden-testing.md) before running on a
+different host or changing images. Android remains unverified.
+Reproduce the [intentional defect](docs/evidence/intentional_defect/README.md)
+in a disposable checkout; keep the corrected source in normal development.
 
 ## Windows desktop
 
@@ -83,7 +89,7 @@ Release directory, including flutter_windows.dll and data, not just the executab
 The local archive `build/TaskFlow-Windows-x64.zip` contains this directory's contents.
 Other machines may need the Microsoft Visual C++ x64 Redistributable; the archive
 has only been launched on the development machine, not a clean Windows machine.
-Native test output: [Windows evidence](docs/evidence/windows-metadata-pass-20260906.txt).
+Native test output: [Windows evidence](docs/evidence/quality-windows-20260906.txt).
 Automated native typing uses Flutter's registered test text-input channel; Windows
 IME behavior itself is not covered. Rendering and preference storage remain native.
 
@@ -93,8 +99,8 @@ Read [AGENTS.md](AGENTS.md), [implementation prompt](PROJECT_IMPLEMENTATION_PROM
 [plan](docs/project-plan.md), [traceability](docs/requirements-traceability.md),
 [tests](docs/test-matrix.md), and [limitations](docs/limitations.md).
 
-Next: goldens, broader native E2E,
-defect experiment, platform evidence and report/video.
+Next: independent native E2E scenarios, browser automation, manual accessibility,
+repeated-run experiments, clean-machine verification and report/video.
 
 This bootstrap was created with AI assistance for team review and understanding.
 Follow instructor disclosure requirements. Platform runners come from flutter

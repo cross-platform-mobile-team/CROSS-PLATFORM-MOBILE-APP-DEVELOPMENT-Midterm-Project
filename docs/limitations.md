@@ -4,8 +4,15 @@ This basic project is not ready for final coursework submission.
 
 - Notes/priority/dates/tags, filters, editing, confirmed deletion and one-level
   session undo are implemented. Dates currently use a validated text field.
-- Golden/full E2E suites, accessibility audit,
-  defect experiment and stability benchmarks remain.
+- Eight goldens and selected automated accessibility checks now pass; full E2E
+  scenario coverage, manual accessibility and stability benchmarks remain.
+- The controlled search defect is detected at widget level, with genuine
+  fail/fix evidence. It is not a native E2E experiment or a flakiness benchmark.
+- Golden fixtures use the Android rendering variant on a Windows test host,
+  not an Android device. Raster equality is not established across host/SDK versions.
+- Accessibility checks cover four visible list/form states, one focus transition
+  and opening/cancelling Edit at 200% text; they are not a complete focus-order,
+  screen-reader or WCAG compliance audit.
 - Windows release was built/launched, and two real-storage integration workflows
   passed. Tests cover CRUD and metadata/filter interaction, then remount
   the app with a fresh repository; it does not test an

@@ -35,3 +35,20 @@ Workflow: create, rename, complete, confirm delete, undo and remount with real
 local storage. Windows ZIP rebuilt locally; binaries are not committed.
 Remaining coursework evidence includes golden baselines, broader E2E scenarios,
 accessibility review, controlled defect experiment and repeated-run analysis.
+
+## Metadata and filters - 2026-09-06
+
+- 24 unit/widget tests: metadata-tests-20260906.txt.
+- 2 Windows workflows: windows-metadata-pass-20260906.txt.
+- First Windows attempt: windows-metadata-20260906.txt (FAIL).
+- Diagnostic scroll attempt: windows-metadata-debug-20260906.txt (FAIL).
+- Root cause investigation: injected replacement date remained the old invalid
+  value on Windows, and a text finder mistook form input for a saved task. Registering
+  the test text-input channel resolved this interaction; the integration binding
+  defaults to not registering it (verified in installed Flutter SDK source).
+- Helpers now verify the actual editable value and identify a saved task inside
+  CheckboxListTile, scroll deliberately and use bounded scrolling for lazy content.
+- These are real debugging records, not the planned intentional product-defect
+  experiment. Native rendering/storage are real; native IME itself is excluded.
+- Final format/analyze, Web release build and Windows release build PASS with
+  Flutter 3.47.1. Local Windows ZIP refreshed; generated artifacts remain ignored.

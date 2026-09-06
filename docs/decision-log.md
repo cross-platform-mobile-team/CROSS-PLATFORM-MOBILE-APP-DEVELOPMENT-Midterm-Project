@@ -9,3 +9,10 @@
 - Persist before publishing new state; failed writes preserve the prior list.
 - Sort newest first and use ID ascending for ties; inject clock/ID in tests.
 - Keep Flutter 3.47.1 fixed for a reproducible baseline.
+
+- Metadata uses optional top-level JSON keys in the existing storage format, so
+  legacy tasks receive defaults without destructive migration. Tags are immutable.
+- Calendar dates serialize as YYYY-MM-DD (no UTC conversion). Overdue excludes
+  completed tasks. Other due filters combine with the selected status via AND.
+- Keep quick creation compact with optional details; share metadata form fields
+  between creation and editing. No additional dependencies were introduced.

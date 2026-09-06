@@ -4,6 +4,10 @@ import '../application/task_controller.dart';
 import '../domain/task_item.dart';
 import '../domain/task_repository.dart';
 import 'edit_task_dialog.dart';
+import '../domain/task_details.dart';
+import '../domain/task_filters.dart';
+import 'task_details_fields.dart';
+import 'task_filter_dialog.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key, required this.repository});
@@ -17,6 +21,10 @@ class _TaskScreenState extends State<TaskScreen> {
   final title = TextEditingController();
   final form = GlobalKey<FormState>();
   String query = '';
+  final search = TextEditingController();
+  TaskDetails draftDetails = TaskDetails();
+  int draftRevision = 0;
+  TaskFilters filters = const TaskFilters();
   @override
   void initState() {
     super.initState();
@@ -28,14 +36,19 @@ class _TaskScreenState extends State<TaskScreen> {
   void dispose() {
     controller.dispose();
     title.dispose();
+    search.dispose();
     super.dispose();
   }
 
   Future<void> add() async {
     if (!form.currentState!.validate()) return;
-    if (await controller.add(title.text) && mounted) {
+    if (await controller.add(title.text, details: draftDetails) && mounted) {
       title.clear();
       form.currentState!.reset();
+      setState(() {
+        draftDetails = TaskDetails();
+        draftRevision++;
+      });
     }
   }
 
@@ -44,7 +57,8 @@ class _TaskScreenState extends State<TaskScreen> {
     barrierDismissible: false,
     builder: (_) => EditTaskDialog(
       task: task,
-      save: (value) => controller.rename(task.id, value),
+      save: (value, details) =>
+          controller.rename(task.id, value, details: details),
     ),
   );
 
@@ -82,7 +96,7 @@ class _TaskScreenState extends State<TaskScreen> {
           child: ListenableBuilder(
             listenable: controller,
             builder: (context, _) {
-              final tasks = controller.matching(query);
+              final tasks = controller.matching(query, filters: filters);
               return ListView(
                 padding: const EdgeInsets.all(24),
                 children: [
@@ -113,6 +127,18 @@ class _TaskScreenState extends State<TaskScreen> {
                           },
                         ),
                         const SizedBox(height: 12),
+                        ExpansionTile(
+                          key: ValueKey('details-$draftRevision'),
+                          title: const Text('Task details (optional)'),
+                          maintainState: true,
+                          children: [
+                            TaskDetailsFields(
+                              initial: draftDetails,
+                              enabled: !controller.busy,
+                              onChanged: (value) => draftDetails = value,
+                            ),
+                          ],
+                        ),
                         FilledButton.icon(
                           onPressed: controller.busy ? null : add,
                           icon: const Icon(Icons.add),
@@ -123,6 +149,7 @@ class _TaskScreenState extends State<TaskScreen> {
                   ),
                   const SizedBox(height: 20),
                   TextField(
+                    controller: search,
                     decoration: const InputDecoration(
                       labelText: 'Search tasks',
                       prefixIcon: Icon(Icons.search),
@@ -131,6 +158,34 @@ class _TaskScreenState extends State<TaskScreen> {
                     onChanged: (value) => setState(() => query = value),
                   ),
                   const SizedBox(height: 16),
+                  Wrap(
+                    spacing: 8,
+                    children: [
+                      TextButton.icon(
+                        icon: const Icon(Icons.filter_list),
+                        label: const Text('Filter and sort'),
+                        onPressed: () async {
+                          final value = await showDialog<TaskFilters>(
+                            context: context,
+                            builder: (_) => TaskFilterDialog(initial: filters),
+                          );
+                          if (value != null && mounted) {
+                            setState(() => filters = value);
+                          }
+                        },
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          search.clear();
+                          setState(() {
+                            query = '';
+                            filters = const TaskFilters();
+                          });
+                        },
+                        child: const Text('Clear filters'),
+                      ),
+                    ],
+                  ),
                   if (controller.deletedTask != null)
                     Card(
                       child: Padding(
@@ -185,7 +240,7 @@ class _TaskScreenState extends State<TaskScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 40),
                       child: Text(
-                        query.trim().isEmpty
+                        controller.tasks.isEmpty
                             ? 'No tasks yet. Add your first task above.'
                             : 'No matching tasks.',
                         textAlign: TextAlign.center,
@@ -212,6 +267,33 @@ class _TaskScreenState extends State<TaskScreen> {
                               task.completed ? 'Completed' : 'Pending',
                             ),
                             controlAffinity: ListTileControlAffinity.leading,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Priority: ${task.details.priority.name}',
+                                  ),
+                                  if (task.details.dueDate != null)
+                                    Text(
+                                      'Due: ${TaskDetails.dateLabel(task.details.dueDate!)}',
+                                    ),
+                                  if (task.details.notes.isNotEmpty)
+                                    Text(task.details.notes),
+                                  if (task.details.tags.isNotEmpty)
+                                    Wrap(
+                                      spacing: 6,
+                                      children: task.details.tags
+                                          .map((tag) => Chip(label: Text(tag)))
+                                          .toList(),
+                                    ),
+                                ],
+                              ),
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(

@@ -2,11 +2,13 @@
 
 This basic project is not ready for final coursework submission.
 
-- Notes/priority/dates/tags, edit/delete/undo and filters remain planned.
+- Notes/priority/dates/tags and filters remain planned. Title editing, confirmed
+  deletion and one-level session undo are implemented.
 - Golden/full E2E suites, accessibility audit,
   defect experiment and stability benchmarks remain.
 - Windows release was built/launched, and one real-storage integration workflow
-  passed. The test remounts the app with a fresh repository; it does not test an
+  passed. The extended test covers create/edit/complete/delete/undo and remounts
+  the app with a fresh repository; it does not test an
   OS reboot or process restart. Android remains unverified due to missing SDK.
 - No CI execution, APK, report, video or clean-machine reproduction claim.
 - Local preferences have no backup/migration/multi-tab coordination. Invalid

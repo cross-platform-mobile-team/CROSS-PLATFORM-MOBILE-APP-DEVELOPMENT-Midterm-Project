@@ -1,0 +1,17 @@
+00:00 +0: loading D:/flutter/test/unit/task_controller_test.dart
+00:00 +0: D:/flutter/test/unit/task_controller_test.dart: rejects blank and oversized titles
+00:00 +1: D:/flutter/test/unit/task_controller_test.dart: creates deterministic task and finds a case-insensitive substring
+00:00 +2: D:/flutter/test/unit/task_controller_test.dart: failed write does not publish unpersisted task; load retry recovers
+00:00 +3: D:/flutter/test/unit/task_controller_test.dart: task JSON round trip preserves fields
+00:00 +4: D:/flutter/test/unit/task_crud_test.dart: edit preserves identity, creation time and completed state
+00:00 +5: D:/flutter/test/unit/task_crud_test.dart: failed edit retains persisted data and can retry
+00:00 +6: D:/flutter/test/unit/task_crud_test.dart: delete and undo preserve all fields and deterministic ordering
+00:00 +7: D:/flutter/test/unit/task_crud_test.dart: failed delete retains tasks; failed undo retains recovery opportunity
+00:00 +8: D:/flutter/test/unit/task_crud_test.dart: only latest successful deletion is undoable
+00:00 +9: D:/flutter/test/unit/task_crud_test.dart: in-flight deletion prevents concurrent mutation
+00:00 +10: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:01 +11: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:01 +12: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:01 +13: D:/flutter/test/widget/task_screen_test.dart: storage failure offers retry and recovers
+00:01 +14: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 1100.0
+00:02 +15: All tests passed!

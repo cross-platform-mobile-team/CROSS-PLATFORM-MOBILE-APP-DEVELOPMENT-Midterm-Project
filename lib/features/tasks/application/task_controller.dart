@@ -17,6 +17,8 @@ class TaskController extends ChangeNotifier {
   static String _nextId() =>
       '${DateTime.now().microsecondsSinceEpoch}-${_sequence++}';
   List<TaskItem> _tasks = [];
+  TaskItem? _deletedTask;
+  TaskItem? get deletedTask => _deletedTask;
   bool busy = false;
   String? error;
   bool _disposed = false;
@@ -78,6 +80,47 @@ class TaskController extends ChangeNotifier {
     await repository.save(next);
     _tasks = next;
   });
+
+  Future<bool> rename(String id, String title) async {
+    if (TaskItem.validateTitle(title) != null) return false;
+    return _run(() async {
+      final current = _tasks.firstWhere((item) => item.id == id);
+      final updated = TaskItem(
+        id: current.id,
+        title: title.trim(),
+        createdAt: current.createdAt,
+        completed: current.completed,
+      );
+      final next = _tasks
+          .map((item) => item.id == id ? updated : item)
+          .toList();
+      await repository.save(next);
+      _tasks = next;
+    });
+  }
+
+  Future<bool> delete(String id) => _run(() async {
+    final removed = _tasks.firstWhere((item) => item.id == id);
+    final next = _tasks.where((item) => item.id != id).toList();
+    await repository.save(next);
+    _tasks = next;
+    _deletedTask = removed;
+  });
+
+  Future<bool> undoDelete() async {
+    if (_deletedTask == null) return false;
+    return _run(() async {
+      final removed = _deletedTask!;
+      if (_tasks.any((item) => item.id == removed.id)) {
+        throw StateError('Cannot restore a duplicate task ID');
+      }
+      final next = [..._tasks, removed];
+      await repository.save(next);
+      _tasks = next;
+      _deletedTask = null;
+    });
+  }
+
   @override
   void dispose() {
     _disposed = true;

@@ -46,3 +46,10 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+# Local backend databases, credentials and generated coverage.
+backend/data/
+backend/.env
+backend/coverage/
+backend/node_modules/
+*.sqlite-wal
+*.sqlite-shm

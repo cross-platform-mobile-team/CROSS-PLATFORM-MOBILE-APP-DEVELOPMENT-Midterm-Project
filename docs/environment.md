@@ -1,9 +1,16 @@
-# Environment rechecked 2026-09-06
+# Environment rechecked 2026-09-07
+
+Backend increment (2026-09-06/07): PATH Node.js 22.14.0,
+built-in SQLite 3.47.2; optional bundled Node 24.19.0 available, not globally
+installed by this task. `node:sqlite` emits its experimental warning on Node 22.
+Flutter/Dart version, doctor and devices were rechecked before implementation;
+the versions and Android limitation below remain unchanged. Dart http resolved
+to 1.6.0 through pub; no backend npm production dependencies.
 
 - Windows 11 Home Single Language, 10.0.26200.9168.
 - Flutter 3.47.1 stable (6655482ec0), Dart 3.13.1.
 - SDK: C:/Users/LENOVO/flutter-sdk, not on PATH.
-- Chrome 149.0.7827.201; Edge 152.0.4191.62.
+- Chrome 149.0.7827.201; Edge 152.0.4191.66 (doctor/devices rechecked 2026-09-07).
 - Android SDK missing; Android build/device tests NOT RUN.
 - Visual Studio Build Tools 2022 17.14.39 installed at D:/VSBuildTools2022;
   C++ workload, CMake and Windows SDK 10.0.26100 available. Doctor PASS for Windows.

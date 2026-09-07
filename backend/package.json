@@ -1,0 +1,12 @@
+{
+  "name": "taskflow-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.14.0" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test --test-concurrency=1",
+    "check": "node --check src/server.js && node --check src/api.js && node --check src/store.js && node --check src/security.js && node --check src/validation.js && node --check src/openapi.js && node --check scripts/backup.js"
+  }
+}

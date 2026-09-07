@@ -1,4 +1,4 @@
 # Preserve authentic test output, including whitespace emitted by the runner.
-docs/evidence/*.txt whitespace=-blank-at-eol
-docs/evidence/intentional_defect/*.txt whitespace=-blank-at-eol
+docs/evidence/*.txt whitespace=-blank-at-eol,-blank-at-eof
+docs/evidence/intentional_defect/*.txt whitespace=-blank-at-eol,-blank-at-eof
 docs/evidence/intentional_defect/*.patch text eol=lf

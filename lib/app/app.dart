@@ -4,8 +4,10 @@ import '../features/tasks/domain/task_repository.dart';
 import '../features/tasks/presentation/task_screen.dart';
 
 class TaskFlowApp extends StatelessWidget {
-  const TaskFlowApp({super.key, required this.repository});
-  final TaskRepository repository;
+  const TaskFlowApp({super.key, this.repository, this.home})
+    : assert(repository != null || home != null);
+  final TaskRepository? repository;
+  final Widget? home;
   @override
   Widget build(BuildContext context) => MaterialApp(
     title: 'TaskFlow QA Lab',
@@ -21,6 +23,6 @@ class TaskFlowApp extends StatelessWidget {
         ),
       ),
     ),
-    home: TaskScreen(repository: repository),
+    home: home ?? TaskScreen(repository: repository!),
   );
 }

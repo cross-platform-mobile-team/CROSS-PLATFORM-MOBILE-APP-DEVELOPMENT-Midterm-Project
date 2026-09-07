@@ -47,8 +47,39 @@ its scope. The independent full multi-scenario E2E suite is still pending.
 | Keyboard/text-scale breakage | Tab and submit; edit/cancel at 200% phone text | 2 widget cases | flutter test test/widget/accessibility_test.dart |
 | Prefix-only search regression | Search padded uppercase middle word, verify saved card | 1 widget case | flutter test test/widget/search_regression_test.dart |
 
-Current total: 39 unit/widget/golden cases plus 2 Windows integration workflows.
+At the visual milestone: 39 unit/widget/golden cases plus 2 Windows integration workflows.
 See golden-testing.md for controlled environment, review process and coverage
 limits; evidence/intentional_defect/README.md for mutation reproduction.
 Full suite: `flutter test --coverage --reporter expanded`.
 Native: `flutter test integration_test/windows_workflow_test.dart -d windows --reporter expanded`.
+
+## Backend increment (2026-09-07)
+
+| Risk | Scenario/evidence | Level/command |
+|---|---|---|
+| Account/tenant breach | Foreign task/session IDs, injected owner/role fields, deletion cascades | Real HTTP/SQLite: cd backend; npm test |
+| Credential replay/loss | Expired/reused refresh, logout/all/revoke, password and one-use recovery, hashed storage | Real HTTP/SQLite: backend/test/api.test.js |
+| Data loss | Atomic invalid-snapshot rejection, simultaneous stale writers, restart persistence, consistent backup | Real HTTP/SQLite: backend/test/api.test.js |
+| Unsafe HTTP input | CORS, malformed/null JSON, content type, request cap, auth rate limit | Real HTTP/SQLite: backend/test/api.test.js |
+| Client retry/session race | Single-flight refresh, no blind snapshot replay, cancelled login, wrong password vs expired session, logout offline | flutter test test/unit/api_client_test.dart |
+| Broken account UI | Validation, registration/recovery acknowledgement, failed login, offline isolation | flutter test test/widget/account_flow_test.dart |
+| Broken native connectivity | Register -> create -> other sessions see persistence -> cross-user isolation -> stale write blocked -> logout/login -> cleanup | scripts/test-online-windows.ps1 |
+
+14 Node API cases, 49 Flutter unit/widget/golden cases, 2 offline Windows workflows
+and 1 real online Windows workflow. Counts are not coverage percentages. Native
+typing still uses the registered test input channel. Public deployments, browser
+online E2E and Android are not inferred from these results.
+
+## Independent native increment (2026-09-07)
+
+Command: `flutter test integration_test/independent_scenarios_test.dart -d windows --reporter expanded`.
+
+| Risk | Case | Assertions |
+|---|---|---|
+| Invalid data or responsive regression | Empty/validation/correction at 390 and 1100 logical widths | No invalid save, readable error, one corrected task in UI/repository |
+| Filter OR instead of AND; ignored sort/search normalization | Fixed four-task discovery fixture | Exact Alpha/Beta title order, exclusions, no-match and clear |
+| Premature success or lost draft | Controlled load/save errors and gated Retry | Loading and disabled submit, unchanged storage on failure, retained draft, one saved task after retry |
+
+4 additional Windows cases bring the native total to 7 (2 preferences + 1 real
+API + 4 controlled repository). The unit/widget/golden total stays 49, API stays
+14. This is not 7 real-database tests. See independent-e2e.md for boundaries.

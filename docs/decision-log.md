@@ -1,5 +1,22 @@
 # Bootstrap decisions
 
+## Backend expansion - 2026-09-06
+
+- The user explicitly requested account-based backend behavior after the offline
+  scope discussion. Preserve offline tests and data as a separate mode.
+- Node HTTP/crypto/sqlite and SQLite transactions avoid another installed database
+  service and native npm addons. Standard library only; explicit route/validation
+  modules, prepared statements and API tests are required to keep this maintainable.
+- Add Dart's `http` client: the Dart-maintained BSD-3-Clause package supports
+  browser/native clients; dart:io alone cannot serve Flutter Web. Package metadata,
+  licence and usage read at https://pub.dev/packages/http on 2026-09-06; resolve
+  through pub rather than guessing a version, retain pubspec.lock.
+- Opaque random bearer/refresh tokens, only digests on the server, in-memory on
+  the client. No credential persistence in SharedPreferences. Re-login after app
+  restart is deliberate. Passwords use salted scrypt, not plain/fast hashes.
+- Recovery uses a high-entropy code shown once, not simulated email delivery.
+  SMTP/email verification, social login and MFA are not claimed or configured.
+
 - Constructor injection and Flutter ChangeNotifier suit this single feature.
 - shared_preferences 2.5.5 was resolved by pub. The downloaded package README and
   BSD license were inspected on 2026-09-05. The Flutter-maintained plugin supports

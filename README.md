@@ -1,7 +1,8 @@
 # TaskFlow QA Lab
 
-Flutter bootstrap for Topic 4: UI Automation Testing in Flutter: Implementing
-End-to-End Testing (503107). This is a starting project, not the final submission.
+Flutter task manager and QA lab for Topic 4: UI Automation Testing in Flutter:
+Implementing End-to-End Testing (503107). Account-based REST/SQLite backend plus
+an isolated offline demo. This is not yet the final coursework submission.
 
 ## Included
 
@@ -13,9 +14,14 @@ End-to-End Testing (503107). This is a starting project, not the final submissio
 - Local JSON persistence using SharedPreferencesAsync.
 - Loading, empty, error and retry states; constrained responsive layout.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
-- 39 unit/widget/golden tests, including 8 phone/wide visual baselines,
+- 49 unit/widget/golden tests, including 8 phone/wide visual baselines,
   accessibility guidelines, text scaling and keyboard interaction.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
+- Account registration/login, profile/password/recovery, session revocation and
+  account deletion; server-owned per-user tasks and conflict-safe writes.
+- 14 backend tests and 7 Windows integration cases: 2 real-preference workflows,
+  1 real API/SQLite workflow, and 4 independent controlled-repository scenarios.
+  See the current evidence manifest for results and fidelity boundaries.
 
 ## Run
 
@@ -29,7 +35,20 @@ flutter pub get
 flutter run -d chrome --web-port 7357
 ```
 
-Development branch: `main-test` (published 2026-09-06). The remote default remains
+For account mode, first start the API in a separate terminal from repository root:
+
+```powershell
+.\scripts\run-backend.ps1
+```
+
+Node 22.14.0 is installed on the development machine. Full configuration, API
+contract, account/recovery instructions, tests and backup procedure:
+[backend/README.md](backend/README.md). The default API is http://127.0.0.1:8080.
+Override it at build/run time with `--dart-define=API_BASE_URL=https://your-api-origin`.
+No hosted server is supplied or claimed. Alternatively select **Use offline demo**
+on the sign-in screen to use the original app without any server/account.
+
+Development branch: `main-test` (backend/E2E milestone 2026-09-07). The remote default remains
 `main`; use the explicit clone branch above for this milestone. The repository
 has moved from Long-D176 to cross-platform-mobile-team.
 
@@ -54,7 +73,8 @@ Overdue means before today's local calendar date and not completed. Today/upcomi
 include completed tasks unless a status filter excludes them. Due-date sorting puts
 undated tasks last; priority sorting puts high first; ties use ascending task ID.
 **Clear filters** also resets search and sorting.
-No account is needed; initial storage is empty.
+Offline demo needs no account; initial storage is empty. Account mode starts with
+separate empty server data. Offline tasks are never uploaded automatically.
 Web storage belongs to the browser origin: retain the same port between sessions.
 Preferences are for small non-critical demo data and do not guarantee durability.
 
@@ -69,7 +89,7 @@ flutter build web --release
 ```
 
 Latest commands and results: [evidence manifest](docs/evidence/manifest.md).
-The 39-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
+The 49-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
 read [golden and accessibility setup](docs/golden-testing.md) before running on a
 different host or changing images. Android remains unverified.
 Reproduce the [intentional defect](docs/evidence/intentional_defect/README.md)
@@ -85,17 +105,30 @@ CMake and Windows SDK 10.0.26100. Installed locally at D:/VSBuildTools2022.
 # Or with Flutter on PATH:
 flutter run -d windows
 flutter test integration_test/windows_workflow_test.dart -d windows
+flutter test integration_test/independent_scenarios_test.dart -d windows --reporter expanded
+.\scripts\test-online-windows.ps1
 flutter build windows --release
 ```
 
 Launch `build/windows/x64/runner/Release/taskflow_qa_lab.exe`. Distribute the entire
 Release directory, including flutter_windows.dll and data, not just the executable.
-The local archive `build/TaskFlow-Windows-x64.zip` contains this directory's contents.
+The local archive `build/TaskFlow-Windows-x64-backend-20260907.zip` contains the
+backend-enabled Release directory. Start the API separately for account mode.
 Other machines may need the Microsoft Visual C++ x64 Redistributable; the archive
-has only been launched on the development machine, not a clean Windows machine.
-Native test output: [Windows evidence](docs/evidence/quality-windows-20260906.txt).
+has not been installed/tested on a clean Windows machine.
+Native online test output: [Windows account/API evidence](docs/evidence/backend-online-windows-20260907.txt).
 Automated native typing uses Flutter's registered test text-input channel; Windows
 IME behavior itself is not covered. Rendering and preference storage remain native.
+
+### Independent E2E scenarios
+
+[Scenario guide](docs/independent-e2e.md) explains fixtures and expected results.
+The new suite starts from a fresh in-memory repository per case: empty/invalid
+submit/correction at 390 and 1100 logical-pixel widths, seeded substring search
+with combined status/priority/tag filters and exact sort order, then controlled
+load/write failure with explicit Retry and draft preservation. Viewport overrides
+are not evidence of Android execution or physically resizing a Windows window.
+These complement, rather than replace, the real-storage and real-network suites.
 
 ## Continue development
 
@@ -103,7 +136,7 @@ Read [AGENTS.md](AGENTS.md), [implementation prompt](PROJECT_IMPLEMENTATION_PROM
 [plan](docs/project-plan.md), [traceability](docs/requirements-traceability.md),
 [tests](docs/test-matrix.md), and [limitations](docs/limitations.md).
 
-Next: independent native E2E scenarios, browser automation, manual accessibility,
+Next: independent edit/delete scenarios, browser automation, manual accessibility,
 repeated-run experiments, clean-machine verification and report/video.
 
 This bootstrap was created with AI assistance for team review and understanding.

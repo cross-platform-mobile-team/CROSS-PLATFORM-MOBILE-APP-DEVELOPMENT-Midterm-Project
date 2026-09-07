@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import '../../../core/errors/app_failure.dart';
+
 import '../domain/task_item.dart';
 import '../domain/task_repository.dart';
 import '../domain/task_details.dart';
@@ -42,8 +44,10 @@ class TaskController extends ChangeNotifier {
     try {
       await action();
       return true;
-    } catch (_) {
-      error = 'Unable to access your tasks. Please try again.';
+    } catch (failure) {
+      error = failure is AppFailure
+          ? failure.message
+          : 'Unable to access your tasks. Please try again.';
       return false;
     } finally {
       busy = false;

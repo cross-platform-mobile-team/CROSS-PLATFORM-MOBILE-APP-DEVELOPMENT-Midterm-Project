@@ -1,0 +1,86 @@
+
+> taskflow-api@1.0.0 test
+> node --test --test-concurrency=1
+
+TAP version 13
+# (node:31352) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: register, hashed credentials, normalized email, duplicate and login
+ok 1 - register, hashed credentials, normalized email, duplicate and login
+  ---
+  duration_ms: 2462.1233
+  ...
+# Subtest: validation rejects weak password and mass-assigned account privilege
+ok 2 - validation rejects weak password and mass-assigned account privilege
+  ---
+  duration_ms: 549.1954
+  ...
+# Subtest: refresh rotates credentials; replay revokes the entire session
+ok 3 - refresh rotates credentials; replay revokes the entire session
+  ---
+  duration_ms: 1018.4595
+  ...
+# Subtest: absolute refresh expiration and logout cannot be bypassed
+ok 4 - absolute refresh expiration and logout cannot be bypassed
+  ---
+  duration_ms: 1255.6441
+  ...
+# Subtest: per-user CRUD, read isolation, owner injection and no cross-user delete
+ok 5 - per-user CRUD, read isolation, owner injection and no cross-user delete
+  ---
+  duration_ms: 1287.7777
+  ...
+# Subtest: snapshot validation and stale writers never partially replace saved data
+ok 6 - snapshot validation and stale writers never partially replace saved data
+  ---
+  duration_ms: 885.7478
+  ...
+# Subtest: search, filters, deterministic sort, stats and pagination
+ok 7 - search, filters, deterministic sort, stats and pagination
+  ---
+  duration_ms: 872.5709
+  ...
+# Subtest: recovery is single-use, rotates the code and revokes all sessions
+ok 8 - recovery is single-use, rotates the code and revokes all sessions
+  ---
+  duration_ms: 2046.7255
+  ...
+# Subtest: profile, session ownership/revocation and password change
+ok 9 - profile, session ownership/revocation and password change
+  ---
+  duration_ms: 2434.4558
+  ...
+# Subtest: account deletion requires password and cascades only its own data
+ok 10 - account deletion requires password and cascades only its own data
+  ---
+  duration_ms: 1982.033
+  ...
+# Subtest: CORS, malformed bodies, rate limits and safe logs
+ok 11 - CORS, malformed bodies, rate limits and safe logs
+  ---
+  duration_ms: 798.9109
+  ...
+# Subtest: SQLite API persistence, sessions, schema and backup survive restart
+ok 12 - SQLite API persistence, sessions, schema and backup survive restart
+  ---
+  duration_ms: 1450.9257
+  ...
+# Subtest: body limits, content type, null bodies and contract endpoint
+ok 13 - body limits, content type, null bodies and contract endpoint
+  ---
+  duration_ms: 798.5617
+  ...
+# Subtest: logout-all and one-session revocation do not sign out another user
+ok 14 - logout-all and one-session revocation do not sign out another user
+  ---
+  duration_ms: 1647.3717
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 19800.0524

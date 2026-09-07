@@ -1,0 +1,52 @@
+00:00 +0: loading D:/flutter/test/golden/task_screen_golden_test.dart
+00:00 +0: D:/flutter/test/unit/api_client_test.dart: remote snapshots preserve fields, normalize timestamps and carry revision
+00:00 +1: D:/flutter/test/unit/api_client_test.dart: remote snapshots preserve fields, normalize timestamps and carry revision
+00:00 +2: D:/flutter/test/unit/api_client_test.dart: remote snapshots preserve fields, normalize timestamps and carry revision
+00:00 +3: D:/flutter/test/unit/api_client_test.dart: remote snapshots preserve fields, normalize timestamps and carry revision
+00:00 +4: D:/flutter/test/unit/api_client_test.dart: remote snapshots preserve fields, normalize timestamps and carry revision
+00:00 +5: D:/flutter/test/golden/task_screen_golden_test.dart: (setUpAll)
+00:00 +6: D:/flutter/test/golden/task_screen_golden_test.dart: (setUpAll)
+00:00 +6: D:/flutter/test/unit/api_client_test.dart: concurrent expired requests share one token refresh
+00:00 +7: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +8: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +9: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +10: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +11: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +12: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +13: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +14: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +15: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +16: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +17: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +18: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +19: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +20: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +21: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +22: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +23: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +24: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:00 +25: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:03 +26: D:/flutter/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:03 +27: D:/flutter/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:03 +28: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:04 +29: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:04 +30: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:04 +31: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:04 +32: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:04 +33: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +34: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +35: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:05 +36: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:05 +37: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:05 +38: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:05 +39: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:05 +40: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:06 +41: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:06 +42: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:06 +43: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:06 +44: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:06 +45: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:06 +46: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:06 +47: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:07 +48: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 1100.0
+00:08 +49: All tests passed!

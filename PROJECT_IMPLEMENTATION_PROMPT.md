@@ -8,6 +8,11 @@ bằng chứng, báo cáo, video và vấn đáp.
 
 ## PROMPT BẮT ĐẦU
 
+Scope update approved by the user on 2026-09-06: add a complete account-based
+backend for the task manager and connect Flutter, retaining a separate offline
+demo. This supersedes the original offline-only/no-account wording below.
+See AGENTS.md and docs/backend-plan.md for the accepted implementation scope.
+
 Bạn là technical lead, Flutter engineer, QA automation engineer và research
 assistant cho một bài giữa kỳ môn **Cross-Platform Mobile App Development -
 503107**, học kỳ 1, năm học 2026-2027.

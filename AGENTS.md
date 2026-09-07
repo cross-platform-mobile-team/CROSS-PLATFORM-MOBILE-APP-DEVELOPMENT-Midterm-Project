@@ -46,11 +46,11 @@ Incorrect official information causes fixed deductions, so do not guess it.
   On 2026-09-06 the user approved a branch name without an agent-name prefix;
   local `main/test` was renamed to `main-test` and successfully pushed.
   Clone with `--branch main-test` to obtain the latest development milestone.
-  Remote HEAD remains `main`, at `2f5983614f37c44b2cd298f89db6657eb11bdbc1`
-  when checked. It was not modified by this publication.
+  Remote `main` was fetched at `9de2b705de0982a60e942d6af654a59e3576687b`
+  on 2026-09-07; do not overwrite it. Publication targets only `main-test`.
   The previous `main/test` push failed because Git cannot have both `main` and
   `main/test`. Stale remote-tracking refs were pruned; normal fetch now succeeds.
-- Environment rechecked 2026-09-06: Flutter 3.47.1 (6655482ec0), Dart 3.13.1,
+- Environment rechecked 2026-09-07: Flutter 3.47.1 (6655482ec0), Dart 3.13.1,
   SDK at `C:/Users/LENOVO/flutter-sdk`. Neither executable is on PATH; use the
   `.bat` files in its `bin` directory. Recheck on each machine/session.
 - Windows 11 build 10.0.26200.9168; Visual Studio Build Tools 2022 17.14.39 at
@@ -58,10 +58,28 @@ Incorrect official information causes fixed deductions, so do not guess it.
   discoverable. Android SDK is missing; Android/APK checks remain NOT RUN.
 - Implemented: persisted CRUD, completion, one-level session undo, notes,
   priority, calendar due dates, normalized tags, combined filters and stable
-  sorting; injected repository, clock and ID seams. No backend or login.
-- Verification milestone: 39 unit/widget/golden cases (8 golden baselines),
-  plus 2 native Windows integration workflows. See the latest dated section of
+  sorting; injected repository, clock and ID seams. Since the user-authorized
+  backend extension: account gateway, REST/SQLite API, session/recovery/profile
+  controls, per-user tasks and optimistic concurrency; offline demo stays separate.
+- Backend runtime: PATH Node 22.14.0, built-in SQLite 3.47.2; no npm runtime
+  dependencies. Start with `scripts/run-backend.ps1`; see backend/README.md.
+  Flutter's API_BASE_URL defaults to http://127.0.0.1:8080. No hosted API exists.
+- Verification milestone: 49 unit/widget/golden cases (8 golden baselines),
+  14 Node API cases, 2 real-preference Windows workflows, 4 independent controlled
+  repository Windows cases and 1 real API/SQLite Windows workflow (7 total).
+  `integration_test/independent_scenarios_test.dart` verifies compact/wide validation,
+  seeded search/AND filters/exact order and load/write retry without losing drafts.
+  Keep fresh repositories, completion gates and viewport reset per test. Its logical
+  viewport overrides do not establish physical window resizing or Android support.
+  Use `scripts/test-online-windows.ps1` for an isolated test server;
+  never run its fixed synthetic accounts against production. See the latest dated section of
   `docs/evidence/manifest.md` for exact commands, results and remaining gates.
+- Tokens are memory-only in Flutter; restart requires sign-in. Show recovery
+  codes only to the account owner; never put them in logs/preferences. No SMTP,
+  email verification, MFA, automatic offline upload or conflict merge is claimed.
+- Backend HTTP snapshot writes are atomic and revision checked. After a failed
+  write, reload before retrying because the server may already have committed.
+  Keep this safeguard and the cross-account/concurrent-writer regression tests.
 - Golden configuration and font licences: `docs/golden-testing.md`. Do not
   automatically regenerate baselines to make a failure disappear. Their Android
   rendering variant is NOT evidence of running on an Android device.
@@ -79,9 +97,10 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ### Next increments (not completed coursework)
 
-1. Expand the native E2E suite into the independent scenarios in section 7,
-   including deterministic search/filter/sort order and failure/retry; extend
-   browser automation and collect readable platform evidence.
+1. Split edit/completion and delete/undo into independently reset native scenarios
+   (currently exercised in combined real-storage workflows); extend browser
+   automation and collect readable platform evidence. Discovery, validation and
+   controlled retry now have independent native tests; see docs/independent-e2e.md.
 2. Complete screen-reader/manual keyboard and focus-order checks, expanded form
    accessibility coverage, stable demo-data entry point and clean-machine setup.
 3. Add reproducible repeated-run timing/stability experiments and CI using the
@@ -131,8 +150,16 @@ Implement a responsive offline task manager with these minimum workflows:
   usable touch targets for critical controls;
 - adapt navigation and layout for compact phone and wide desktop/web sizes.
 
-Avoid authentication, remote backends, chat, social features, and other scope
-that does not improve the testing investigation.
+User-authorized extension (2026-09-06): implement an account-based backend and
+connect Flutter, while retaining the isolated offline demo. This overrides the
+original no-auth/no-backend restriction. Scope: REST API, SQLite, registration,
+login/session rotation/revocation, profile/password/recovery/account deletion,
+per-user tasks, validation, optimistic concurrency and automated API/client tests.
+Do not silently upload offline data. Keep credentials out of preferences and logs.
+Local development is authorized; public hosting, paid services and SMTP setup
+require separate configuration/authorization. Do not call this production-ready
+without deployment hardening, security review and operational evidence.
+Avoid chat, social features and unrelated product scope.
 
 ## 6. Architecture constraints
 

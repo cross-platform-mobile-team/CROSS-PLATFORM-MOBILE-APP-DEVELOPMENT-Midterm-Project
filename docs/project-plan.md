@@ -1,8 +1,17 @@
 # Implementation milestones
 
-Current request: publish the completed increment on `main-test`, a branch name
-without an agent-name prefix approved by the user after the `main/test` conflict.
+Current request (2026-09-07): add independent native E2E discovery/recovery and
+compact/wide validation scenarios, verify them and the existing quality gates,
+update README/AGENTS and publish the backend plus this increment on `main-test`.
+Acceptance: fresh state per scenario, exact filtered order, observable loading,
+failed writes retain drafts/data, and explicit Retry recovers without duplication.
 The full coursework specification remains the roadmap, not a claim of completion.
+
+Acceptance verified: 4 independent native cases pass; format/analyze, 49 Flutter
+tests (plain and coverage), 14 API tests, 2 native preference workflows, 1 native
+online workflow and Windows/Web release builds pass. Android remains NOT RUN.
+Evidence: docs/evidence/manifest.md. Next: independent edit/delete workflows,
+browser evidence, stable demo-data entry, accessibility and repeated-run studies.
 
 1. Verify SDK and repository. Preserve existing instructions.
 2. Implement a first slice: validated title, local persistence, list, completion,
@@ -34,3 +43,11 @@ Next: independently reset native scenarios (especially search/filter/sort and
 failure/retry), browser automation, manual accessibility, demo seed entry point,
 timing/stability methodology and pinned CI. Then clean-machine reproduction and
 research/report/video/oral materials after official/team information is supplied.
+
+2026-09-07 backend milestone: local Node/SQLite API; registration, opaque rotating
+sessions, recovery codes, profile/password/account actions; isolated task CRUD,
+discovery, statistics, revision-checked snapshots; Flutter gateway and remote
+repository. API reference, backup utility and setup scripts included. Acceptance:
+API/client tests and real Windows online workflow demonstrate ownership and stale
+write rejection while old offline tests/goldens continue to pass. See backend-plan.md
+and the latest evidence manifest for the exact current checks and limitations.

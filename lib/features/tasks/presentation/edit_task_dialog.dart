@@ -5,9 +5,15 @@ import '../domain/task_details.dart';
 import 'task_details_fields.dart';
 
 class EditTaskDialog extends StatefulWidget {
-  const EditTaskDialog({super.key, required this.task, required this.save});
+  const EditTaskDialog({
+    super.key,
+    required this.task,
+    required this.save,
+    this.failureMessage,
+  });
   final TaskItem task;
   final Future<bool> Function(String, TaskDetails) save;
+  final String? Function()? failureMessage;
 
   @override
   State<EditTaskDialog> createState() => _EditTaskDialogState();
@@ -69,8 +75,8 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
               if (failed)
                 Semantics(
                   liveRegion: true,
-                  child: const Text(
-                    'Could not save. Your changes are still here. Try again.',
+                  child: Text(
+                    widget.failureMessage?.call() ?? 'Could not save. Your changes are still here. Try again.',
                   ),
                 ),
               TaskDetailsFields(

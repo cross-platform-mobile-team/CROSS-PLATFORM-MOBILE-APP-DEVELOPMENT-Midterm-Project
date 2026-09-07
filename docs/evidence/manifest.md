@@ -1,5 +1,73 @@
 # Evidence manifest
 
+## Latest: independent native E2E and publication gate - 2026-09-07
+
+Flutter 3.47.1 / Dart 3.13.1, Windows 11 10.0.26200.9168, Node 22.14.0.
+Doctor/devices rechecked: Windows/Chrome/Edge available (Edge 152.0.4191.66),
+Android SDK missing. See independent-e2e.md for fixtures, mechanisms and limits.
+
+| Command | Result | Raw artifact in this directory |
+|---|---|---|
+| flutter test integration_test/independent_scenarios_test.dart -d windows --reporter expanded | PASS, 4 independent controlled-repository native cases | independent-windows-first-20260907.txt |
+| dart format --output=none --set-exit-if-changed . | PASS, 35 files unchanged | independent-format-20260907.txt |
+| flutter analyze | PASS, no issues | independent-analyze-20260907.txt |
+| flutter test --reporter expanded | PASS, 49 cases | independent-tests-20260907.txt |
+| flutter test --coverage --reporter expanded | PASS, 49 cases including unchanged 8 goldens | independent-coverage-20260907.txt |
+| cd backend; npm run check; npm test | PASS syntax and 14 HTTP/SQLite cases | independent-api-20260907.txt (test output); syntax in terminal |
+| flutter test integration_test/windows_workflow_test.dart -d windows --reporter expanded | PASS, 2 real-preference workflows | independent-storage-20260907.txt |
+| scripts/test-online-windows.ps1 | PASS, 1 real API/SQLite workflow | independent-online-20260907.txt |
+| flutter build windows --release | PASS | independent-build-windows-20260907.txt |
+| flutter build web --release | PASS | independent-build-web-20260907.txt |
+| Android build/APK/runtime | NOT RUN, missing SDK | No artifact |
+| Online browser E2E, physical resize, manual screen reader, clean-machine setup, CI, repeated-run stability | NOT RUN | No claim |
+
+Native total is 7 across three suites, not 7 real-storage/network workflows.
+The independent tests use logical viewport overrides and injected fake storage;
+these are not another platform. All fixture accounts/data are synthetic and no
+user database/preferences are reset. One run is not a flakiness experiment.
+
+## Latest: account backend and Flutter integration - 2026-09-07
+
+Environment: Flutter 3.47.1/Dart 3.13.1, Windows 11 10.0.26200.9168,
+Node 22.14.0 / SQLite 3.47.2. Commands use the installed SDK bin/*.bat paths;
+Node/npm are on PATH. API tests use only synthetic accounts and isolated databases.
+
+| Check | Result | Artifact in this directory |
+|---|---|---|
+| cd backend; npm run check | PASS (JavaScript syntax) | backend-syntax-20260907.txt |
+| cd backend; npm test | PASS, 14 real HTTP/SQLite tests | backend-api-20260907.txt |
+| dart format --output=none --set-exit-if-changed . | PASS, 34 files unchanged | backend-format-20260907.txt |
+| flutter analyze | PASS | backend-analyze-20260907.txt |
+| flutter test | PASS, 49 tests | backend-flutter-plain-20260907.txt |
+| flutter test --coverage | PASS, 49 tests including unchanged 8 goldens | backend-flutter-tests-20260907.txt |
+| scripts/test-online-windows.ps1 | PASS, 1 real API + native Flutter workflow | backend-online-windows-20260907.txt |
+| flutter test integration_test/windows_workflow_test.dart -d windows --reporter expanded | PASS, 2 offline workflows | backend-offline-windows-20260907.txt |
+| flutter build web --release | PASS | backend-build-web-20260907.txt |
+| flutter build windows --release | PASS | backend-build-windows-20260907.txt |
+| Android/APK | NOT RUN, Android SDK missing | No artifact claimed |
+| Public deployment, browser online E2E, manual screen reader/IME, load/security audit | NOT RUN | Outside this local verification |
+
+Backend tests cover actual auth/task endpoints, isolation, validation, token
+rotation/replay/revocation, recovery-code consumption, transaction conflicts,
+restart persistence and backup. Windows online flow registers an account, stores
+a task, reads it through another session, verifies another account cannot see it,
+rejects a stale writer, logs out/in and verifies persistence. Its helper retains
+synthetic database/server logs under ignored build/ for diagnosis, never production
+data. Flutter tests retain offline baseline checks; no golden was regenerated.
+
+Source and test result scope are documented in backend/README.md and
+docs/architecture/backend.md (paths relative to root). These are functional local
+results, not a security certification or availability benchmark. No real user
+credentials, tokens or database files are included in these evidence artifacts.
+
+Local Windows distribution: `build/TaskFlow-Windows-x64-backend-20260907.zip`
+(ignored; 12,348,198 bytes, 17 ZIP entries). Includes the complete Release
+directory, not only the executable. SHA-256:
+`72107aea592a66ced34738cf8ed81fe6e81400f6639b69663ea1749e40264823`.
+The API runs separately using scripts/run-backend.ps1; it is not bundled into
+the Windows ZIP. The ZIP contents were inspected; clean-machine installation
+has not been verified.
+
 ## Latest: visual/accessibility/defect milestone - 2026-09-06
 
 Commands ran from D:/flutter with Flutter 3.47.1 and Dart 3.13.1, using the

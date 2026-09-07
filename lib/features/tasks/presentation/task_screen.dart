@@ -10,8 +10,15 @@ import 'task_details_fields.dart';
 import 'task_filter_dialog.dart';
 
 class TaskScreen extends StatefulWidget {
-  const TaskScreen({super.key, required this.repository});
+  const TaskScreen({
+    super.key,
+    required this.repository,
+    this.actions,
+    this.online = false,
+  });
   final TaskRepository repository;
+  final List<Widget>? actions;
+  final bool online;
   @override
   State<TaskScreen> createState() => _TaskScreenState();
 }
@@ -57,6 +64,10 @@ class _TaskScreenState extends State<TaskScreen> {
     barrierDismissible: false,
     builder: (_) => EditTaskDialog(
       task: task,
+      failureMessage: widget.online
+          ? () =>
+                '${controller.error ?? 'Could not save.'} Your draft is still here. If a reload is needed, copy your changes, cancel this dialog and reload tasks.'
+          : null,
       save: (value, details) =>
           controller.rename(task.id, value, details: details),
     ),
@@ -87,7 +98,18 @@ class _TaskScreenState extends State<TaskScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('TaskFlow QA Lab')),
+    appBar: AppBar(
+      title: const Text('TaskFlow QA Lab'),
+      actions: [
+        if (widget.online)
+          IconButton(
+            tooltip: 'Reload server tasks',
+            onPressed: () => controller.load(),
+            icon: const Icon(Icons.refresh),
+          ),
+        ...?widget.actions,
+      ],
+    ),
     body: SafeArea(
       child: Align(
         alignment: Alignment.topCenter,

@@ -1,5 +1,14 @@
 # Environment rechecked 2026-09-07
 
+Edge/sample gate executed 2026-09-08 using this same installed SDK/toolchain.
+Browser automation used Edge 152.0.4191.66 with an isolated temporary profile,
+Playwright CLI 0.1.19 via npx (no global install), a loopback Web server on 7358
+and isolated Node/SQLite API on 8082. Default app API remains 8080. See
+web-edge-testing.md for setup and evidence/manifest.md for exact gate results.
+
+Rechecked again for the persisted-lifecycle increment: Flutter/Dart, doctor and
+devices unchanged from the values below; Windows toolchain ready, Android absent.
+
 Backend increment (2026-09-06/07): PATH Node.js 22.14.0,
 built-in SQLite 3.47.2; optional bundled Node 24.19.0 available, not globally
 installed by this task. `node:sqlite` emits its experimental warning on Node 22.

@@ -1,0 +1,48 @@
+### Page
+- Page URL: http://127.0.0.1:7358/
+- Page Title: TaskFlow QA Lab
+### Snapshot
+```yaml
+- generic [active] [ref=e5]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - heading "TaskFlow QA Lab" [level=2] [ref=e117]
+              - button "Exit sample sandbox" [ref=e118]
+            - generic:
+              - group:
+                - generic [ref=e119]: "Sample sandbox: changes are discarded on exit. Saved tasks are untouched."
+                - generic [ref=e120]: Make room for what matters.
+                - generic [ref=e122]: 2 pending · 1 completed
+                - generic:
+                  - generic:
+                    - textbox "Task title" [ref=e125]
+                    - button "Task details (optional)" [ref=e126]
+                    - button "Add task" [ref=e127]
+                - textbox "Search tasks" [ref=e130]
+                - generic:
+                  - button "Filter and sort" [ref=e132]
+                  - button "Clear filters" [ref=e133]
+                - generic:
+                  - 'group "Priority: high Compare unit, widget and end-to-end tests."':
+                    - checkbox "Review Flutter testing Pending" [ref=e134]
+                    - generic [ref=e135]: "Tag: course"
+                    - generic [ref=e136]: "Tag: flutter"
+                    - button "Edit" [ref=e137]
+                    - button "Delete" [ref=e138]
+                - generic:
+                  - 'group "Priority: medium Use synthetic data in the recording."':
+                    - checkbox "Prepare the presentation Pending" [ref=e139]
+                    - generic [ref=e140]: "Tag: course"
+                    - button "Edit" [ref=e141]
+                    - button "Delete" [ref=e142]
+                - generic:
+                  - 'group "Priority: low"':
+                    - checkbox "Read the project guide Completed" [checked] [ref=e143]
+                    - generic [ref=e144]: "Tag: setup"
+                    - button "Edit" [ref=e145]
+                    - button "Delete" [ref=e146]
+```

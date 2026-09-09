@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../core/network/api_client.dart';
 import '../../tasks/data/local_task_repository.dart';
+import '../../tasks/data/in_memory_task_repository.dart';
+import '../../tasks/data/sample_tasks.dart';
 import '../../tasks/data/remote_task_repository.dart';
 import '../../tasks/domain/task_repository.dart';
 import '../../tasks/presentation/task_screen.dart';
@@ -18,6 +20,7 @@ class AccountGateway extends StatefulWidget {
 
 class _AccountGatewayState extends State<AccountGateway> {
   bool offline = false;
+  InMemoryTaskRepository? samples;
   String? accountId;
   RemoteTaskRepository? remote;
   late final TaskRepository local =
@@ -78,6 +81,20 @@ class _AccountGatewayState extends State<AccountGateway> {
   @override
   Widget build(BuildContext context) {
     final api = widget.api;
+    if (samples != null) {
+      return TaskScreen(
+        key: ObjectKey(samples),
+        repository: samples!,
+        notice: 'Sample sandbox: changes are discarded on exit. Saved tasks are untouched.',
+        actions: [
+          IconButton(
+            tooltip: 'Exit sample sandbox',
+            icon: const Icon(Icons.close),
+            onPressed: () => setState(() => samples = null),
+          ),
+        ],
+      );
+    }
     if (offline) {
       return TaskScreen(
         key: const ValueKey('offline'),
@@ -95,6 +112,9 @@ class _AccountGatewayState extends State<AccountGateway> {
     }
     if (api.user == null) {
       return AuthScreen(
+        samples: () => setState(
+          () => samples = InMemoryTaskRepository(seed: sampleTasks()),
+        ),
         offline: () => setState(() {
           offline = true;
         }),

@@ -48,6 +48,18 @@ window-resizing test or a second platform. The registered Flutter test input
 channel avoids Windows IME interference; it does not test the real IME.
 
 Four passing cases in one run do not establish a flakiness rate or timing
-benchmark. Edit/completion and delete/undo remain combined real-storage workflows;
-fully independent versions, browser E2E, manual accessibility and repeated-run
-experiments remain next work. See evidence/manifest.md for genuine command output.
+benchmark. Browser E2E, manual accessibility and repeated-run experiments remain
+next work. See evidence/manifest.md for genuine command output.
+
+## Independent real-preference lifecycle
+
+`flutter test integration_test/persisted_scenarios_test.dart -d windows --reporter expanded`
+runs three additional cases, each using its own cleared test-only preference key:
+fresh create/remount, seeded edit/complete/remount, and seeded cancel/delete/undo/
+remount. Full record comparisons protect ID, creation time, notes, priority, date,
+tags and completion; deletion also checks an unaffected second task.
+
+These use native preferences without logical viewport overrides. Tests recreate
+the repository and remount the UI, not the process or OS. They supplement the
+two original combined workflows. Native total: 10 cases (5 real-preference,
+4 controlled fake, 1 HTTP/SQLite). Details: project-review-20260907.md.

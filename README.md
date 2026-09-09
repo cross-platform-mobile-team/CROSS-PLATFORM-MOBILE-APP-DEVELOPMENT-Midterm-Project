@@ -14,12 +14,12 @@ an isolated offline demo. This is not yet the final coursework submission.
 - Local JSON persistence using SharedPreferencesAsync.
 - Loading, empty, error and retry states; constrained responsive layout.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
-- 49 unit/widget/golden tests, including 8 phone/wide visual baselines,
+- 55 unit/widget/golden tests, including 8 phone/wide visual baselines,
   accessibility guidelines, text scaling and keyboard interaction.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
 - Account registration/login, profile/password/recovery, session revocation and
   account deletion; server-owned per-user tasks and conflict-safe writes.
-- 14 backend tests and 7 Windows integration cases: 2 real-preference workflows,
+- 14 backend tests and 10 Windows integration cases: 5 real-preference workflows,
   1 real API/SQLite workflow, and 4 independent controlled-repository scenarios.
   See the current evidence manifest for results and fidelity boundaries.
 
@@ -48,7 +48,12 @@ Override it at build/run time with `--dart-define=API_BASE_URL=https://your-api-
 No hosted server is supplied or claimed. Alternatively select **Use offline demo**
 on the sign-in screen to use the original app without any server/account.
 
-Development branch: `main-test` (backend/E2E milestone 2026-09-07). The remote default remains
+For a repeatable presentation, choose **Try sample sandbox**: three synthetic
+tasks load in memory. Create/edit/delete freely; exit and re-enter to reset.
+This mode neither overwrites offline tasks nor calls the account API. Changes
+are intentionally discarded, including after a page refresh.
+
+Development branch: `main-test` (Edge/sample/accessibility milestone 2026-09-08). The remote default remains
 `main`; use the explicit clone branch above for this milestone. The repository
 has moved from Long-D176 to cross-platform-mobile-team.
 
@@ -89,7 +94,7 @@ flutter build web --release
 ```
 
 Latest commands and results: [evidence manifest](docs/evidence/manifest.md).
-The 49-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
+The 55-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
 read [golden and accessibility setup](docs/golden-testing.md) before running on a
 different host or changing images. Android remains unverified.
 Reproduce the [intentional defect](docs/evidence/intentional_defect/README.md)
@@ -106,14 +111,17 @@ CMake and Windows SDK 10.0.26100. Installed locally at D:/VSBuildTools2022.
 flutter run -d windows
 flutter test integration_test/windows_workflow_test.dart -d windows
 flutter test integration_test/independent_scenarios_test.dart -d windows --reporter expanded
+flutter test integration_test/persisted_scenarios_test.dart -d windows --reporter expanded
 .\scripts\test-online-windows.ps1
 flutter build windows --release
 ```
 
 Launch `build/windows/x64/runner/Release/taskflow_qa_lab.exe`. Distribute the entire
 Release directory, including flutter_windows.dll and data, not just the executable.
-The local archive `build/TaskFlow-Windows-x64-backend-20260907.zip` contains the
+The local archive `build/TaskFlow-Windows-x64-20260908.zip` contains the
 backend-enabled Release directory. Start the API separately for account mode.
+Its SHA-256 on this machine is
+`FCA4227B9E292C5E0E70C7A4E6AC65C4C00A6A3D77CDC957AC10FB3E29AD3FB7`.
 Other machines may need the Microsoft Visual C++ x64 Redistributable; the archive
 has not been installed/tested on a clean Windows machine.
 Native online test output: [Windows account/API evidence](docs/evidence/backend-online-windows-20260907.txt).
@@ -130,14 +138,29 @@ load/write failure with explicit Retry and draft preservation. Viewport override
 are not evidence of Android execution or physically resizing a Windows window.
 These complement, rather than replace, the real-storage and real-network suites.
 
+Run each native suite in its own Flutter command as shown above. A combined
+multi-file invocation failed at the second app's debug connection on this host;
+the affected suite passed separately. The original failure is retained in the
+evidence manifest; this is not a claim that the runner failure is fully diagnosed.
+
+The persisted suite independently checks fresh create, edit/complete and
+cancel/delete/undo with native storage, full metadata comparison and UI remount.
+It clears only its own test keys, never your offline tasks. See the
+[project review and next priorities](docs/project-review-20260907.md).
+
 ## Continue development
 
 Read [AGENTS.md](AGENTS.md), [implementation prompt](PROJECT_IMPLEMENTATION_PROMPT.md),
 [plan](docs/project-plan.md), [traceability](docs/requirements-traceability.md),
 [tests](docs/test-matrix.md), and [limitations](docs/limitations.md).
 
-Next: independent edit/delete scenarios, browser automation, manual accessibility,
-repeated-run experiments, clean-machine verification and report/video.
+Edge now has real API CRUD/undo/re-login evidence and an executable sample
+isolation check. See [Web/Edge reproduction](docs/web-edge-testing.md).
+Automated account-form guidelines, keyboard focus and 200% text checks complement
+the existing task-screen coverage; tags expose text semantics, not checkboxes.
+
+Next: broader browser failure/filter automation, manual screen-reader/full focus
+order, repeated-run experiments, clean-machine verification and report/video.
 
 This bootstrap was created with AI assistance for team review and understanding.
 Follow instructor disclosure requirements. Platform runners come from flutter

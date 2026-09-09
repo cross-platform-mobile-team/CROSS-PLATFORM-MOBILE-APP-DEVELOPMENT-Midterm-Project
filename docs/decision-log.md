@@ -1,5 +1,18 @@
 # Bootstrap decisions
 
+## Sample and Edge increment - 2026-09-08
+
+- Seed only an explicitly selected in-memory sandbox. Never seed/clear the user's
+  persisted offline repository, and never upload offline/sample tasks to accounts.
+  Fresh repository identity remounts controller/UI on each sample entry.
+- Wrap decorative tag Chips in individual text Semantics nodes; preserve visual
+  design and completion checkboxes. Regression checks plus real Edge snapshots
+  establish the intended labels, not a full screen-reader audit.
+- Extend SDK accessibility guidelines and keyboard/text-scale tests without new
+  Flutter packages or changed goldens. Use Playwright CLI 0.1.19 through npx only
+  as a local QA tool; no npm app dependency/global installation. Keep credentials
+  and browser traces private; publish reviewed synthetic-data screenshots only.
+
 ## Backend expansion - 2026-09-06
 
 - The user explicitly requested account-based backend behavior after the offline

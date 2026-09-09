@@ -40,22 +40,24 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ## 3. Current repository state
 
-- Verified working repository: `D:/flutter`; development branch `main-test`,
-  tracking `origin/main-test`. The configured remote is
+- Current continuation checkout:
+  `C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project`;
+  development branch `main-test`, tracking `origin/main-test`. The configured remote is
   `https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project.git`.
   On 2026-09-06 the user approved a branch name without an agent-name prefix;
   local `main/test` was renamed to `main-test` and successfully pushed.
   Clone with `--branch main-test` to obtain the latest development milestone.
-  Remote `main` was fetched at `8d97b40bccf506ecece0b468bce6d2576700ef2b`
+  Remote `main` was fetched at `a6a79dea11111034363d575a2fa6f63f5f96f0fa`
   on 2026-09-09; do not overwrite it. Publication targets only `main-test`.
   The previous `main/test` push failed because Git cannot have both `main` and
   `main/test`. Stale remote-tracking refs were pruned; normal fetch now succeeds.
-- Environment rechecked 2026-09-07: Flutter 3.47.1 (6655482ec0), Dart 3.13.1,
-  SDK at `C:/Users/LENOVO/flutter-sdk`. Neither executable is on PATH; use the
-  `.bat` files in its `bin` directory. Recheck on each machine/session.
-- Windows 11 build 10.0.26200.9168; Visual Studio Build Tools 2022 17.14.39 at
-  `D:/VSBuildTools2022`, Windows SDK 10.0.26100.0. Windows, Chrome and Edge are
-  discoverable. Android SDK is missing; Android/APK checks remain NOT RUN.
+- Current host recheck 2026-09-09: Flutter 3.47.0 / Dart 3.13.0 at
+  `C:/Users/Nguyen Long/develop/flutter`; Windows 11 `10.0.26200.9168`; Android
+  SDK `C:/Android/sdk`, build-tools 36.0.0, NDK `28.2.13676358`, emulator 37.1.11,
+  Temurin JDK 17 and Google APIs Android 16/API 36 AVD `taskflow_api36`.
+  Flutter detected it as `emulator-5554`; `flutter doctor -v` reports only unknown
+  Android license status. Recheck each machine/session. Older environment evidence
+  under `docs/` accurately records a different host where Android was absent.
 - Implemented: persisted CRUD, completion, one-level session undo, notes,
   priority, calendar due dates, normalized tags, combined filters and stable
   sorting; injected repository, clock and ID seams. Since the user-authorized
@@ -82,6 +84,13 @@ Incorrect official information causes fixed deductions, so do not guess it.
   Use `scripts/test-online-windows.ps1` for an isolated test server;
   never run its fixed synthetic accounts against production. See the latest dated section of
   `docs/evidence/manifest.md` for exact commands, results and remaining gates.
+- Hosted CI milestone (2026-09-09): workflow commits `60689a2` and `9ca2a96` add
+  pinned Windows quality gates, debug/release APKs with checksums, and Android API
+  36 E2E. Run #2 at `9ca2a96` passed all three jobs; its Android gate passed 9
+  case executions across the independent (4), persisted (3), and preference-backed
+  (2) suites. Artifact `taskflow-android-apks` contains both APKs and checksums.
+  This is not physical-device, manual install/launch, Android online-mode, or
+  production-signing evidence. See `docs/evidence/android-ci-20260909.md`.
 - Tokens are memory-only in Flutter; restart requires sign-in. Show recovery
   codes only to the account owner; never put them in logs/preferences. No SMTP,
   email verification, MFA, automatic offline upload or conflict merge is claimed.
@@ -151,9 +160,10 @@ containing credentials. User authorized publishing this increment to main-test.
    protocol, then perform clean-machine setup. Account entry and signed-in account
    settings now have automated form accessibility coverage.
 3. Expand the initial five-run Edge experiment across fresh browser sessions or
-   hosts and add CI using the pinned golden environment. Do not generalize 5/5.
-4. Obtain authorized Android tooling if that target is required; otherwise
-   explicitly document the demonstrated Windows/Web pair and Android limitation.
+   hosts. Pinned CI now passes, but do not generalize the one hosted run or 5/5.
+4. Manually install/launch the APK on a clean host or physical device and verify
+   Android account mode against an HTTPS backend. Configure production signing
+   only when release distribution is actually required.
 5. Research and prepare report/presentation/oral materials; obtain official
    template and team details from the user. No invented metadata or contributions.
 

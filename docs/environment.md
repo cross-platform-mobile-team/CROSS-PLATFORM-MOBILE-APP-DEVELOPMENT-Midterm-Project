@@ -1,4 +1,34 @@
-# Environment rechecked 2026-09-07
+# Environment
+
+## Current continuation host - 2026-09-09
+
+- Windows 11 `10.0.26200.9168`; Flutter 3.47.0 (`4cf2416426`), Dart 3.13.0
+  and DevTools 2.60.0 at `C:\Users\Nguyen Long\develop\flutter`.
+- Android SDK `C:\Android\sdk`, build-tools 36.0.0, platform 37.0, emulator
+  37.1.11, NDK `28.2.13676358`, and Temurin JDK 17.0.20.1.
+- Google APIs Android 16/API 36 x86_64 AVD `taskflow_api36` was detected as
+  `emulator-5554`; WHPX `10.0.26200` is installed and usable.
+- `flutter doctor -v` passed every category except Android license status, which
+  remains unknown. No license acceptance is claimed.
+- Local source gates passed with this Flutter SDK: format (40 files unchanged),
+  analyze, 57 Flutter tests including 8 unchanged goldens, 14 Node tests, 10
+  Windows native workflows, and Web/Windows release builds.
+- Gradle launched from the Codex command sandbox cannot establish its required
+  Java loopback connection (`SocketException: Invalid argument: connect`), so no
+  completed local APK/E2E result is claimed. This is recorded as a host-execution
+  boundary, not an application failure.
+- GitHub Actions run
+  [#2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886)
+  independently passed Windows gates, debug/release APK builds, checksum upload,
+  and 9 Android workflows on an API 36 hosted emulator.
+
+## Historical verified environments
+
+The dated entries below remain accurate for the machines and milestones where
+they were recorded. Their statements that Android SDK was missing do not describe
+the current continuation host.
+
+### Environment rechecked 2026-09-07
 
 Rechecked again for the test-level repetition/publication increment on 2026-09-09:
 Flutter/Dart version, doctor and devices match the account-settings gate below.

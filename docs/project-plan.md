@@ -1,5 +1,26 @@
 # Implementation milestones
 
+## Current increment: reproducible Edge harness - 2026-09-09
+
+Flutter 3.47.1 reports that Web devices are not supported for integration tests.
+Add a deliberately gated Web-only QA entrypoint backed only by deterministic
+in-memory repositories, then drive it with the pinned Edge CLI. Cover blank-title
+validation, controlled initial-load failure and Retry, controlled save failure,
+draft preservation/retry, seeded search/filter/sort and exact order. The normal
+main.dart build must not include this harness, preferences or an API client.
+
+Acceptance: `flutter test ... -d edge` limitation retained as real output; harness
+requires `TASKFLOW_BROWSER_HARNESS=true`; scenarios reset by URL; no sleeps,
+credentials, network or persisted data; browser assertions return PASS; default
+Web build restored after evidence; full local gates remain green. The initial
+implementation request did not authorize publication; the user explicitly
+authorized commit and push after reviewing the completed increment.
+
+Result: complete Edge assertions PASS. Five consecutive same-session repetitions
+PASS (mean 7.583 s, range 7.202-8.024 s); a separate full-orchestration smoke PASS
+and restored the default build. These are bounded results, not a general failure
+rate. Next: manual Narrator/full focus-order evidence and clean-machine/CI work.
+
 ## Current increment: safe samples, Edge and accessibility
 
 Add an explicit ephemeral sample sandbox isolated from offline preferences and

@@ -1,0 +1,8 @@
+### Error
+Error: locator.waitFor: Error: strict mode violation: getByText('Browser QA harness: synthetic in-memory data only.', { exact: true }) resolved to 2 elements:
+    1) <flt-announcement-polite aria-live="polite">Browser QA harness: synthetic in-memory data only.</flt-announcement-polite> aka locator('flt-announcement-polite')
+    2) <span>Browser QA harness: synthetic in-memory data only.</span> aka locator('#flt-semantic-node-5').getByText('Browser QA harness: synthetic')
+
+Call log:
+[2m  - waiting for getByText('Browser QA harness: synthetic in-memory data only.', { exact: true }) to be visible[22m
+

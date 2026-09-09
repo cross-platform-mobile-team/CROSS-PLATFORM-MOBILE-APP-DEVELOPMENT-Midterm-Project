@@ -99,8 +99,30 @@ text; the eight existing golden baselines were not regenerated.
 Phone/wide Edge viewport screenshots demonstrate layout at 390x844 and 1280x900,
 not Android execution. Full tab order, Narrator announcements, browser zoom and
 all account-settings forms still need manual checks. Browser filter/sort ordering
-and controlled failure/retry need broader automation. No WCAG certification,
-Android/APK, CI, clean-machine or repeated-run stability result is claimed.
+and controlled failure/retry were added in the following dated increment. No
+WCAG certification, Android/APK, CI or clean-machine result is claimed.
 
 Reviewed images are under `evidence/screenshots/`: sample phone/wide, restored
 online task, and login keyboard-focus state. They use synthetic data only.
+
+## Deterministic browser QA harness - 2026-09-09
+
+The installed Flutter command reports that Web devices are not supported for
+integration tests. `lib/browser_test_harness.dart` therefore supplies equivalent
+browser-only scenarios without modifying the default client. It throws unless
+compiled with `TASKFLOW_BROWSER_HARNESS=true`, contains no API client or preference
+repository, and resets fixed synthetic state by URL.
+
+Run the complete Windows orchestration:
+
+```powershell
+.\scripts\test-edge-harness.ps1 -Flutter C:\path\to\flutter.bat -Port 7359 -Repetitions 5
+```
+
+The script checks dependencies, builds the explicit target, starts a hidden
+loopback Python server, opens a named isolated Edge profile, runs role-based
+assertions, closes only its own browser/server, and rebuilds normal `main.dart`.
+Its setup uses bounded TCP readiness polling; the test workflow itself has no
+fixed sleep. Browser output stays in ignored `output/playwright/` unless reviewed.
+
+Evidence and interpretation: `experiments/edge-harness-stability-20260909.md`.

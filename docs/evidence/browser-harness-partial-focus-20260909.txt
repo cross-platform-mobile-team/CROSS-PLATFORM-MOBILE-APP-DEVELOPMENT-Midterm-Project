@@ -1,0 +1,8 @@
+### Error
+Error: locator.waitFor: Error: strict mode violation: getByText('Enter a task title', { exact: true }) resolved to 2 elements:
+    1) <flt-announcement-assertive aria-live="assertive">Enter a task title</flt-announcement-assertive> aka locator('flt-announcement-assertive')
+    2) <span>Enter a task title</span> aka locator('#flt-semantic-node-27').getByText('Enter a task title')
+
+Call log:
+[2m  - waiting for getByText('Enter a task title', { exact: true }) to be visible[22m
+

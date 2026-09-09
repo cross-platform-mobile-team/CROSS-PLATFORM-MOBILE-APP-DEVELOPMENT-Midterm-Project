@@ -13,6 +13,19 @@
 Current full gate: 55 Flutter (8 unchanged goldens), 14 API, 10 Windows cases.
 Historical sections below describe earlier milestones, not current totals.
 
+## Edge deterministic harness - 2026-09-09
+
+| Risk | Controlled assertion | Command |
+|---|---|---|
+| Web runner gap | Direct integration_test Edge attempt retained as unsupported | flutter test integration_test/independent_scenarios_test.dart -d edge |
+| Load/save failure | Initial load error -> Retry; first save error -> draft retained -> Retry/save | scripts/test-edge-harness.ps1 |
+| Invalid form inaccessible | Blank title sets ARIA invalid and error description | scripts/browser/edge-harness-check.js |
+| Discovery regression | Padded uppercase search + pending AND high AND normalized exact tag | Same script; asserts Alpha/Beta exact order |
+| State leak/flakiness | URL-reset scenarios repeated five times | scripts/browser/repeat-edge-harness.ps1 |
+
+Observed series: 5/5 PASS in one isolated Edge session, mean 7.583 s. This is a
+bounded sample, not a general flakiness rate; see the experiment document.
+
 | Risk | Scenario | Level |
 |---|---|---|
 | Invalid title | Blank and 120/121-character boundaries | Unit |

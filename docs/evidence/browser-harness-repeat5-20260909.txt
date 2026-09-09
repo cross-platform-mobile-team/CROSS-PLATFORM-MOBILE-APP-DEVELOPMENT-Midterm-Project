@@ -1,0 +1,20 @@
+TaskFlow Edge harness repeated-run experiment
+Started UTC: 2026-09-09T07:04:18.2386040Z
+CLI package: @playwright/cli@0.1.19
+Session: taskflow-harness
+Repetitions: 5
+
+Run Result Seconds
+--- ------ -------
+  1 PASS      7,90
+  2 PASS      7,46
+  3 PASS      8,02
+  4 PASS      7,20
+  5 PASS      7,33
+
+Passed: 5/5
+Mean seconds: 7.583
+Median seconds: 7.461
+Min seconds: 7.202
+Max seconds: 8.024
+Scope: one Edge version, one Windows host, one open isolated browser session.

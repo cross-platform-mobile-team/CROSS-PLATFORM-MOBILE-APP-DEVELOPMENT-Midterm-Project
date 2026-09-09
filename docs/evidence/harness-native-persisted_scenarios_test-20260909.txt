@@ -1,0 +1,8 @@
+00:00 +0: loading D:/flutter/integration_test/persisted_scenarios_test.dart
+Building Windows application...                                    17,3s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+00:00 +0: independent persisted fresh create and remount
+00:03 +1: independent persisted edit complete and remount preserves metadata
+00:06 +2: independent persisted cancel delete undo preserves all records
+00:10 +3: (tearDownAll)
+00:10 +3: All tests passed!

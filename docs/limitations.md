@@ -2,6 +2,14 @@
 
 This basic project is not ready for final coursework submission.
 
+Update 2026-09-09: a gated synthetic Edge harness now closes the prior browser
+discovery/controlled-retry gap and passed a five-run same-session experiment.
+Flutter's direct integration_test Web-device command remains unsupported on this
+SDK. The harness is a real Edge workflow but not the shipped app entrypoint; its
+fake failures do not establish online-network failure behavior. Five warm-session
+runs on one host are insufficient for a general flakiness percentage. Manual
+Narrator/full focus-order, other browsers/hosts, CI and clean-machine work remain.
+
 Latest update (2026-09-08) supersedes historical browser/sample gaps below:
 Edge online create/edit/complete/delete/undo and reload/re-login were exercised
 against isolated SQLite. A sample CLI assertion checks create/search/reset,

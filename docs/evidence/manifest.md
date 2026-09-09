@@ -1,6 +1,24 @@
 # Evidence manifest
 
-## Latest: test-level repetitions and publication - 2026-09-09
+## Current Android and CI verification - 2026-09-09
+
+| Check | Result | Evidence |
+|---|---|---|
+| Current host toolchain | READY; Flutter doctor reports Android license status unknown | Flutter 3.47.0/Dart 3.13.0; SDK `C:\Android\sdk`; JDK 17; NDK `28.2.13676358`; API 36 AVD |
+| Current local quality gate | PASS | Format 40 files unchanged; analyze; 57 Flutter; 14 API; 10 Windows; Web/Windows release |
+| CI run #1, commit `60689a2` | CANCELLED/SUPERSEDED after Android SDK executable lookup failed | [Run #1](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34376768204) |
+| CI run #2, commit `9ca2a96` | PASS, all 3 jobs | [Run #2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886) |
+| Windows quality gates in run #2 | PASS | Format, analyze, 57 Flutter, 14 API, Web release, Windows release |
+| Android debug/release APKs | PASS | `Android APKs` job; artifact `taskflow-android-apks` |
+| Android API 36 E2E | PASS, 9 case executions | Independent 4 + persisted 3 + preference-backed 2, each suite a separate command |
+| APK provenance | PASS | Artifact includes both APKs and `SHA256SUMS.txt`; 14-day retention through 2026-09-23 |
+| Manual release install/launch, physical device, Android account mode | NOT RUN | Do not infer from hosted emulator success |
+
+Exact observed run/job/artifact metadata and scope boundaries are retained in
+[android-ci-20260909.md](android-ci-20260909.md). Earlier sections preserve the
+toolchain status and results at their dated milestones.
+
+## Previous: test-level repetitions and publication - 2026-09-09
 
 `scripts/repeat-test-levels.ps1 -FlutterSdk C:\Users\LENOVO\flutter-sdk -Repetitions 3`
 completed 12/12 invocations: controller unit (4 cases), search widget (1), golden
@@ -13,9 +31,9 @@ PowerShell parsing, Dart format and Flutter analyze were checked before publicat
 The account-settings full quality gate below applies to the unchanged Flutter and
 backend source in this publication: 57 Flutter, 14 API, 10 Windows cases and both
 release builds PASS. Repetitions add observations, not new unique test cases.
-Android/APK, CI, clean-machine setup and Narrator remain NOT RUN.
+At that milestone, Android/APK, CI, clean-machine setup and Narrator were NOT RUN.
 
-## Latest: signed-in account settings accessibility - 2026-09-09
+## Previous: signed-in account settings accessibility - 2026-09-09
 
 | Command/check | Result | Raw artifact |
 |---|---|---|
@@ -41,7 +59,7 @@ text. They do not establish real Narrator output, physical keyboard/IME behavior
 or WCAG conformance. The Edge value above is one additional smoke observation,
 not an update to the earlier five-run stability experiment or a failure rate.
 
-## Latest: deterministic Edge failures, discovery and repetition - 2026-09-09
+## Previous: deterministic Edge failures, discovery and repetition - 2026-09-09
 
 | Command/check | Result | Raw artifact |
 |---|---|---|

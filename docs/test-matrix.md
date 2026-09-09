@@ -1,5 +1,22 @@
 # Bootstrap tests
 
+## Android and CI gate - 2026-09-09
+
+| Risk | Scenario | Command/job | Result |
+|---|---|---|---|
+| Android compile drift | Build debug and release APK with Flutter 3.47.0, JDK 17 and NDK r28c | `Android APKs` | PASS |
+| Platform workflow regression | Independent 4, persisted 3 and preference-backed 2 scenarios on Android 16/API 36 | `Android E2E (API 36)` | PASS, 9/9 executions |
+| Artifact provenance | Generate `SHA256SUMS.txt` and upload both APKs | `Android APKs` | PASS; `taskflow-android-apks`, 14-day retention |
+| Windows/host drift | Format, analyze, 57 Flutter, 14 API and release builds | `Windows quality gates` | PASS |
+| Release runtime | Install and manually launch release APK | Local/physical-device protocol | NOT RUN |
+| Android online mode | Use an externally reachable HTTPS API rather than emulator localhost | Future targeted E2E | NOT RUN |
+
+Source: GitHub Actions
+[run #2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886)
+at commit `9ca2a96`. The three Android files ran as separate Flutter invocations;
+the online API/SQLite Windows case is not included. Detecting `emulator-5554`
+locally is readiness evidence, not a local passing test.
+
 ## Repetition across test levels - 2026-09-09
 
 `scripts/repeat-test-levels.ps1` launches the existing controller unit suite (4),
@@ -32,7 +49,9 @@ physical keyboard evidence; the manual protocol remains NOT RUN in
 | Web lifecycle loses saved edits | Online create/edit/complete/delete/undo, reload and sign in again | Real Edge/HTTP/SQLite; web-edge-testing.md |
 | Sample reset or isolation breaks in browser | scripts/browser/edge-sample-check.js via pinned CLI | Edge assertions; sample creation/search/reset/storage/network |
 
-Current full gate: 57 Flutter (8 unchanged goldens), 14 API, 10 Windows cases.
+Current full gate: 57 Flutter (8 unchanged goldens), 14 API, 10 Windows case
+executions, and 9 hosted Android case executions of the three offline/controlled
+native suites.
 Historical sections below describe earlier milestones, not current totals.
 
 ## Edge deterministic harness - 2026-09-09

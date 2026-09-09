@@ -2,10 +2,27 @@
 
 This basic project is not ready for final coursework submission.
 
+## Current Android and CI boundary - 2026-09-09
+
+Android tooling absence is no longer the current-host blocker. GitHub Actions
+[run #2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886)
+passed debug/release APK builds and 9 offline/controlled workflows on an Android
+16/API 36 hosted emulator. It also uploaded both APKs and `SHA256SUMS.txt`.
+
+This does not prove manual release-APK installation/launch, a physical device,
+Android account/backend connectivity, screen-reader behavior, clean-machine setup,
+or Play Store readiness. `android/app/build.gradle.kts` still signs the release
+variant with the debug key, which is suitable only for coursework/demo evidence.
+On the current Windows host, `flutter doctor -v` reports Android license status
+unknown, and Gradle inside the Codex command sandbox cannot establish a required
+Java loopback connection. CI is therefore the completed Android build/E2E evidence;
+no completed local Android build is claimed.
+
 Test-level repetitions (2026-09-09): three fresh invocations each of selected
 unit/widget/golden/Windows suites passed (12/12 total). This extends the initial
 Edge experiment but still uses one warm host and unequal workloads. It does not
-establish a general failure rate, clean-machine operation or CI execution.
+establish a general failure rate or clean-machine operation. That experiment alone
+did not establish CI execution; the later hosted run above does.
 
 Update 2026-09-09 (account settings): automated coverage now includes signed-in
 profile/password/session headings, form validation, invalid-field focus recovery,
@@ -22,7 +39,7 @@ Flutter's direct integration_test Web-device command remains unsupported on this
 SDK. The harness is a real Edge workflow but not the shipped app entrypoint; its
 fake failures do not establish online-network failure behavior. Five warm-session
 runs on one host are insufficient for a general flakiness percentage. Manual
-Narrator/full focus-order, other browsers/hosts, CI and clean-machine work remain.
+Narrator/full focus-order, other browsers/hosts and clean-machine work remain.
 
 Latest update (2026-09-08) supersedes historical browser/sample gaps below:
 Edge online create/edit/complete/delete/undo and reload/re-login were exercised
@@ -57,8 +74,9 @@ rate limiting, monitoring and clean-machine operational deployment are absent.
 Recovery is via a saved one-time code, not a pretend email. Tokens stay in memory;
 restart/page refresh requires login. No automatic offline/online sync or conflict
 merge. Online snapshots cap data at 500 tasks and requests at 1 MiB. The backend
-uses synchronous SQLite in a single process. Online browser runtime and Android
-runtime still require separate evidence; build success alone is not proof.
+uses synchronous SQLite in a single process. Android account-mode runtime still
+requires separate evidence; the current Android CI covers offline/controlled
+workflows only, and build success alone is not proof of online connectivity.
 
 ## Earlier app/coursework boundaries
 
@@ -82,8 +100,9 @@ stability remain unverified. Do not infer Android support from viewport widths.
 - Windows release was built/launched, and two real-storage integration workflows
   passed. Tests cover CRUD and metadata/filter interaction, then remount
   the app with a fresh repository; it does not test an
-  OS reboot or process restart. Android remains unverified due to missing SDK.
-- No CI execution, APK, report, video or clean-machine reproduction claim.
+  OS reboot or process restart. At that earlier milestone Android was unverified.
+- Hosted CI and APK creation now pass as described above. No manual APK launch,
+  report, video or clean-machine reproduction claim is made.
 - Local preferences have no backup/migration/multi-tab coordination. Invalid
   JSON is preserved and surfaced as an error rather than replaced silently.
 - Retry reloads saved tasks; submit again to retry a failed write.

@@ -20,13 +20,17 @@ an isolated offline demo. This is not yet the final coursework submission.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
 - Account registration/login, profile/password/recovery, session revocation and
   account deletion; server-owned per-user tasks and conflict-safe writes.
-- 14 backend tests and 10 Windows integration cases: 5 real-preference workflows,
-  1 real API/SQLite workflow, and 4 independent controlled-repository scenarios.
-  See the current evidence manifest for results and fidelity boundaries.
+- 14 backend tests, 10 Windows integration case executions and 9 Android API 36
+  case executions. The Android gate repeats the 4 controlled-repository, 3
+  persisted-preference and 2 preference-backed workflows; the online API/SQLite
+  workflow remains Windows-only. See the evidence manifest for fidelity boundaries.
 
 ## Run
 
-Baseline: Flutter 3.47.1 and Dart 3.13.1. Keep pubspec.lock.
+Recorded golden/evidence baseline: Flutter 3.47.1 and Dart 3.13.1. The current
+continuation host and CI use Flutter 3.47.0 / Dart 3.13.0; `pubspec.yaml`
+intentionally permits Dart 3.13.0. Keep `pubspec.lock`, and do not regenerate
+goldens solely because the SDK changes.
 After installing Flutter and adding its bin directory to PATH:
 
 ```sh
@@ -86,6 +90,31 @@ Preferences are for small non-critical demo data and do not guarantee durability
 
 ## Verify
 
+### Android and CI status - 2026-09-09
+
+GitHub Actions [run #2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886)
+for commit `9ca2a96` passed all three jobs. The pinned Flutter 3.47.0/JDK 17
+workflow runs format, analysis, 57 Flutter tests, 14 backend tests, Web/Windows
+release builds, debug/release APK builds, and 9 isolated workflows on an Android
+16/API 36 Google APIs emulator. Artifact `taskflow-android-apks` contains both
+APKs and `SHA256SUMS.txt`; GitHub retains it for 14 days, through 2026-09-23.
+
+The current Windows host has SDK `C:\Android\sdk`, NDK `28.2.13676358`, and AVD
+`taskflow_api36`. Equivalent local commands, with an emulator running as
+`emulator-5554`, are:
+
+```powershell
+flutter build apk --debug
+flutter build apk --release
+flutter test integration_test/independent_scenarios_test.dart -d emulator-5554
+flutter test integration_test/persisted_scenarios_test.dart -d emulator-5554
+flutter test integration_test/windows_workflow_test.dart -d emulator-5554
+```
+
+The CI result establishes hosted emulator execution, not a physical-device test,
+manual release-APK installation, Android account-mode connectivity, or Play Store
+signing. The current release configuration still uses the debug signing key.
+
 To measure repeated local test commands across unit, widget, golden and Windows
 integration levels (three fresh processes per suite, existing SDK required):
 
@@ -108,7 +137,8 @@ flutter build web --release
 Latest commands and results: [evidence manifest](docs/evidence/manifest.md).
 The 57-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
 read [golden and accessibility setup](docs/golden-testing.md) before running on a
-different host or changing images. Android remains unverified.
+different host or changing images. Android API 36 now has the separate hosted CI
+evidence described above; golden images still are not Android-device screenshots.
 Reproduce the [intentional defect](docs/evidence/intentional_defect/README.md)
 in a disposable checkout; keep the corrected source in normal development.
 
@@ -185,8 +215,9 @@ server/browser and restores the default Web build. See the
 
 The [accessibility protocol](docs/accessibility-testing.md) documents automated
 account entry/settings coverage and the still-NOT-RUN manual Narrator/full focus
-order pass. Next: execute that manual pass, a clean-machine reproduction,
-CI/pinned golden execution and report/video.
+order pass. Next: execute that manual pass, perform a clean-machine/manual APK
+reproduction, configure production Android signing if required, and prepare the
+report/video.
 
 This bootstrap was created with AI assistance for team review and understanding.
 Follow instructor disclosure requirements. Platform runners come from flutter

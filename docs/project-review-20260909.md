@@ -6,12 +6,27 @@ certification or claim that the coursework is ready to submit. The original
 read before code changes. Topic 4 and the scoring tables were also visually
 checked from rendered PDF pages.
 
-Baseline was clean `main-test` commit `4f8166f`. The tracked repository contained
-254 files: 39 Dart, 10 JavaScript and 19 Markdown files, plus Flutter platform
-runners, reviewed golden images and raw evidence. No tracked build cache, SQLite
-database, token, private key or generated release directory was found.
+Baseline for the accessibility audit was clean `main-test` commit `4f8166f`.
+The tracked repository contained 254 files: 39 Dart, 10 JavaScript and 19 Markdown
+files, plus Flutter platform runners, reviewed golden images and raw evidence. No
+tracked build cache, SQLite database, token, private key or generated release
+directory was found.
 
-## Current system audit
+## Continuation update: Android and CI
+
+Later on 2026-09-09, authorized work installed/configured the Android toolchain,
+prepared an Android 16/API 36 AVD, and added `.github/workflows/quality.yml`.
+GitHub Actions
+[#2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886)
+at `9ca2a96` passed Windows quality gates, debug/release APK builds, checksum
+artifact upload, and 9 offline/controlled Android workflow executions. The
+artifact is `taskflow-android-apks`; see `docs/evidence/android-ci-20260909.md`.
+
+This closes the initial CI/APK/API 36 emulator gap below. It does not close
+manual APK installation/launch, physical-device, Android online-mode, production
+signing, clean-machine or manual accessibility gaps.
+
+## Baseline system audit for the accessibility increment
 
 | Area | Verified implementation | Honest boundary |
 |---|---|---|
@@ -57,7 +72,7 @@ actions do not issue an HTTP mutation.
 | Windows native suites | PASS; 2 + 4 + 3 + 1 = 10 cases |
 | Windows Release / Web Release | PASS / PASS |
 | Edge harness smoke | PASS once; default Web build restored |
-| Android/APK | NOT RUN; Android SDK absent |
+| Android/APK at this increment | NOT RUN; Android SDK was absent on that host |
 | Narrator/full physical focus order | NOT RUN; protocol prepared |
 
 Exact commands and raw files are indexed in `docs/evidence/manifest.md`.
@@ -68,11 +83,11 @@ Exact commands and raw files are indexed in `docs/evidence/manifest.md`.
    on the actual release build; retain the observed focus order and failures.
 2. Test README/setup and the complete Windows Release directory on a clean Windows
    machine, including the required Visual C++ runtime and local backend startup.
-3. Add a small pinned CI workflow only when it can be pushed and run; a static
-   never-run workflow is not evidence. Keep golden execution on the documented
-   Windows/Flutter baseline.
-4. Obtain explicit authorization and tooling for Android if Android/APK is a
-   submission target; otherwise continue to state Windows + Web as demonstrated.
+3. Manually install and launch the Android artifact on a clean host or physical
+   device. Use an externally reachable HTTPS backend for a separate Android
+   account-mode test; emulator localhost is not the Windows host.
+4. Configure a private production signing key only if store-ready distribution is
+   required; never commit the keystore or credentials.
 5. Start the evidence-backed English report outline, diagrams, comparison table
    and oral question bank, but do not finalize administrative pages before the
    official template, instructor and two/three-member details are supplied.

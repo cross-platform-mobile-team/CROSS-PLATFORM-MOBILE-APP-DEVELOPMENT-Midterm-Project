@@ -1,6 +1,22 @@
 # Implementation milestones
 
-## Next increment: repeated test-level experiment - 2026-09-09
+## Completed increment: Android CI and APK artifact - 2026-09-09
+
+Add pinned GitHub Actions jobs for Windows quality gates, Android debug/release
+APK creation, checksums and 9 Android API 36 workflow executions. Acceptance
+requires every job to pass, both APKs plus `SHA256SUMS.txt` to upload, and exact
+run evidence to be indexed without implying physical-device/manual-install scope.
+
+Result: complete. Initial commit `60689a2` produced a superseded run whose Android
+SDK executable lookup failed. Commit `9ca2a96` corrected the lookup and pinned
+current action releases. Run
+[#2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886)
+passed Windows quality, Android APK and Android E2E jobs. Artifact
+`taskflow-android-apks` contains debug/release APKs and checksums with 14-day
+retention. Manual APK installation/launch, a physical device, Android online mode,
+production signing, clean-machine setup and manual accessibility remain.
+
+## Completed increment: repeated test-level experiment - 2026-09-09
 
 Run three separate Flutter processes per level (unit, widget, golden, Windows
 integration), rotating level order across rounds. Capture raw output, exact
@@ -33,8 +49,9 @@ explicitly NOT RUN and have a reproducible protocol in accessibility-testing.md.
 Result: acceptance checks PASS. The focused file passes 2 cases; the full Flutter
 suite and coverage invocation pass 57 cases with all 8 existing goldens unchanged.
 Backend 14/14, Windows 10/10, Windows/Web Release and one Edge harness smoke pass.
-Android and manual assistive-technology checks remain NOT RUN. Exact raw output is
-indexed in evidence/manifest.md.
+Android had not yet run in that increment, and manual assistive-technology checks
+remain NOT RUN. Exact raw output is indexed in evidence/manifest.md; the later
+Android CI result is recorded at the top of this file.
 
 ## Current increment: reproducible Edge harness - 2026-09-09
 
@@ -56,6 +73,8 @@ Result: complete Edge assertions PASS. Five consecutive same-session repetitions
 PASS (mean 7.583 s, range 7.202-8.024 s); a separate full-orchestration smoke PASS
 and restored the default build. These are bounded results, not a general failure
 rate. Next: manual Narrator/full focus-order evidence and clean-machine/CI work.
+The later increment above completed the initial hosted CI gate; the manual and
+clean-machine work still remains.
 
 ## Current increment: safe samples, Edge and accessibility
 

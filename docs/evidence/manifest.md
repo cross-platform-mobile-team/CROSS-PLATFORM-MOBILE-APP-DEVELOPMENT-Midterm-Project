@@ -1,5 +1,95 @@
 # Evidence manifest
 
+## Latest: safe samples, Edge and accessibility - 2026-09-08
+
+Baseline source 62190d8 plus the preceding persisted-lifecycle and current sample
+increments. Flutter 3.47.1 / Dart 3.13.1, Windows 11 10.0.26200.9168, Edge
+152.0.4191.66, Node 22.14.0. Reproduction: ../web-edge-testing.md.
+
+| Command/check | Result | Raw artifact in this directory |
+|---|---|---|
+| dart format --output=none --set-exit-if-changed . | PASS, 38 files unchanged | edge-format-20260908.txt |
+| flutter analyze | PASS | edge-analyze-20260908.txt |
+| flutter test --reporter expanded | PASS, 55 | edge-tests-20260908.txt |
+| flutter test --coverage --reporter expanded | PASS, 55 including 8 unchanged goldens | edge-coverage-20260908.txt |
+| cd backend; npm run check; npm test | PASS, syntax and 14 API cases | edge-api-20260908.txt |
+| flutter test integration_test/windows_workflow_test.dart -d windows --reporter expanded | PASS, 2 | edge-native-windows_workflow_test-20260908.txt |
+| flutter test integration_test/independent_scenarios_test.dart -d windows --reporter expanded | PASS, 4 | edge-native-independent_scenarios_test-20260908.txt |
+| flutter test integration_test/persisted_scenarios_test.dart -d windows --reporter expanded | PASS, 3 | edge-native-persisted_scenarios_test-20260908.txt |
+| scripts/test-online-windows.ps1 | PASS, 1 | edge-native-online-20260908.txt |
+| flutter build windows --release | PASS | edge-build-windows-20260908.txt |
+| flutter build web --release --dart-define=API_BASE_URL=http://127.0.0.1:8082 | PASS, isolated browser-test build | edge-test-build-20260908.txt |
+| flutter build web --release | PASS, default API restored to 127.0.0.1:8080 | edge-build-web-20260908.txt |
+| Edge online create/edit/complete/delete/undo and reload/re-login | PASS, observed real API/SQLite workflow | edge-server-check-20260908.txt; edge-online-restored-20260908.txt; edge-relogin-20260908.txt |
+| Pinned CLI run-code scripts/browser/edge-sample-check.js | PASS, final keyboard/no-Tab version, then confirmation run | edge-sample-no-tab-20260908.txt; edge-sample-confirm-20260908.txt |
+| Edge sample tag semantics | PASS, tags exposed as text, not checkboxes | edge-sample-semantics-20260908.txt |
+| Android/APK | NOT RUN, missing SDK | None |
+| Narrator/full focus order, clean-machine release/setup, CI and timing/stability study | NOT RUN | None |
+
+Sample CLI assertions: visible created task, normalized search hides unrelated
+seed, reset after re-entry, unchanged localStorage and no /v1/ requests. Six new
+widget cases cover isolation and account accessibility. Edge snapshots/observed
+keyboard focus are not proof of screen-reader support or complete WCAG compliance.
+Native total remains 10, run in separate Flutter invocations. No goldens changed.
+
+### Retained development failures and scope
+
+- edge-a11y-initial-20260907.txt: initial six widget cases PASS.
+- edge-a11y-final-20260907.txt: FAIL after adding tag-label assertion; label merged
+  into parent semantics. Individual container semantics fixed it;
+  edge-a11y-rerun-20260907.txt PASS. Assertions were not weakened.
+- edge-format-20260907.txt / edge-analyze-20260907.txt: development formatting
+  and curly-brace lint failures, corrected before the final full gates.
+- edge-sample-20260907.txt / edge-sample-rerun-20260907.txt: earlier CLI input
+  attempts FAIL; edge-sample-final-20260908.txt earlier version PASS once.
+- edge-sample-result-20260908.txt: browser session unavailable after a pause,
+  not an app failure. Reopened only the isolated test browser.
+- edge-sample-result-rerun-20260908.txt and edge-sample-keyboard-20260908.txt:
+  FAIL waiting for creation; DOM input had text while title validation remained
+  empty. Final helper uses focused keyboard typing without immediately tabbing
+  out. Both subsequent runs PASS; no definitive engine root cause or reliability
+  percentage is claimed. Do not increase waits or remove visibility assertions.
+- edge-test-build-20260907.txt: earlier successful test-config build, superseded
+  by the 20260908 build. Existing native combined-run failure remains below.
+
+Private browser traces/profile, synthetic DB and build products remain ignored.
+Only reviewed screenshots with synthetic data may be copied into this directory.
+Reviewed images: screenshots/edge-sample-phone-20260908.png (390x844),
+screenshots/edge-sample-wide-20260908.png (1280x900),
+screenshots/edge-online-restored-20260908.png and
+screenshots/edge-login-keyboard-20260908.png. The last image contains only a
+synthetic email and an empty password field; none includes tokens or recovery codes.
+
+## Previous: independent persisted lifecycle - 2026-09-07
+
+Baseline source: 62190d8; unchanged Flutter 3.47.1 / Dart 3.13.1 and Windows
+10.0.26200.9168 after version/doctor/device recheck. Review and scope:
+docs/project-review-20260907.md (repository-relative path).
+
+| Command/check | Result | Raw artifact in this directory |
+|---|---|---|
+| flutter test integration_test/persisted_scenarios_test.dart -d windows --reporter expanded | PASS, 3 independent real-preference cases | persisted-native-20260907.txt |
+| dart format --output=none --set-exit-if-changed . | PASS, 36 files unchanged | persisted-format-20260907.txt |
+| flutter analyze | PASS, no issues | persisted-analyze-20260907.txt |
+| flutter test --reporter expanded | PASS, 49 cases | persisted-tests-20260907.txt |
+| flutter test --coverage --reporter expanded | PASS, 49 cases with unchanged 8 goldens | persisted-coverage-20260907.txt |
+| cd backend; npm run check; npm test | PASS syntax and 14 API cases | persisted-api-20260907.txt (tests); syntax terminal output |
+| Two native files in one invocation: windows_workflow_test.dart + independent_scenarios_test.dart | FAIL at second app launch after 2 first-suite cases pass | persisted-existing-native-20260907.txt |
+| flutter test integration_test/independent_scenarios_test.dart -d windows --reporter expanded | PASS, 4 cases on separate invocation | persisted-independent-rerun-20260907.txt |
+| flutter test integration_test/windows_workflow_test.dart -d windows --reporter expanded | PASS, 2 cases on separate invocation | persisted-storage-rerun-20260907.txt |
+| scripts/test-online-windows.ps1 | PASS, 1 API/SQLite case | persisted-online-20260907.txt |
+| flutter build windows --release | PASS | persisted-build-windows-20260907.txt |
+| flutter build web --release | PASS | persisted-build-web-20260907.txt |
+| Android/APK | NOT RUN, Android SDK missing | No artifact |
+| Browser online E2E, physical IME, screen reader, clean-machine setup, CI/stability | NOT RUN | No claim |
+
+Native coverage totals 10 cases across 4 files (5 native preferences, 4 fake,
+1 real API). The failed combined invocation is retained, not rewritten as a pass;
+its second suite passed separately with unchanged code. Use separate native suite
+commands. Root cause of the runner's missing debug connection is not confirmed.
+These counts are workflow coverage, not a reliability percentage. New tests clear
+only three named test preference keys, never all settings or production task data.
+
 ## Latest: independent native E2E and publication gate - 2026-09-07
 
 Flutter 3.47.1 / Dart 3.13.1, Windows 11 10.0.26200.9168, Node 22.14.0.

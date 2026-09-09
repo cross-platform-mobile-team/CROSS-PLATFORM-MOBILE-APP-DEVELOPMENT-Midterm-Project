@@ -53,3 +53,5 @@ backend/coverage/
 backend/node_modules/
 *.sqlite-wal
 *.sqlite-shm
+/.playwright-cli/
+/output/playwright/

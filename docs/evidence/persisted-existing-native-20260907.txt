@@ -1,0 +1,16 @@
+00:00 +0: loading D:/flutter/integration_test/windows_workflow_test.dart
+Building Windows application...                                    17,6s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+00:00 +0: D:/flutter/integration_test/windows_workflow_test.dart: native create, edit, complete, delete, undo and reload
+00:05 +1: D:/flutter/integration_test/windows_workflow_test.dart: native metadata form and filters persist across remount
+00:17 +2: D:/flutter/integration_test/windows_workflow_test.dart: (tearDownAll)
+00:17 +2: loading D:/flutter/integration_test/independent_scenarios_test.dart
+Building Windows application...                                    16,9s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+Error waiting for a debug connection: The log reader stopped unexpectedly, or never started.
+00:34 +2 -1: loading D:/flutter/integration_test/independent_scenarios_test.dart [E]
+  Failed to load "D:/flutter/integration_test/independent_scenarios_test.dart": Unable to start the app on the device.
+00:34 +2 -1: Some tests failed.
+
+Failing tests:
+  D:/flutter/integration_test/independent_scenarios_test.dart: loading D:/flutter/integration_test/independent_scenarios_test.dart

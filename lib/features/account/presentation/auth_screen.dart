@@ -10,12 +10,14 @@ class AuthScreen extends StatefulWidget {
     required this.authenticate,
     required this.recover,
     required this.offline,
+    this.samples,
   });
   final Future<void> Function(String email, String password, String? name)
   authenticate;
   final Future<void> Function(String email, String code, String password)
   recover;
   final VoidCallback offline;
+  final VoidCallback? samples;
   @override
   State<AuthScreen> createState() => _AuthScreenState();
 }
@@ -248,6 +250,15 @@ class _AuthScreenState extends State<AuthScreen> {
                     onPressed: busy ? null : widget.offline,
                     child: const Text('Use offline demo'),
                   ),
+                  if (widget.samples != null) ...[
+                    OutlinedButton(
+                      onPressed: busy ? null : widget.samples,
+                      child: const Text('Try sample sandbox'),
+                    ),
+                    const Text(
+                      'Sample changes are discarded on exit. Your saved tasks are untouched.',
+                    ),
+                  ],
                 ],
               ),
             ),

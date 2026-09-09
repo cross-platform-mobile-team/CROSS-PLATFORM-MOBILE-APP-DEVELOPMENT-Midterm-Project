@@ -2,6 +2,26 @@
 
 This basic project is not ready for final coursework submission.
 
+Latest update (2026-09-08) supersedes historical browser/sample gaps below:
+Edge online create/edit/complete/delete/undo and reload/re-login were exercised
+against isolated SQLite. A sample CLI assertion checks create/search/reset,
+unchanged localStorage and zero API calls. Phone/wide screenshots are evidence
+of browser resizing, not a phone device. Safe sample entry is now implemented.
+Six new widget cases include login/register/recovery accessibility guidelines,
+keyboard focus and register at 200% text. Tags no longer announce as checkboxes.
+Remaining: browser filter ordering/controlled retry automation, Narrator and
+full keyboard focus-order audit, other account-setting forms, repeated runs,
+clean-machine setup, Android tooling and submission materials. Enabling Flutter
+semantics programmatically for automation is not a screen-reader test.
+
+Latest lifecycle update: three independently reset real-preference native cases
+now cover create, edit/completion and cancel/delete/undo, with full metadata and
+unaffected-record assertions. Earlier statements about those missing independent
+cases below are historical. Browser/runtime, manual accessibility, safe demo-data
+entry and stability studies still remain. A combined native multi-file invocation
+failed while launching the second app; standalone rerun passed. Run suites as
+separate commands and retain both results; no verified runner root cause is claimed.
+
 ## Backend extension - 2026-09-07
 
 Account API and Flutter online mode now exist alongside the offline demo.

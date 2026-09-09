@@ -1,6 +1,42 @@
 # Implementation milestones
 
-Current request (2026-09-07): add independent native E2E discovery/recovery and
+## Current increment: safe samples, Edge and accessibility
+
+Add an explicit ephemeral sample sandbox isolated from offline preferences and
+online accounts. Verify no backend requests or offline mutations, reset by leaving
+and re-entering. Expand account form guidelines, keyboard and 200% text tests.
+Run Edge against a local isolated API and Web build, exercise account/task and
+sample flows, retain readable evidence without credentials. Re-run quality gates,
+update documentation and push this and the preceding local increment to main-test.
+
+Result (2026-09-08): 55 Flutter, 14 API and 10 native Windows cases pass; eight
+goldens unchanged. Edge online lifecycle/re-login and sample isolation checks
+have evidence. See web-edge-testing.md and evidence/manifest.md. Next bounded
+increment: automate browser filtered ordering/controlled retry, then manual
+screen-reader/full keyboard audit and repeated-run timing/stability study.
+
+## Previous increment: independent persisted lifecycle
+
+Review the source, configuration and existing test/evidence boundaries, then add
+three independently reset Windows real-preference scenarios: fresh create,
+edit/complete/reload, and cancel/delete/undo/reload. Each uses its own test-only
+storage key and verifies both UI and full saved data, including unaffected tasks.
+Run the narrow suite followed by all local quality gates. Update the evidence,
+README and AGENTS snapshot. That earlier request did not authorize another Git
+push; the current explicit push request now includes this local increment.
+
+Acceptance: no dependency on another test's creation steps; editing preserves
+ID/createdAt and metadata; deletion cancellation is a no-op; confirmation removes
+only the selected record; undo restores the entire record exactly once; repository
+recreation and UI remount show the saved result. Never clear production preferences.
+
+Result: all three new native cases pass. Full local checks pass with separate
+native invocations: 49 Flutter, 14 API, 10 Windows cases; format/analyze and both
+Windows/Web Release builds pass. The combined-file native runner failure is
+preserved in evidence/manifest.md with successful standalone reruns. No production
+code, golden baselines, SDK, secrets or user task data were changed in this increment.
+
+Previous increment (2026-09-07): add independent native E2E discovery/recovery and
 compact/wide validation scenarios, verify them and the existing quality gates,
 update README/AGENTS and publish the backend plus this increment on `main-test`.
 Acceptance: fresh state per scenario, exact filtered order, observable loading,
@@ -39,8 +75,7 @@ and controlled substring-search defect with genuine baseline/fail/fix-pass logs.
 Acceptance: no golden updates in normal tests, corrected production search,
 39 local tests and two Windows workflows passing; format/analyze and release builds.
 
-Next: independently reset native scenarios (especially search/filter/sort and
-failure/retry), browser automation, manual accessibility, demo seed entry point,
+Next after persisted lifecycle: browser automation, manual accessibility, demo seed entry point,
 timing/stability methodology and pinned CI. Then clean-machine reproduction and
 research/report/video/oral materials after official/team information is supplied.
 

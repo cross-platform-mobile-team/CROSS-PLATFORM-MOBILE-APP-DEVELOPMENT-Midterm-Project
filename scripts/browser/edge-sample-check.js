@@ -1,0 +1,31 @@
+// Run via playwright-cli run-code --filename after opening the sample sandbox
+// and enabling Flutter's semantics. Uses only labels observed in the DOM snapshot.
+async (page) => {
+  const before = await page.evaluate(() => JSON.stringify({ ...localStorage }));
+  let apiRequests = 0;
+  const observe = request => { if (request.url().includes('/v1/')) apiRequests++; };
+  page.on('request', observe);
+  const type = async (name, text) => {
+    const field = page.getByRole('textbox', { name, exact: true });
+    await field.click();
+    await page.waitForFunction(label => document.activeElement?.tagName === 'INPUT' &&
+      document.activeElement.getAttribute('aria-label') === label, name);
+    await field.press('ControlOrMeta+A');
+    await field.pressSequentially(text);
+  };
+  try {
+    await type('Task title', 'Transient Edge example');
+    await page.getByRole('button', { name: 'Add task', exact: true }).click();
+    await page.getByRole('checkbox', { name: 'Transient Edge example Pending', exact: true }).waitFor();
+    await type('Search tasks', '  TRANSIENT  ');
+    await page.getByRole('checkbox', { name: 'Review Flutter testing Pending', exact: true }).waitFor({ state: 'hidden' });
+    await page.getByRole('button', { name: 'Clear filters', exact: true }).click();
+    await page.getByRole('button', { name: 'Exit sample sandbox', exact: true }).click();
+    await page.getByRole('button', { name: 'Try sample sandbox', exact: true }).click();
+    await page.getByRole('checkbox', { name: 'Review Flutter testing Pending', exact: true }).waitFor();
+    if (await page.getByRole('checkbox', { name: 'Transient Edge example Pending', exact: true }).count()) throw new Error('Sample did not reset');
+    const after = await page.evaluate(() => JSON.stringify({ ...localStorage }));
+    if (before !== after || apiRequests !== 0) throw new Error('Sample touched storage or API');
+    return { result: 'PASS', checks: ['create', 'normalized search', 'reset', 'unchanged localStorage', 'zero API requests'] };
+  } finally { page.off('request', observe); }
+}

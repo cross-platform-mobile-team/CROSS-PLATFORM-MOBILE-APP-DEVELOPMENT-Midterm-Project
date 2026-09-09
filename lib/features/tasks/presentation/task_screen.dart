@@ -15,10 +15,12 @@ class TaskScreen extends StatefulWidget {
     required this.repository,
     this.actions,
     this.online = false,
+    this.notice,
   });
   final TaskRepository repository;
   final List<Widget>? actions;
   final bool online;
+  final String? notice;
   @override
   State<TaskScreen> createState() => _TaskScreenState();
 }
@@ -122,6 +124,8 @@ class _TaskScreenState extends State<TaskScreen> {
               return ListView(
                 padding: const EdgeInsets.all(24),
                 children: [
+                  if (widget.notice != null)
+                    Semantics(liveRegion: true, child: Text(widget.notice!)),
                   Text(
                     'Make room for what matters.',
                     style: Theme.of(context).textTheme.headlineMedium,
@@ -310,7 +314,14 @@ class _TaskScreenState extends State<TaskScreen> {
                                     Wrap(
                                       spacing: 6,
                                       children: task.details.tags
-                                          .map((tag) => Chip(label: Text(tag)))
+                                          .map(
+                                            (tag) => Semantics(
+                                              container: true,
+                                              label: 'Tag: $tag',
+                                              excludeSemantics: true,
+                                              child: Chip(label: Text(tag)),
+                                            ),
+                                          )
                                           .toList(),
                                     ),
                                 ],

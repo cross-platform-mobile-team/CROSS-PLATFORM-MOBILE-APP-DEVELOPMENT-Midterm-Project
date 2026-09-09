@@ -1,0 +1,2 @@
+Building Windows application...                                    30,4s
+√ Built build\windows\x64\runner\Release\taskflow_qa_lab.exe

@@ -46,8 +46,8 @@ Incorrect official information causes fixed deductions, so do not guess it.
   On 2026-09-06 the user approved a branch name without an agent-name prefix;
   local `main/test` was renamed to `main-test` and successfully pushed.
   Clone with `--branch main-test` to obtain the latest development milestone.
-  Remote `main` was fetched at `9de2b705de0982a60e942d6af654a59e3576687b`
-  on 2026-09-07; do not overwrite it. Publication targets only `main-test`.
+  Remote `main` was fetched at `9b572f82a7145f33e1303c5833ec9e205eaffbc9`
+  on 2026-09-08; do not overwrite it. Publication targets only `main-test`.
   The previous `main/test` push failed because Git cannot have both `main` and
   `main/test`. Stale remote-tracking refs were pruned; normal fetch now succeeds.
 - Environment rechecked 2026-09-07: Flutter 3.47.1 (6655482ec0), Dart 3.13.1,
@@ -64,9 +64,17 @@ Incorrect official information causes fixed deductions, so do not guess it.
 - Backend runtime: PATH Node 22.14.0, built-in SQLite 3.47.2; no npm runtime
   dependencies. Start with `scripts/run-backend.ps1`; see backend/README.md.
   Flutter's API_BASE_URL defaults to http://127.0.0.1:8080. No hosted API exists.
-- Verification milestone: 49 unit/widget/golden cases (8 golden baselines),
-  14 Node API cases, 2 real-preference Windows workflows, 4 independent controlled
-  repository Windows cases and 1 real API/SQLite Windows workflow (7 total).
+- Verification milestone (2026-09-08): 55 unit/widget/golden cases (8 unchanged golden baselines),
+  14 Node API cases, 5 real-preference Windows workflows, 4 independent controlled
+  repository Windows cases and 1 real API/SQLite Windows workflow (10 total).
+  `integration_test/persisted_scenarios_test.dart` adds independently reset fresh
+  create, edit/complete and cancel/delete/undo with full-record preservation,
+  unaffected-task checks and fresh repository/UI remount. Only its three test-only
+  preference keys may be cleared; never clear all preferences. Remount is not a
+  process restart. See docs/project-review-20260907.md for the current scope audit.
+  Run native suites in separate Flutter invocations: the combined two-file run
+  failed to obtain the second app's debug connection, then the same suite passed
+  alone. Preserve persisted-existing-native-20260907.txt; root cause is unconfirmed.
   `integration_test/independent_scenarios_test.dart` verifies compact/wide validation,
   seeded search/AND filters/exact order and load/write retry without losing drafts.
   Keep fresh repositories, completion gates and viewport reset per test. Its logical
@@ -97,12 +105,24 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ### Next increments (not completed coursework)
 
-1. Split edit/completion and delete/undo into independently reset native scenarios
-   (currently exercised in combined real-storage workflows); extend browser
-   automation and collect readable platform evidence. Discovery, validation and
-   controlled retry now have independent native tests; see docs/independent-e2e.md.
-2. Complete screen-reader/manual keyboard and focus-order checks, expanded form
-   accessibility coverage, stable demo-data entry point and clean-machine setup.
+2026-09-08: safe in-memory sample entry is implemented separately from persisted
+offline mode and account data. Edge has real API create/edit/complete/delete/undo
+and reload/re-login evidence; the CLI sample check verifies reset, normalized
+search, unchanged localStorage and no API requests. Tags now expose text semantics.
+Six new widget cases cover sandbox isolation and account-form accessibility,
+keyboard focus and 200% text. See docs/web-edge-testing.md and the latest manifest.
+Do not equate this with Narrator/full focus-order, all browser E2E scenarios,
+Android, clean-machine or stability coverage. Use the pinned CLI reproduction,
+isolated test DB/profile and synthetic accounts; never publish tokens or traces
+containing credentials. User authorized publishing this increment to main-test.
+
+1. Extend browser automation and collect readable platform evidence. Create,
+   edit/completion, delete/undo, discovery, validation and controlled retry now
+   have independently reset native tests; see docs/independent-e2e.md. Do not infer
+   Web/Android execution or OS restart coverage from native remount assertions.
+2. Complete screen-reader/manual keyboard and full focus-order checks, remaining
+   account-settings form accessibility and clean-machine setup. The safe sample
+   entry and login/register/recovery automated form checks are already implemented.
 3. Add reproducible repeated-run timing/stability experiments and CI using the
    pinned golden environment. Do not report a stability rate from one run.
 4. Obtain authorized Android tooling if that target is required; otherwise

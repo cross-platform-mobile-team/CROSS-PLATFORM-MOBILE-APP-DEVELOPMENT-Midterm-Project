@@ -1,0 +1,7 @@
+00:00 +0: loading D:/flutter/integration_test/online_workflow_test.dart
+Building Windows application...                                    17,7s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+00:00 +0: online account lifecycle, isolation and optimistic conflict on Windows
+00:07 +1: (tearDownAll)
+00:07 +1: All tests passed!
+Isolated test database and logs: D:\flutter\build\online-e2e-4a29a02690c14de1b370000969e43031

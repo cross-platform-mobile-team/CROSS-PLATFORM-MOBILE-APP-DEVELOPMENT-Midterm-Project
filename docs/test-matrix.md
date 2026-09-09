@@ -1,5 +1,18 @@
 # Bootstrap tests
 
+## Current additions - 2026-09-08
+
+| Risk | Scenario / command | Level and evidence |
+|---|---|---|
+| Samples mutate private data | Reset sandbox, retain pre-existing offline task, no API calls; flutter test test/widget/sample_accessibility_test.dart | Widget; 6 new cases including following accessibility checks |
+| Account forms inaccessible | Login/register/recovery invalid-form guidelines, keyboard Email/Password focus and register at 200% text | Widget; same file, edge-tests-20260908.txt |
+| Decorative tags announce controls | Find individual Tag: flutter semantics | Widget regression and Edge semantics snapshots |
+| Web lifecycle loses saved edits | Online create/edit/complete/delete/undo, reload and sign in again | Real Edge/HTTP/SQLite; web-edge-testing.md |
+| Sample reset or isolation breaks in browser | scripts/browser/edge-sample-check.js via pinned CLI | Edge assertions; sample creation/search/reset/storage/network |
+
+Current full gate: 55 Flutter (8 unchanged goldens), 14 API, 10 Windows cases.
+Historical sections below describe earlier milestones, not current totals.
+
 | Risk | Scenario | Level |
 |---|---|---|
 | Invalid title | Blank and 120/121-character boundaries | Unit |
@@ -83,3 +96,17 @@ Command: `flutter test integration_test/independent_scenarios_test.dart -d windo
 4 additional Windows cases bring the native total to 7 (2 preferences + 1 real
 API + 4 controlled repository). The unit/widget/golden total stays 49, API stays
 14. This is not 7 real-database tests. See independent-e2e.md for boundaries.
+
+## Persisted lifecycle increment (2026-09-07)
+
+Command: `flutter test integration_test/persisted_scenarios_test.dart -d windows --reporter expanded`.
+Three new independent native cases: empty create/remount, seeded edit/complete/
+remount and seeded cancel/delete/undo/remount. Storage is SharedPreferencesAsync
+with three dedicated test keys, not the production key; compare full serialized
+records and the unaffected task. Native total becomes 10; Flutter/API counts stay
+49/14. This is repository/UI remount persistence, not process-restart evidence.
+
+Run native files in separate Flutter invocations. A combined two-file run failed
+at launching the second app on this host; see persisted-existing-native-20260907.txt.
+The second file then passed as a standalone command, without changing assertions
+or adding waits. Root cause below the runner launch boundary remains unconfirmed.

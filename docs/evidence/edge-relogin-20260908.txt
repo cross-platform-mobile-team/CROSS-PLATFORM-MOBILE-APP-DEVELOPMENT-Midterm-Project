@@ -1,0 +1,34 @@
+### Page
+- Page URL: http://127.0.0.1:7358/
+- Page Title: TaskFlow QA Lab
+### Snapshot
+```yaml
+- generic [active] [ref=f1e5] [cursor=pointer]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - heading "TaskFlow QA Lab" [level=2] [ref=f1e20]
+              - button "Reload server tasks" [ref=f1e21]
+              - button "Account settings" [ref=f1e22]
+            - generic:
+              - group:
+                - generic [ref=f1e23]: Make room for what matters.
+                - generic [ref=f1e25]: 0 pending · 1 completed
+                - generic:
+                  - generic:
+                    - textbox "Task title" [ref=f1e28]
+                    - button "Task details (optional)" [ref=f1e29]
+                    - button "Add task" [ref=f1e30]
+                - textbox "Search tasks" [ref=f1e33]
+                - generic:
+                  - button "Filter and sort" [ref=f1e35]
+                  - button "Clear filters" [ref=f1e36]
+                - generic:
+                  - 'group "Priority: medium"':
+                    - checkbox "Edge edited task Completed" [checked] [ref=f1e37]
+                    - button "Edit" [ref=f1e38]
+                    - button "Delete" [ref=f1e39]
+```

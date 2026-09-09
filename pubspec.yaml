@@ -19,7 +19,10 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.13.1
+  # The project uses no APIs introduced after Dart 3.13.0. Keeping this
+  # compatible with the locally verified Flutter 3.47.0 SDK makes the test
+  # suite reproducible without changing application dependencies.
+  sdk: ^3.13.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions

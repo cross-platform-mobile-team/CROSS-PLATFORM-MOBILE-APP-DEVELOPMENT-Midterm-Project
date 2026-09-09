@@ -1,5 +1,46 @@
 # Evidence manifest
 
+## Latest: test-level repetitions and publication - 2026-09-09
+
+`scripts/repeat-test-levels.ps1 -FlutterSdk C:\Users\LENOVO\flutter-sdk -Repetitions 3`
+completed 12/12 invocations: controller unit (4 cases), search widget (1), golden
+(8), independent Windows (4), each repeated three times in fresh Flutter processes.
+Raw logs, exact commands, timestamps, exit codes and timings:
+[test-levels-20260909/results.json](test-levels-20260909/results.json).
+Interpretation: [test-level experiment](../experiments/test-levels-20260909.md).
+
+PowerShell parsing, Dart format and Flutter analyze were checked before publication.
+The account-settings full quality gate below applies to the unchanged Flutter and
+backend source in this publication: 57 Flutter, 14 API, 10 Windows cases and both
+release builds PASS. Repetitions add observations, not new unique test cases.
+Android/APK, CI, clean-machine setup and Narrator remain NOT RUN.
+
+## Latest: signed-in account settings accessibility - 2026-09-09
+
+| Command/check | Result | Raw artifact |
+|---|---|---|
+| flutter test test/widget/account_settings_accessibility_test.dart --reporter expanded | PASS, 2 isolated widget cases | accessibility-account-focused-20260909.txt |
+| dart format --output=none --set-exit-if-changed . | PASS, 40 files unchanged | accessibility-format-20260909.txt |
+| flutter analyze | PASS, no issues | accessibility-analyze-20260909.txt |
+| flutter test --reporter expanded | PASS, 57 | accessibility-tests-20260909.txt |
+| flutter test --coverage --reporter expanded | PASS, 57 including 8 unchanged goldens | accessibility-coverage-20260909.txt |
+| cd backend; npm run check; npm test | PASS, syntax and 14 API cases | accessibility-api-check-20260909.txt; accessibility-api-20260909.txt |
+| Three offline/controlled Windows suites, separate invocations | PASS, 2 + 4 + 3 cases | accessibility-native-windows_workflow_test-20260909.txt; accessibility-native-independent_scenarios_test-20260909.txt; accessibility-native-persisted_scenarios_test-20260909.txt |
+| scripts/test-online-windows.ps1 | PASS, 1 isolated real API/SQLite case | accessibility-native-online-20260909.txt |
+| flutter build windows --release | PASS | accessibility-build-windows-20260909.txt |
+| flutter build web --release | PASS, default main.dart | accessibility-build-web-20260909.txt |
+| scripts/test-edge-harness.ps1 -Repetitions 1 | PASS, one smoke run (8.785 s), own Edge/server closed and default Web build restored | accessibility-edge-harness-20260909.txt |
+| Environment version/doctor/devices recheck | PASS for Windows/Web; Android SDK absent | accessibility-environment-20260909.txt |
+| flutter build apk --release | NOT RUN, Android SDK absent | accessibility-environment-20260909.txt |
+| Manual Narrator, physical keyboard/IME and whole-page focus order | NOT RUN; executable protocol prepared | ../accessibility-testing.md |
+
+The two new cases use a synthetic signed-in account and mocked HTTP. They cover
+semantic headings, profile/password validation, focus recovery, ordered form
+traversal, IME Next/Done actions, guidelines and a deletion-error path at 200%
+text. They do not establish real Narrator output, physical keyboard/IME behavior
+or WCAG conformance. The Edge value above is one additional smoke observation,
+not an update to the earlier five-run stability experiment or a failure rate.
+
 ## Latest: deterministic Edge failures, discovery and repetition - 2026-09-09
 
 | Command/check | Result | Raw artifact |
@@ -40,8 +81,8 @@ browser-harness-orchestrated-final-20260909.txt (PASS, 9.240 s).
 Environment logs: harness-flutter-version-20260909.txt,
 harness-dart-version-20260909.txt, harness-doctor-20260909.txt and
 harness-devices-20260909.txt. Flutter/Dart remain outside PATH; Windows, Chrome
-and Edge are available. Android SDK is absent. Current totals remain 55 Flutter,
-14 API and 10 Windows cases; browser assertions are reported separately.
+and Edge are available. Android SDK is absent. At that milestone totals were 55
+Flutter, 14 API and 10 Windows cases; browser assertions are reported separately.
 
 ## Previous: safe samples, Edge and accessibility - 2026-09-08
 

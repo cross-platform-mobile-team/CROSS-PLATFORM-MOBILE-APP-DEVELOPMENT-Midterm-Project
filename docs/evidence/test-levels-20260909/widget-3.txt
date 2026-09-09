@@ -1,0 +1,3 @@
+00:00 +0: loading D:/flutter/test/widget/search_regression_test.dart
+00:00 +0: search regression: a middle word must match the saved task
+00:01 +1: All tests passed!

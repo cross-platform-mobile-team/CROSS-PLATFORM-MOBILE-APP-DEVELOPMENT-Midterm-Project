@@ -98,7 +98,8 @@ text; the eight existing golden baselines were not regenerated.
 
 Phone/wide Edge viewport screenshots demonstrate layout at 390x844 and 1280x900,
 not Android execution. Full tab order, Narrator announcements, browser zoom and
-all account-settings forms still need manual checks. Browser filter/sort ordering
+account settings now have automated widget coverage, but still need the documented
+manual Narrator/full-page focus check. Browser filter/sort ordering
 and controlled failure/retry were added in the following dated increment. No
 WCAG certification, Android/APK, CI or clean-machine result is claimed.
 

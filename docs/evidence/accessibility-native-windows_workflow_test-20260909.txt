@@ -1,0 +1,7 @@
+00:00 +0: loading D:/flutter/integration_test/windows_workflow_test.dart
+Building Windows application...                                    25,0s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+00:00 +0: native create, edit, complete, delete, undo and reload
+00:05 +1: native metadata form and filters persist across remount
+00:17 +2: (tearDownAll)
+00:17 +2: All tests passed!

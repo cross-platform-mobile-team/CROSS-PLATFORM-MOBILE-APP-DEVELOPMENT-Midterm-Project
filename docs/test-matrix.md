@@ -1,5 +1,27 @@
 # Bootstrap tests
 
+## Repetition across test levels - 2026-09-09
+
+`scripts/repeat-test-levels.ps1` launches the existing controller unit suite (4),
+search regression widget case (1), golden suite (8) and independent Windows suite
+(4) three times each. Fixtures reset per test; each invocation is a new Flutter
+process. Rotated order reduces but does not eliminate warm-cache/order effects.
+See experiments/test-levels-20260909.md for raw results and interpretation.
+
+## Account settings accessibility - 2026-09-09
+
+| Risk | Scenario / command | Level and evidence |
+|---|---|---|
+| Signed-in forms have no accessible structure | Assert account and three section headings through semantics | Widget; `account_settings_accessibility_test.dart` |
+| Validation leaves keyboard/screen-reader users stranded | Empty profile/password/delete actions return focus to the first invalid field and expose readable errors | Widget; same file |
+| Keyboard traversal skips or reorders credential controls | Display name -> Save profile -> current password; IME Next -> new password; Done validates | Widget; Windows-style key/action events with explicit ordered form groups |
+| Large text hides destructive/recovery actions | Scroll to account deletion, trigger safe empty-password error at 390 x 900 and 200% text | Widget; no overflow/exception and no HTTP mutation |
+
+Command: `flutter test test/widget/account_settings_accessibility_test.dart
+--reporter expanded`. Automated semantics/guideline checks are not Narrator or
+physical keyboard evidence; the manual protocol remains NOT RUN in
+`docs/accessibility-testing.md`.
+
 ## Current additions - 2026-09-08
 
 | Risk | Scenario / command | Level and evidence |
@@ -10,7 +32,7 @@
 | Web lifecycle loses saved edits | Online create/edit/complete/delete/undo, reload and sign in again | Real Edge/HTTP/SQLite; web-edge-testing.md |
 | Sample reset or isolation breaks in browser | scripts/browser/edge-sample-check.js via pinned CLI | Edge assertions; sample creation/search/reset/storage/network |
 
-Current full gate: 55 Flutter (8 unchanged goldens), 14 API, 10 Windows cases.
+Current full gate: 57 Flutter (8 unchanged goldens), 14 API, 10 Windows cases.
 Historical sections below describe earlier milestones, not current totals.
 
 ## Edge deterministic harness - 2026-09-09

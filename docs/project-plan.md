@@ -1,5 +1,41 @@
 # Implementation milestones
 
+## Next increment: repeated test-level experiment - 2026-09-09
+
+Run three separate Flutter processes per level (unit, widget, golden, Windows
+integration), rotating level order across rounds. Capture raw output, exact
+commands, exit codes, UTC start times and total process durations in a fresh
+ignored directory. Acceptance: preserve every failure, return nonzero if any
+case fails, retain unchanged goldens, publish a reviewed result with limitations.
+The selected suites have different scopes; timings must not be treated as equal
+workload benchmarks or compared directly with browser assertion-only durations.
+
+Result: 12/12 real invocations PASS. Synthetic runner contract check confirms
+nonzero failure propagation and preservation of all eight failure records.
+Reviewed results: experiments/test-levels-20260909.md. Existing full quality-gate
+logs cover unchanged app/backend code. User authorized publication to main-test.
+
+## Current increment: account-settings accessibility - 2026-09-09
+
+Audit the repository and rubric after the Edge harness milestone, then close the
+remaining automated accessibility gap in the signed-in account settings screen.
+Add semantic section headings, deterministic traversal within profile/password
+forms, IME Next/Done behavior, autofill hints and focus recovery for invalid
+profile, password and account-deletion actions. Cover narrow layout, 200% text,
+semantics and accessibility guidelines with isolated widget tests.
+
+Acceptance: no backend contract change; invalid actions make no HTTP request;
+focus returns to the first invalid field; keyboard traversal follows the visible
+form order; 390-pixel layout stays usable at 200% text; existing tests and goldens
+remain green. Manual Narrator and whole-page physical keyboard checks remain
+explicitly NOT RUN and have a reproducible protocol in accessibility-testing.md.
+
+Result: acceptance checks PASS. The focused file passes 2 cases; the full Flutter
+suite and coverage invocation pass 57 cases with all 8 existing goldens unchanged.
+Backend 14/14, Windows 10/10, Windows/Web Release and one Edge harness smoke pass.
+Android and manual assistive-technology checks remain NOT RUN. Exact raw output is
+indexed in evidence/manifest.md.
+
 ## Current increment: reproducible Edge harness - 2026-09-09
 
 Flutter 3.47.1 reports that Web devices are not supported for integration tests.

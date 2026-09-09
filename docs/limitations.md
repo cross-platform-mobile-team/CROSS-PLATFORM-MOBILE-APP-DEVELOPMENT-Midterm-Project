@@ -2,6 +2,20 @@
 
 This basic project is not ready for final coursework submission.
 
+Test-level repetitions (2026-09-09): three fresh invocations each of selected
+unit/widget/golden/Windows suites passed (12/12 total). This extends the initial
+Edge experiment but still uses one warm host and unequal workloads. It does not
+establish a general failure rate, clean-machine operation or CI execution.
+
+Update 2026-09-09 (account settings): automated coverage now includes signed-in
+profile/password/session headings, form validation, invalid-field focus recovery,
+ordered credential traversal, IME actions and a 200% text deletion-error path.
+These widget tests use a synthetic account and mocked HTTP, so they do not prove
+Narrator output, physical keyboard/IME behavior or whole-page focus order in the
+release build. The exact manual protocol remains NOT RUN in
+`docs/accessibility-testing.md`. Account settings are no longer an untested form
+area, but manual assistive-technology evidence is still required.
+
 Update 2026-09-09: a gated synthetic Edge harness now closes the prior browser
 discovery/controlled-retry gap and passed a five-run same-session experiment.
 Flutter's direct integration_test Web-device command remains unsupported on this
@@ -17,10 +31,12 @@ unchanged localStorage and zero API calls. Phone/wide screenshots are evidence
 of browser resizing, not a phone device. Safe sample entry is now implemented.
 Six new widget cases include login/register/recovery accessibility guidelines,
 keyboard focus and register at 200% text. Tags no longer announce as checkboxes.
-Remaining: browser filter ordering/controlled retry automation, Narrator and
-full keyboard focus-order audit, other account-setting forms, repeated runs,
-clean-machine setup, Android tooling and submission materials. Enabling Flutter
-semantics programmatically for automation is not a screen-reader test.
+At that milestone, browser filter ordering/controlled retry automation, Narrator,
+full keyboard focus-order, other account-setting forms, repeated runs,
+clean-machine setup, Android tooling and submission materials remained. Later
+2026-09-09 increments closed the browser harness and automated account-settings
+gaps only. Enabling Flutter semantics programmatically for automation is not a
+screen-reader test.
 
 Latest lifecycle update: three independently reset real-preference native cases
 now cover create, edit/completion and cancel/delete/undo, with full metadata and

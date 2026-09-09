@@ -1,0 +1,6 @@
+00:00 +0: loading D:/flutter/test/unit/task_controller_test.dart
+00:00 +0: rejects blank and oversized titles
+00:00 +1: creates deterministic task and finds a case-insensitive substring
+00:00 +2: failed write does not publish unpersisted task; load retry recovers
+00:00 +3: task JSON round trip preserves fields
+00:00 +4: All tests passed!

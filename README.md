@@ -159,8 +159,19 @@ isolation check. See [Web/Edge reproduction](docs/web-edge-testing.md).
 Automated account-form guidelines, keyboard focus and 200% text checks complement
 the existing task-screen coverage; tags expose text semantics, not checkboxes.
 
-Next: broader browser failure/filter automation, manual screen-reader/full focus
-order, repeated-run experiments, clean-machine verification and report/video.
+For deterministic browser failures and discovery checks, use the dedicated QA
+harness. It is excluded from the normal entrypoint and requires an explicit flag:
+
+```powershell
+.\scripts\test-edge-harness.ps1 -Flutter C:\path\to\flutter.bat -Repetitions 5
+```
+
+The script builds synthetic in-memory scenarios, runs Edge, cleans up its own
+server/browser and restores the default Web build. See the
+[five-run experiment](docs/experiments/edge-harness-stability-20260909.md).
+
+Next: manual screen-reader/full focus order, a clean-machine reproduction,
+CI/pinned golden execution and report/video.
 
 This bootstrap was created with AI assistance for team review and understanding.
 Follow instructor disclosure requirements. Platform runners come from flutter

@@ -1,5 +1,12 @@
 # Environment rechecked 2026-09-07
 
+Rechecked 2026-09-09 before the browser-harness increment: versions and devices
+are unchanged (Flutter 3.47.1, Dart 3.13.1, Windows/Chrome/Edge available,
+Android SDK absent, Flutter/Dart still outside PATH). A direct attempt to run the
+independent integration suite on Edge was rejected by Flutter with "Web devices
+are not supported for integration tests yet"; this motivates the gated Web QA
+harness and is not recorded as an application test failure.
+
 Edge/sample gate executed 2026-09-08 using this same installed SDK/toolchain.
 Browser automation used Edge 152.0.4191.66 with an isolated temporary profile,
 Playwright CLI 0.1.19 via npx (no global install), a loopback Web server on 7358

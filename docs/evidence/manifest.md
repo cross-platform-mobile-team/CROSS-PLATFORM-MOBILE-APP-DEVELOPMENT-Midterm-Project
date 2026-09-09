@@ -1,6 +1,49 @@
 # Evidence manifest
 
-## Latest: safe samples, Edge and accessibility - 2026-09-08
+## Latest: deterministic Edge failures, discovery and repetition - 2026-09-09
+
+| Command/check | Result | Raw artifact |
+|---|---|---|
+| flutter test integration_test/independent_scenarios_test.dart -d edge --reporter expanded | NOT RUN by runner: Web integration devices unsupported | browser-integration-unsupported-20260909.txt |
+| flutter build web --target lib/browser_test_harness.dart --dart-define=TASKFLOW_BROWSER_HARNESS=true | PASS | browser-harness-build-20260909.txt |
+| scripts/browser/edge-harness-check.js via Edge 152 / CLI 0.1.19 | PASS, 11 controlled assertions | browser-harness-final-20260909.txt |
+| scripts/browser/repeat-edge-harness.ps1 -Repetitions 5 | PASS 5/5; mean 7.583 s, median 7.461 s, 7.202-8.024 s | browser-harness-repeat5-20260909.txt |
+| scripts/test-edge-harness.ps1 ... -Repetitions 1 | PASS final orchestration smoke; own resources closed, default build restored | browser-harness-orchestrated-final-20260909.txt |
+| dart format --output=none --set-exit-if-changed . | PASS, 39 files unchanged | harness-format-20260909.txt |
+| flutter analyze | PASS | harness-analyze-20260909.txt |
+| flutter test --reporter expanded | PASS, 55 | harness-tests-20260909.txt |
+| flutter test --coverage --reporter expanded | PASS, 55 and 8 unchanged goldens | harness-coverage-20260909.txt |
+| cd backend; npm run check; npm test | PASS, syntax and 14 API cases | harness-api-20260909.txt |
+| Three offline/controlled Windows suites, separate invocations | PASS, 2 + 4 + 3 cases | harness-native-windows_workflow_test-20260909.txt; harness-native-independent_scenarios_test-20260909.txt; harness-native-persisted_scenarios_test-20260909.txt |
+| scripts/test-online-windows.ps1 | PASS, 1 real API/SQLite case | harness-native-online-20260909.txt |
+| flutter build windows --release | PASS | harness-build-windows-20260909.txt |
+| flutter build web --release | PASS, normal main.dart restored | harness-build-web-20260909.txt |
+| flutter build apk --release | NOT RUN, doctor confirms Android SDK absent | harness-doctor-20260909.txt |
+
+Harness assertions cover load Retry, accessible validation, save failure, draft
+preservation/retry, normalized search, pending/high/exact-tag AND filters, title
+order, no-match and Clear/newest restoration. It uses only synthetic in-memory
+data. The five-run series shares one browser session and warm host/cache; do not
+generalize it as a population failure rate. See the experiment document.
+
+Retained development failures: browser-harness-partial-20260909.txt (`URL` not
+available in CLI evaluator); partial-rerun (semantics readiness); partial-focus
+(duplicate live announcement); partial-validation (async ARIA update); partial-save
+(asserted before rendered checkbox); dialog/dialog-rerun (raw ARIA whitespace and
+duplicate notice). dialog-finalize PASSed all implemented checks before filter
+selectors were added. Fixes use observable waits/current accessible roles, not
+longer arbitrary sleeps or weaker product assertions.
+The earlier browser-harness-orchestrated-20260909.txt PASS (8.578 s) preceded
+final port-collision and restore-exit safeguards; the final script was rerun in
+browser-harness-orchestrated-final-20260909.txt (PASS, 9.240 s).
+
+Environment logs: harness-flutter-version-20260909.txt,
+harness-dart-version-20260909.txt, harness-doctor-20260909.txt and
+harness-devices-20260909.txt. Flutter/Dart remain outside PATH; Windows, Chrome
+and Edge are available. Android SDK is absent. Current totals remain 55 Flutter,
+14 API and 10 Windows cases; browser assertions are reported separately.
+
+## Previous: safe samples, Edge and accessibility - 2026-09-08
 
 Baseline source 62190d8 plus the preceding persisted-lifecycle and current sample
 increments. Flutter 3.47.1 / Dart 3.13.1, Windows 11 10.0.26200.9168, Edge

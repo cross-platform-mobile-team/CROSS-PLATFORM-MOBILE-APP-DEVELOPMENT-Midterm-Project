@@ -1,5 +1,19 @@
 # Bootstrap decisions
 
+## Deterministic browser harness - 2026-09-09
+
+- The installed Flutter runner cannot execute integration_test on Web devices.
+  Use a separate target guarded by `TASKFLOW_BROWSER_HARNESS=true`, rather than
+  adding production failure buttons/query behavior or pretending native logical
+  viewports are browser execution.
+- Reuse the repository interface with a small deterministic fake: fixed seeds,
+  counters for exactly one load/save failure, no API/preferences. The default
+  `main.dart` and release behavior remain unchanged.
+- Drive accessible roles and observable conditions with the already pinned CLI;
+  normalize raw ARIA-label whitespace for exact order comparison. Retain script
+  debugging failures and do not convert five warm-session passes into a broad
+  reliability claim.
+
 ## Sample and Edge increment - 2026-09-08
 
 - Seed only an explicitly selected in-memory sandbox. Never seed/clear the user's

@@ -1,0 +1,9 @@
+00:00 +0: loading D:/flutter/integration_test/independent_scenarios_test.dart
+Building Windows application...                                    19,6s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+00:00 +0: independent empty validation correction at width 390.0
+00:03 +1: independent empty validation correction at width 1100.0
+00:05 +2: independent seeded search AND filters and deterministic order
+00:11 +3: independent load and save failure recover without losing draft
+00:14 +4: (tearDownAll)
+00:14 +4: All tests passed!

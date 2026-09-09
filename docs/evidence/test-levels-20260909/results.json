@@ -1,0 +1,110 @@
+[
+  {
+    "Round": 1,
+    "Level": "unit",
+    "StartedUtc": "2026-09-09T14:37:19.2985374Z",
+    "Seconds": 4.707,
+    "ExitCode": 0,
+    "Command": "flutter test test/unit/task_controller_test.dart --no-pub --reporter expanded",
+    "Log": "unit-1.txt"
+  },
+  {
+    "Round": 1,
+    "Level": "widget",
+    "StartedUtc": "2026-09-09T14:37:24.0473347Z",
+    "Seconds": 6.111,
+    "ExitCode": 0,
+    "Command": "flutter test test/widget/search_regression_test.dart --no-pub --reporter expanded",
+    "Log": "widget-1.txt"
+  },
+  {
+    "Round": 1,
+    "Level": "golden",
+    "StartedUtc": "2026-09-09T14:37:30.1648052Z",
+    "Seconds": 8.857,
+    "ExitCode": 0,
+    "Command": "flutter test test/golden/task_screen_golden_test.dart --no-pub --reporter expanded",
+    "Log": "golden-1.txt"
+  },
+  {
+    "Round": 1,
+    "Level": "native",
+    "StartedUtc": "2026-09-09T14:37:39.0240391Z",
+    "Seconds": 41.812,
+    "ExitCode": 0,
+    "Command": "flutter test integration_test/independent_scenarios_test.dart --no-pub --reporter expanded -d windows",
+    "Log": "native-1.txt"
+  },
+  {
+    "Round": 2,
+    "Level": "widget",
+    "StartedUtc": "2026-09-09T14:38:20.8397615Z",
+    "Seconds": 6.436,
+    "ExitCode": 0,
+    "Command": "flutter test test/widget/search_regression_test.dart --no-pub --reporter expanded",
+    "Log": "widget-2.txt"
+  },
+  {
+    "Round": 2,
+    "Level": "golden",
+    "StartedUtc": "2026-09-09T14:38:27.2783032Z",
+    "Seconds": 8.074,
+    "ExitCode": 0,
+    "Command": "flutter test test/golden/task_screen_golden_test.dart --no-pub --reporter expanded",
+    "Log": "golden-2.txt"
+  },
+  {
+    "Round": 2,
+    "Level": "native",
+    "StartedUtc": "2026-09-09T14:38:35.3537262Z",
+    "Seconds": 40.525,
+    "ExitCode": 0,
+    "Command": "flutter test integration_test/independent_scenarios_test.dart --no-pub --reporter expanded -d windows",
+    "Log": "native-2.txt"
+  },
+  {
+    "Round": 2,
+    "Level": "unit",
+    "StartedUtc": "2026-09-09T14:39:15.8825460Z",
+    "Seconds": 4.36,
+    "ExitCode": 0,
+    "Command": "flutter test test/unit/task_controller_test.dart --no-pub --reporter expanded",
+    "Log": "unit-2.txt"
+  },
+  {
+    "Round": 3,
+    "Level": "golden",
+    "StartedUtc": "2026-09-09T14:39:20.2452675Z",
+    "Seconds": 7.113,
+    "ExitCode": 0,
+    "Command": "flutter test test/golden/task_screen_golden_test.dart --no-pub --reporter expanded",
+    "Log": "golden-3.txt"
+  },
+  {
+    "Round": 3,
+    "Level": "native",
+    "StartedUtc": "2026-09-09T14:39:27.3604258Z",
+    "Seconds": 38.814,
+    "ExitCode": 0,
+    "Command": "flutter test integration_test/independent_scenarios_test.dart --no-pub --reporter expanded -d windows",
+    "Log": "native-3.txt"
+  },
+  {
+    "Round": 3,
+    "Level": "unit",
+    "StartedUtc": "2026-09-09T14:40:06.1766061Z",
+    "Seconds": 5.499,
+    "ExitCode": 0,
+    "Command": "flutter test test/unit/task_controller_test.dart --no-pub --reporter expanded",
+    "Log": "unit-3.txt"
+  },
+  {
+    "Round": 3,
+    "Level": "widget",
+    "StartedUtc": "2026-09-09T14:40:11.6787742Z",
+    "Seconds": 6.733,
+    "ExitCode": 0,
+    "Command": "flutter test test/widget/search_regression_test.dart --no-pub --reporter expanded",
+    "Log": "widget-3.txt"
+  }
+]

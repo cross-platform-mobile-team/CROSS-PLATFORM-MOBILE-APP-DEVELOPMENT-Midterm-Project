@@ -1,0 +1,4 @@
+
+> taskflow-api@1.0.0 check
+> node --check src/server.js && node --check src/api.js && node --check src/store.js && node --check src/security.js && node --check src/validation.js && node --check src/openapi.js && node --check scripts/backup.js
+

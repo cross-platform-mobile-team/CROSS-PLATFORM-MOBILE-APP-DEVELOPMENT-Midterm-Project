@@ -16,6 +16,13 @@ class _AccountScreenState extends State<AccountScreen> {
   final next = TextEditingController();
   final profile = GlobalKey<FormState>();
   final passwords = GlobalKey<FormState>();
+  final nameFocus = FocusNode(debugLabel: 'account display name');
+  final saveProfileFocus = FocusNode(debugLabel: 'save account profile');
+  final currentPasswordFocus = FocusNode(
+    debugLabel: 'account current password',
+  );
+  final newPasswordFocus = FocusNode(debugLabel: 'account new password');
+  final changePasswordFocus = FocusNode(debugLabel: 'change account password');
   bool busy = false;
   String? error;
   late Future<Map<String, dynamic>> sessions = widget.api.request(
@@ -27,7 +34,35 @@ class _AccountScreenState extends State<AccountScreen> {
     name.dispose();
     current.dispose();
     next.dispose();
+    nameFocus.dispose();
+    saveProfileFocus.dispose();
+    currentPasswordFocus.dispose();
+    newPasswordFocus.dispose();
+    changePasswordFocus.dispose();
     super.dispose();
+  }
+
+  Future<void> saveProfile() async {
+    if (!profile.currentState!.validate()) {
+      nameFocus.requestFocus();
+      return;
+    }
+    await run(() => widget.api.updateName(name.text.trim()), 'Profile saved.');
+  }
+
+  Future<void> changePassword() async {
+    if (!passwords.currentState!.validate()) {
+      if (current.text.isEmpty) {
+        currentPasswordFocus.requestFocus();
+      } else {
+        newPasswordFocus.requestFocus();
+      }
+      return;
+    }
+    await run(
+      () => widget.api.changePassword(current.text, next.text),
+      'Password changed. Please sign in again.',
+    );
   }
 
   Future<void> run(Future<void> Function() action, String success) async {
@@ -78,6 +113,7 @@ class _AccountScreenState extends State<AccountScreen> {
       setState(() {
         error = 'Enter your current password before deleting your account.';
       });
+      currentPasswordFocus.requestFocus();
       return;
     }
     final confirmed = await showDialog<bool>(
@@ -118,9 +154,12 @@ class _AccountScreenState extends State<AccountScreen> {
           child: ListView(
             padding: const EdgeInsets.all(24),
             children: [
-              Text(
-                widget.api.user?.email ?? 'Signed out',
-                style: Theme.of(context).textTheme.titleLarge,
+              Semantics(
+                header: true,
+                child: Text(
+                  widget.api.user?.email ?? 'Signed out',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
               ),
               const Text(
                 'Login credentials stay in memory. Sign in again after closing or refreshing the app.',
@@ -136,98 +175,136 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                   ),
                 ),
-              Form(
-                key: profile,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    TextFormField(
-                      key: const Key('profile-name'),
-                      controller: name,
-                      enabled: !busy,
-                      decoration: const InputDecoration(
-                        labelText: 'Display name',
+              Semantics(
+                header: true,
+                child: Text(
+                  'Profile',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+              FocusTraversalGroup(
+                policy: OrderedTraversalPolicy(),
+                child: Form(
+                  key: profile,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      FocusTraversalOrder(
+                        order: const NumericFocusOrder(1),
+                        child: TextFormField(
+                          key: const Key('profile-name'),
+                          controller: name,
+                          focusNode: nameFocus,
+                          enabled: !busy,
+                          autofillHints: const [AutofillHints.name],
+                          textInputAction: TextInputAction.done,
+                          decoration: const InputDecoration(
+                            labelText: 'Display name',
+                          ),
+                          onFieldSubmitted: (_) => saveProfile(),
+                          validator: (v) =>
+                              v == null ||
+                                  v.trim().isEmpty ||
+                                  v.trim().length > 80
+                              ? 'Enter 1-80 characters.'
+                              : null,
+                        ),
                       ),
-                      validator: (v) =>
-                          v == null || v.trim().isEmpty || v.trim().length > 80
-                          ? 'Enter 1-80 characters.'
-                          : null,
-                    ),
-                    FilledButton(
-                      onPressed: busy
-                          ? null
-                          : () {
-                              if (profile.currentState!.validate()) {
-                                run(
-                                  () => widget.api.updateName(name.text.trim()),
-                                  'Profile saved.',
-                                );
-                              }
-                            },
-                      child: const Text('Save profile'),
-                    ),
-                  ],
+                      FocusTraversalOrder(
+                        order: const NumericFocusOrder(2),
+                        child: FilledButton(
+                          key: const Key('save-profile'),
+                          focusNode: saveProfileFocus,
+                          onPressed: busy ? null : saveProfile,
+                          child: const Text('Save profile'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const Divider(height: 32),
-              Form(
-                key: passwords,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    TextFormField(
-                      key: const Key('current-password'),
-                      controller: current,
-                      enabled: !busy,
-                      obscureText: true,
-                      enableSuggestions: false,
-                      autocorrect: false,
-                      decoration: const InputDecoration(
-                        labelText: 'Current password',
-                      ),
-                      validator: (v) => v == null || v.isEmpty
-                          ? 'Enter your current password.'
-                          : null,
+              Semantics(
+                header: true,
+                child: Text(
+                  'Password and security',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+              FocusTraversalGroup(
+                policy: OrderedTraversalPolicy(),
+                child: AutofillGroup(
+                  child: Form(
+                    key: passwords,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        FocusTraversalOrder(
+                          order: const NumericFocusOrder(1),
+                          child: TextFormField(
+                            key: const Key('current-password'),
+                            controller: current,
+                            focusNode: currentPasswordFocus,
+                            enabled: !busy,
+                            obscureText: true,
+                            enableSuggestions: false,
+                            autocorrect: false,
+                            autofillHints: const [AutofillHints.password],
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                              labelText: 'Current password',
+                            ),
+                            onFieldSubmitted: (_) =>
+                                newPasswordFocus.requestFocus(),
+                            validator: (v) => v == null || v.isEmpty
+                                ? 'Enter your current password.'
+                                : null,
+                          ),
+                        ),
+                        FocusTraversalOrder(
+                          order: const NumericFocusOrder(2),
+                          child: TextFormField(
+                            key: const Key('new-password'),
+                            controller: next,
+                            focusNode: newPasswordFocus,
+                            enabled: !busy,
+                            obscureText: true,
+                            enableSuggestions: false,
+                            autocorrect: false,
+                            autofillHints: const [AutofillHints.newPassword],
+                            textInputAction: TextInputAction.done,
+                            decoration: const InputDecoration(
+                              labelText: 'New password',
+                              helperText: '12-128 characters. Changing it signs out all sessions.',
+                            ),
+                            onFieldSubmitted: (_) => changePassword(),
+                            validator: (v) =>
+                                v == null || v.length < 12 || v.length > 128
+                                ? 'Enter 12-128 characters.'
+                                : null,
+                          ),
+                        ),
+                        FocusTraversalOrder(
+                          order: const NumericFocusOrder(3),
+                          child: OutlinedButton(
+                            key: const Key('change-password'),
+                            focusNode: changePasswordFocus,
+                            onPressed: busy ? null : changePassword,
+                            child: const Text('Change password'),
+                          ),
+                        ),
+                      ],
                     ),
-                    TextFormField(
-                      key: const Key('new-password'),
-                      controller: next,
-                      enabled: !busy,
-                      obscureText: true,
-                      enableSuggestions: false,
-                      autocorrect: false,
-                      decoration: const InputDecoration(
-                        labelText: 'New password',
-                        helperText: '12-128 characters. Changing it signs out all sessions.',
-                      ),
-                      validator: (v) =>
-                          v == null || v.length < 12 || v.length > 128
-                          ? 'Enter 12-128 characters.'
-                          : null,
-                    ),
-                    OutlinedButton(
-                      onPressed: busy
-                          ? null
-                          : () {
-                              if (passwords.currentState!.validate()) {
-                                run(
-                                  () => widget.api.changePassword(
-                                    current.text,
-                                    next.text,
-                                  ),
-                                  'Password changed. Please sign in again.',
-                                );
-                              }
-                            },
-                      child: const Text('Change password'),
-                    ),
-                  ],
+                  ),
                 ),
               ),
               const Divider(height: 32),
-              Text(
-                'Active sessions',
-                style: Theme.of(context).textTheme.titleMedium,
+              Semantics(
+                header: true,
+                child: Text(
+                  'Active sessions',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
               ),
               FutureBuilder<Map<String, dynamic>>(
                 future: sessions,
@@ -300,6 +377,7 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const Divider(height: 32),
               TextButton(
+                key: const Key('delete-account'),
                 onPressed: busy ? null : delete,
                 child: const Text('Delete my account'),
               ),

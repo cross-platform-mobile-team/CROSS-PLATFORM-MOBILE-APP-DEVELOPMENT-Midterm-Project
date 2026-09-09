@@ -1,0 +1,30 @@
+4f8166f655c266cc0f82c242cc3e20f6c82719fb
+ M AGENTS.md
+ M README.md
+ M docs/environment.md
+ M docs/evidence/manifest.md
+ M docs/limitations.md
+ M docs/project-plan.md
+ M docs/requirements-traceability.md
+ M docs/test-matrix.md
+ M docs/web-edge-testing.md
+ M lib/features/account/presentation/account_screen.dart
+?? docs/accessibility-testing.md
+?? docs/evidence/accessibility-account-focused-20260909.txt
+?? docs/evidence/accessibility-analyze-20260909.txt
+?? docs/evidence/accessibility-api-20260909.txt
+?? docs/evidence/accessibility-api-check-20260909.txt
+?? docs/evidence/accessibility-build-web-20260909.txt
+?? docs/evidence/accessibility-build-windows-20260909.txt
+?? docs/evidence/accessibility-coverage-20260909.txt
+?? docs/evidence/accessibility-edge-harness-20260909.txt
+?? docs/evidence/accessibility-environment-20260909.txt
+?? docs/evidence/accessibility-format-20260909.txt
+?? docs/evidence/accessibility-native-independent_scenarios_test-20260909.txt
+?? docs/evidence/accessibility-native-online-20260909.txt
+?? docs/evidence/accessibility-native-persisted_scenarios_test-20260909.txt
+?? docs/evidence/accessibility-native-windows_workflow_test-20260909.txt
+?? docs/evidence/accessibility-tests-20260909.txt
+?? docs/project-review-20260909.md
+?? scripts/repeat-test-levels.ps1
+?? test/widget/account_settings_accessibility_test.dart

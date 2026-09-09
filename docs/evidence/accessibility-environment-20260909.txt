@@ -1,0 +1,53 @@
+Flutter 3.47.1 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 6655482ec0 (3 weeks ago) • 2026-08-19 10:07:23 -0700
+Engine • hash 11d79658c444477b06513d32b52c8c4ccb7276b0 (revision 5d53178869) (21 days ago) • 2026-08-18 23:36:01.000Z
+Tools • Dart 3.13.1 • DevTools 2.60.0
+Dart SDK version: 3.13.1 (stable) (Tue Aug 18 01:00:59 2026 -0700) on "windows_x64"
+[!] Flutter (Channel stable, 3.47.1, on Microsoft Windows [Version 10.0.26200.9168], locale vi-VN) [860ms]
+    • Flutter version 3.47.1 on channel stable at C:\Users\LENOVO\flutter-sdk
+    ! The flutter binary is not on your path. Consider adding C:\Users\LENOVO\flutter-sdk\bin to your path.
+    ! The dart binary is not on your path. Consider adding C:\Users\LENOVO\flutter-sdk\bin to your path.
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 6655482ec0 (3 weeks ago), 2026-08-19 10:07:23 -0700
+    • Engine revision 5d53178869
+    • Dart version 3.13.1
+    • DevTools version 2.60.0
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, enable-record-use, enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging, enable-uiscene-migration
+    • If those were intentional, you can disregard the above warnings; however it is recommended to use "git" directly to perform update checks and upgrades.
+
+[√] Windows Version (11 Home Single Language 64-bit, 25H2, 2009) [1.670ms]
+
+[X] Android toolchain - develop for Android devices [486ms]
+    X Unable to locate Android SDK.
+      Install Android Studio from: https://developer.android.com/studio/index.html
+      On first launch it will assist you in installing the Android SDK components.
+      (or visit https://flutter.dev/to/windows-android-setup for detailed instructions).
+      If the Android SDK has been installed to a custom location, please use
+      `flutter config --android-sdk` to update to that location.
+
+
+[√] Chrome - develop for the web [452ms]
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[√] Visual Studio - develop Windows apps (Visual Studio Build Tools 2022 17.14.39 (August 2026)) [450ms]
+    • Visual Studio at D:\VSBuildTools2022
+    • Visual Studio Build Tools 2022 version 17.14.37614.0
+    • Windows 10 SDK version 10.0.26100.0
+
+[√] Connected device (3 available) [181ms]
+    • Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.26200.9168]
+    • Chrome (web)      • chrome  • web-javascript • Google Chrome 149.0.7827.201
+    • Edge (web)        • edge    • web-javascript • Microsoft Edge 152.0.4191.66
+
+[√] Network resources [526ms]
+    • All expected network resources are available.
+
+! Doctor found issues in 2 categories.
+Found 3 connected devices:
+  Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.26200.9168]
+  Chrome (web)      • chrome  • web-javascript • Google Chrome 149.0.7827.201
+  Edge (web)        • edge    • web-javascript • Microsoft Edge 152.0.4191.66
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.

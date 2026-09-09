@@ -46,7 +46,7 @@ Incorrect official information causes fixed deductions, so do not guess it.
   On 2026-09-06 the user approved a branch name without an agent-name prefix;
   local `main/test` was renamed to `main-test` and successfully pushed.
   Clone with `--branch main-test` to obtain the latest development milestone.
-  Remote `main` was fetched at `1fb44c38d9c31bf0d301f7d0b4aabc9d0d172662`
+  Remote `main` was fetched at `8d97b40bccf506ecece0b468bce6d2576700ef2b`
   on 2026-09-09; do not overwrite it. Publication targets only `main-test`.
   The previous `main/test` push failed because Git cannot have both `main` and
   `main/test`. Stale remote-tracking refs were pruned; normal fetch now succeeds.
@@ -64,7 +64,7 @@ Incorrect official information causes fixed deductions, so do not guess it.
 - Backend runtime: PATH Node 22.14.0, built-in SQLite 3.47.2; no npm runtime
   dependencies. Start with `scripts/run-backend.ps1`; see backend/README.md.
   Flutter's API_BASE_URL defaults to http://127.0.0.1:8080. No hosted API exists.
-- Verification milestone (2026-09-08): 55 unit/widget/golden cases (8 unchanged golden baselines),
+- Verification milestone (2026-09-09): 57 unit/widget/golden cases (8 unchanged golden baselines),
   14 Node API cases, 5 real-preference Windows workflows, 4 independent controlled
   repository Windows cases and 1 real API/SQLite Windows workflow (10 total).
   `integration_test/persisted_scenarios_test.dart` adds independently reset fresh
@@ -105,6 +105,22 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ### Next increments (not completed coursework)
 
+2026-09-09: the signed-in account settings screen now has semantic section
+headings, ordered profile/password form traversal, IME Next/Done actions, autofill
+hints and invalid-field focus recovery. Two isolated widget cases cover headings,
+validation, keyboard order, accessibility guidelines and the deletion-error path
+at 200% text. `docs/accessibility-testing.md` defines the manual Narrator and
+whole-page keyboard protocol, which remains NOT RUN; automated semantics checks
+must not be reported as screen-reader evidence. The user subsequently authorized
+continuing the development plan and publishing these changes to `main-test`.
+
+Repeated test-level experiment: `scripts/repeat-test-levels.ps1` runs existing
+unit/widget/golden/native suites in fresh Flutter invocations with rotated order.
+Each run retains raw logs and exit code/duration in a unique ignored build folder.
+Reviewed results belong in docs/experiments and docs/evidence. Durations include
+process/build overhead; do not compare them directly to browser-only timings or
+infer a general reliability rate from three repetitions.
+
 2026-09-09: Flutter 3.47.1 explicitly rejected direct `integration_test` on
 Edge because Web devices are unsupported by that runner. A compile-time-gated
 browser QA entrypoint plus Playwright CLI now covers accessible validation,
@@ -131,9 +147,9 @@ containing credentials. User authorized publishing this increment to main-test.
 1. Extend browser automation only when a remaining risk justifies it. Edge now
    covers online lifecycle plus deterministic validation/discovery/retry harness
    scenarios; do not infer Android, OS restart or screen-reader coverage.
-2. Complete screen-reader/manual keyboard and full focus-order checks, remaining
-   account-settings form accessibility and clean-machine setup. The safe sample
-   entry and login/register/recovery automated form checks are already implemented.
+2. Execute the documented screen-reader/manual keyboard and full page focus-order
+   protocol, then perform clean-machine setup. Account entry and signed-in account
+   settings now have automated form accessibility coverage.
 3. Expand the initial five-run Edge experiment across fresh browser sessions or
    hosts and add CI using the pinned golden environment. Do not generalize 5/5.
 4. Obtain authorized Android tooling if that target is required; otherwise

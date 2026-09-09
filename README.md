@@ -14,8 +14,9 @@ an isolated offline demo. This is not yet the final coursework submission.
 - Local JSON persistence using SharedPreferencesAsync.
 - Loading, empty, error and retry states; constrained responsive layout.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
-- 55 unit/widget/golden tests, including 8 phone/wide visual baselines,
-  accessibility guidelines, text scaling and keyboard interaction.
+- 57 unit/widget/golden tests, including 8 phone/wide visual baselines,
+  accessibility guidelines, text scaling, keyboard interaction and signed-in
+  account-settings validation/focus coverage.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
 - Account registration/login, profile/password/recovery, session revocation and
   account deletion; server-owned per-user tasks and conflict-safe writes.
@@ -85,6 +86,17 @@ Preferences are for small non-critical demo data and do not guarantee durability
 
 ## Verify
 
+To measure repeated local test commands across unit, widget, golden and Windows
+integration levels (three fresh processes per suite, existing SDK required):
+
+```powershell
+.\scripts\repeat-test-levels.ps1 -FlutterSdk C:\path\to\flutter -Repetitions 3
+```
+
+Run `flutter pub get` first. Raw logs and `results.json` go to a unique directory
+under ignored `build/`. Any failed repetition makes the script fail. These suites
+have different workloads; see [experiment interpretation](docs/experiments/test-levels-20260909.md).
+
 ```sh
 dart format --output=none --set-exit-if-changed .
 flutter analyze
@@ -94,7 +106,7 @@ flutter build web --release
 ```
 
 Latest commands and results: [evidence manifest](docs/evidence/manifest.md).
-The 55-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
+The 57-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
 read [golden and accessibility setup](docs/golden-testing.md) before running on a
 different host or changing images. Android remains unverified.
 Reproduce the [intentional defect](docs/evidence/intentional_defect/README.md)
@@ -152,7 +164,8 @@ It clears only its own test keys, never your offline tasks. See the
 
 Read [AGENTS.md](AGENTS.md), [implementation prompt](PROJECT_IMPLEMENTATION_PROMPT.md),
 [plan](docs/project-plan.md), [traceability](docs/requirements-traceability.md),
-[tests](docs/test-matrix.md), and [limitations](docs/limitations.md).
+[tests](docs/test-matrix.md), [latest full review](docs/project-review-20260909.md),
+and [limitations](docs/limitations.md).
 
 Edge now has real API CRUD/undo/re-login evidence and an executable sample
 isolation check. See [Web/Edge reproduction](docs/web-edge-testing.md).
@@ -170,7 +183,9 @@ The script builds synthetic in-memory scenarios, runs Edge, cleans up its own
 server/browser and restores the default Web build. See the
 [five-run experiment](docs/experiments/edge-harness-stability-20260909.md).
 
-Next: manual screen-reader/full focus order, a clean-machine reproduction,
+The [accessibility protocol](docs/accessibility-testing.md) documents automated
+account entry/settings coverage and the still-NOT-RUN manual Narrator/full focus
+order pass. Next: execute that manual pass, a clean-machine reproduction,
 CI/pinned golden execution and report/video.
 
 This bootstrap was created with AI assistance for team review and understanding.

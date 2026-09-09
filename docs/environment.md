@@ -1,5 +1,16 @@
 # Environment rechecked 2026-09-07
 
+Rechecked again for the test-level repetition/publication increment on 2026-09-09:
+Flutter/Dart version, doctor and devices match the account-settings gate below.
+No toolchain changes; the experiment reuses warm SDK/build caches on this host.
+
+Rechecked 2026-09-09 before the account-settings accessibility increment:
+Flutter 3.47.1 (framework 6655482ec0, engine 5d53178869), Dart 3.13.1 and
+DevTools 2.60.0. Windows 11 10.0.26200.9168, Chrome 149.0.7827.201 and Edge
+152.0.4191.66 remain discoverable. Visual Studio Build Tools 2022 17.14.39 and
+Windows SDK 10.0.26100.0 remain ready. Flutter/Dart are still outside PATH and
+Android SDK is still absent; no SDK/tool was installed or modified.
+
 Rechecked 2026-09-09 before the browser-harness increment: versions and devices
 are unchanged (Flutter 3.47.1, Dart 3.13.1, Windows/Chrome/Edge available,
 Android SDK absent, Flutter/Dart still outside PATH). A direct attempt to run the

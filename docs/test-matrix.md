@@ -1,5 +1,15 @@
 # Bootstrap tests
 
+## Dedicated widget loading coverage - 2026-09-10
+
+`flutter test test/widget/task_loading_test.dart --reporter expanded`: four cases,
+fresh in-memory repositories and Completer gates. Initial loading at 390/1100
+widths checks progress label, disabled Add, no premature empty/data state and
+blocked keyboard submission. Releasing the gate restores data/controls. A load
+failure transitions through gated Retry to empty. Pending save retains the draft
+and blocks duplicate keyboard submission; release produces exactly one stored
+task and clears the successfully saved draft. No sleeps or real storage/network.
+
 ## Android and CI gate - 2026-09-09
 
 | Risk | Scenario | Command/job | Result |
@@ -164,3 +174,10 @@ Run native files in separate Flutter invocations. A combined two-file run failed
 at launching the second app on this host; see persisted-existing-native-20260907.txt.
 The second file then passed as a standalone command, without changing assertions
 or adding waits. Root cause below the runner launch boundary remains unconfirmed.
+## Fresh browser-session runner (2026-09-10)
+
+| Risk | Fixture/action | Expected result | Verification |
+|---|---|---|---|
+| Success depends on an already-used browser profile | Three newly named non-persistent Edge sessions; two existing harness workflows each | Validation, discovery, retry and draft assertions pass independently of prior session | `scripts/test-edge-harness.ps1 -Sessions 3 -Repetitions 2` with explicit Flutter path |
+| A failing CLI invocation is hidden by a later pass | Synthetic sequence: pass, missing PASS marker, exit 7 despite marker, pass | All four records retained; runner throws after finishing | `scripts/tests/edge-runner-contract.ps1` |
+| Evidence overwritten or even-count summary incorrect | Reuse result directory; two successful synthetic runs | Reuse rejected with identical original hash; median is average of middle pair | Same synthetic contract test; not browser/application evidence |

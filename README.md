@@ -14,7 +14,7 @@ an isolated offline demo. This is not yet the final coursework submission.
 - Local JSON persistence using SharedPreferencesAsync.
 - Loading, empty, error and retry states; constrained responsive layout.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
-- 57 unit/widget/golden tests, including 8 phone/wide visual baselines,
+- 61 unit/widget/golden tests, including 8 phone/wide visual baselines,
   accessibility guidelines, text scaling, keyboard interaction and signed-in
   account-settings validation/focus coverage.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
@@ -27,8 +27,8 @@ an isolated offline demo. This is not yet the final coursework submission.
 
 ## Run
 
-Recorded golden/evidence baseline: Flutter 3.47.1 and Dart 3.13.1. The current
-continuation host and CI use Flutter 3.47.0 / Dart 3.13.0; `pubspec.yaml`
+Recorded golden/evidence baseline and the D:/flutter host: Flutter 3.47.1 and
+Dart 3.13.1. The other development host and CI use Flutter 3.47.0 / Dart 3.13.0; `pubspec.yaml`
 intentionally permits Dart 3.13.0. Keep `pubspec.lock`, and do not regenerate
 goldens solely because the SDK changes.
 After installing Flutter and adding its bin directory to PATH:
@@ -135,7 +135,7 @@ flutter build web --release
 ```
 
 Latest commands and results: [evidence manifest](docs/evidence/manifest.md).
-The 57-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
+The 61-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
 read [golden and accessibility setup](docs/golden-testing.md) before running on a
 different host or changing images. Android API 36 now has the separate hosted CI
 evidence described above; golden images still are not Android-device screenshots.
@@ -213,11 +213,28 @@ The script builds synthetic in-memory scenarios, runs Edge, cleans up its own
 server/browser and restores the default Web build. See the
 [five-run experiment](docs/experiments/edge-harness-stability-20260909.md).
 
+To test across fresh Edge sessions instead of only repeating in one browser:
+
+```powershell
+.\scripts\test-edge-harness.ps1 -Flutter C:\path\to\flutter.bat -Sessions 3 -Repetitions 2
+.\scripts\tests\edge-runner-contract.ps1
+```
+
+Each named session is opened without a persistent profile and closed before the
+next. Raw CLI output and JSON results are retained under a unique
+`output/playwright/edge-sessions-<id>/` folder, even when assertions fail.
+`Seconds` in each session measures the workflow CLI invocation;
+`SecondsIncludingLifecycle` also includes browser open/close. Neither includes
+the shared Web build. A failed repetition fails the overall run; the contract
+test checks this with a synthetic CLI, not the app. Existing output directories
+cannot be reused. No personal browser tabs, API accounts or offline tasks are used.
+Recorded six-run result: [fresh-session verification](docs/evidence/edge-sessions-20260910/README.md).
+
 The [accessibility protocol](docs/accessibility-testing.md) documents automated
 account entry/settings coverage and the still-NOT-RUN manual Narrator/full focus
 order pass. Next: execute that manual pass, perform a clean-machine/manual APK
 reproduction, configure production Android signing if required, and prepare the
-report/video.
+next engineering increment. Report/video work is deferred at the user's request.
 
 This bootstrap was created with AI assistance for team review and understanding.
 Follow instructor disclosure requirements. Platform runners come from flutter

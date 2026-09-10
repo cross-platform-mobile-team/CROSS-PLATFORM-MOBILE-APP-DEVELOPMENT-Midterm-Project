@@ -4,7 +4,7 @@ This basic project is not ready for final coursework submission.
 
 ## Current Android and CI boundary - 2026-09-09
 
-Android tooling absence is no longer the current-host blocker. GitHub Actions
+Android tooling absence is no longer a project-wide blocker. GitHub Actions
 [run #2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886)
 passed debug/release APK builds and 9 offline/controlled workflows on an Android
 16/API 36 hosted emulator. It also uploaded both APKs and `SHA256SUMS.txt`.
@@ -13,10 +13,22 @@ This does not prove manual release-APK installation/launch, a physical device,
 Android account/backend connectivity, screen-reader behavior, clean-machine setup,
 or Play Store readiness. `android/app/build.gradle.kts` still signs the release
 variant with the debug key, which is suitable only for coursework/demo evidence.
-On the current Windows host, `flutter doctor -v` reports Android license status
+On the other Windows host used on September 9, `flutter doctor -v` reports Android license status
 unknown, and Gradle inside the Codex command sandbox cannot establish a required
 Java loopback connection. CI is therefore the completed Android build/E2E evidence;
 no completed local Android build is claimed.
+
+## Current local Edge verification - 2026-09-10
+
+The D:/flutter host still has no Android SDK; it uses Flutter 3.47.1/Dart 3.13.1.
+2026-09-10: the deterministic harness passed six repetitions across three newly
+opened non-persistent Edge sessions, with individual raw logs and lifecycle
+records. This reduces dependence on one already-open session but still uses one
+host/toolchain and shared build/caches. It is not clean-machine, Narrator, online
+failure or cross-browser evidence. Report work is deferred by user request.
+The native persisted suite had one interrupted first-case stall; its unchanged
+standalone rerun passed 3 cases. Both logs remain under edge-sessions-20260910.
+The original stall is not diagnosed or claimed fixed.
 
 Test-level repetitions (2026-09-09): three fresh invocations each of selected
 unit/widget/golden/Windows suites passed (12/12 total). This extends the initial

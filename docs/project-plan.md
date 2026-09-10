@@ -1,5 +1,17 @@
 # Implementation milestones
 
+## Dedicated loading widget tests - 2026-09-10
+
+Add isolated widget coverage for initial loading at compact/wide widths, delayed
+load failure and gated Retry, and pending save/double-submit prevention. Use
+Completer gates, not sleeps; assert progress semantics, disabled submission,
+draft preservation, final data/empty state and restored controls. Do not change
+app code or golden baselines. Verify focused tests plus full Flutter suite.
+
+Result: focused 4/4 PASS; format/analyze PASS; full suite and coverage each PASS
+61 cases with 8 unchanged goldens. Native/platform builds were not rerun for
+this test-only change. See evidence/manifest.md for dated verification scope.
+
 ## Completed increment: Android CI and APK artifact - 2026-09-09
 
 Add pinned GitHub Actions jobs for Windows quality gates, Android debug/release
@@ -15,6 +27,20 @@ passed Windows quality, Android APK and Android E2E jobs. Artifact
 `taskflow-android-apks` contains debug/release APKs and checksums with 14-day
 retention. Manual APK installation/launch, a physical device, Android online mode,
 production signing, clean-machine setup and manual accessibility remain.
+
+## Current increment: fresh Edge sessions - 2026-09-10
+
+User deferred report work. Extend the existing deterministic Edge runner across
+fresh named browser sessions, retaining raw output, timestamps, exit codes and
+separate workflow/lifecycle durations. Do not change the shipped app or baseline
+images. Acceptance: three fresh sessions with two workflow repetitions each;
+every failure retained and propagated; no replacement of earlier artifacts;
+synthetic runner tests cover failure handling and even-count median; default Web
+build restored. This is one-host evidence, not a clean-machine or Narrator pass.
+
+Result: three fresh sessions / six workflow invocations PASS, with raw per-run
+logs and browser lifecycle records. Synthetic runner contracts PASS. See
+evidence/edge-sessions-20260910/README.md; final gate results are in the manifest.
 
 ## Completed increment: repeated test-level experiment - 2026-09-09
 

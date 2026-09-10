@@ -43,6 +43,9 @@ jobs:
         run: flutter analyze
       - name: Flutter tests
         run: flutter test --coverage
+      - name: Edge runner contracts (synthetic, no browser)
+        shell: pwsh
+        run: ./scripts/tests/edge-runner-contract.ps1
       - name: Backend syntax and tests
         shell: pwsh
         run: |

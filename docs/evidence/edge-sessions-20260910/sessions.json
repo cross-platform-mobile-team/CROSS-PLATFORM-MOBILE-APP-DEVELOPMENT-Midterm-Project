@@ -1,0 +1,29 @@
+[
+  {
+    "Session": "tf-dab29b48657e-1",
+    "StartedUtc": "2026-09-10T11:28:26.7798047Z",
+    "Repetitions": 2,
+    "SecondsIncludingLifecycle": 19.94,
+    "Result": "PASS",
+    "Error": null,
+    "Directory": "session-1"
+  },
+  {
+    "Session": "tf-dab29b48657e-2",
+    "StartedUtc": "2026-09-10T11:28:46.7493485Z",
+    "Repetitions": 2,
+    "SecondsIncludingLifecycle": 19.766,
+    "Result": "PASS",
+    "Error": null,
+    "Directory": "session-2"
+  },
+  {
+    "Session": "tf-dab29b48657e-3",
+    "StartedUtc": "2026-09-10T11:29:06.5164740Z",
+    "Repetitions": 2,
+    "SecondsIncludingLifecycle": 19.65,
+    "Result": "PASS",
+    "Error": null,
+    "Directory": "session-3"
+  }
+]

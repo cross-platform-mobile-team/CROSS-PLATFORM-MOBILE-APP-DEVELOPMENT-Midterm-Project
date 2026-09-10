@@ -40,24 +40,27 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ## 3. Current repository state
 
-- Current continuation checkout:
-  `C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project`;
+- Current continuation checkout (2026-09-10): `D:/flutter`;
   development branch `main-test`, tracking `origin/main-test`. The configured remote is
   `https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project.git`.
   On 2026-09-06 the user approved a branch name without an agent-name prefix;
   local `main/test` was renamed to `main-test` and successfully pushed.
   Clone with `--branch main-test` to obtain the latest development milestone.
-  Remote `main` was fetched at `a6a79dea11111034363d575a2fa6f63f5f96f0fa`
-  on 2026-09-09; do not overwrite it. Publication targets only `main-test`.
+  Remote `main` was fetched at `bf8ed6835247277e1c9d9de7cc5f32651dadeb3c`
+  on 2026-09-10; do not overwrite it. Publication targets only `main-test`.
   The previous `main/test` push failed because Git cannot have both `main` and
   `main/test`. Stale remote-tracking refs were pruned; normal fetch now succeeds.
-- Current host recheck 2026-09-09: Flutter 3.47.0 / Dart 3.13.0 at
+- Current host recheck 2026-09-10: Flutter 3.47.1 / Dart 3.13.1 at
+  `C:/Users/LENOVO/flutter-sdk`; Windows 11 10.0.26200.9168; VS Build Tools
+  2022 17.14.39. Windows, Chrome and Edge available; Android SDK absent locally.
+  Flutter/Dart are outside PATH; use the SDK bin .bat files.
+- Other host recheck 2026-09-09: Flutter 3.47.0 / Dart 3.13.0 at
   `C:/Users/Nguyen Long/develop/flutter`; Windows 11 `10.0.26200.9168`; Android
   SDK `C:/Android/sdk`, build-tools 36.0.0, NDK `28.2.13676358`, emulator 37.1.11,
   Temurin JDK 17 and Google APIs Android 16/API 36 AVD `taskflow_api36`.
   Flutter detected it as `emulator-5554`; `flutter doctor -v` reports only unknown
   Android license status. Recheck each machine/session. Older environment evidence
-  under `docs/` accurately records a different host where Android was absent.
+  under `docs/` distinguishes these hosts; do not assume their installed SDKs match.
 - Implemented: persisted CRUD, completion, one-level session undo, notes,
   priority, calendar due dates, normalized tags, combined filters and stable
   sorting; injected repository, clock and ID seams. Since the user-authorized
@@ -113,6 +116,31 @@ Incorrect official information causes fixed deductions, so do not guess it.
 - Do not edit a Flutter SDK checkout. All project work belongs in this repo.
 
 ### Next increments (not completed coursework)
+
+2026-09-10: dedicated `test/widget/task_loading_test.dart` adds 4 isolated cases
+for initial load at 390/1100 widths, controlled load failure/retry, and pending
+save with draft preservation/duplicate-submit prevention. Completer gates expose
+loading deterministically; never settle before releasing a gate. The local suite
+now has 61 cases; published historical 57-case results must not be relabelled.
+App source, dependencies and 8 golden baselines are unchanged.
+
+2026-09-10: user deferred report work and requested engineering improvements.
+`scripts/test-edge-harness.ps1` now accepts `-Sessions` (default 1) and opens a
+unique non-persistent Edge session per group of repetitions. Output goes into a
+unique ignored output/playwright folder; retain per-run raw logs/exit codes and
+session lifecycle records. The repetition runner continues after assertion/CLI
+failure but ultimately throws, rejects existing output directories and computes
+even-count median correctly. `scripts/tests/edge-runner-contract.ps1` verifies
+these safeguards using a synthetic CLI; it is not app/defect evidence. Do not
+equate fresh browser sessions on one host with clean-machine, Narrator or Android
+verification. Report artifacts remain untouched in this increment.
+Observed Edge result: 6/6 across 3 sessions PASS. During the local native gate,
+the persisted suite stalled after its first case name and was interrupted; an
+unchanged standalone rerun with a 90-second diagnostic bound passed all 3 cases.
+Preserve both logs under docs/evidence/edge-sessions-20260910; root cause remains
+unconfirmed. Do not relabel the interrupted attempt as PASS.
+The Windows CI job now also invokes this synthetic runner contract; local PASS
+does not imply the new hosted invocation has completed.
 
 2026-09-09: the signed-in account settings screen now has semantic section
 headings, ordered profile/password form traversal, IME Next/Done actions, autofill

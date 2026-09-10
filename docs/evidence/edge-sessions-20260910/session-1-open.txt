@@ -1,0 +1,10 @@
+### Browser `tf-dab29b48657e-1` opened with pid 17240.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:7359/?scenario=discovery');
+```
+### Page
+- Page URL: http://127.0.0.1:7359/?scenario=discovery
+- Page Title: taskflow_qa_lab
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-09-10T11-28-29-738Z.yml)

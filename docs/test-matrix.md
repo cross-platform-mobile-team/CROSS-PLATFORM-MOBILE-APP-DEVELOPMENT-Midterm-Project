@@ -1,5 +1,15 @@
 # Bootstrap tests
 
+## Dedicated widget loading coverage - 2026-09-10
+
+`flutter test test/widget/task_loading_test.dart --reporter expanded`: four cases,
+fresh in-memory repositories and Completer gates. Initial loading at 390/1100
+widths checks progress label, disabled Add, no premature empty/data state and
+blocked keyboard submission. Releasing the gate restores data/controls. A load
+failure transitions through gated Retry to empty. Pending save retains the draft
+and blocks duplicate keyboard submission; release produces exactly one stored
+task and clears the successfully saved draft. No sleeps or real storage/network.
+
 ## Android and CI gate - 2026-09-09
 
 | Risk | Scenario | Command/job | Result |

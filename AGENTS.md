@@ -117,6 +117,13 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ### Next increments (not completed coursework)
 
+2026-09-10: dedicated `test/widget/task_loading_test.dart` adds 4 isolated cases
+for initial load at 390/1100 widths, controlled load failure/retry, and pending
+save with draft preservation/duplicate-submit prevention. Completer gates expose
+loading deterministically; never settle before releasing a gate. The local suite
+now has 61 cases; published historical 57-case results must not be relabelled.
+App source, dependencies and 8 golden baselines are unchanged.
+
 2026-09-10: user deferred report work and requested engineering improvements.
 `scripts/test-edge-harness.ps1` now accepts `-Sessions` (default 1) and opens a
 unique non-persistent Edge session per group of repetitions. Output goes into a

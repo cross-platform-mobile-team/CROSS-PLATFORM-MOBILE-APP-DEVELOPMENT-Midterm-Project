@@ -14,7 +14,7 @@ an isolated offline demo. This is not yet the final coursework submission.
 - Local JSON persistence using SharedPreferencesAsync.
 - Loading, empty, error and retry states; constrained responsive layout.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
-- 57 unit/widget/golden tests, including 8 phone/wide visual baselines,
+- 61 unit/widget/golden tests, including 8 phone/wide visual baselines,
   accessibility guidelines, text scaling, keyboard interaction and signed-in
   account-settings validation/focus coverage.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
@@ -135,7 +135,7 @@ flutter build web --release
 ```
 
 Latest commands and results: [evidence manifest](docs/evidence/manifest.md).
-The 57-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
+The 61-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
 read [golden and accessibility setup](docs/golden-testing.md) before running on a
 different host or changing images. Android API 36 now has the separate hosted CI
 evidence described above; golden images still are not Android-device screenshots.

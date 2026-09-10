@@ -2,6 +2,10 @@
 
 ## Current continuation host - 2026-09-10
 
+Version, doctor and devices rechecked for dedicated loading-widget tests:
+the Flutter 3.47.1/Dart 3.13.1, Windows/Edge/Chrome and missing local Android SDK
+status below are unchanged. No toolchain installation or modification.
+
 Checkout D:/flutter uses Flutter 3.47.1/Dart 3.13.1 at
 C:/Users/LENOVO/flutter-sdk. Windows, Edge and Chrome are available; no Android
 SDK exists on this host. The exact version/doctor/device recheck is recorded in

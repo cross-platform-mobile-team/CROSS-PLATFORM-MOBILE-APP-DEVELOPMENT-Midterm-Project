@@ -1,5 +1,10 @@
 # Initial rubric traceability
 
+Dedicated loading widget coverage (2026-09-10): task_loading_test.dart adds four
+cases for compact/wide initial loading, error-to-retry-to-empty, and pending-save
+draft preservation/duplicate-submit prevention. The local Flutter suite now has
+61 cases; historical CI counts remain tied to their original commits.
+
 2026-09-10 engineering increment (report deferred): fresh Edge sessions extend
 the one-session repetition study. `scripts/test-edge-harness.ps1 -Sessions 3
 -Repetitions 2` retains individual logs and machine-readable results; synthetic
@@ -38,7 +43,7 @@ workflow executions on an Android 16/API 36 emulator.
 | Meaningful workflow | CRUD, metadata, search, filters, sort, undo | Widget CRUD/metadata tests and Windows workflows | Broader failure/platform scenarios |
 | Robustness | Loading, empty, error/retry, persist before state change | Native plus Edge harness load/save failures, Retry and draft preservation; API/client failures | Public deployment/long-duration failure evidence |
 | Cross-platform | Android/Web/Windows runners | Edge online lifecycle/sample plus deterministic harness; Windows release/native suites; hosted API 36 APK/E2E gate | Physical Android/manual APK and Android online mode; another browser/host |
-| Testing pyramid | 57 unit/widget/golden cases, 10 Windows case executions across 4 suites, 9 Android executions across 3 of those suites, 14 API cases; Edge CLI checks | Latest evidence/manifest.md; independent-e2e.md; web-edge-testing.md; Actions run #2 | Browser/platform expansion; report comparison |
+| Testing pyramid | 61 local unit/widget/golden cases, 10 Windows case executions across 4 suites, 9 Android executions across 3 of those suites, 14 API cases; Edge CLI checks | Latest evidence/manifest.md; independent-e2e.md; web-edge-testing.md; Actions run #2 covers its earlier 57-case source | Browser/platform expansion; report comparison |
 | Visual/accessibility | Phone/wide baselines, validation errors, account entry/settings guidelines, focus recovery/order, 200% text and text-only tag semantics | test/golden; widget/accessibility_test.dart; widget/sample_accessibility_test.dart; widget/account_settings_accessibility_test.dart; Edge snapshots | Manual Narrator/full-page physical focus order and clean-machine assistive-technology pass |
 | Safe sample data | Fresh in-memory repository per sample entry; no offline overwrite/upload | Widget isolation/reset and scripts/browser/edge-sample-check.js | Clean-machine demo rehearsal |
 | Experiments | Search mutation; repeated browser and four test-level commands | Intentional-defect fail/fix artifacts; five-run Edge and three-round test-level timing experiments | Broader sessions/hosts and report synthesis |

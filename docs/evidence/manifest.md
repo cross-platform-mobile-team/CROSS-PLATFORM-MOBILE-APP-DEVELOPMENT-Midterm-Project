@@ -1,5 +1,25 @@
 # Evidence manifest
 
+## Dedicated loading widget tests - 2026-09-10
+
+Only widget tests and maintenance documentation changed; app/backend code,
+dependencies and golden images are unchanged. No report work performed.
+
+| Command | Result | Evidence |
+|---|---|---|
+| flutter test test/widget/task_loading_test.dart --reporter expanded | PASS 4 | Direct focused run; also included in full logs below |
+| dart format --output=none --set-exit-if-changed . | PASS, 41 files unchanged | Direct command output |
+| flutter analyze | PASS | loading-widget-analyze-20260910.txt |
+| flutter test --reporter expanded | PASS 61, including 8 unchanged goldens | loading-widget-suite-20260910.txt |
+| flutter test --coverage --reporter expanded | PASS 61 | loading-widget-coverage-20260910.txt |
+| Native/API/Windows-Web builds | NOT RERUN for this test-only increment | Previous same-day source gates below; native interrupted attempt remains documented |
+| Android local build / manual accessibility | NOT RUN | Local SDK absent; manual protocol remains pending |
+
+Loading now has standalone widget coverage, not only integration assertions.
+Progress label, disabled Add, keyboard-submit protection, retained draft,
+error/retry and data/empty transitions use explicit completion gates without
+sleeps. These four cases do not add native, browser or screen-reader evidence.
+
 ## Android and CI verification on the other host - 2026-09-09
 
 | Check | Result | Evidence |

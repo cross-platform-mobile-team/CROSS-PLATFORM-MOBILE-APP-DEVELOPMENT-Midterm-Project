@@ -1,5 +1,17 @@
 # Implementation milestones
 
+## Dedicated loading widget tests - 2026-09-10
+
+Add isolated widget coverage for initial loading at compact/wide widths, delayed
+load failure and gated Retry, and pending save/double-submit prevention. Use
+Completer gates, not sleeps; assert progress semantics, disabled submission,
+draft preservation, final data/empty state and restored controls. Do not change
+app code or golden baselines. Verify focused tests plus full Flutter suite.
+
+Result: focused 4/4 PASS; format/analyze PASS; full suite and coverage each PASS
+61 cases with 8 unchanged goldens. Native/platform builds were not rerun for
+this test-only change. See evidence/manifest.md for dated verification scope.
+
 ## Completed increment: Android CI and APK artifact - 2026-09-09
 
 Add pinned GitHub Actions jobs for Windows quality gates, Android debug/release

@@ -1,6 +1,14 @@
 # Environment
 
-## Current continuation host - 2026-09-09
+## Current continuation host - 2026-09-10
+
+Checkout D:/flutter uses Flutter 3.47.1/Dart 3.13.1 at
+C:/Users/LENOVO/flutter-sdk. Windows, Edge and Chrome are available; no Android
+SDK exists on this host. The exact version/doctor/device recheck is recorded in
+the dated entry below. Upstream commits through ef45561 from the other host were
+retained, including Dart 3.13.0 compatibility and successful Android CI evidence.
+
+## Other development host - 2026-09-09
 
 - Windows 11 `10.0.26200.9168`; Flutter 3.47.0 (`4cf2416426`), Dart 3.13.0
   and DevTools 2.60.0 at `C:\Users\Nguyen Long\develop\flutter`.
@@ -26,9 +34,16 @@
 
 The dated entries below remain accurate for the machines and milestones where
 they were recorded. Their statements that Android SDK was missing do not describe
-the current continuation host.
+every host. The September 10 D:/flutter host still lacks the Android SDK.
 
 ### Environment rechecked 2026-09-07
+
+Rechecked 2026-09-10 for fresh Edge-session automation: `flutter --version`,
+`dart --version`, `flutter doctor -v` and `flutter devices` report Flutter 3.47.1
+(6655482ec0 / engine 5d53178869), Dart 3.13.1, DevTools 2.60.0, Windows
+10.0.26200.9168, VS Build Tools 2022 17.14.39, Windows SDK 10.0.26100.0,
+Chrome 149.0.7827.201 and Edge 152.0.4191.66. Android SDK remains absent;
+Flutter/Dart remain outside PATH. No SDK or global tool installation performed.
 
 Rechecked again for the test-level repetition/publication increment on 2026-09-09:
 Flutter/Dart version, doctor and devices match the account-settings gate below.

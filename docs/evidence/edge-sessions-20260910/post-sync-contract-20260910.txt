@@ -1,0 +1,27 @@
+Raw results: D:\flutter\output\playwright\runner-contract-007023021472423ab40e046a1e10e5be\mixed
+TaskFlow Edge harness repeated-run experiment
+Started UTC: 2026-09-10T11:37:36.2836601Z
+CLI package: @playwright/cli@0.1.19
+Session: taskflow-harness
+Repetitions: 4
+Synthetic missing assertion result
+Edge harness run 2 failed with exit code 0; retaining result and continuing.
+{"result":"PASS"}
+Edge harness run 3 failed with exit code 7; retaining result and continuing.
+
+Run Result Seconds StartedUtc                   ExitCode Session          Log       Command
+--- ------ ------- ----------                   -------- -------          ---       -------
+  1 PASS      0,03 2026-09-10T11:37:36.2928311Z        0 taskflow-harness run-1.txt @playwright/cli@0.1.19 playwright-c…
+  2 FAIL      0,01 2026-09-10T11:37:36.3480872Z        0 taskflow-harness run-2.txt @playwright/cli@0.1.19 playwright-c…
+  3 FAIL      0,01 2026-09-10T11:37:36.3801196Z        7 taskflow-harness run-3.txt @playwright/cli@0.1.19 playwright-c…
+  4 PASS      0,01 2026-09-10T11:37:36.3913208Z        0 taskflow-harness run-4.txt @playwright/cli@0.1.19 playwright-c…
+
+Passed: 2/4
+Mean seconds: 0.016
+Median seconds: 0.01
+Min seconds: 0.008
+Max seconds: 0.034
+Scope: one Edge version, one Windows host, one open isolated browser session.
+PASS: mixed outcomes, raw logs, continuation, exit codes, no overwrite, successful run and even median.
+Synthetic runner contract only; not Flutter or browser application evidence.
+Contract artifacts: D:\flutter\output\playwright\runner-contract-007023021472423ab40e046a1e10e5be

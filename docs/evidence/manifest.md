@@ -1,6 +1,6 @@
 # Evidence manifest
 
-## Current Android and CI verification - 2026-09-09
+## Android and CI verification on the other host - 2026-09-09
 
 | Check | Result | Evidence |
 |---|---|---|
@@ -17,6 +17,36 @@
 Exact observed run/job/artifact metadata and scope boundaries are retained in
 [android-ci-20260909.md](android-ci-20260909.md). Earlier sections preserve the
 toolchain status and results at their dated milestones.
+
+## Latest: independent Edge sessions and runner safeguards - 2026-09-10
+
+User deferred report work. [Verification notes and raw results](edge-sessions-20260910/README.md)
+cover 3 newly opened Edge sessions, 2 existing workflows per session, all 6 PASS.
+Command: `scripts/test-edge-harness.ps1 -Flutter C:\Users\LENOVO\flutter-sdk\bin\flutter.bat -Sessions 3 -Repetitions 2`.
+Individual logs, exit codes, timestamps and separate workflow/lifecycle durations
+are preserved; default main.dart Web release was restored. This remains one-host
+synthetic-harness evidence, not online failure, Narrator or clean-machine testing.
+
+All files below are in `edge-sessions-20260910/`:
+
+| Gate | Outcome | Raw file |
+|---|---|---|
+| Three Edge sessions / six workflows | PASS | sessions.json; session-1/ through session-3/; fresh-sessions-orchestration-20260910.txt |
+| Synthetic runner failure propagation, no overwrite, median | PASS (not app evidence) | runner-contract-20260910.txt |
+| Dart format / Flutter analyze | PASS / PASS | format.txt; analyze.txt |
+| Flutter tests / coverage | PASS 57 / PASS 57; 8 goldens unchanged | flutter-tests.txt; flutter-coverage.txt |
+| Backend syntax / Node tests | PASS / PASS 14 | backend-tests-20260910.txt (tests); syntax command checked directly |
+| Windows preference / controlled suites | PASS 2 / PASS 4 | native-windows_workflow_test.txt; native-independent_scenarios_test.txt |
+| Windows persisted suite, initial attempt | INTERRUPTED at first case; not PASS | native-persisted_scenarios_test.txt |
+| Same persisted suite, standalone --timeout 90s | PASS 3, no code/assertion change; original stall unexplained | native-persisted-retry.txt |
+| Windows real API/SQLite | PASS 1 | native-online.txt |
+| Windows release / default Web release | PASS / PASS | build-windows.txt; fresh-sessions-orchestration-20260910.txt |
+| Android/APK on this local host | NOT RUN; Android SDK absent | environment.md records local toolchain |
+| Manual Narrator / clean-machine setup | NOT RUN | Separate future gates |
+
+Upstream CI evidence at `9ca2a96` was retained during synchronization, and its run
+34377270886 was rechecked through GitHub's API as completed/success. This is a
+different execution from this local gate; see [Android CI evidence](android-ci-20260909.md).
 
 ## Previous: test-level repetitions and publication - 2026-09-09
 

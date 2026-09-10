@@ -16,6 +16,20 @@ passed Windows quality, Android APK and Android E2E jobs. Artifact
 retention. Manual APK installation/launch, a physical device, Android online mode,
 production signing, clean-machine setup and manual accessibility remain.
 
+## Current increment: fresh Edge sessions - 2026-09-10
+
+User deferred report work. Extend the existing deterministic Edge runner across
+fresh named browser sessions, retaining raw output, timestamps, exit codes and
+separate workflow/lifecycle durations. Do not change the shipped app or baseline
+images. Acceptance: three fresh sessions with two workflow repetitions each;
+every failure retained and propagated; no replacement of earlier artifacts;
+synthetic runner tests cover failure handling and even-count median; default Web
+build restored. This is one-host evidence, not a clean-machine or Narrator pass.
+
+Result: three fresh sessions / six workflow invocations PASS, with raw per-run
+logs and browser lifecycle records. Synthetic runner contracts PASS. See
+evidence/edge-sessions-20260910/README.md; final gate results are in the manifest.
+
 ## Completed increment: repeated test-level experiment - 2026-09-09
 
 Run three separate Flutter processes per level (unit, widget, golden, Windows

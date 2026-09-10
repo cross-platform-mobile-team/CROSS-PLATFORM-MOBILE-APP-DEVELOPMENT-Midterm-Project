@@ -1,0 +1,22 @@
+[
+  {
+    "Run": 1,
+    "Result": "PASS",
+    "Seconds": 7.936,
+    "StartedUtc": "2026-09-10T11:29:09.2913688Z",
+    "ExitCode": 0,
+    "Session": "tf-dab29b48657e-3",
+    "Log": "run-1.txt",
+    "Command": "@playwright/cli@0.1.19 playwright-cli -s=tf-dab29b48657e-3 run-code --filename D:\\flutter\\scripts\\browser\\edge-harness-check.js"
+  },
+  {
+    "Run": 2,
+    "Result": "PASS",
+    "Seconds": 6.806,
+    "StartedUtc": "2026-09-10T11:29:17.2297387Z",
+    "ExitCode": 0,
+    "Session": "tf-dab29b48657e-3",
+    "Log": "run-2.txt",
+    "Command": "@playwright/cli@0.1.19 playwright-cli -s=tf-dab29b48657e-3 run-code --filename D:\\flutter\\scripts\\browser\\edge-harness-check.js"
+  }
+]

@@ -1,5 +1,11 @@
 # Initial rubric traceability
 
+2026-09-10 engineering increment (report deferred): fresh Edge sessions extend
+the one-session repetition study. `scripts/test-edge-harness.ps1 -Sessions 3
+-Repetitions 2` retains individual logs and machine-readable results; synthetic
+runner contracts protect failure propagation and evidence preservation. This
+addresses browser repeatability/reproducibility, not broader-host or CI coverage.
+
 Test timing/repetition increment: `scripts/repeat-test-levels.ps1` measures fresh
 Flutter invocations for four existing suites, with rotated order and raw results.
 All 12 invocations passed; interpretation and evidence are recorded in

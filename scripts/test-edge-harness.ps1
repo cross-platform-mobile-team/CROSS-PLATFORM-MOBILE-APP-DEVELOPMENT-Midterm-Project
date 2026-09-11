@@ -5,7 +5,8 @@ param(
   [ValidateRange(1, 50)]
   [int]$Repetitions = 5,
   [ValidateRange(1, 20)]
-  [int]$Sessions = 1
+  [int]$Sessions = 1,
+  [switch]$NoPub
 )
 
 $ErrorActionPreference = 'Stop'
@@ -24,6 +25,8 @@ $server = $null
 $browserOpened = $false
 $sessionRows = @()
 $failures = @()
+$dependencyArgs = @()
+if ($NoPub) { $dependencyArgs += '--no-pub' }
 
 if (Get-NetTCPConnection -State Listen -LocalPort $Port -ErrorAction SilentlyContinue) {
   throw "Port $Port is already in use; choose another -Port value."
@@ -35,7 +38,8 @@ try {
   git status --short | Out-File (Join-Path $artifacts 'source.txt') -Append
   & $flutterCommand --version 2>&1 | Tee-Object -FilePath (Join-Path $artifacts 'environment.txt')
   if ($LASTEXITCODE -ne 0) { throw 'Cannot read Flutter version.' }
-  & $flutterCommand build web --release --target lib/browser_test_harness.dart --dart-define=TASKFLOW_BROWSER_HARNESS=true
+  # Serve the bundled renderer locally so CDN availability cannot gate QA startup.
+  & $flutterCommand build web --release --no-web-resources-cdn --target lib/browser_test_harness.dart --dart-define=TASKFLOW_BROWSER_HARNESS=true @dependencyArgs
   if ($LASTEXITCODE -ne 0) { throw 'Browser harness build failed.' }
 
   $server = Start-Process -FilePath $python -ArgumentList @(
@@ -101,7 +105,7 @@ try {
     $server.WaitForExit()
   }
   Write-Output 'Restoring the default Web release build (API 127.0.0.1:8080).'
-  & $flutterCommand build web --release
+  & $flutterCommand build web --release --no-web-resources-cdn @dependencyArgs
   $restoreExitCode = $LASTEXITCODE
   Pop-Location
   Write-Output "Session evidence: $artifacts"

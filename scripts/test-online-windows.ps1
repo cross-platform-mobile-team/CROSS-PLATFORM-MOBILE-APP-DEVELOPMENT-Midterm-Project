@@ -1,7 +1,8 @@
 param(
     [string]$FlutterSdk = "$env:USERPROFILE\flutter-sdk",
     [string]$NodeExecutable = 'node',
-    [int]$Port = 8081
+    [int]$Port = 8081,
+    [switch]$NoPub
 )
 $ErrorActionPreference = 'Stop'
 if ($Port -lt 1 -or $Port -gt 65535) { throw 'Port must be 1-65535.' }
@@ -34,7 +35,9 @@ try {
         Start-Sleep -Milliseconds 100
     }
     if (!$ready) { throw 'Test backend did not become healthy within 20 seconds.' }
-    & $flutterCommand test integration_test/online_workflow_test.dart -d windows "--dart-define=API_BASE_URL=http://127.0.0.1:$Port" --reporter expanded
+    $dependencyArgs = @()
+    if ($NoPub) { $dependencyArgs += '--no-pub' }
+    & $flutterCommand test integration_test/online_workflow_test.dart -d windows "--dart-define=API_BASE_URL=http://127.0.0.1:$Port" --reporter expanded @dependencyArgs
     if ($LASTEXITCODE -ne 0) { throw "Online integration test failed with code $LASTEXITCODE" }
 } finally {
     # Stop only the exact child started by this script, never another user's server.

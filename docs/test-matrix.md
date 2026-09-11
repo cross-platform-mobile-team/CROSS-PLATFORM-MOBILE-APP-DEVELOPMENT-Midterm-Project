@@ -1,5 +1,14 @@
 # Bootstrap tests
 
+## UI refresh - 2026-09-11
+
+- `test/widget/workspace_layout_test.dart`: desktop status navigation changes
+  visible tasks without storage mutation; 200% text falls back to one column.
+- `test/golden/auth_screen_golden_test.dart`: compact/wide sign-in appearance.
+- `test/golden/account_screen_golden_test.dart`: synthetic signed-in settings.
+- Eight existing task goldens intentionally updated after visual review.
+  Full 66-case suite and 10 Windows cases pass; see evidence/manifest.md.
+
 ## Dedicated widget loading coverage - 2026-09-10
 
 `flutter test test/widget/task_loading_test.dart --reporter expanded`: four cases,

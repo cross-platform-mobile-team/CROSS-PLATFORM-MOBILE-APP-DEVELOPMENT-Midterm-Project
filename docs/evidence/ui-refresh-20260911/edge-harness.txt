@@ -1,0 +1,75 @@
+Flutter 3.47.1 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 6655482ec0 (3 weeks ago) • 2026-08-19 10:07:23 -0700
+Engine • hash 11d79658c444477b06513d32b52c8c4ccb7276b0 (revision 5d53178869) (22 days ago) • 2026-08-18 23:36:01.000Z
+Tools • Dart 3.13.1 • DevTools 2.60.0
+Resolving dependencies...
+Downloading packages...
+  clock 1.1.2 (1.1.3 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  platform 3.1.6 (3.2.0 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.2 available)
+  webdriver 3.1.0 (3.2.0 available)
+Got dependencies!
+8 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Compiling lib/browser_test_harness.dart for the Web...          
+Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+Use --no-wasm-dry-run to disable these warnings.
+Font asset "CupertinoIcons.ttf" was tree-shaken, reducing it from 257628 to 1472 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 10592 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling lib/browser_test_harness.dart for the Web...             31,9s
+√ Built build\web
+### Browser `tf-0cf8b7600d02-1` opened with pid 7372.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:7359/?scenario=discovery');
+```
+### Page
+- Page URL: http://127.0.0.1:7359/?scenario=discovery
+- Page Title: taskflow_qa_lab
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-09-10T19-38-01-397Z.yml)
+Raw results: D:\flutter\output\playwright\edge-sessions-0cf8b7600d024ac4b0528a07b704bb0b\session-1
+TaskFlow Edge harness repeated-run experiment
+Started UTC: 2026-09-10T19:38:01.4881532Z
+CLI package: @playwright/cli@0.1.19
+Session: tf-0cf8b7600d02-1
+Repetitions: 1
+
+Run Result Seconds StartedUtc                   ExitCode Session           Log       Command
+--- ------ ------- ----------                   -------- -------           ---       -------
+  1 PASS      7,68 2026-09-10T19:38:01.4887205Z        0 tf-0cf8b7600d02-1 run-1.txt @playwright/cli@0.1.19 playwright-…
+
+Passed: 1/1
+Mean seconds: 7.678
+Median seconds: 7.678
+Min seconds: 7.678
+Max seconds: 7.678
+Scope: one Edge version, one Windows host, one open isolated browser session.
+Browser 'tf-0cf8b7600d02-1' closed
+
+Restoring the default Web release build (API 127.0.0.1:8080).
+Resolving dependencies...
+Downloading packages...
+  clock 1.1.2 (1.1.3 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  platform 3.1.6 (3.2.0 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.2 available)
+  webdriver 3.1.0 (3.2.0 available)
+Got dependencies!
+8 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Compiling lib\main.dart for the Web...                          
+Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+Use --no-wasm-dry-run to disable these warnings.
+Font asset "CupertinoIcons.ttf" was tree-shaken, reducing it from 257628 to 1472 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 12368 bytes (99.2% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling lib\main.dart for the Web...                             31,7s
+√ Built build\web
+Session evidence: D:\flutter\output\playwright\edge-sessions-0cf8b7600d024ac4b0528a07b704bb0b

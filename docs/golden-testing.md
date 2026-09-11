@@ -1,5 +1,14 @@
 # Golden and accessibility verification
 
+## Intentional UI refresh - 2026-09-11
+
+The original eight task states below retain their fixtures and dimensions but
+their baselines were deliberately replaced after reviewing the redesign diffs.
+Three new baselines cover phone/wide sign-in and synthetic account settings
+(11 golden cases total). See [UI review](ui-refresh-20260911.md) for dimensions,
+reviewed differences, test adjustments and scope. Older results below describe
+the original visual milestone, not the redesigned pixels.
+
 Agent-assisted working notes for student review, checked 2026-09-06.
 
 ## Reproduction environment
@@ -70,3 +79,7 @@ behavior. Manual focus order, OS IME, Narrator and browser semantics still need
 separate evidence. This is not a WCAG conformance certification.
 [Flutter accessibility testing](https://docs.flutter.dev/ui/accessibility/accessibility-testing)
 (accessed 2026-09-06) describes guideline checks and platform inspection.
+Color-studio refinement: all 11 baselines were subsequently reviewed and
+intentionally replaced for the violet palette/geometric header. See
+color-studio-ui.md and evidence/color-studio/. Historical UI-refresh logs remain
+unaltered; latest baseline files represent the color-studio design.

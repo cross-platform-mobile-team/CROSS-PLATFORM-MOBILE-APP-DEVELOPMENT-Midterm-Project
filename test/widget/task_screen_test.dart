@@ -42,6 +42,8 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.text('Retry'), findsOneWidget);
+    await tester.ensureVisible(find.text('Retry'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Retry'));
     await tester.pumpAndSettle();
     expect(

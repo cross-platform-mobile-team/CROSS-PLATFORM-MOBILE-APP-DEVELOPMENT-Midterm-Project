@@ -1,0 +1,13 @@
+### Result
+3. [GET] https://www.gstatic.com/flutter-canvaskit/5d531788691ec3404cac0cee66ead4007b177363/chromium/canvaskit.wasm => [200] 
+7. [GET] http://127.0.0.1:7359/assets/FontManifest.json => [200] OK
+8. [GET] http://127.0.0.1:7359/assets/fonts/MaterialIcons-Regular.otf => [200] OK
+9. [GET] http://127.0.0.1:7359/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf => [200] OK
+10. [GET] https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2 => [200] 
+13. [GET] https://www.gstatic.com/flutter-canvaskit/5d531788691ec3404cac0cee66ead4007b177363/chromium/canvaskit.wasm
+16. [GET] http://127.0.0.1:7359/assets/FontManifest.json => [200] OK
+18. [GET] http://127.0.0.1:7359/assets/fonts/MaterialIcons-Regular.otf => [200] OK
+19. [GET] http://127.0.0.1:7359/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf => [200] OK
+20. [GET] https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2 => [200] 
+
+Note: 10 static requests not shown, run with --static option to see them.

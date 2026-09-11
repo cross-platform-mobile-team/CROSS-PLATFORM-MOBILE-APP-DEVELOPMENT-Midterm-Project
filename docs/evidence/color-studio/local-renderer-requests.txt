@@ -1,0 +1,3 @@
+The browser 'tf-f0ea5c7d95cc-1' is not open, please run open first
+
+  playwright-cli -s=tf-f0ea5c7d95cc-1 open [params]

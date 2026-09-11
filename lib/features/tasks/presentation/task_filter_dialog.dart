@@ -19,6 +19,7 @@ class _TaskFilterDialogState extends State<TaskFilterDialog> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
+    icon: const Icon(Icons.tune_rounded),
     title: const Text('Filter and sort'),
     content: SizedBox(
       width: 360,

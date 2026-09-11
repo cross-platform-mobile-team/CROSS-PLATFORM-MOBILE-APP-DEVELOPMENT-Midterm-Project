@@ -14,18 +14,31 @@ an isolated offline demo. This is not yet the final coursework submission.
 - Local JSON persistence using SharedPreferencesAsync.
 - Loading, empty, error and retry states; constrained responsive layout.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
-- 61 unit/widget/golden tests, including 8 phone/wide visual baselines,
+- Shared modern indigo theme, responsive status navigation, task cards and
+  cohesive sign-in/settings panels. See [UI review](docs/ui-refresh-20260911.md).
+- Latest [color studio refinement](docs/color-studio-ui.md): violet actions,
+  mint/peach task surfaces and original geometric header with readable labels.
+
+- 66 unit/widget/golden tests, including 11 task/auth/settings visual baselines,
   accessibility guidelines, text scaling, keyboard interaction and signed-in
   account-settings validation/focus coverage.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
 - Account registration/login, profile/password/recovery, session revocation and
   account deletion; server-owned per-user tasks and conflict-safe writes.
-- 14 backend tests, 10 Windows integration case executions and 9 Android API 36
-  case executions. The Android gate repeats the 4 controlled-repository, 3
+- 14 backend tests and 10 Windows integration case executions pass for the UI refresh.
+  Historical Android API 36 evidence has 9 case executions, not a run of this UI.
+  That Android gate repeats the 4 controlled-repository, 3
   persisted-preference and 2 preference-backed workflows; the online API/SQLite
   workflow remains Windows-only. See the evidence manifest for fidelity boundaries.
 
 ## Run
+
+For a Web build with locally served renderer assets, use
+`flutter build web --release --no-web-resources-cdn`. Serve the complete
+`build/web` directory, including `canvaskit/`. The Edge QA script uses this flag
+for its test build and default-app restoration. This alone does not establish
+fully offline Web support. `-NoPub` on the Edge/online test scripts is optional
+and requires already-resolved dependencies matching `pubspec.lock`.
 
 Recorded golden/evidence baseline and the D:/flutter host: Flutter 3.47.1 and
 Dart 3.13.1. The other development host and CI use Flutter 3.47.0 / Dart 3.13.0; `pubspec.yaml`

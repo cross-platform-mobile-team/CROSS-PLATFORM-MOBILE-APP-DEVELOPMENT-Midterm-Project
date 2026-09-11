@@ -117,6 +117,25 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ### Next increments (not completed coursework)
 
+Color-studio continuation: shared violet/mint/peach theme and original geometric
+StudioHeader supplement explicit status/priority text. Eleven golden images were
+reviewed before replacement. See docs/color-studio-ui.md and evidence/color-studio
+for this revision; earlier UI evidence is historical. No push/report authorized.
+Edge bootstrap stalled on an outstanding CDN CanvasKit WASM request; the QA
+script now uses --no-web-resources-cdn for both builds. Two repetitions passed
+after this change; do not relabel the three original failures. Optional -NoPub
+requires resolved dependencies and does not claim fully offline Web support.
+
+2026-09-11: user requested a comprehensive UI refresh, not a push or report.
+Shared theme/components, responsive task status rail, auth split layout and
+settings panels are implemented. Preserve accessible headings, 48-pixel actions,
+loading gates and existing task/API contracts. The task column is eagerly built
+for the small coursework dataset; do not claim large-list performance. Eight
+task goldens were intentionally reviewed/replaced and three auth/settings
+goldens added; historical 8-golden evidence stays historical. New navigation and
+large-text fallback tests accompany the change. See docs/ui-refresh-20260911.md
+and the latest evidence manifest for actual verification, not assumed Android CI.
+
 2026-09-10: dedicated `test/widget/task_loading_test.dart` adds 4 isolated cases
 for initial load at 390/1100 widths, controlled load failure/retry, and pending
 save with draft preservation/duplicate-submit prevention. Completer gates expose

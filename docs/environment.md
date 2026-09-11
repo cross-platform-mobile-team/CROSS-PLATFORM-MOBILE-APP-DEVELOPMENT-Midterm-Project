@@ -1,5 +1,9 @@
 # Environment
 
+UI refresh host rechecked 2026-09-11: Flutter 3.47.1 / Dart 3.13.1, Windows
+10.0.26200.9168, VS Build Tools 2022 17.14.39 and Edge 152.0.4191.66 remain the
+same. Android SDK is absent locally; no upgrades/installations performed.
+
 ## Current continuation host - 2026-09-10
 
 Version, doctor and devices rechecked for dedicated loading-widget tests:
@@ -100,3 +104,6 @@ version commands, doctor -v and devices. Engine revision: 5d53178869;
 DevTools 2.60.0. Doctor still reports PATH warnings and missing Android SDK.
 Golden rendering parameters and font sources are recorded in golden-testing.md;
 the host's vi-VN locale is overridden to en-US in visual fixtures.
+Color-studio continuation recheck: Windows 10.0.26200.9445; Flutter 3.47.1,
+Dart 3.13.1, VS Build Tools 17.14.39, Edge 152.0.4191.66, Chrome
+149.0.7827.201. Android SDK still absent. SDK remains outside PATH.

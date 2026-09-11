@@ -1,5 +1,16 @@
 # Initial rubric traceability
 
+Color studio acceptance: color supplements text/status, never replaces it;
+decorative geometry excluded from semantics; compact/200% layout and existing
+CRUD/retry assertions remain. Visual baselines require explicit review.
+
+UI refresh (2026-09-11): shared theme and surfaces, responsive task status rail,
+auth split layout and account sections. Existing validation/CRUD/loading semantics
+remain covered. Navigation/large-text tests and sign-in/settings goldens added;
+all eight changed task goldens reviewed before intentional baseline replacement.
+Current local suite: 66 cases including 11 goldens; 10 Windows cases pass.
+See evidence/manifest.md for commands, logs and unverified Android/manual gates.
+
 Dedicated loading widget coverage (2026-09-10): task_loading_test.dart adds four
 cases for compact/wide initial loading, error-to-retry-to-empty, and pending-save
 draft preservation/duplicate-submit prevention. The local Flutter suite now has

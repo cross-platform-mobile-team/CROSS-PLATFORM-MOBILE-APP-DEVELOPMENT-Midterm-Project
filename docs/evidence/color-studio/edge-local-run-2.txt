@@ -1,0 +1,132 @@
+### Result
+{"result":"PASS","checks":["load retry","accessible validation","save failure","draft preservation","successful retry","normalized search","AND filters","exact tag normalization","deterministic title order","no-match state","clear restores newest order"]}
+### Ran Playwright code
+```js
+await (// Run through playwright-cli after opening the dedicated browser QA build.
+// The harness contains only synthetic in-memory data and has no API client.
+async (page) => {
+  const pending = new Set();
+  const failed = [];
+  const onRequest = request => pending.add(request.url());
+  const onFinished = request => pending.delete(request.url());
+  const onFailed = request => {
+    pending.delete(request.url());
+    failed.push({ url: request.url(), error: request.failure()?.errorText });
+  };
+  page.on('request', onRequest);
+  page.on('requestfinished', onFinished);
+  page.on('requestfailed', onFailed);
+  try {
+  const error = 'Unable to access your tasks. Please try again.';
+  const enableSemantics = async () => {
+    const enable = page.getByRole('button', { name: 'Enable accessibility' });
+    await enable.waitFor().catch(async error => {
+      const diagnostics = await page.locator('body').evaluate(body => ({
+        text: body.innerText,
+        semantics: body.querySelector('flt-semantics-host')?.innerHTML,
+        placeholder: body.querySelector('flt-semantics-placeholder')?.outerHTML,
+      }));
+      throw new Error(`${error.message}\nSemantics bootstrap diagnostics: ${JSON.stringify({ ...diagnostics, pending: [...pending], failed })}`);
+    });
+    await enable.evaluate(element => element.click());
+    await page.getByRole('heading', { name: 'TaskFlow QA Lab' }).waitFor();
+  };
+  const openScenario = async name => {
+    const origin = await page.evaluate(() => location.origin);
+    await page.goto(`${origin}/?scenario=${name}`);
+    await enableSemantics();
+    await page.getByText('Browser QA harness: synthetic in-memory data only.', { exact: true }).first().waitFor();
+  };
+  const type = async (name, text) => {
+    const field = page.getByRole('textbox', { name, exact: true });
+    await field.click();
+    await page.waitForFunction(label => document.activeElement?.tagName === 'INPUT' &&
+      document.activeElement.getAttribute('aria-label') === label, name);
+    await field.press('ControlOrMeta+A');
+    await field.pressSequentially(text);
+  };
+  const taskNames = async () => page.getByRole('checkbox').evaluateAll(nodes =>
+    nodes.map(node => node.getAttribute('aria-label')?.replace(/\s+/g, ' ').trim()));
+  const expectNames = async expected => {
+    const actual = await taskNames();
+    if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+      throw new Error(`Task order mismatch: ${JSON.stringify(actual)}`);
+    }
+  };
+
+  await openScenario('failure');
+  await page.getByText(error, { exact: true }).first().waitFor();
+  await page.getByRole('button', { name: 'Retry', exact: true }).click();
+  await page.getByText('No tasks yet. Add your first task above.', { exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Add task', exact: true }).click();
+  await page.waitForFunction(() => {
+    const field = document.querySelector('input[aria-label="Task title"]');
+    return field?.getAttribute('aria-invalid') === 'true' &&
+      field.getAttribute('aria-description') === 'Enter a task title';
+  });
+  await type('Task title', 'Keep browser draft');
+  await page.getByRole('button', { name: 'Add task', exact: true }).click();
+  await page.getByText(error, { exact: true }).first().waitFor();
+  const title = page.getByRole('textbox', { name: 'Task title', exact: true });
+  if (await title.inputValue() !== 'Keep browser draft') throw new Error('Draft was lost');
+  await page.getByRole('button', { name: 'Retry', exact: true }).click();
+  if (await title.inputValue() !== 'Keep browser draft') throw new Error('Retry cleared draft');
+  await page.getByRole('button', { name: 'Add task', exact: true }).click();
+  await page.getByRole('checkbox', { name: 'Keep browser draft Pending', exact: true }).waitFor();
+  await expectNames(['Keep browser draft Pending']);
+
+  await openScenario('discovery');
+  await page.getByRole('checkbox', { name: 'Delta ready Completed', exact: true }).waitFor();
+  await expectNames([
+    'Delta ready Completed',
+    'Gamma ready Pending',
+    'Beta ready Pending',
+    'Alpha ready Pending',
+  ]);
+  await type('Search tasks', '  READY  ');
+  await page.getByRole('button', { name: 'Filter and sort', exact: true }).click();
+  await page.getByRole('button', { name: 'Status all', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'pending', exact: true }).click();
+  await page.getByRole('button', { name: 'Priority all', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'high', exact: true }).click();
+  await type('Exact tag', ' FLUTTER ');
+  await page.getByRole('button', { name: 'Sort by newest', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'title', exact: true }).click();
+  await page.getByRole('button', { name: 'Apply', exact: true }).click();
+  await page.getByRole('checkbox', { name: 'Alpha ready Pending', exact: true }).waitFor();
+  await expectNames(['Alpha ready Pending', 'Beta ready Pending']);
+  await type('Search tasks', 'missing');
+  await page.getByText('No matching tasks.', { exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Clear filters', exact: true }).click();
+  await page.getByRole('checkbox', { name: 'Delta ready Completed', exact: true }).waitFor();
+  await expectNames([
+    'Delta ready Completed',
+    'Gamma ready Pending',
+    'Beta ready Pending',
+    'Alpha ready Pending',
+  ]);
+
+  return {
+    result: 'PASS',
+    checks: [
+      'load retry',
+      'accessible validation',
+      'save failure',
+      'draft preservation',
+      'successful retry',
+      'normalized search',
+      'AND filters',
+      'exact tag normalization',
+      'deterministic title order',
+      'no-match state',
+      'clear restores newest order',
+    ],
+  };
+  } finally {
+    page.off('request', onRequest);
+    page.off('requestfinished', onFinished);
+    page.off('requestfailed', onFailed);
+  }
+}
+)(page);
+```

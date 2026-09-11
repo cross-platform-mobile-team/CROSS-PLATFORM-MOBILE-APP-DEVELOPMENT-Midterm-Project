@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/theme/app_theme.dart';
+
 import '../features/tasks/domain/task_repository.dart';
 import '../features/tasks/presentation/task_screen.dart';
 
@@ -12,17 +14,7 @@ class TaskFlowApp extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
     title: 'TaskFlow QA Lab',
     debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF385A64)),
-      useMaterial3: true,
-      inputDecorationTheme: const InputDecorationTheme(
-        errorStyle: TextStyle(
-          color: Color(0xFF8C1D18),
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    ),
+    theme: AppTheme.light,
     home: home ?? TaskScreen(repository: repository!),
   );
 }

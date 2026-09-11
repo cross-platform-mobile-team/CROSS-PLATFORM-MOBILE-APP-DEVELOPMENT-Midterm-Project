@@ -1,10 +1,29 @@
 // Run through playwright-cli after opening the dedicated browser QA build.
 // The harness contains only synthetic in-memory data and has no API client.
 async (page) => {
+  const pending = new Set();
+  const failed = [];
+  const onRequest = request => pending.add(request.url());
+  const onFinished = request => pending.delete(request.url());
+  const onFailed = request => {
+    pending.delete(request.url());
+    failed.push({ url: request.url(), error: request.failure()?.errorText });
+  };
+  page.on('request', onRequest);
+  page.on('requestfinished', onFinished);
+  page.on('requestfailed', onFailed);
+  try {
   const error = 'Unable to access your tasks. Please try again.';
   const enableSemantics = async () => {
     const enable = page.getByRole('button', { name: 'Enable accessibility' });
-    await enable.waitFor();
+    await enable.waitFor().catch(async error => {
+      const diagnostics = await page.locator('body').evaluate(body => ({
+        text: body.innerText,
+        semantics: body.querySelector('flt-semantics-host')?.innerHTML,
+        placeholder: body.querySelector('flt-semantics-placeholder')?.outerHTML,
+      }));
+      throw new Error(`${error.message}\nSemantics bootstrap diagnostics: ${JSON.stringify({ ...diagnostics, pending: [...pending], failed })}`);
+    });
     await enable.evaluate(element => element.click());
     await page.getByRole('heading', { name: 'TaskFlow QA Lab' }).waitFor();
   };
@@ -99,4 +118,9 @@ async (page) => {
       'clear restores newest order',
     ],
   };
+  } finally {
+    page.off('request', onRequest);
+    page.off('requestfinished', onFinished);
+    page.off('requestfailed', onFailed);
+  }
 }

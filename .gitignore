@@ -55,3 +55,4 @@ backend/node_modules/
 *.sqlite-shm
 /.playwright-cli/
 /output/playwright/
+/test/golden/failures/

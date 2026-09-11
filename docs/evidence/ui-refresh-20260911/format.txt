@@ -1,0 +1,2 @@
+Changed lib\features\account\presentation\auth_screen.dart
+Formatted 45 files (1 changed) in 0.39 seconds.

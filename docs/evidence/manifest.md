@@ -1,5 +1,76 @@
 # Evidence manifest
 
+## Color studio continuation
+
+Evidence under `color-studio/`; preserves the preceding UI-refresh results.
+Environment rechecked: Windows 10.0.26200.9445, Flutter 3.47.1 / Dart 3.13.1.
+
+| Command | Result | Log |
+|---|---|---|
+| dart format --output=none --set-exit-if-changed . | PASS 46 unchanged | format.txt |
+| flutter analyze | PASS | analyze.txt |
+| flutter test --no-pub --reporter expanded | PASS 66 | tests.txt |
+| flutter test --coverage --reporter expanded | PASS 66 | suite.txt |
+| flutter test test/widget --reporter expanded | PASS 30 | color-widget.txt |
+| flutter test test/golden --update-goldens --reporter expanded | PASS 11 after visual review | golden-update.txt |
+| flutter test integration_test/windows_workflow_test.dart -d windows --reporter expanded --timeout 90s | PASS 2 | windows_workflow_test.txt |
+| flutter test integration_test/independent_scenarios_test.dart -d windows --reporter expanded --timeout 90s | PASS 4 | independent_scenarios_test.txt |
+| flutter test integration_test/persisted_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 3 | persisted-rerun.txt |
+| scripts/test-online-windows.ps1 -NoPub | PASS 1 | online.txt |
+| npm --prefix backend test | PASS 14 | backend.txt |
+| scripts/tests/edge-runner-contract.ps1 | PASS synthetic contract only | runner-contract.txt |
+| flutter build windows --release --no-pub | PASS | windows-build.txt |
+| flutter build web --release --no-pub | PASS | web-build.txt |
+| scripts/test-edge-harness.ps1 -Flutter C:/Users/LENOVO/flutter-sdk/bin/flutter.bat -Sessions 1 -Repetitions 2 -NoPub | PASS 2/2 with bundled local renderer | edge-local-renderer.txt |
+| Android APK / manual Narrator / clean-machine install | NOT RUN | Local Android SDK absent; manual gates pending |
+
+The first persisted invocation was interrupted during dependency download,
+before any test ran (persisted-dependency-stall.txt and persisted_scenarios_test.txt).
+No runtime timeout fix is claimed. Cached unchanged dependencies allowed rerun.
+The expected 11 visual differences are retained in color-golden-review.txt;
+all actual images were inspected before baseline replacement. Representative
+old wide populated and masked diff are retained. See ../color-studio-ui.md.
+
+Edge bootstrap: edge.txt, edge-rerun.txt and edge-diagnostic.txt are FAIL, not
+passing workflows. The diagnostic attempt records an outstanding CDN CanvasKit
+WASM request at timeout and an empty semantics tree. browser-requests.txt retains
+the network snapshot. After using --no-web-resources-cdn, two repetitions passed
+without changing workflow assertions/timeouts (local-server-requests.txt and
+edge-local-renderer.txt). Only one host/session; no general reliability claim.
+The later CLI request snapshot in local-renderer-requests.txt was attempted
+after the session closed; it is not network evidence. The local server log above
+records the actual bundled CanvasKit requests.
+runner-contract-final.txt is a synthetic runner check, not browser evidence.
+
+## UI refresh - 2026-09-11
+
+Local Flutter 3.47.1 / Dart 3.13.1, Windows and Edge. Logs below are in
+`ui-refresh-20260911/`. No report, publication or backend-contract changes.
+
+| Command | Result | Log |
+|---|---|---|
+| dart format --output=none --set-exit-if-changed . | PASS | format-final.txt |
+| flutter analyze | PASS | analyze-pass.txt |
+| flutter test --reporter expanded | PASS 66, including 11 goldens | tests-final.txt |
+| flutter test --coverage --reporter expanded | PASS 66 | coverage-final.txt |
+| flutter test integration_test/windows_workflow_test.dart -d windows --reporter expanded --timeout 90s | PASS 2 | native-windows_workflow_test.txt |
+| flutter test integration_test/independent_scenarios_test.dart -d windows --reporter expanded --timeout 90s | PASS 4 | native-independent_scenarios_test.txt |
+| flutter test integration_test/persisted_scenarios_test.dart -d windows --reporter expanded --timeout 90s | PASS 3 | native-persisted_scenarios_test.txt |
+| scripts/test-online-windows.ps1 | PASS 1, isolated API/SQLite | native-online.txt |
+| npm --prefix backend test | PASS 14 | backend.txt |
+| scripts/test-edge-harness.ps1 -Flutter C:/Users/LENOVO/flutter-sdk/bin/flutter.bat -Sessions 1 -Repetitions 1 | PASS 1 run; default Web build restored | edge-harness.txt |
+| flutter build windows --release | PASS | windows-build.txt |
+| flutter build apk --release | NOT RUN: local Android SDK absent | Previous CI is not evidence for this revision |
+| Manual Narrator / clean-machine release / Android UI | NOT RUN | Still pending |
+
+Eight task baselines were deliberately reviewed and replaced; three sign-in/
+settings baselines were added and inspected. See ../ui-refresh-20260911.md.
+The old wide populated image and masked diff are retained here. Initial
+widget failures, expected golden differences and the intermediate lint failure
+in analyze-final.txt remain as development evidence, not passing final gates.
+tests.txt and coverage.txt are preliminary 65-case runs; final files include 66.
+No general flakiness, screen-reader or Android claims follow from these results.
+
 ## Dedicated loading widget tests - 2026-09-10
 
 Only widget tests and maintenance documentation changed; app/backend code,

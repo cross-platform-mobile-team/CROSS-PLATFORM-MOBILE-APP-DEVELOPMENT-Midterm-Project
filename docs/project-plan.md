@@ -1,5 +1,31 @@
 # Implementation milestones
 
+## Color studio refinement
+
+Continue the existing uncommitted UI work: violet/mint/peach palette, decorative
+geometric header and semantic priority surfaces. Preserve labels, contracts and
+48-pixel targets. Review actual/expected golden images before replacement;
+run accessibility, full tests and native gates. No publication/report work.
+
+Result: 66 Flutter cases, 14 backend cases, 10 Windows cases and Web/Windows
+builds PASS. Edge initially stalled on CDN renderer startup; bundled renderer
+build then passed two repetitions. Original failed logs retained. Android and
+manual Narrator remain NOT RUN. See color-studio-ui.md and evidence/manifest.md.
+
+## UI refresh - 2026-09-11
+
+User requested a comprehensive modern UI refresh, not report work or publication.
+Plan: shared accessible visual tokens/components; responsive task workspace and
+status navigation; cohesive auth/settings/dialog surfaces; preserve repository,
+API, stable interaction labels and keyboard behavior. Review intentional golden
+diffs before updating baselines, then run widget/accessibility/golden/native and
+Edge checks plus release builds. No new runtime package, SDK or fabricated data.
+
+Result: implemented and visually reviewed. Format/analyze, 66 Flutter tests
+(11 goldens), 14 API tests, 10 Windows cases, Edge harness and Web/Windows release
+builds PASS. Android/local APK and manual screen-reader checks remain NOT RUN.
+No commit/push or report work performed. See evidence/manifest.md.
+
 ## Dedicated loading widget tests - 2026-09-10
 
 Add isolated widget coverage for initial loading at compact/wide widths, delayed

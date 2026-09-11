@@ -1,0 +1,28 @@
+Resolving dependencies...
+Downloading packages...
+  clock 1.1.2 (1.1.3 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  platform 3.1.6 (3.2.0 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.2 available)
+  webdriver 3.1.0 (3.2.0 available)
+Got dependencies!
+8 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading D:/flutter/test/golden/account_screen_golden_test.dart
+00:00 +0: D:/flutter/test/golden/account_screen_golden_test.dart: (setUpAll)
+00:00 +0: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +1: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +2: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:01 +3: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:01 +4: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:01 +5: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-validation (variant: TargetPlatform.android)
+00:01 +6: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:01 +7: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-empty (variant: TargetPlatform.android)
+00:01 +8: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-populated (variant: TargetPlatform.android)
+00:01 +9: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-validation (variant: TargetPlatform.android)
+00:02 +10: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-error (variant: TargetPlatform.android)
+00:02 +11: D:/flutter/test/golden/task_screen_golden_test.dart: (tearDownAll)
+00:02 +11: All tests passed!

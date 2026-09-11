@@ -56,35 +56,39 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
   Widget build(BuildContext context) => PopScope(
     canPop: !saving,
     child: AlertDialog(
+      icon: const Icon(Icons.edit_note_rounded),
       title: const Text('Edit task'),
-      content: Form(
-        key: form,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextFormField(
-                key: const Key('edit-task-title'),
-                controller: title,
-                autofocus: true,
-                decoration: const InputDecoration(labelText: 'Task title'),
-                validator: TaskItem.validateTitle,
-                enabled: !saving,
-                onFieldSubmitted: (_) => save(),
-              ),
-              if (failed)
-                Semantics(
-                  liveRegion: true,
-                  child: Text(
-                    widget.failureMessage?.call() ?? 'Could not save. Your changes are still here. Try again.',
-                  ),
+      content: SizedBox(
+        width: 440,
+        child: Form(
+          key: form,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextFormField(
+                  key: const Key('edit-task-title'),
+                  controller: title,
+                  autofocus: true,
+                  decoration: const InputDecoration(labelText: 'Task title'),
+                  validator: TaskItem.validateTitle,
+                  enabled: !saving,
+                  onFieldSubmitted: (_) => save(),
                 ),
-              TaskDetailsFields(
-                initial: widget.task.details,
-                enabled: !saving,
-                onChanged: (value) => details = value,
-              ),
-            ],
+                if (failed)
+                  Semantics(
+                    liveRegion: true,
+                    child: Text(
+                      widget.failureMessage?.call() ?? 'Could not save. Your changes are still here. Try again.',
+                    ),
+                  ),
+                TaskDetailsFields(
+                  initial: widget.task.details,
+                  enabled: !saving,
+                  onChanged: (value) => details = value,
+                ),
+              ],
+            ),
           ),
         ),
       ),

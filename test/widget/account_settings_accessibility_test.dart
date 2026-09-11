@@ -106,6 +106,8 @@ void main() {
       expect(find.text('Enter 12-128 characters.'), findsOneWidget);
       expect(editableHasFocus(tester, newPassword), isTrue);
 
+      // Inspect the settled error/helper transition, not its intermediate fade.
+      await tester.pumpAndSettle();
       await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
       await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
       await expectLater(tester, meetsGuideline(textContrastGuideline));

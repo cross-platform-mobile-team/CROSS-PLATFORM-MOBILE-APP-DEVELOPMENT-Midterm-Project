@@ -1,5 +1,12 @@
 # Bootstrap tests
 
+## Bug audit - 2026-09-12
+
+Snapshot safety: three unit cases plus a real widget draft/retry flow in
+snapshot_safety_test.dart / failed_load_safety_test.dart. Session safety: late
+logout and wrong password after refresh in session_race_test.dart. Use
+`flutter test --no-pub`; see bug-audit-20260912.md for fail/fix evidence.
+
 ## UI refresh - 2026-09-11
 
 - `test/widget/workspace_layout_test.dart`: desktop status navigation changes

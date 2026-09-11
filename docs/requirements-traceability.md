@@ -1,5 +1,11 @@
 # Initial rubric traceability
 
+Bug-audit risks (2026-09-12): unknown/failed-load snapshots must not overwrite
+stored tasks; stale account requests must not clear newer sessions. Add explicit
+regressions and preserve fail/fix logs under evidence/bug-audit-20260912/.
+Also cover invalid_password after a successful token refresh without signing
+out a valid session. Six new regression cases; see bug-audit-20260912.md.
+
 Color studio acceptance: color supplements text/status, never replaces it;
 decorative geometry excluded from semantics; compact/200% layout and existing
 CRUD/retry assertions remain. Visual baselines require explicit review.

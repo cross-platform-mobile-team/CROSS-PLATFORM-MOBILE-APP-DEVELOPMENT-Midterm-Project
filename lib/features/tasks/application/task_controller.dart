@@ -26,6 +26,7 @@ class TaskController extends ChangeNotifier {
   bool busy = false;
   String? error;
   bool _disposed = false;
+  bool _loaded = false;
   List<TaskItem> get tasks => List.unmodifiable(_tasks);
   List<TaskItem> matching(
     String query, {
@@ -36,8 +37,16 @@ class TaskController extends ChangeNotifier {
     if (!_disposed) notifyListeners();
   }
 
-  Future<bool> _run(Future<void> Function() action) async {
-    if (busy) return false;
+  Future<bool> _run(
+    Future<void> Function() action, {
+    bool requiresSnapshot = true,
+  }) async {
+    if (_disposed || busy) return false;
+    if (requiresSnapshot && !_loaded) {
+      error ??= 'Reload tasks before making changes.';
+      _emit();
+      return false;
+    }
     busy = true;
     error = null;
     _emit();
@@ -56,8 +65,10 @@ class TaskController extends ChangeNotifier {
   }
 
   Future<bool> load() => _run(() async {
+    _loaded = false;
     _tasks = await repository.load();
-  });
+    _loaded = true;
+  }, requiresSnapshot: false);
   Future<bool> add(String title, {TaskDetails? details}) async {
     if (TaskItem.validateTitle(title) != null ||
         details?.validationError != null) {

@@ -146,6 +146,15 @@ class ApiClient extends ChangeNotifier {
     _refreshToken = data['refreshToken'] as String;
   }
 
+  bool _expiredAuthentication(http.Response response) {
+    if (response.statusCode != 401) return false;
+    try {
+      return jsonDecode(response.body)['error']['code'] == 'unauthorized';
+    } catch (_) {
+      return false; // _decode reports malformed responses.
+    }
+  }
+
   Future<Map<String, dynamic>> request(
     String method,
     String path, {
@@ -165,15 +174,7 @@ class ApiClient extends ChangeNotifier {
       );
     }
     // Only expired authentication triggers refresh; a wrong current password does not.
-    var refreshable = false;
-    if (response.statusCode == 401) {
-      try {
-        refreshable =
-            jsonDecode(response.body)['error']['code'] == 'unauthorized';
-      } catch (_) {
-        /* Malformed responses are handled by _decode. */
-      }
-    }
+    final refreshable = _expiredAuthentication(response);
     if (authenticated && refreshable && _refreshToken != null) {
       if (_accessToken == usedToken) {
         final refreshing = _refreshing ??= _refresh();
@@ -193,7 +194,7 @@ class ApiClient extends ChangeNotifier {
           code: 'unauthorized',
         );
       }
-      if (response.statusCode == 401) clearSession();
+      if (_expiredAuthentication(response)) clearSession();
     }
     return _decode(response);
   }
@@ -255,10 +256,12 @@ class ApiClient extends ChangeNotifier {
   }
 
   Future<void> logout({bool all = false}) async {
+    final generation = _generation;
     try {
       await request('POST', all ? '/v1/auth/logout-all' : '/v1/auth/logout');
     } finally {
-      clearSession();
+      // A late response for an old session must not sign out a newer login.
+      if (generation == _generation) clearSession();
     }
   }
 

@@ -1,0 +1,16 @@
+00:00 +0: loading D:/flutter/test/unit/session_race_test.dart
+00:00 +0: wrong password after token refresh preserves the refreshed session
+00:00 +0 -1: wrong password after token refresh preserves the refreshed session [E]
+  Expected: 'alice'
+    Actual: <null>
+     Which: not an <Instance of 'String'>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\unit\session_race_test.dart 27:5               main.<fn>
+  
+00:00 +0 -1: old logout response must not erase a newer login
+00:00 +1 -1: Some tests failed.
+
+Failing tests:
+  D:/flutter/test/unit/session_race_test.dart: wrong password after token refresh preserves the refreshed session

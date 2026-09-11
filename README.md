@@ -19,9 +19,11 @@ an isolated offline demo. This is not yet the final coursework submission.
 - Latest [color studio refinement](docs/color-studio-ui.md): violet actions,
   mint/peach task surfaces and original geometric header with readable labels.
 
-- 66 unit/widget/golden tests, including 11 task/auth/settings visual baselines,
+- 72 unit/widget/golden tests, including 11 task/auth/settings visual baselines,
   accessibility guidelines, text scaling, keyboard interaction and signed-in
   account-settings validation/focus coverage.
+- [Bug audit](docs/bug-audit-20260912.md): snapshot-load safety and session-race
+  regressions. Controller consumers must successfully load before mutations.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
 - Account registration/login, profile/password/recovery, session revocation and
   account deletion; server-owned per-user tasks and conflict-safe writes.

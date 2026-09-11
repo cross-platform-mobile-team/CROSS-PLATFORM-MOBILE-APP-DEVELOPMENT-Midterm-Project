@@ -117,6 +117,15 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ### Next increments (not completed coursework)
 
+2026-09-12 bug audit: TaskController now requires a successful load before any
+mutation and invalidates that permission on failed reload. Do not bypass this
+guard: it prevents unknown/stale snapshots from overwriting saved records.
+Logout cleanup is generation-scoped; a retried 401 invalid_password must not
+clear a refreshed session. Six new regression cases cover these three defects;
+72 Flutter cases pass with 11 unchanged golden baselines. See the latest
+manifest and docs/bug-audit-20260912.md for native/browser gates and limitations.
+This audit authorizes fixes but not a new commit/push or report work.
+
 Color-studio continuation: shared violet/mint/peach theme and original geometric
 StudioHeader supplement explicit status/priority text. Eleven golden images were
 reviewed before replacement. See docs/color-studio-ui.md and evidence/color-studio

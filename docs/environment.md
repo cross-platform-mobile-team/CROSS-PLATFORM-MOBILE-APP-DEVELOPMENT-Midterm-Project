@@ -1,5 +1,9 @@
 # Environment
 
+2026-09-12 bug audit: Flutter/Dart version, doctor and device list rechecked;
+raw output: evidence/bug-audit-20260912/environment.txt. Windows 10.0.26200.9445,
+Flutter 3.47.1 / Dart 3.13.1, Edge 152.0.4191.66. Android SDK absent; no installs.
+
 UI refresh host rechecked 2026-09-11: Flutter 3.47.1 / Dart 3.13.1, Windows
 10.0.26200.9168, VS Build Tools 2022 17.14.39 and Edge 152.0.4191.66 remain the
 same. Android SDK is absent locally; no upgrades/installations performed.

@@ -1,5 +1,36 @@
 # Evidence manifest
 
+## Bug audit - 2026-09-12
+
+Raw logs in `bug-audit-20260912/`; baseline ebc8309, current fixes uncommitted.
+See ../bug-audit-20260912.md for scope, reproduction and remaining limits.
+
+| Command | Result | Log |
+|---|---|---|
+| flutter --version; dart --version; flutter doctor -v; flutter devices | Recorded; Android SDK absent | environment.txt |
+| dart format --output=none --set-exit-if-changed . | PASS 49 files unchanged | format-final.txt |
+| flutter analyze --no-pub | PASS | analyze-final.txt |
+| flutter test --no-pub --reporter expanded | PASS 72, 11 unchanged goldens | tests-final.txt |
+| flutter test --no-pub --coverage --reporter expanded | PASS 72 | coverage-final.txt |
+| flutter test integration_test/windows_workflow_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 2 | windows_workflow_test.txt |
+| flutter test integration_test/independent_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 4 | independent_scenarios_test.txt |
+| flutter test integration_test/persisted_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 3 | persisted_scenarios_test.txt |
+| scripts/test-online-windows.ps1 -NoPub | PASS 1, isolated real API/SQLite | online.txt |
+| flutter build windows --release --no-pub | PASS | windows-build.txt |
+| scripts/test-edge-harness.ps1 -Flutter C:/Users/LENOVO/flutter-sdk/bin/flutter.bat -Sessions 1 -Repetitions 1 -NoPub | PASS 1 workflow repetition | edge.txt, edge-workflow.txt |
+| flutter build web --release --no-web-resources-cdn --no-pub (script restoration) | PASS default app restored | edge.txt |
+| npm --prefix backend test | PASS 14 | backend.txt |
+| scripts/tests/edge-runner-contract.ps1 | PASS synthetic only | runner-contract.txt |
+| flutter build apk --release / Android device tests | NOT RUN: Android SDK absent | environment.txt |
+| Manual Narrator, clean-machine installation | NOT RUN | Still pending |
+
+Authentic pre-fix failures: regression-before.txt (four failures for unknown/
+failed snapshots and late logout), refresh-before.txt (wrong password after token
+refresh). regression-after.txt passes the initial five regressions; the final
+72-case suite includes all six regressions. tests-first.txt is the preliminary
+70-case run, tests.txt/coverage.txt the intermediate 71-case run. Do not relabel
+those historical counts or failures. Backend source and golden images unchanged.
+
 ## Color studio continuation
 
 Evidence under `color-studio/`; preserves the preceding UI-refresh results.

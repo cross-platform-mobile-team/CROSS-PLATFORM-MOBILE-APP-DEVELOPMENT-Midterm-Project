@@ -130,6 +130,7 @@ void main() {
   test('save, rename-only, toggle, delete/undo preserve metadata; edit can clear date', () async {
     final repo = InMemoryTaskRepository();
     final controller = TaskController(repo, idGenerator: () => '1');
+    await controller.load();
     addTearDown(controller.dispose);
     final details = TaskDetails(
       notes: 'Remember',

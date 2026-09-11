@@ -20,6 +20,7 @@ void main() {
         idGenerator: () => 'task-1',
       );
       addTearDown(controller.dispose);
+      await controller.load();
       expect(await controller.add('  Review Flutter testing  '), isTrue);
       expect(
         controller.matching(' FLUTTER ').single.title,
@@ -34,9 +35,11 @@ void main() {
   test(
     'failed write does not publish unpersisted task; load retry recovers',
     () async {
-      final repository = InMemoryTaskRepository()..failNext = true;
+      final repository = InMemoryTaskRepository();
       final controller = TaskController(repository);
       addTearDown(controller.dispose);
+      await controller.load();
+      repository.failNext = true;
       expect(await controller.add('Task'), isFalse);
       expect(controller.tasks, isEmpty);
       expect(controller.error, isNotNull);

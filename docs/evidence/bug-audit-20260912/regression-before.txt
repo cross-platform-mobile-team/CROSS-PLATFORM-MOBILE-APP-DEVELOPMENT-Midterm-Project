@@ -1,0 +1,45 @@
+00:00 +0: loading D:/flutter/test/unit/snapshot_safety_test.dart
+00:00 +0: D:/flutter/test/unit/snapshot_safety_test.dart: unloaded controller cannot overwrite an existing snapshot
+00:00 +0 -1: D:/flutter/test/unit/snapshot_safety_test.dart: unloaded controller cannot overwrite an existing snapshot [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\unit\snapshot_safety_test.dart 12:5            main.<fn>
+  
+00:00 +0 -1: D:/flutter/test/unit/snapshot_safety_test.dart: failed load blocks writes until explicit successful reload
+00:00 +0 -2: D:/flutter/test/unit/snapshot_safety_test.dart: failed load blocks writes until explicit successful reload [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\unit\snapshot_safety_test.dart 21:5            main.<fn>
+  
+00:00 +0 -2: D:/flutter/test/unit/snapshot_safety_test.dart: failed reload blocks stale edit delete toggle and undo
+00:00 +0 -3: D:/flutter/test/unit/snapshot_safety_test.dart: failed reload blocks stale edit delete toggle and undo [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\unit\snapshot_safety_test.dart 36:5            main.<fn>
+  
+00:01 +0 -3: D:/flutter/test/unit/session_race_test.dart: old logout response must not erase a newer login
+00:01 +0 -4: D:/flutter/test/unit/session_race_test.dart: old logout response must not erase a newer login [E]
+  Expected: 'alice'
+    Actual: <null>
+     Which: not an <Instance of 'String'>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\unit\session_race_test.dart 28:5               main.<fn>
+  
+00:01 +0 -4: Some tests failed.
+
+Failing tests:
+  D:/flutter/test/unit/session_race_test.dart: old logout response must not erase a newer login
+  D:/flutter/test/unit/snapshot_safety_test.dart: failed load blocks writes until explicit successful reload
+  D:/flutter/test/unit/snapshot_safety_test.dart: failed reload blocks stale edit delete toggle and undo
+  D:/flutter/test/unit/snapshot_safety_test.dart: unloaded controller cannot overwrite an existing snapshot

@@ -1,5 +1,17 @@
 # Implementation milestones
 
+## Bug audit - 2026-09-12
+
+Inspect storage/controller, account concurrency, validation and UI lifecycles.
+Reproduce confirmed failures with deterministic tests, then patch and run the
+full Flutter/API/native/Edge gates. Preserve genuine fail/pass logs; do not
+regenerate goldens to suppress regressions. No report or push in this request.
+
+Confirmed/fixed: unknown snapshot overwrite, late logout clearing a newer
+session, and invalid password after token refresh incorrectly signing out.
+Six regression cases added; 72 Flutter tests and 14 backend tests pass.
+Final platform/build gates and boundaries are recorded in evidence/manifest.md.
+
 ## Color studio refinement
 
 Continue the existing uncommitted UI work: violet/mint/peach palette, decorative

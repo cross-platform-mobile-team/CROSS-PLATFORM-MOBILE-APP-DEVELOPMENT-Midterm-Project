@@ -1,4 +1,15 @@
-# Initial rubric traceability
+# Rubric traceability
+
+## Current verified state
+
+The authoritative current summary is [current-verified-state.md](current-verified-state.md):
+baseline 0753db1, 72 Flutter cases including 11 goldens, 10 Windows executions,
+14 API cases and SHA-matched successful hosted jobs. See its explicit limits.
+The dated entries below preserve the incremental history; their older counts
+must not be used as current totals. Package A adds this distinction and the
+[A-G upgrade roadmap](upgrade-roadmap.md); no application behavior changes.
+
+## Historical implementation increments
 
 Bug-audit risks (2026-09-12): unknown/failed-load snapshots must not overwrite
 stored tasks; stale account requests must not clear newer sessions. Add explicit
@@ -14,13 +25,13 @@ UI refresh (2026-09-11): shared theme and surfaces, responsive task status rail,
 auth split layout and account sections. Existing validation/CRUD/loading semantics
 remain covered. Navigation/large-text tests and sign-in/settings goldens added;
 all eight changed task goldens reviewed before intentional baseline replacement.
-Current local suite: 66 cases including 11 goldens; 10 Windows cases pass.
+At this UI-refresh milestone: 66 cases including 11 goldens; 10 Windows cases pass.
 See evidence/manifest.md for commands, logs and unverified Android/manual gates.
 
 Dedicated loading widget coverage (2026-09-10): task_loading_test.dart adds four
 cases for compact/wide initial loading, error-to-retry-to-empty, and pending-save
 draft preservation/duplicate-submit prevention. The local Flutter suite now has
-61 cases; historical CI counts remain tied to their original commits.
+61 cases at that milestone; historical CI counts remain tied to their original commits.
 
 2026-09-10 engineering increment (report deferred): fresh Edge sessions extend
 the one-session repetition study. `scripts/test-edge-harness.ps1 -Sessions 3
@@ -60,7 +71,7 @@ workflow executions on an Android 16/API 36 emulator.
 | Meaningful workflow | CRUD, metadata, search, filters, sort, undo | Widget CRUD/metadata tests and Windows workflows | Broader failure/platform scenarios |
 | Robustness | Loading, empty, error/retry, persist before state change | Native plus Edge harness load/save failures, Retry and draft preservation; API/client failures | Public deployment/long-duration failure evidence |
 | Cross-platform | Android/Web/Windows runners | Edge online lifecycle/sample plus deterministic harness; Windows release/native suites; hosted API 36 APK/E2E gate | Physical Android/manual APK and Android online mode; another browser/host |
-| Testing pyramid | 61 local unit/widget/golden cases, 10 Windows case executions across 4 suites, 9 Android executions across 3 of those suites, 14 API cases; Edge CLI checks | Latest evidence/manifest.md; independent-e2e.md; web-edge-testing.md; Actions run #2 covers its earlier 57-case source | Browser/platform expansion; report comparison |
+| Testing pyramid | 72 local unit/widget/golden cases, 10 Windows case executions across 4 suites, 14 API cases; Edge CLI checks; separate hosted Android evidence | current-verified-state.md; evidence/manifest.md; independent-e2e.md; web-edge-testing.md | Manual platform checks; report comparison; historical Android counts must stay SHA-specific |
 | Visual/accessibility | Phone/wide baselines, validation errors, account entry/settings guidelines, focus recovery/order, 200% text and text-only tag semantics | test/golden; widget/accessibility_test.dart; widget/sample_accessibility_test.dart; widget/account_settings_accessibility_test.dart; Edge snapshots | Manual Narrator/full-page physical focus order and clean-machine assistive-technology pass |
 | Safe sample data | Fresh in-memory repository per sample entry; no offline overwrite/upload | Widget isolation/reset and scripts/browser/edge-sample-check.js | Clean-machine demo rehearsal |
 | Experiments | Search mutation; repeated browser and four test-level commands | Intentional-defect fail/fix artifacts; five-run Edge and three-round test-level timing experiments | Broader sessions/hosts and report synthesis |

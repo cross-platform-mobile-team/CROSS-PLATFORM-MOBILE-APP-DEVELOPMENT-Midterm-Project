@@ -1,8 +1,30 @@
 # Evidence manifest
 
+## Upgrade A - 2026-09-12
+
+See [current verified state](../current-verified-state.md) for the single current
+summary and limits. `upgrade-a-20260912/ci-jobs.json` and `ci-artifacts.json`
+are unedited GitHub REST responses for run 34628335925, baseline SHA 0753db1.
+All three jobs succeeded; APK artifact was not expired when inspected.
+This is not a hosted result for the later documentation-only commit.
+
+Fresh local checks on unchanged baseline application/test code:
+
+| Command | Status / exit code | Log in upgrade-a-20260912/ |
+|---|---|---|
+| dart format --output=none --set-exit-if-changed . | PASS / 0 | format.txt |
+| flutter analyze --no-pub | PASS / 0 | analyze.txt |
+| flutter test --no-pub --coverage --reporter expanded | PASS 72 / 0 | tests-coverage.txt |
+| Native/API/Edge/build reruns | NOT RUN in documentation-only A; retained baseline results below | bug-audit-20260912/ |
+| Local APK / manual Narrator / clean-machine install | NOT RUN; SDK absent / human-device checks pending | current-verified-state.md |
+
+No source, test, dependency, golden, runner or workflow changed. The fresh
+coverage invocation runs the full Flutter suite; no new coverage ratio claimed.
+
 ## Bug audit - 2026-09-12
 
-Raw logs in `bug-audit-20260912/`; baseline ebc8309, current fixes uncommitted.
+Raw logs in `bug-audit-20260912/`; baseline ebc8309. Fixes were uncommitted
+when these logs were captured, then published as 0753db1. Raw logs are unchanged.
 See ../bug-audit-20260912.md for scope, reproduction and remaining limits.
 
 | Command | Result | Log |

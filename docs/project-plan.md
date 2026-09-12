@@ -1,5 +1,13 @@
 # Implementation milestones
 
+## Upgrade roadmap - package A, 2026-09-12
+
+User authorized stepwise implementation and publication to main-test.
+Package A establishes docs/current-verified-state.md, reconciles historical
+counts and commit/CI evidence, and refreshes local checks without changing app
+code. See docs/upgrade-roadmap.md for acceptance and bounded B-G follow-up.
+Stop at the phase boundary for team review; next implementation is B (draft safety).
+
 ## Bug audit - 2026-09-12
 
 Inspect storage/controller, account concurrency, validation and UI lifecycles.

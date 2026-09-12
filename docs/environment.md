@@ -1,5 +1,12 @@
 # Environment
 
+Package A recheck 2026-09-12: version, doctor and devices confirm Flutter 3.47.1
+(6655482ec0), Dart 3.13.1, Windows 10.0.26200.9445, VS Build Tools 17.14.39,
+Chrome 149.0.7827.201 and Edge 152.0.4191.66. Android SDK remains absent;
+Flutter/Dart remain outside PATH. Use C:/Users/LENOVO/flutter-sdk/bin/*.bat.
+No installation or SDK upgrade performed. Current evidence index:
+[current-verified-state.md](current-verified-state.md).
+
 2026-09-12 bug audit: Flutter/Dart version, doctor and device list rechecked;
 raw output: evidence/bug-audit-20260912/environment.txt. Windows 10.0.26200.9445,
 Flutter 3.47.1 / Dart 3.13.1, Edge 152.0.4191.66. Android SDK absent; no installs.

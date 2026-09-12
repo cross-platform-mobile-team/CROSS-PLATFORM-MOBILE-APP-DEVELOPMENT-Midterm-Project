@@ -1,4 +1,9 @@
-# Bootstrap tests
+# Test matrix
+
+Current totals and source-matched evidence: [current verified state](current-verified-state.md).
+Sections below are dated test-design milestones, not additive current counts.
+Package A (upgrade-roadmap.md) changes only documentation/evidence; B/C will
+add dirty-draft and conflict recovery risks with their own tests and initial states.
 
 ## Bug audit - 2026-09-12
 

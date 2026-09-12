@@ -117,6 +117,13 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ### Next increments (not completed coursework)
 
+2026-09-12 upgrade A: user authorized stepwise upgrades and push to main-test.
+Read docs/current-verified-state.md for current SHA-specific results; older
+dated counts below are history. Baseline 0753db1 has successful hosted Windows,
+Android APK and API 36 E2E jobs (run 34628335925). Package A changes documentation
+and evidence only. Follow docs/upgrade-roadmap.md next with B draft protection,
+then C recovery/conflicts; do not mark B-G implemented. Report work remains deferred.
+
 2026-09-12 bug audit: TaskController now requires a successful load before any
 mutation and invalidates that permission on failed reload. Do not bypass this
 guard: it prevents unknown/stale snapshots from overwriting saved records.

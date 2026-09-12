@@ -4,6 +4,13 @@ Flutter task manager and QA lab for Topic 4: UI Automation Testing in Flutter:
 Implementing End-to-End Testing (503107). Account-based REST/SQLite backend plus
 an isolated offline demo. This is not yet the final coursework submission.
 
+## Verified state and upgrade plan
+
+See [current verified state](docs/current-verified-state.md) for SHA-specific
+local/hosted results and remaining gates, and [upgrade roadmap](docs/upgrade-roadmap.md)
+for the bounded A-G plan. Package A updates evidence/documentation only;
+form protection and conflict-recovery upgrades are still next steps.
+
 ## Included
 
 - Validated task creation/editing, completion/reopening and substring search.

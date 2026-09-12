@@ -6,10 +6,14 @@ an isolated offline demo. This is not yet the final coursework submission.
 
 ## Verified state and upgrade plan
 
+[B1 edit-draft protection](docs/upgrade-b1.md) adds explicit Continue editing /
+Discard on dirty Cancel, Escape or Back, while blocking dismissal during save.
+Quick-create exit protection and B2 validation improvements remain planned.
+
 See [current verified state](docs/current-verified-state.md) for SHA-specific
 local/hosted results and remaining gates, and [upgrade roadmap](docs/upgrade-roadmap.md)
 for the bounded A-G plan. Package A updates evidence/documentation only;
-form protection and conflict-recovery upgrades are still next steps.
+remaining form protection and conflict-recovery upgrades are still next steps.
 
 ## Included
 
@@ -26,7 +30,7 @@ form protection and conflict-recovery upgrades are still next steps.
 - Latest [color studio refinement](docs/color-studio-ui.md): violet actions,
   mint/peach task surfaces and original geometric header with readable labels.
 
-- 72 unit/widget/golden tests, including 11 task/auth/settings visual baselines,
+- 77 unit/widget/golden tests, including 11 task/auth/settings visual baselines,
   accessibility guidelines, text scaling, keyboard interaction and signed-in
   account-settings validation/focus coverage.
 - [Bug audit](docs/bug-audit-20260912.md): snapshot-load safety and session-race

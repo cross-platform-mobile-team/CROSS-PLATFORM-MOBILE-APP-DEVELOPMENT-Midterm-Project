@@ -1,5 +1,16 @@
 # Current verified state
 
+## B1 edit-slice update - 2026-09-12
+
+Application changes after c57407a: dirty Cancel/Escape/Back confirmation, raw
+invalid-date protection and five widget regressions. Final coverage run passes
+77 cases (11 unchanged goldens). The persisted edit scenario adds keep-draft /
+storage-before-save checks; native case counts are not increased. See
+[B1 scope](upgrade-b1.md) and [latest gates](evidence/manifest.md).
+The 0753db1 results below are the pre-upgrade baseline, not CI for this source.
+
+## Pre-upgrade verified baseline
+
 Reviewed 2026-09-12 for upgrade roadmap package A. This is an engineering
 evidence index, not a claim that the coursework is ready to submit.
 

@@ -1,5 +1,34 @@
 # Evidence manifest
 
+## Upgrade B1 edit slice - 2026-09-12
+
+Source: c57407a plus the B1 edit-dialog/test changes subsequently committed with
+this evidence. Exact patch is in that commit; no goldens/dependencies changed.
+Logs below are relative to `upgrade-b1-20260912/`. See ../upgrade-b1.md for
+scope and the unimplemented quick-create/B2 work.
+
+| Command | Result | Log |
+|---|---|---|
+| flutter test test/widget/edit_draft_test.dart --no-pub --reporter expanded --timeout 30s | PASS initial 4 cases / exit 0 | draft-tests.txt |
+| flutter test --no-pub --coverage --reporter expanded | PASS final 77 / exit 0; includes 11 unchanged goldens | coverage-final.txt |
+| flutter analyze --no-pub | PASS / exit 0 | analyze-final.txt |
+| flutter build windows --release --no-pub | PASS / exit 0 | windows-build.txt |
+| scripts/test-edge-harness.ps1 -Flutter C:/Users/LENOVO/flutter-sdk/bin/flutter.bat -Sessions 1 -Repetitions 1 -NoPub | PASS 1/1; default Web release restored successfully | edge.txt |
+| dart format --output=none --set-exit-if-changed . | PASS / exit 0 | format.txt |
+| flutter test integration_test/persisted_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 3 / exit 0 | persisted.txt |
+| flutter test integration_test/independent_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 4 / exit 0 | independent.txt |
+| flutter test integration_test/windows_workflow_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 2 / exit 0 | workflow.txt |
+| scripts/test-online-windows.ps1 -NoPub | PASS 1, isolated API/SQLite | online.txt |
+| npm --prefix backend test | PASS 14 / exit 0 | backend.txt |
+| Local Android APK/device tests | NOT RUN: SDK absent | environment.md |
+| Manual Narrator/clean-machine setup | NOT RUN | Remaining user/device checks |
+
+coverage.txt records 76 cases before the fifth draft test, not the final count.
+The final coverage invocation runs the full Flutter suite; no new coverage
+percentage claimed. Native edit test remounts repository/UI, not the process.
+The first exploratory four-case run exposed missing Escape handling (tool
+output only); do not substitute the later passing log as failure evidence.
+
 ## Upgrade A - 2026-09-12
 
 See [current verified state](../current-verified-state.md) for the single current

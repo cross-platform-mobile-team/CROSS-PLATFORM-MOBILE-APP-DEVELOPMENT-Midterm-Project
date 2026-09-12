@@ -1,5 +1,9 @@
 # Environment
 
+B1 recheck 2026-09-12: flutter --version, dart --version, doctor -v and devices
+confirm the same 3.47.1 / 3.13.1 toolchain, Windows 26200.9445, VS 17.14.39,
+Edge 152.0.4191.66 and Chrome 149.0.7827.201. Android SDK still absent; no installs.
+
 Package A recheck 2026-09-12: version, doctor and devices confirm Flutter 3.47.1
 (6655482ec0), Dart 3.13.1, Windows 10.0.26200.9445, VS Build Tools 17.14.39,
 Chrome 149.0.7827.201 and Edge 152.0.4191.66. Android SDK remains absent;

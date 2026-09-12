@@ -1,5 +1,12 @@
 # Implementation milestones
 
+## Upgrade B1 edit slice - 2026-09-12
+
+Implemented dirty edit dismissal, raw invalid date protection and pending-save
+guard tests. Five isolated widget cases and the persisted edit/remount scenario
+cover the slice. See upgrade-b1.md. Next: quick-create exit guard and B2; C-G
+remain planned. No report changes.
+
 ## Upgrade roadmap - package A, 2026-09-12
 
 User authorized stepwise implementation and publication to main-test.

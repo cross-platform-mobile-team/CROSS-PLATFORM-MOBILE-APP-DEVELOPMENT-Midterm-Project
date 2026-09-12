@@ -8,10 +8,12 @@ class TaskDetailsFields extends StatefulWidget {
     required this.initial,
     required this.onChanged,
     this.enabled = true,
+    this.onDirtyChanged,
   });
   final TaskDetails initial;
   final ValueChanged<TaskDetails> onChanged;
   final bool enabled;
+  final ValueChanged<bool>? onDirtyChanged;
   @override
   State<TaskDetailsFields> createState() => _TaskDetailsFieldsState();
 }
@@ -21,13 +23,26 @@ class _TaskDetailsFieldsState extends State<TaskDetailsFields> {
   late String tags = widget.initial.tags.join(', ');
   late TaskPriority priority = widget.initial.priority;
   late DateTime? due = widget.initial.dueDate;
+  late String rawDate = due == null ? '' : TaskDetails.dateLabel(due!);
   TaskDetails get value => TaskDetails(
     notes: notes,
     tags: tags.split(','),
     priority: priority,
     dueDate: due,
   );
-  void emit() => widget.onChanged(value);
+  void emit() {
+    widget.onDirtyChanged?.call(
+      notes != widget.initial.notes ||
+          tags != widget.initial.tags.join(', ') ||
+          priority != widget.initial.priority ||
+          rawDate !=
+              (widget.initial.dueDate == null
+                  ? ''
+                  : TaskDetails.dateLabel(widget.initial.dueDate!)),
+    );
+    widget.onChanged(value);
+  }
+
   static String? validateDate(String? raw) {
     final text = raw?.trim() ?? '';
     if (text.isEmpty) return null;
@@ -87,10 +102,11 @@ class _TaskDetailsFieldsState extends State<TaskDetailsFields> {
         ),
         validator: validateDate,
         onChanged: (text) {
+          rawDate = text;
           if (validateDate(text) == null) {
             due = text.trim().isEmpty ? null : DateTime.parse(text.trim());
-            emit();
           }
+          emit();
         },
       ),
       TextFormField(

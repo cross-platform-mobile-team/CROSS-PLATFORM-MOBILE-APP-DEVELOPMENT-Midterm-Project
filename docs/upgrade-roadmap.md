@@ -121,6 +121,10 @@ File chính: `docs/requirements-traceability.md`, `docs/test-matrix.md`,
 
 ### B1. Bảo vệ bản nháp chưa lưu
 
+Tiến độ 12/09: đã triển khai phần Edit (Cancel/Escape/Back, giữ/bỏ draft,
+pending save, ngày nhập sai và test 200%). Xem upgrade-b1.md và manifest.
+Quick-create khi rời workspace và các mục B2 vẫn chưa triển khai.
+
 - Khi đóng form Edit bằng Cancel/Escape/Back, chỉ xác nhận bỏ thay đổi nếu dữ liệu
   thực sự khác bản gốc. Form không đổi đóng ngay, không gây thêm bước thừa.
 - Chọn “Continue editing” giữ nguyên mọi field và focus hợp lý; “Discard” không

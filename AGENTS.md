@@ -117,6 +117,12 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ### Next increments (not completed coursework)
 
+2026-09-12 B1 edit slice: edit dialog guards dirty Cancel/Escape/Back and pending
+save, including raw invalid date input. Keep test/widget/edit_draft_test.dart
+and the persisted edit/continue/remount assertions. See docs/upgrade-b1.md and
+manifest for results. B1 quick-create exit protection and B2 validation/focus
+remain next; do not call all of B complete. User authorized main-test publication.
+
 2026-09-12 upgrade A: user authorized stepwise upgrades and push to main-test.
 Read docs/current-verified-state.md for current SHA-specific results; older
 dated counts below are history. Baseline 0753db1 has successful hosted Windows,

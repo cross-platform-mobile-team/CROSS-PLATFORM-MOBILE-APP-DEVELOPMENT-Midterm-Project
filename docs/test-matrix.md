@@ -1,5 +1,17 @@
 # Test matrix
 
+## Upgrade B1 edit slice
+
+| Risk | Level / known initial state | Observable result |
+|---|---|---|
+| Accidental loss of changed or invalid input | Widget, fresh dialog and save spy | Cancel/back/Escape offer keep/discard; no write on discard |
+| Unnecessary prompt after reverting | Widget, fresh original task | Reverted title closes immediately |
+| Dismissal during write | Widget, controlled save completer | No dismissal or duplicate write before completion |
+| Large text hides actions | Widget, 390x900, text 200% | Confirmation actions usable, draft retained, no overflow |
+| Confirmation writes too early | Native, isolated persisted edit key | Storage unchanged before save; edited metadata survives fresh remount |
+
+Commands/logs: evidence/manifest.md, upgrade-b1.md. No extra native case count.
+
 Current totals and source-matched evidence: [current verified state](current-verified-state.md).
 Sections below are dated test-design milestones, not additive current counts.
 Package A (upgrade-roadmap.md) changes only documentation/evidence; B/C will

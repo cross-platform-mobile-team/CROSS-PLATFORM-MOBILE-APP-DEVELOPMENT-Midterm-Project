@@ -1,0 +1,10 @@
+00:00 +0: loading D:/flutter/test/widget/form_layout_test.dart
+00:00 +0: D:/flutter/test/widget/form_layout_test.dart: edit fields have breathing room and stable scroll while typing
+00:01 +1: D:/flutter/test/widget/edit_draft_test.dart: unchanged and reverted edits close without confirmation
+00:01 +2: D:/flutter/test/widget/edit_draft_test.dart: unchanged and reverted edits close without confirmation
+00:01 +3: D:/flutter/test/widget/form_layout_test.dart: large text filter selections fit without overflow
+00:01 +4: D:/flutter/test/widget/edit_draft_test.dart: cancel preserves draft or discards without saving
+00:02 +5: D:/flutter/test/widget/edit_draft_test.dart: invalid raw date is protected on back and Escape
+00:02 +6: D:/flutter/test/widget/edit_draft_test.dart: pending save prevents dismissal and duplicate writes
+00:02 +7: D:/flutter/test/widget/edit_draft_test.dart: compact large text confirmation remains usable
+00:02 +8: All tests passed!

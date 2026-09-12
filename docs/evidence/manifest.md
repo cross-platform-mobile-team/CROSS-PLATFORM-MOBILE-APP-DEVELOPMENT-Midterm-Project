@@ -1,5 +1,37 @@
 # Evidence manifest
 
+## UI spacing audit - 2026-09-12
+
+Base abbc203 plus uncommitted form/layout changes; user did not request push.
+Logs below are in `ui-spacing-20260912/`. See ../ui-spacing-20260912.md for
+scope, visual inspection and unmeasured performance limitations.
+
+| Command | Result | Log |
+|---|---|---|
+| flutter --version; dart --version; flutter doctor -v; flutter devices | Recorded; local Android SDK absent | environment.txt |
+| flutter test test/widget/form_layout_test.dart --no-pub --reporter expanded (before fix) | FAIL 3 / exit 1, cramped controls and enlarged dropdown overflows | before.txt |
+| flutter test test/widget/form_layout_test.dart test/widget/edit_draft_test.dart --no-pub --reporter expanded | PASS 8 / exit 0 | after.txt |
+| flutter test test/golden/task_dialog_golden_test.dart --no-pub --update-goldens --reporter expanded | PASS 4; final four images visually reviewed, old 11 unchanged | goldens-reviewed.txt |
+| flutter test --no-pub --coverage --reporter expanded | PASS 84 / exit 0 | coverage.txt |
+| flutter test --no-pub --reporter expanded (final) | PASS 84 / exit 0 | tests-final.txt |
+| flutter analyze --no-pub | PASS / exit 0 | analyze-final.txt |
+| flutter test integration_test/windows_workflow_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 2 / exit 0 | workflow.txt |
+| scripts/test-online-windows.ps1 -NoPub | PASS 1, isolated API/SQLite | online.txt |
+| flutter test test/widget/form_layout_test.dart --no-pub --reporter expanded | PASS 3 / exit 0, including final metadata identity assertion | layout-final.txt |
+| dart format --output=none --set-exit-if-changed . | PASS / exit 0 after formatting new test | format-final.txt |
+| flutter test integration_test/persisted_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 3 / exit 0 | persisted.txt |
+| flutter test integration_test/independent_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 4 / exit 0 | independent.txt |
+| flutter build windows --release --no-pub | PASS / exit 0 | windows-build.txt |
+| scripts/test-edge-harness.ps1 -Flutter C:/Users/LENOVO/flutter-sdk/bin/flutter.bat -Sessions 1 -Repetitions 1 -NoPub | PASS 1/1, default Web release restoration PASS | edge.txt |
+| npm --prefix backend test | PASS 14 / exit 0 | backend.txt |
+| Android APK/device, manual Narrator, frame-time profiling | NOT RUN: SDK absent / manual or profiling work not performed | Explicit limitations |
+
+new-goldens.txt is the first image-generation pass, before visual review found
+clipped/overlong labels. goldens-reviewed.txt is the corrected image generation.
+format.txt preserves the initial formatting failure, not a final PASS. No old
+golden baseline was regenerated. Native remount is not restart; browser harness
+PASS is not direct evidence of each new dialog or measured frame stability.
+
 ## Upgrade B1 edit slice - 2026-09-12
 
 Source: c57407a plus the B1 edit-dialog/test changes subsequently committed with

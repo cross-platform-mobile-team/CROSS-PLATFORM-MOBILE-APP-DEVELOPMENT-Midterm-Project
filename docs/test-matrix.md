@@ -1,5 +1,12 @@
 # Test matrix
 
+## UI spacing
+
+form_layout_test.dart: fresh dialogs at 390px, >=16px field gaps (20px in code),
+dropdown opening at 200% without overflow, stable metadata widget identity and
+position during typing. task_dialog_golden_test.dart: four reviewed Edit/Filter
+images at 100%/200%. These are not frame-time or screen-reader measurements.
+
 ## Upgrade B1 edit slice
 
 | Risk | Level / known initial state | Observable result |

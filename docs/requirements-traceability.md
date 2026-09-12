@@ -2,6 +2,10 @@
 
 ## Current verified state
 
+UI spacing audit: cramped fields/large text -> edit/details/filter UI -> three
+layout tests and four reviewed dialog goldens -> ui-spacing-20260912.md/manifest.
+Current Flutter suite: 84 cases, 15 goldens. Earlier counts below are history.
+
 B1 edit slice: accidental Cancel/Escape/Back -> edit_task_dialog.dart and raw
 metadata dirty callback -> edit_draft_test.dart (five cases) plus persisted edit
 scenario -> evidence/upgrade-b1-20260912/. See upgrade-b1.md for remaining B scope.

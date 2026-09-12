@@ -73,8 +73,11 @@ class _TaskDetailsFieldsState extends State<TaskDetailsFields> {
           emit();
         },
       ),
-      const SizedBox(height: 12),
+      const SizedBox(height: 20),
       DropdownButtonFormField<TaskPriority>(
+        isExpanded: true,
+        isDense: false,
+        itemHeight: null,
         key: const Key('task-priority'),
         initialValue: priority,
         decoration: const InputDecoration(labelText: 'Priority'),
@@ -92,13 +95,14 @@ class _TaskDetailsFieldsState extends State<TaskDetailsFields> {
               }
             : null,
       ),
+      const SizedBox(height: 20),
       TextFormField(
         key: const Key('task-due-date'),
         enabled: widget.enabled,
         initialValue: due == null ? '' : TaskDetails.dateLabel(due!),
         decoration: const InputDecoration(
-          labelText: 'Due date (YYYY-MM-DD)',
-          helperText: 'Optional. Clear to remove the date.',
+          labelText: 'Due date',
+          helperText: 'YYYY-MM-DD. Optional; clear to remove.',
         ),
         validator: validateDate,
         onChanged: (text) {
@@ -109,11 +113,15 @@ class _TaskDetailsFieldsState extends State<TaskDetailsFields> {
           emit();
         },
       ),
+      const SizedBox(height: 20),
       TextFormField(
         key: const Key('task-tags'),
         initialValue: tags,
         enabled: widget.enabled,
-        decoration: const InputDecoration(labelText: 'Tags (comma-separated)'),
+        decoration: const InputDecoration(
+          labelText: 'Tags',
+          helperText: 'Separate tags with commas.',
+        ),
         validator: (text) =>
             TaskDetails(tags: (text ?? '').split(',')).validationError,
         onChanged: (text) {

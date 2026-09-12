@@ -117,6 +117,16 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ### Next increments (not completed coursework)
 
+Follow-up authorization: user requests stepwise upgrades, checks then push to
+main-test. Publish the verified UI spacing slice first, then protect quick-create
+workspace exits. Earlier no-push notes describe the original request only.
+
+2026-09-12 UI spacing: user authorized fixes, not push. Edit/filter fields have
+20px gaps, enlarged dropdown support and scroll padding for floating labels.
+Dirty listeners rebuild only on boolean transitions. Three layout cases and
+four reviewed dialog goldens added; prior 11 unchanged. See docs/ui-spacing-20260912.md
+and manifest. Do not infer measured jank/FPS improvement from widget tests.
+
 2026-09-12 B1 edit slice: edit dialog guards dirty Cancel/Escape/Back and pending
 save, including raw invalid date input. Keep test/widget/edit_draft_test.dart
 and the persisted edit/continue/remount assertions. See docs/upgrade-b1.md and

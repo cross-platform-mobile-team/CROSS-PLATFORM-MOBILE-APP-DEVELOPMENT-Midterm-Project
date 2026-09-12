@@ -1,0 +1,181 @@
+00:00 +0: loading D:/flutter/test/widget/form_layout_test.dart
+00:00 +0: edit fields have breathing room and stable scroll while typing
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <16>
+  Actual: <0.0>
+   Which: is not a value greater than or equal to <16>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/flutter/test/widget/form_layout_test.dart:33:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/flutter/test/widget/form_layout_test.dart line 33
+The test description was:
+  edit fields have breathing room and stable scroll while typing
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: edit fields have breathing room and stable scroll while typing [E]
+  Test failed. See exception logs above.
+  The test description was: edit fields have breathing room and stable scroll while typing
+  
+00:01 +0 -1: filter fields have separate boxes
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <16>
+  Actual: <0.0>
+   Which: is not a value greater than or equal to <16>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/flutter/test/widget/form_layout_test.dart:52:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/flutter/test/widget/form_layout_test.dart line 52
+The test description was:
+  filter fields have separate boxes
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: filter fields have separate boxes [E]
+  Test failed. See exception logs above.
+  The test description was: filter fields have separate boxes
+  
+00:01 +0 -2: large text filter selections fit without overflow
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 55 pixels on the right.
+
+The relevant error-causing widget was:
+  DropdownButtonFormField<TaskStatusFilter>-[<'filter-status'>]
+  DropdownButtonFormField:file:///D:/flutter/lib/features/tasks/presentation/task_filter_dialog.dart:30:13
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#e04aa OVERFLOWING:
+  creator: Row ← Padding ← SizedBox ← DefaultTextStyle ← _Decorator ← Semantics ← InputDecorator ←
+    Listener ← _GestureSemantics ← RawGestureDetector ← GestureDetector ← MouseRegion ← ⋯
+  parentData: offset=Offset(0.0, 0.0) (can use size)
+  constraints: BoxConstraints(w=234.0, h=48.0)
+  size: Size(234.0, 48.0)
+  direction: horizontal
+  mainAxisAlignment: spaceBetween
+  mainAxisSize: min
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 23 pixels on the right.
+
+The relevant error-causing widget was:
+  DropdownButtonFormField<DueFilter>-[<'filter-due'>]
+  DropdownButtonFormField:file:///D:/flutter/lib/features/tasks/presentation/task_filter_dialog.dart:55:13
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#5a693 OVERFLOWING:
+  creator: Row ← Padding ← SizedBox ← DefaultTextStyle ← _Decorator ← Semantics ← InputDecorator ←
+    Listener ← _GestureSemantics ← RawGestureDetector ← GestureDetector ← MouseRegion ← ⋯
+  parentData: offset=Offset(0.0, 0.0) (can use size)
+  constraints: BoxConstraints(w=234.0, h=48.0)
+  size: Size(234.0, 48.0)
+  direction: horizontal
+  mainAxisAlignment: spaceBetween
+  mainAxisSize: min
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 23 pixels on the right.
+
+The relevant error-causing widget was:
+  DropdownButtonFormField<TaskSort>-[<'filter-sort'>]
+  DropdownButtonFormField:file:///D:/flutter/lib/features/tasks/presentation/task_filter_dialog.dart:73:13
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#9c637 OVERFLOWING:
+  creator: Row ← Padding ← SizedBox ← DefaultTextStyle ← _Decorator ← Semantics ← InputDecorator ←
+    Listener ← _GestureSemantics ← RawGestureDetector ← GestureDetector ← MouseRegion ← ⋯
+  parentData: offset=Offset(0.0, 0.0) (can use size)
+  constraints: BoxConstraints(w=234.0, h=48.0)
+  size: Size(234.0, 48.0)
+  direction: horizontal
+  mainAxisAlignment: spaceBetween
+  mainAxisSize: min
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: 'Multiple exceptions (3) were detected during the running of the current test, and at
+least one was unexpected.'
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/flutter/test/widget/form_layout_test.dart:60:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/flutter/test/widget/form_layout_test.dart line 60
+The test description was:
+  large text filter selections fit without overflow
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -3: large text filter selections fit without overflow [E]
+  Test failed. See exception logs above.
+  The test description was: large text filter selections fit without overflow
+  
+00:02 +0 -3: Some tests failed.
+
+Failing tests:
+  D:/flutter/test/widget/form_layout_test.dart: edit fields have breathing room and stable scroll while typing
+  D:/flutter/test/widget/form_layout_test.dart: filter fields have separate boxes
+  D:/flutter/test/widget/form_layout_test.dart: large text filter selections fit without overflow

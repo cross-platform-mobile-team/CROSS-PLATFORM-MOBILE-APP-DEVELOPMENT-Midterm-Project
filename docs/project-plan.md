@@ -1,5 +1,12 @@
 # Implementation milestones
 
+## UI spacing - 2026-09-12
+
+User-directed UI fix interrupts B roadmap: reproduce cramped forms/enlarged
+dropdown overflow, fix spacing/clipping/redundant rebuilds, review four new
+dialog goldens and run regression gates. See ui-spacing-20260912.md. No push or
+report; remaining B tasks stay planned.
+
 ## Upgrade B1 edit slice - 2026-09-12
 
 Implemented dirty edit dismissal, raw invalid date protection and pending-save

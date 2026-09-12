@@ -1,5 +1,9 @@
 # Environment
 
+UI spacing audit: fresh 2026-09-12 version/doctor/devices output is in
+evidence/ui-spacing-20260912/environment.txt. Same SDK and local Android absence;
+no toolchain installation or upgrade performed.
+
 B1 recheck 2026-09-12: flutter --version, dart --version, doctor -v and devices
 confirm the same 3.47.1 / 3.13.1 toolchain, Windows 26200.9445, VS 17.14.39,
 Edge 152.0.4191.66 and Chrome 149.0.7827.201. Android SDK still absent; no installs.

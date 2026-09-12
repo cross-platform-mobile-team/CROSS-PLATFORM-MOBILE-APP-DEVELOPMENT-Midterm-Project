@@ -28,6 +28,7 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
   bool saving = false;
   bool failed = false;
   bool detailsDirty = false;
+  bool titleDirty = false;
   bool confirming = false;
   bool get dirty => title.text != widget.task.title || detailsDirty;
   late TaskDetails details = widget.task.details;
@@ -38,7 +39,10 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
     title.addListener(refreshDirty);
   }
 
-  void refreshDirty() => setState(() {});
+  void refreshDirty() {
+    final next = title.text != widget.task.title;
+    if (next != titleDirty) setState(() => titleDirty = next);
+  }
 
   Future<void> requestClose() async {
     if (saving || confirming) return;
@@ -112,6 +116,7 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
           child: Form(
             key: form,
             child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(vertical: 12),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -119,11 +124,15 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
                     key: const Key('edit-task-title'),
                     controller: title,
                     autofocus: true,
+                    minLines: 1,
+                    maxLines: 3,
+                    textInputAction: TextInputAction.done,
                     decoration: const InputDecoration(labelText: 'Task title'),
                     validator: TaskItem.validateTitle,
                     enabled: !saving,
                     onFieldSubmitted: (_) => save(),
                   ),
+                  const SizedBox(height: 20),
                   if (failed)
                     Semantics(
                       liveRegion: true,
@@ -135,8 +144,11 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
                     initial: widget.task.details,
                     enabled: !saving,
                     onChanged: (value) => details = value,
-                    onDirtyChanged: (value) =>
-                        setState(() => detailsDirty = value),
+                    onDirtyChanged: (value) {
+                      if (value != detailsDirty) {
+                        setState(() => detailsDirty = value);
+                      }
+                    },
                   ),
                 ],
               ),

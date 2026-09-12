@@ -1,5 +1,13 @@
 # Current verified state
 
+## UI spacing - 2026-09-12, uncommitted
+
+After abbc203: form gaps, enlarged dropdowns, floating-label clipping and
+redundant dirty-state rebuilds fixed. Flutter coverage invocation passes 84
+cases with 15 goldens (four added/reviewed, eleven unchanged). See
+[UI audit](ui-spacing-20260912.md) and latest manifest. Older CI results below
+do not verify this uncommitted source.
+
 ## B1 edit-slice update - 2026-09-12
 
 Application changes after c57407a: dirty Cancel/Escape/Back confirmation, raw

@@ -138,8 +138,19 @@ class _TaskScreenState extends State<TaskScreen> {
   }
 
   Future<void> add() async {
+    if (controller.busy) return;
     if (!form.currentState!.validate()) return;
-    if (await controller.add(title.text, details: draftDetails) && mounted) {
+    final submittedTitle = title.text;
+    final submittedDetails = draftDetails;
+    final saved = await controller.add(
+      submittedTitle,
+      details: submittedDetails,
+    );
+    // A completed write owns only the draft it submitted, not newer input.
+    if (saved &&
+        mounted &&
+        title.text == submittedTitle &&
+        identical(draftDetails, submittedDetails)) {
       title.clear();
       form.currentState!.reset();
       setState(() {

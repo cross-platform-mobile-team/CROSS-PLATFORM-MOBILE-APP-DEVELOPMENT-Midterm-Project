@@ -2,6 +2,11 @@
 
 ## Current verified state
 
+2026-09-13 draft consistency -> TaskScreen.add snapshot ownership -> four
+pending_capture_test.dart cases -> docs/evidence/capture-fix/ -> report 5.2/6.1.
+100 Flutter and 14 API cases pass; Windows draft-exit case and Web build pass.
+Current patch does not refresh historical Android or complete browser evidence.
+
 2026-09-13 responsive/accessibility UI refinement -> SidebarNavigation,
 TaskHeader, QuickTaskInput, EmptyStateWidget -> minimal_workspace_test.dart
 (shortcuts, metadata, sorting, resize/200% text) plus existing suites and 15

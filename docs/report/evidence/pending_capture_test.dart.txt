@@ -1,0 +1,28 @@
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:taskflow_qa_lab/app/app.dart';
+import 'package:taskflow_qa_lab/features/tasks/data/in_memory_task_repository.dart';
+
+void main() {
+  testWidgets('a second title typed while save is pending survives completion', (tester) async {
+    tester.view.physicalSize = const Size(1280, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final repository = InMemoryTaskRepository();
+    await tester.pumpWidget(TaskFlowApp(repository: repository));
+    await tester.pumpAndSettle();
+    final input = find.byKey(const Key('task-title'));
+    await tester.enterText(input, 'First task');
+    final gate = Completer<void>();
+    repository.gate = gate.future;
+    await tester.tap(find.text('Add task'));
+    await tester.pump();
+    await tester.enterText(input, 'Second draft');
+    gate.complete();
+    await tester.pumpAndSettle();
+    expect((await repository.load()).single.title, 'First task');
+    expect(tester.widget<TextFormField>(input).controller!.text, 'Second draft');
+  });
+}

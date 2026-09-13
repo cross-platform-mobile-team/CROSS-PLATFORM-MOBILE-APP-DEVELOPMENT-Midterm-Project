@@ -1,5 +1,12 @@
 # Evidence manifest
 
+## 2026-09-13 draft-consistency update
+
+See [capture-fix/README.md](capture-fix/README.md): 100 Flutter cases, 14 API
+cases, static analysis, formatting rerun, one Windows draft-exit case and Web
+build PASS. Original formatting attempt retained. Historical platform runs are
+not relabelled. Report chapters 5 and 6 now describe the corrected working tree.
+
 ## Minimal desktop UI — 2026-09-13 (unpublished worktree)
 
 Scope/design/reproduction notes: `../minimal-desktop-ui.md`. Existing staged

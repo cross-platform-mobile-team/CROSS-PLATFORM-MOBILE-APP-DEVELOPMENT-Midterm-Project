@@ -1,0 +1,8 @@
+00:00 +0: loading D:/flutter/test/golden/task_dialog_golden_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:01 +1: edit dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:01 +2: filter dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:01 +3: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:01 +4: (tearDownAll)
+00:01 +4: All tests passed!

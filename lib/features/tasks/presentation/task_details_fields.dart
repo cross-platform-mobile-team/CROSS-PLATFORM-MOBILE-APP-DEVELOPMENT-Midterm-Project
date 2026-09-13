@@ -8,26 +8,73 @@ class TaskDetailsFields extends StatefulWidget {
     required this.initial,
     required this.onChanged,
     this.enabled = true,
+    this.onDirtyChanged,
   });
   final TaskDetails initial;
   final ValueChanged<TaskDetails> onChanged;
   final bool enabled;
+  final ValueChanged<bool>? onDirtyChanged;
   @override
-  State<TaskDetailsFields> createState() => _TaskDetailsFieldsState();
+  State<TaskDetailsFields> createState() => TaskDetailsFieldsState();
 }
 
-class _TaskDetailsFieldsState extends State<TaskDetailsFields> {
+class TaskDetailsFieldsState extends State<TaskDetailsFields> {
   late String notes = widget.initial.notes;
   late String tags = widget.initial.tags.join(', ');
   late TaskPriority priority = widget.initial.priority;
   late DateTime? due = widget.initial.dueDate;
+  late String rawDate = due == null ? '' : TaskDetails.dateLabel(due!);
+  late final dateText = TextEditingController(text: rawDate);
+  final priorityField = GlobalKey<FormFieldState<TaskPriority>>();
+
+  void setPriority(TaskPriority value) {
+    if (!widget.enabled) return;
+    priority = value;
+    priorityField.currentState?.didChange(value);
+    emit();
+  }
+
+  Future<void> pickDate() async {
+    if (!widget.enabled) return;
+    final initial = due ?? DateTime.now();
+    final selected = await showDatePicker(
+      context: context,
+      initialDate: initial,
+      firstDate: DateTime(initial.year - 100),
+      lastDate: DateTime(initial.year + 100, 12, 31),
+    );
+    if (!mounted || !widget.enabled || selected == null) return;
+    due = selected;
+    rawDate = TaskDetails.dateLabel(selected);
+    dateText.text = rawDate;
+    emit();
+  }
+
+  @override
+  void dispose() {
+    dateText.dispose();
+    super.dispose();
+  }
+
   TaskDetails get value => TaskDetails(
     notes: notes,
     tags: tags.split(','),
     priority: priority,
     dueDate: due,
   );
-  void emit() => widget.onChanged(value);
+  void emit() {
+    widget.onDirtyChanged?.call(
+      notes != widget.initial.notes ||
+          tags != widget.initial.tags.join(', ') ||
+          priority != widget.initial.priority ||
+          rawDate !=
+              (widget.initial.dueDate == null
+                  ? ''
+                  : TaskDetails.dateLabel(widget.initial.dueDate!)),
+    );
+    widget.onChanged(value);
+  }
+
   static String? validateDate(String? raw) {
     final text = raw?.trim() ?? '';
     if (text.isEmpty) return null;
@@ -58,46 +105,58 @@ class _TaskDetailsFieldsState extends State<TaskDetailsFields> {
           emit();
         },
       ),
-      const SizedBox(height: 12),
-      DropdownButtonFormField<TaskPriority>(
+      const SizedBox(height: 20),
+      KeyedSubtree(
         key: const Key('task-priority'),
-        initialValue: priority,
-        decoration: const InputDecoration(labelText: 'Priority'),
-        items: TaskPriority.values
-            .map(
-              (item) => DropdownMenuItem(value: item, child: Text(item.name)),
-            )
-            .toList(),
-        onChanged: widget.enabled
-            ? (item) {
-                if (item != null) {
-                  priority = item;
-                  emit();
+        child: DropdownButtonFormField<TaskPriority>(
+          isExpanded: true,
+          isDense: false,
+          itemHeight: null,
+          key: priorityField,
+          initialValue: priority,
+          decoration: const InputDecoration(labelText: 'Priority'),
+          items: TaskPriority.values
+              .map(
+                (item) => DropdownMenuItem(value: item, child: Text(item.name)),
+              )
+              .toList(),
+          onChanged: widget.enabled
+              ? (item) {
+                  if (item != null) {
+                    priority = item;
+                    emit();
+                  }
                 }
-              }
-            : null,
+              : null,
+        ),
       ),
+      const SizedBox(height: 20),
       TextFormField(
         key: const Key('task-due-date'),
         enabled: widget.enabled,
-        initialValue: due == null ? '' : TaskDetails.dateLabel(due!),
+        controller: dateText,
         decoration: const InputDecoration(
-          labelText: 'Due date (YYYY-MM-DD)',
-          helperText: 'Optional. Clear to remove the date.',
+          labelText: 'Due date',
+          helperText: 'YYYY-MM-DD. Optional; clear to remove.',
         ),
         validator: validateDate,
         onChanged: (text) {
+          rawDate = text;
           if (validateDate(text) == null) {
             due = text.trim().isEmpty ? null : DateTime.parse(text.trim());
-            emit();
           }
+          emit();
         },
       ),
+      const SizedBox(height: 20),
       TextFormField(
         key: const Key('task-tags'),
         initialValue: tags,
         enabled: widget.enabled,
-        decoration: const InputDecoration(labelText: 'Tags (comma-separated)'),
+        decoration: const InputDecoration(
+          labelText: 'Tags',
+          helperText: 'Separate tags with commas.',
+        ),
         validator: (text) =>
             TaskDetails(tags: (text ?? '').split(',')).validationError,
         onChanged: (text) {

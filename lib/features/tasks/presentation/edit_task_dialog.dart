@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../domain/task_item.dart';
 import '../domain/task_details.dart';
@@ -26,7 +27,52 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
   final form = GlobalKey<FormState>();
   bool saving = false;
   bool failed = false;
+  bool detailsDirty = false;
+  bool titleDirty = false;
+  bool confirming = false;
+  bool get dirty => title.text != widget.task.title || detailsDirty;
   late TaskDetails details = widget.task.details;
+
+  @override
+  void initState() {
+    super.initState();
+    title.addListener(refreshDirty);
+  }
+
+  void refreshDirty() {
+    final next = title.text != widget.task.title;
+    if (next != titleDirty) setState(() => titleDirty = next);
+  }
+
+  Future<void> requestClose() async {
+    if (saving || confirming) return;
+    if (!dirty) {
+      Navigator.of(context).pop();
+      return;
+    }
+    confirming = true;
+    final discard = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Discard changes?'),
+        content: const Text('Your unsaved changes will be lost.'),
+        actions: [
+          TextButton(
+            autofocus: true,
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Continue editing'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('Discard'),
+          ),
+        ],
+      ),
+    );
+    confirming = false;
+    if (!mounted) return;
+    if (discard == true) Navigator.of(context).pop();
+  }
 
   @override
   void dispose() {
@@ -54,54 +100,72 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
 
   @override
   Widget build(BuildContext context) => PopScope(
-    canPop: !saving,
-    child: AlertDialog(
-      icon: const Icon(Icons.edit_note_rounded),
-      title: const Text('Edit task'),
-      content: SizedBox(
-        width: 440,
-        child: Form(
-          key: form,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextFormField(
-                  key: const Key('edit-task-title'),
-                  controller: title,
-                  autofocus: true,
-                  decoration: const InputDecoration(labelText: 'Task title'),
-                  validator: TaskItem.validateTitle,
-                  enabled: !saving,
-                  onFieldSubmitted: (_) => save(),
-                ),
-                if (failed)
-                  Semantics(
-                    liveRegion: true,
-                    child: Text(
-                      widget.failureMessage?.call() ?? 'Could not save. Your changes are still here. Try again.',
-                    ),
+    canPop: !saving && !dirty,
+    onPopInvokedWithResult: (didPop, _) {
+      if (!didPop) requestClose();
+    },
+    child: CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.escape): requestClose,
+      },
+      child: AlertDialog(
+        icon: const Icon(Icons.edit_note_rounded),
+        title: const Text('Edit task'),
+        content: SizedBox(
+          width: 440,
+          child: Form(
+            key: form,
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextFormField(
+                    key: const Key('edit-task-title'),
+                    controller: title,
+                    autofocus: true,
+                    minLines: 1,
+                    maxLines: 3,
+                    textInputAction: TextInputAction.done,
+                    decoration: const InputDecoration(labelText: 'Task title'),
+                    validator: TaskItem.validateTitle,
+                    enabled: !saving,
+                    onFieldSubmitted: (_) => save(),
                   ),
-                TaskDetailsFields(
-                  initial: widget.task.details,
-                  enabled: !saving,
-                  onChanged: (value) => details = value,
-                ),
-              ],
+                  const SizedBox(height: 20),
+                  if (failed)
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        widget.failureMessage?.call() ?? 'Could not save. Your changes are still here. Try again.',
+                      ),
+                    ),
+                  TaskDetailsFields(
+                    initial: widget.task.details,
+                    enabled: !saving,
+                    onChanged: (value) => details = value,
+                    onDirtyChanged: (value) {
+                      if (value != detailsDirty) {
+                        setState(() => detailsDirty = value);
+                      }
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
+        actions: [
+          TextButton(
+            onPressed: saving ? null : requestClose,
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: saving ? null : save,
+            child: Text(saving ? 'Saving…' : 'Save changes'),
+          ),
+        ],
       ),
-      actions: [
-        TextButton(
-          onPressed: saving ? null : () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
-        ),
-        FilledButton(
-          onPressed: saving ? null : save,
-          child: Text(saving ? 'Saving…' : 'Save changes'),
-        ),
-      ],
     ),
   );
 }

@@ -1,0 +1,55 @@
+Flutter 3.47.1 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 6655482ec0 (3 weeks ago) • 2026-08-19 10:07:23 -0700
+Engine • hash 11d79658c444477b06513d32b52c8c4ccb7276b0 (revision 5d53178869) (24 days ago) • 2026-08-18 23:36:01.000Z
+Tools • Dart 3.13.1 • DevTools 2.60.0
+Compiling lib/browser_test_harness.dart for the Web...          
+Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+Use --no-wasm-dry-run to disable these warnings.
+Font asset "CupertinoIcons.ttf" was tree-shaken, reducing it from 257628 to 1472 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 10388 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling lib/browser_test_harness.dart for the Web...             48,0s
+√ Built build\web
+### Browser `tf-e2911826db0e-1` opened with pid 3052.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:7359/?scenario=discovery');
+```
+### Page
+- Page URL: http://127.0.0.1:7359/?scenario=discovery
+- Page Title: taskflow_qa_lab
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-09-13T02-33-18-633Z.yml)
+Raw results: D:\flutter\output\playwright\edge-sessions-e2911826db0e41e6928d7829301ee84e\session-1
+TaskFlow Edge harness repeated-run experiment
+Started UTC: 2026-09-13T02:33:18.7291061Z
+CLI package: @playwright/cli@0.1.19
+Session: tf-e2911826db0e-1
+Repetitions: 1
+### Error
+TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('heading', { name: 'TaskFlow QA Lab' }) to be visible[22m
+
+Edge harness run 1 failed with exit code 1; retaining result and continuing.
+
+Run Result Seconds StartedUtc                   ExitCode Session           Log       Command
+--- ------ ------- ----------                   -------- -------           ---       -------
+  1 FAIL     33,23 2026-09-13T02:33:18.7297734Z        1 tf-e2911826db0e-1 run-1.txt @playwright/cli@0.1.19 playwright-…
+
+Passed: 0/1
+Mean seconds: 33.226
+Median seconds: 33.226
+Min seconds: 33.226
+Max seconds: 33.226
+Scope: one Edge version, one Windows host, one open isolated browser session.
+Browser 'tf-e2911826db0e-1' closed
+
+Restoring the default Web release build (API 127.0.0.1:8080).
+Compiling lib\main.dart for the Web...                          
+Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+Use --no-wasm-dry-run to disable these warnings.
+Font asset "CupertinoIcons.ttf" was tree-shaken, reducing it from 257628 to 1472 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 12284 bytes (99.3% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling lib\main.dart for the Web...                             35,0s
+√ Built build\web
+Session evidence: D:\flutter\output\playwright\edge-sessions-e2911826db0e41e6928d7829301ee84e

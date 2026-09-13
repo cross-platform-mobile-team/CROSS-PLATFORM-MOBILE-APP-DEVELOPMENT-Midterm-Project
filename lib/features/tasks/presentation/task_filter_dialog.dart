@@ -24,10 +24,15 @@ class _TaskFilterDialogState extends State<TaskFilterDialog> {
     content: SizedBox(
       width: 360,
       child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 12),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          spacing: 20,
           children: [
             DropdownButtonFormField<TaskStatusFilter>(
+              isExpanded: true,
+              isDense: false,
+              itemHeight: null,
               key: const Key('filter-status'),
               initialValue: status,
               decoration: const InputDecoration(labelText: 'Status'),
@@ -40,6 +45,9 @@ class _TaskFilterDialogState extends State<TaskFilterDialog> {
               onChanged: (item) => status = item!,
             ),
             DropdownButtonFormField<String>(
+              isExpanded: true,
+              isDense: false,
+              itemHeight: null,
               key: const Key('filter-priority'),
               initialValue: priority?.name ?? 'all',
               decoration: const InputDecoration(labelText: 'Priority'),
@@ -53,6 +61,9 @@ class _TaskFilterDialogState extends State<TaskFilterDialog> {
                   : TaskPriority.values.byName(item!),
             ),
             DropdownButtonFormField<DueFilter>(
+              isExpanded: true,
+              isDense: false,
+              itemHeight: null,
               key: const Key('filter-due'),
               initialValue: due,
               decoration: const InputDecoration(labelText: 'Due date'),
@@ -71,6 +82,9 @@ class _TaskFilterDialogState extends State<TaskFilterDialog> {
               onChanged: (text) => tag = text,
             ),
             DropdownButtonFormField<TaskSort>(
+              isExpanded: true,
+              isDense: false,
+              itemHeight: null,
               key: const Key('filter-sort'),
               initialValue: sort,
               decoration: const InputDecoration(labelText: 'Sort by'),

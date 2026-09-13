@@ -88,6 +88,11 @@ void main() {
       await tapVisible(tester, action(target.title, 'Edit'));
       await enterVisible(tester, 'edit-task-title', 'Edited persisted task');
       await enterVisible(tester, 'task-notes', 'Edited notes');
+      await tapVisible(tester, find.text('Cancel'));
+      expect(find.text('Discard changes?'), findsOneWidget);
+      expect((await repository.load()).single.toJson(), target.toJson());
+      await tapVisible(tester, find.text('Continue editing'));
+      expect(find.text('Edited notes'), findsOneWidget);
       await tapVisible(tester, find.text('Save changes'));
       expect(find.byType(AlertDialog), findsNothing);
       await tapVisible(

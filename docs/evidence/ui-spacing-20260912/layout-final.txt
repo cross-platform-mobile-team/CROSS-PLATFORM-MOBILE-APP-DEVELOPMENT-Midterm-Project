@@ -1,0 +1,5 @@
+00:00 +0: loading D:/flutter/test/widget/form_layout_test.dart
+00:00 +0: edit fields have breathing room and stable scroll while typing
+00:01 +1: filter fields have separate boxes
+00:01 +2: large text filter selections fit without overflow
+00:01 +3: All tests passed!

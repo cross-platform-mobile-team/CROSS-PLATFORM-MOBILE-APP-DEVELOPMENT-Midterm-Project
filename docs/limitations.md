@@ -1,8 +1,20 @@
 # Remaining work
 
+Quick-create exit verification (2026-09-12): a Windows metadata invocation
+stalled with no assertion outcome and was interrupted by stopping its verified
+test-owned Debug process. Preserve windows_workflow_test-final.txt and separate
+workflow-rerun.txt under evidence/quick-create-exit-20260912/. Root cause remains
+unconfirmed; a later PASS does not establish absence of native-runner flakiness.
+
 This basic project is not ready for final coursework submission.
 
-## Current Android and CI boundary - 2026-09-09
+Current source-matched status: [current-verified-state.md](current-verified-state.md).
+Hosted run 34628335925 at 0753db1 passed all three jobs; this supersedes older
+CI status for that source only. Local Android remains unavailable. Manual
+Narrator, clean-machine setup and release install/launch are still open gates.
+The dated sections below retain the conditions of their original milestones.
+
+## Historical Android and CI boundary - 2026-09-09
 
 Android tooling absence is no longer a project-wide blocker. GitHub Actions
 [run #2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886)

@@ -95,9 +95,7 @@ class BrandTitle extends StatelessWidget {
       Container(
         padding: const EdgeInsets.all(7),
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [AppTheme.accent, Color(0xFF355FAD)],
-          ),
+          color: AppTheme.accent,
           borderRadius: BorderRadius.circular(10),
         ),
         child: const Icon(
@@ -107,7 +105,12 @@ class BrandTitle extends StatelessWidget {
         ),
       ),
       const SizedBox(width: 10),
-      const Flexible(child: Text('TaskFlow QA Lab')),
+      const Flexible(
+        child: Text(
+          'TaskFlow',
+          style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
+        ),
+      ),
     ],
   );
 }

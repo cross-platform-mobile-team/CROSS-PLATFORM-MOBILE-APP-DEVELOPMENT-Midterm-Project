@@ -1,5 +1,33 @@
 # Implementation milestones
 
+## Quick-create exits - 2026-09-12
+
+UI spacing published as 4913c2d after an additional 84-case rerun. Next B1 slice
+guards explicit offline/sample exits; eight widget tests and one independent
+preference-backed native test. See quick-create-exit.md. B2 remains next.
+
+## UI spacing - 2026-09-12
+
+User-directed UI fix interrupts B roadmap: reproduce cramped forms/enlarged
+dropdown overflow, fix spacing/clipping/redundant rebuilds, review four new
+dialog goldens and run regression gates. See ui-spacing-20260912.md. No push or
+report; remaining B tasks stay planned.
+
+## Upgrade B1 edit slice - 2026-09-12
+
+Implemented dirty edit dismissal, raw invalid date protection and pending-save
+guard tests. Five isolated widget cases and the persisted edit/remount scenario
+cover the slice. See upgrade-b1.md. Next: quick-create exit guard and B2; C-G
+remain planned. No report changes.
+
+## Upgrade roadmap - package A, 2026-09-12
+
+User authorized stepwise implementation and publication to main-test.
+Package A establishes docs/current-verified-state.md, reconciles historical
+counts and commit/CI evidence, and refreshes local checks without changing app
+code. See docs/upgrade-roadmap.md for acceptance and bounded B-G follow-up.
+Stop at the phase boundary for team review; next implementation is B (draft safety).
+
 ## Bug audit - 2026-09-12
 
 Inspect storage/controller, account concurrency, validation and UI lifecycles.

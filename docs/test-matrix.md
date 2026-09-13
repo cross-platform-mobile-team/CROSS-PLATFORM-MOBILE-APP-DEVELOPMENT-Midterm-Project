@@ -1,4 +1,44 @@
-# Bootstrap tests
+# Test matrix
+
+## Minimal desktop workspace
+
+`flutter test test/widget/minimal_workspace_test.dart`: four deterministic cases
+for actual search keyboard focus, quick date/priority persistence/reset, popup
+sorting with retained status, and resize/raw-draft/large-text safety.
+Existing accessibility, loading, CRUD and draft-exit suites remain mandatory.
+See `minimal-desktop-ui.md` and the latest manifest for full gate results.
+
+## Quick-create exits
+
+Fresh gateway + repository per widget case: two modes x (keep/discard, blank,
+invalid raw date) plus save completer -> explicit exit cannot silently lose draft
+or interrupt save. Native quick_create_exit_test.dart uses a dedicated preference
+key and checks full saved-record equality after discard/re-entry. Separate native
+invocation; no user data/network. Commands and actual gates are in manifest.
+
+## UI spacing
+
+form_layout_test.dart: fresh dialogs at 390px, >=16px field gaps (20px in code),
+dropdown opening at 200% without overflow, stable metadata widget identity and
+position during typing. task_dialog_golden_test.dart: four reviewed Edit/Filter
+images at 100%/200%. These are not frame-time or screen-reader measurements.
+
+## Upgrade B1 edit slice
+
+| Risk | Level / known initial state | Observable result |
+|---|---|---|
+| Accidental loss of changed or invalid input | Widget, fresh dialog and save spy | Cancel/back/Escape offer keep/discard; no write on discard |
+| Unnecessary prompt after reverting | Widget, fresh original task | Reverted title closes immediately |
+| Dismissal during write | Widget, controlled save completer | No dismissal or duplicate write before completion |
+| Large text hides actions | Widget, 390x900, text 200% | Confirmation actions usable, draft retained, no overflow |
+| Confirmation writes too early | Native, isolated persisted edit key | Storage unchanged before save; edited metadata survives fresh remount |
+
+Commands/logs: evidence/manifest.md, upgrade-b1.md. No extra native case count.
+
+Current totals and source-matched evidence: [current verified state](current-verified-state.md).
+Sections below are dated test-design milestones, not additive current counts.
+Package A (upgrade-roadmap.md) changes only documentation/evidence; B/C will
+add dirty-draft and conflict recovery risks with their own tests and initial states.
 
 ## Bug audit - 2026-09-12
 

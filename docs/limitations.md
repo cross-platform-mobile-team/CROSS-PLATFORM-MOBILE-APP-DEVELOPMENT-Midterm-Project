@@ -1,5 +1,11 @@
 # Remaining work
 
+Quick-create exit verification (2026-09-12): a Windows metadata invocation
+stalled with no assertion outcome and was interrupted by stopping its verified
+test-owned Debug process. Preserve windows_workflow_test-final.txt and separate
+workflow-rerun.txt under evidence/quick-create-exit-20260912/. Root cause remains
+unconfirmed; a later PASS does not establish absence of native-runner flakiness.
+
 This basic project is not ready for final coursework submission.
 
 Current source-matched status: [current-verified-state.md](current-verified-state.md).

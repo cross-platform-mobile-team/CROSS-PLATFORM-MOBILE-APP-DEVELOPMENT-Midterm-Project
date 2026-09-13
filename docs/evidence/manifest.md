@@ -1,5 +1,102 @@
 # Evidence manifest
 
+## Minimal desktop UI — 2026-09-13 (unpublished worktree)
+
+Scope/design/reproduction notes: `../minimal-desktop-ui.md`. Existing staged
+quick-create work is preserved; no new SHA or hosted run is claimed.
+All paths below are under `minimal-ui-20260913/`; Flutter/Dart commands use
+`C:/Users/LENOVO/flutter-sdk/bin/{flutter,dart}.bat` from the repository root.
+
+| Gate / command | Result | Raw evidence |
+| --- | --- | --- |
+| `dart format --output=none --set-exit-if-changed .` | PASS, 57 files unchanged | `format.txt` |
+| `flutter analyze --no-pub` | PASS | `analyze-final.txt` |
+| `flutter test --no-pub --reporter expanded` | PASS, 96 cases | `tests-final.txt` |
+| `flutter test --coverage --no-pub --reporter expanded` | PASS, 96 cases, no tap warnings | `coverage-verified.txt` |
+| `flutter test test/golden --no-pub` before replacement | FAIL, expected obsolete visual baselines | `golden-before.txt` |
+| Reviewed `flutter test test/golden --update-goldens --no-pub` | PASS, 15 intentionally replaced baselines; verified by full suites above | `golden-update.txt` |
+| `node --test backend/test/*.test.js` | PASS, 14 cases | `backend.txt` |
+| `flutter test integration_test/independent_scenarios_test.dart -d windows --no-pub` | PASS, 4 cases | `native-independent.txt` |
+| Same command with `persisted_scenarios_test.dart` | PASS, 3 cases | `native-persisted.txt` |
+| Same command with `quick_create_exit_test.dart` | PASS, 1 case | `native-exit.txt` |
+| Same command with `windows_workflow_test.dart` | PASS, 2 cases | `native-workflow.txt` |
+| `scripts/test-online-windows.ps1 -FlutterSdk C:/Users/LENOVO/flutter-sdk -NoPub` | PASS, 1 isolated API/SQLite case | `native-online.txt` |
+| `flutter build windows --release --no-pub` | PASS | `windows-build.txt` |
+| Edge harness, final corrected script | PASS, 1/1 in a fresh session | `edge-verified.txt` |
+| Default Web release restored by Edge runner | PASS | `edge-verified.txt` |
+| Local Android APK/build/run | NOT RUN, Android SDK absent | `environment.txt` |
+
+Edge command: `scripts/test-edge-harness.ps1 -Flutter
+C:/Users/LENOVO/flutter-sdk/bin/flutter.bat -Sessions 1 -Repetitions 1 -NoPub`.
+The runner builds the QA entrypoint with local renderer resources and restores
+the default Web release build. Preserve the four earlier failed attempts:
+`edge.txt` (old heading), `edge-rerun.txt`, `edge-diagnostic.txt`, and
+`edge-focus-diagnostic.txt` (focused-input name includes the new hint).
+The last log identifies the real DOM state; the final helper validates its
+exact first-line field label before keyboard typing. No scenario was removed.
+This is a corrected-script check, not a five-run reliability experiment.
+Raw per-run details remain in each logged ignored `output/playwright` path.
+
+The 15 baseline images were individually inspected (task phone/wide states,
+auth/settings and 1x/2x edit/filter dialogs). New design is not proof of measured
+frame-rate improvement, Android execution or manual screen-reader usability.
+Earlier `coverage.txt` / `coverage-final.txt` captured test-target warnings;
+use `coverage-verified.txt` for the final warning-free run.
+
+## Quick-create exit guard - 2026-09-12
+
+Base 4913c2d plus the exitActions/gateway/test changes committed with this
+bundle. User authorized checks then push to main-test. Logs below are relative
+to `quick-create-exit-20260912/`; scope and remaining B2 work: ../quick-create-exit.md.
+
+Final rebuild-safe source:
+
+| Command | Result | Log |
+|---|---|---|
+| flutter test --no-pub --coverage --reporter expanded | PASS 92 / exit 0 | coverage-final.txt |
+| flutter test --no-pub --reporter expanded | PASS 92 / exit 0 | tests-verified.txt |
+| flutter analyze --no-pub | PASS / exit 0 | analyze-verified.txt |
+| dart format --output=none --set-exit-if-changed . | PASS / exit 0 | format-verified.txt |
+| flutter test integration_test/independent_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 4 / exit 0; test markers end at 00:13 | independent_scenarios_test-final.txt |
+| flutter test integration_test/quick_create_exit_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 1 / exit 0 | quick_create_exit_test-final.txt |
+| flutter test integration_test/persisted_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 3 / exit 0 | persisted_scenarios_test-final.txt |
+| flutter test integration_test/windows_workflow_test.dart -d windows --no-pub --reporter expanded --timeout 90s | INTERRUPTED / exit 1 after stalled metadata; unchanged separate rerun PASS 2 / exit 0 | windows_workflow_test-final.txt, workflow-rerun.txt |
+| scripts/test-online-windows.ps1 -NoPub | PASS 1, isolated API/SQLite | online-final.txt |
+| flutter build windows --release --no-pub | PASS / exit 0 | windows-build-final.txt |
+| scripts/test-edge-harness.ps1 -Flutter C:/Users/LENOVO/flutter-sdk/bin/flutter.bat -Sessions 1 -Repetitions 1 -NoPub | PASS 1/1, default Web release restoration PASS | edge-final.txt |
+
+The interrupted native run was stopped only after verifying its repository
+Debug app path and PID 10316. Its runner also reported a cleanup file-lock
+error after interruption; do not treat that as a confirmed cause of the stall.
+The separate rerun ends at 00:21. No increased timeout or repaired raw log.
+
+Earlier incremental checks (before the metadata-baseline correction):
+
+| Command | Result | Log |
+|---|---|---|
+| flutter test test/widget/quick_create_exit_test.dart --no-pub --reporter expanded --timeout 30s | Initial fixture compile FAIL / exit 1, then PASS 7 / exit 0 | widget.txt, widget-rerun.txt |
+| flutter test --no-pub --coverage --reporter expanded | PASS 91 / exit 0, 15 unchanged goldens | coverage.txt |
+| flutter test --no-pub --reporter expanded | PASS 91 / exit 0 | tests-final.txt |
+| flutter analyze --no-pub | PASS / exit 0 after unused-import correction | analyze-final.txt |
+| flutter test integration_test/independent_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 4 / exit 0; unusually slow discovery case | independent.txt |
+| scripts/test-edge-harness.ps1 -Flutter C:/Users/LENOVO/flutter-sdk/bin/flutter.bat -Sessions 1 -Repetitions 1 -NoPub | PASS 1/1 and default Web release restoration | edge.txt |
+| dart format --output=none --set-exit-if-changed . | PASS / exit 0 | format.txt |
+| flutter test integration_test/quick_create_exit_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 1 / exit 0, dedicated preference key | native-exit.txt |
+| flutter test integration_test/persisted_scenarios_test.dart -d windows --no-pub --reporter expanded --timeout 90s | PASS 3 / exit 0 | persisted.txt |
+| npm --prefix backend test | PASS 14 / exit 0 | backend.txt |
+| Local Android APK/device / manual Narrator / OS process exit | NOT RUN: SDK absent / outside tested scope | Explicit limits |
+
+analyze.txt is the initial unused-import warning (exit 1), preserved after the
+unused import was removed. No product test failure is inferred from a fixture
+compilation error. Golden images and API source are unchanged. New native case
+is local Windows evidence, not a new hosted Android case or process restart.
+
+UI-spacing milestone from the preceding request was independently rerun at 84
+PASS before publication as 4913c2d; its original full gate logs remain below.
+GitHub run 34697153061 at exact SHA 4913c2d51f327267b92c4518d2e1b474a88e68c1
+also completed successfully (raw run metadata: ui-ci.json). This is UI-milestone
+CI evidence only, not hosted verification of the quick-create changes.
+
 ## UI spacing audit - 2026-09-12
 
 Base abbc203 plus uncommitted form/layout changes; user did not request push.

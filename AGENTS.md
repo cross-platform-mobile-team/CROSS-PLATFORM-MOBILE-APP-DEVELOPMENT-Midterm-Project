@@ -40,6 +40,18 @@ Incorrect official information causes fixed deductions, so do not guess it.
 
 ## 3. Current repository state
 
+Publication authorization 2026-09-13: the user explicitly requested pushing
+the verified minimalist UI and pending quick-create exit slice to `main-test`.
+This supersedes the no-push notes below, which describe the earlier UI request.
+
+2026-09-13 requested minimalist desktop UI: see docs/minimal-desktop-ui.md.
+Keep SidebarNavigation, TaskHeader, QuickTaskInput and EmptyStateWidget;
+retain stable canvas keys and fixed empty draft baselines across resize/rebuild.
+Calendar/priority shortcuts share form state; loading is distinct from completion.
+Sample workspace is session-only, not local persistence. Current UI work is not
+published; earlier staged quick-create changes remain preserved. Do not infer
+push authorization from the earlier continuation request. Roadmap B2 stays pending.
+
 - Current continuation checkout (2026-09-10): `D:/flutter`;
   development branch `main-test`, tracking `origin/main-test`. The configured remote is
   `https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project.git`.
@@ -116,6 +128,16 @@ Incorrect official information causes fixed deductions, so do not guess it.
 - Do not edit a Flutter SDK checkout. All project work belongs in this repo.
 
 ### Next increments (not completed coursework)
+
+2026-09-12 quick-create exits: offline/sample explicit exit buttons must await
+TaskScreen.exitActions confirmExit. Keep metadata dirty tracking for invalid
+raw dates; block exit during repository work, reset dirty only after successful
+save. Eight widget cases and one dedicated-key Windows scenario protect this.
+Quick-create TaskDetailsFields initial must stay empty for each form revision,
+not follow mutable draftDetails; otherwise search rebuild can hide a dirty draft.
+New test key: taskflow.integration.quick-create-exit.v1; clear only that key.
+See docs/quick-create-exit.md and manifest. User authorized push after checks;
+B2 validation/focus remains next. Do not intercept account security invalidation.
 
 Follow-up authorization: user requests stepwise upgrades, checks then push to
 main-test. Publish the verified UI spacing slice first, then protect quick-create

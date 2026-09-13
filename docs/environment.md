@@ -1,5 +1,15 @@
 # Environment
 
+2026-09-13 minimal-UI recheck: Flutter 3.47.1 / Dart 3.13.1 at
+`C:/Users/LENOVO/flutter-sdk`; Windows 10.0.26200.9445; Edge **153.0.4234.32**,
+Chrome 149.0.7827.201. Android SDK is still absent. See
+`evidence/minimal-ui-20260913/environment.txt` for complete doctor/device output.
+No SDK or global tool was installed for this refactor.
+
+Quick-create continuation 2026-09-12: version/doctor/devices rechecked; Flutter
+3.47.1 / Dart 3.13.1, Windows 26200.9445, VS 17.14.39, Edge 152.0.4191.66,
+Chrome 149.0.7827.201 unchanged. Android SDK absent; no installation performed.
+
 UI spacing audit: fresh 2026-09-12 version/doctor/devices output is in
 evidence/ui-spacing-20260912/environment.txt. Same SDK and local Android absence;
 no toolchain installation or upgrade performed.

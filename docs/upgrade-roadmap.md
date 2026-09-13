@@ -125,6 +125,10 @@ Tiến độ 12/09: đã triển khai phần Edit (Cancel/Escape/Back, giữ/b�
 pending save, ngày nhập sai và test 200%). Xem upgrade-b1.md và manifest.
 Quick-create khi rời workspace và các mục B2 vẫn chưa triển khai.
 
+Cập nhật tiếp: đã bảo vệ nút thoát offline/sample của quick-create, gồm giữ/bỏ
+nháp và chặn thoát khi đang lưu. Xem quick-create-exit.md. Không chặn đóng tab,
+system back hay phiên tài khoản bị thu hồi. B2 vẫn là bước tiếp theo.
+
 - Khi đóng form Edit bằng Cancel/Escape/Back, chỉ xác nhận bỏ thay đổi nếu dữ liệu
   thực sự khác bản gốc. Form không đổi đóng ngay, không gây thêm bước thừa.
 - Chọn “Continue editing” giữ nguyên mọi field và focus hợp lý; “Discard” không

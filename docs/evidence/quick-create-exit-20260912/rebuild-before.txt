@@ -1,0 +1,3 @@
+00:00 +0: loading D:/flutter/test/widget/quick_create_exit_test.dart
+00:00 +0: metadata draft remains dirty after unrelated screen rebuild
+00:02 +1: All tests passed!

@@ -1,0 +1,501 @@
+00:00 +0: loading D:/flutter/test/golden/account_screen_golden_test.dart
+00:00 +0: D:/flutter/test/golden/account_screen_golden_test.dart: (setUpAll)
+00:00 +0: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +0: D:/flutter/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/phone-sign-in.png": Pixel test failed, 52.03%, 223217px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/auth_screen_golden_test.dart:26:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +0 -1: D:/flutter/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden phone-sign-in (variant: TargetPlatform.android)
+  
+00:01 +0 -1: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/edit-dialog-1x.png": Pixel test failed, 44.47%, 166504px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_dialog_golden_test.dart:38:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +0 -2: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+  
+00:01 +0 -2: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/account-settings.png": Pixel test failed, 43.16%, 621443px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/account_screen_golden_test.dart:41:5)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -3: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:01 +0 -3: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden account settings with synthetic session (variant: TargetPlatform.android)
+  
+00:01 +0 -3: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/phone-empty.png": Pixel test failed, 81.26%, 304253px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_screen_golden_test.dart:37:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -4: D:/flutter/test/golden/auth_screen_golden_test.dart: golden wide-sign-in (variant: TargetPlatform.android)
+00:01 +0 -4: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden phone-empty (variant: TargetPlatform.android)
+  
+00:01 +0 -4: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 2.0 (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/edit-dialog-2x.png": Pixel test failed, 28.24%, 105732px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_dialog_golden_test.dart:38:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -5: D:/flutter/test/golden/auth_screen_golden_test.dart: golden wide-sign-in (variant: TargetPlatform.android)
+00:01 +0 -5: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 2.0 (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: edit dialog at text scale 2.0 (variant: TargetPlatform.android)
+  
+00:01 +0 -5: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 1.0 (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/filter-dialog-1x.png": Pixel test failed, 44.83%, 167830px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_dialog_golden_test.dart:38:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -6: D:/flutter/test/golden/auth_screen_golden_test.dart: golden wide-sign-in (variant: TargetPlatform.android)
+00:01 +0 -6: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 1.0 (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: filter dialog at text scale 1.0 (variant: TargetPlatform.android)
+  
+00:01 +0 -6: D:/flutter/test/golden/auth_screen_golden_test.dart: golden wide-sign-in (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/wide-sign-in.png": Pixel test failed, 50.16%, 642064px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/auth_screen_golden_test.dart:26:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -7: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:01 +0 -7: D:/flutter/test/golden/auth_screen_golden_test.dart: golden wide-sign-in (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden wide-sign-in (variant: TargetPlatform.android)
+  
+00:01 +0 -7: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:01 +0 -7: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/filter-dialog-2x.png": Pixel test failed, 42.88%, 160552px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_dialog_golden_test.dart:38:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -8: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:01 +0 -8: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+  
+00:01 +0 -8: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/phone-populated.png": Pixel test failed, 80.30%, 300643px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_screen_golden_test.dart:37:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -9: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden phone-populated (variant: TargetPlatform.android)
+  
+00:01 +0 -9: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-validation (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/phone-validation.png": Pixel test failed, 81.29%, 304368px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_screen_golden_test.dart:37:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -10: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-validation (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden phone-validation (variant: TargetPlatform.android)
+  
+00:02 +0 -10: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/phone-error.png": Pixel test failed, 62.09%, 232465px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_screen_golden_test.dart:37:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -11: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden phone-error (variant: TargetPlatform.android)
+  
+00:02 +0 -11: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-empty (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/wide-empty.png": Pixel test failed, 72.42%, 834251px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_screen_golden_test.dart:37:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -12: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-empty (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden wide-empty (variant: TargetPlatform.android)
+  
+00:03 +0 -12: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-populated (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/wide-populated.png": Pixel test failed, 72.49%, 835031px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_screen_golden_test.dart:37:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -13: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-populated (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden wide-populated (variant: TargetPlatform.android)
+  
+00:03 +0 -13: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-validation (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/wide-validation.png": Pixel test failed, 74.03%, 852807px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_screen_golden_test.dart:37:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -14: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-validation (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden wide-validation (variant: TargetPlatform.android)
+  
+00:03 +0 -14: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-error (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "baselines/wide-error.png": Pixel test failed, 56.34%, 648995px diff detected.
+Failure feedback can be found at /D:/flutter/test/golden/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:153:17)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/flutter/test/golden/task_screen_golden_test.dart:37:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -15: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-error (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: golden wide-error (variant: TargetPlatform.android)
+  
+00:04 +0 -15: D:/flutter/test/golden/task_screen_golden_test.dart: (tearDownAll)
+00:04 +0 -15: Some tests failed.
+
+Failing tests:
+  D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+  D:/flutter/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+  D:/flutter/test/golden/auth_screen_golden_test.dart: golden wide-sign-in (variant: TargetPlatform.android)
+  D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+  ... and 11 more

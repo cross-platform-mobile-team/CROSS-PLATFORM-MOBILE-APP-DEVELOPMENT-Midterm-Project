@@ -15,15 +15,47 @@ class TaskDetailsFields extends StatefulWidget {
   final bool enabled;
   final ValueChanged<bool>? onDirtyChanged;
   @override
-  State<TaskDetailsFields> createState() => _TaskDetailsFieldsState();
+  State<TaskDetailsFields> createState() => TaskDetailsFieldsState();
 }
 
-class _TaskDetailsFieldsState extends State<TaskDetailsFields> {
+class TaskDetailsFieldsState extends State<TaskDetailsFields> {
   late String notes = widget.initial.notes;
   late String tags = widget.initial.tags.join(', ');
   late TaskPriority priority = widget.initial.priority;
   late DateTime? due = widget.initial.dueDate;
   late String rawDate = due == null ? '' : TaskDetails.dateLabel(due!);
+  late final dateText = TextEditingController(text: rawDate);
+  final priorityField = GlobalKey<FormFieldState<TaskPriority>>();
+
+  void setPriority(TaskPriority value) {
+    if (!widget.enabled) return;
+    priority = value;
+    priorityField.currentState?.didChange(value);
+    emit();
+  }
+
+  Future<void> pickDate() async {
+    if (!widget.enabled) return;
+    final initial = due ?? DateTime.now();
+    final selected = await showDatePicker(
+      context: context,
+      initialDate: initial,
+      firstDate: DateTime(initial.year - 100),
+      lastDate: DateTime(initial.year + 100, 12, 31),
+    );
+    if (!mounted || !widget.enabled || selected == null) return;
+    due = selected;
+    rawDate = TaskDetails.dateLabel(selected);
+    dateText.text = rawDate;
+    emit();
+  }
+
+  @override
+  void dispose() {
+    dateText.dispose();
+    super.dispose();
+  }
+
   TaskDetails get value => TaskDetails(
     notes: notes,
     tags: tags.split(','),
@@ -74,32 +106,35 @@ class _TaskDetailsFieldsState extends State<TaskDetailsFields> {
         },
       ),
       const SizedBox(height: 20),
-      DropdownButtonFormField<TaskPriority>(
-        isExpanded: true,
-        isDense: false,
-        itemHeight: null,
+      KeyedSubtree(
         key: const Key('task-priority'),
-        initialValue: priority,
-        decoration: const InputDecoration(labelText: 'Priority'),
-        items: TaskPriority.values
-            .map(
-              (item) => DropdownMenuItem(value: item, child: Text(item.name)),
-            )
-            .toList(),
-        onChanged: widget.enabled
-            ? (item) {
-                if (item != null) {
-                  priority = item;
-                  emit();
+        child: DropdownButtonFormField<TaskPriority>(
+          isExpanded: true,
+          isDense: false,
+          itemHeight: null,
+          key: priorityField,
+          initialValue: priority,
+          decoration: const InputDecoration(labelText: 'Priority'),
+          items: TaskPriority.values
+              .map(
+                (item) => DropdownMenuItem(value: item, child: Text(item.name)),
+              )
+              .toList(),
+          onChanged: widget.enabled
+              ? (item) {
+                  if (item != null) {
+                    priority = item;
+                    emit();
+                  }
                 }
-              }
-            : null,
+              : null,
+        ),
       ),
       const SizedBox(height: 20),
       TextFormField(
         key: const Key('task-due-date'),
         enabled: widget.enabled,
-        initialValue: due == null ? '' : TaskDetails.dateLabel(due!),
+        controller: dateText,
         decoration: const InputDecoration(
           labelText: 'Due date',
           helperText: 'YYYY-MM-DD. Optional; clear to remove.',

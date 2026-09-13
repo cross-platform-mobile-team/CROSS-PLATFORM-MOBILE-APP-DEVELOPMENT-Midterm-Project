@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 abstract final class AppTheme {
   static const ink = Color(0xFF17233C);
   static const muted = Color(0xFF54627A);
-  static const accent = Color(0xFF6243C7);
-  static const canvas = Color(0xFFF8F7FC);
-  static const line = Color(0xFFE3DEEE);
+  static const accent = Color(0xFF4F46E5);
+  static const canvas = Color(0xFFF8FAFC);
+  static const line = Color(0xFFE2E8F0);
   static const mint = Color(0xFFE4F6EF);
   static const peach = Color(0xFFFFEDE3);
-  static const lavender = Color(0xFFEEE8FF);
+  static const lavender = Color(0xFFEEF2FF);
   static const tealInk = Color(0xFF186450);
   static const amberInk = Color(0xFF855216);
 
@@ -32,7 +32,7 @@ abstract final class AppTheme {
       scaffoldBackgroundColor: canvas,
       textTheme: base.textTheme.copyWith(
         headlineMedium: base.textTheme.headlineMedium!.copyWith(
-          fontSize: 30,
+          fontSize: 28,
           fontWeight: FontWeight.w700,
           letterSpacing: -0.8,
           color: ink,

@@ -1,0 +1,6 @@
+00:00 +0: loading D:/flutter/integration_test/quick_create_exit_test.dart
+Building Windows application...                                    39,0s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+00:00 +0: offline draft exit decisions preserve persisted tasks
+00:08 +1: (tearDownAll)
+00:08 +1: All tests passed!

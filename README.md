@@ -1,10 +1,20 @@
 # TaskFlow QA Lab
 
+Desktop UI refresh: [minimal TaskFlow workspace](docs/minimal-desktop-ui.md).
+The sidebar shows real task counts; quick capture supports Enter, date/priority
+shortcuts, and Ctrl+K / Command+K focuses search. Sort uses a popup; the advanced
+filter dialog remains available. Compact and large-text layouts retain drafts.
+
 Flutter task manager and QA lab for Topic 4: UI Automation Testing in Flutter:
 Implementing End-to-End Testing (503107). Account-based REST/SQLite backend plus
 an isolated offline demo. This is not yet the final coursework submission.
 
 ## Verified state and upgrade plan
+
+[Quick-create exit protection](docs/quick-create-exit.md) asks before discarding
+drafts when leaving offline/sample workspaces and prevents exit during saves.
+Run its native scenario separately:
+`flutter test integration_test/quick_create_exit_test.dart -d windows`.
 
 [UI spacing fixes](docs/ui-spacing-20260912.md) improve field gaps, large-text
 dropdowns and floating labels, and avoid redundant Edit form rebuilds.
@@ -34,7 +44,7 @@ remaining form protection and conflict-recovery upgrades are still next steps.
 - Latest [color studio refinement](docs/color-studio-ui.md): violet actions,
   mint/peach task surfaces and original geometric header with readable labels.
 
-- 84 unit/widget/golden tests, including 15 task/auth/settings/dialog visual baselines,
+- 92 unit/widget/golden tests, including 15 task/auth/settings/dialog visual baselines,
   accessibility guidelines, text scaling, keyboard interaction and signed-in
   account-settings validation/focus coverage.
 - [Bug audit](docs/bug-audit-20260912.md): snapshot-load safety and session-race

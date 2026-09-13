@@ -1,0 +1,38 @@
+00:00 +0: loading D:/flutter/test/widget/quick_create_exit_test.dart
+test/widget/quick_create_exit_test.dart:16:16: Error: A value of type 'Completer<void>' can't be assigned to a variable of type 'Future<void>?'.
+ - 'Completer' is from 'dart:async'.
+ - 'Future' is from 'dart:async'.
+  final gate = Completer<void>();
+               ^
+test/widget/quick_create_exit_test.dart:19:16: Error: The getter 'future' isn't defined for the type 'Future<void>?'.
+ - 'Future' is from 'dart:async'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'future'.
+    await gate.future;
+               ^^^^^^
+test/widget/quick_create_exit_test.dart:111:21: Error: The method 'complete' isn't defined for the type 'Future<void>?'.
+ - 'Future' is from 'dart:async'.
+Try correcting the name to the name of an existing method, or defining a method named 'complete'.
+    repository.gate.complete();
+                    ^^^^^^^^
+00:00 +0 -1: loading D:/flutter/test/widget/quick_create_exit_test.dart [E]
+  Failed to load "D:/flutter/test/widget/quick_create_exit_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/quick_create_exit_test.dart: test/widget/quick_create_exit_test.dart:16:16: Error: A value of type 'Completer<void>' can't be assigned to a variable of type 'Future<void>?'.
+   - 'Completer' is from 'dart:async'.
+   - 'Future' is from 'dart:async'.
+    final gate = Completer<void>();
+                 ^
+  test/widget/quick_create_exit_test.dart:19:16: Error: The getter 'future' isn't defined for the type 'Future<void>?'.
+   - 'Future' is from 'dart:async'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'future'.
+      await gate.future;
+                 ^^^^^^
+  test/widget/quick_create_exit_test.dart:111:21: Error: The method 'complete' isn't defined for the type 'Future<void>?'.
+   - 'Future' is from 'dart:async'.
+  Try correcting the name to the name of an existing method, or defining a method named 'complete'.
+      repository.gate.complete();
+                      ^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  D:/flutter/test/widget/quick_create_exit_test.dart: loading D:/flutter/test/widget/quick_create_exit_test.dart

@@ -1,5 +1,21 @@
 # Test matrix
 
+## Minimal desktop workspace
+
+`flutter test test/widget/minimal_workspace_test.dart`: four deterministic cases
+for actual search keyboard focus, quick date/priority persistence/reset, popup
+sorting with retained status, and resize/raw-draft/large-text safety.
+Existing accessibility, loading, CRUD and draft-exit suites remain mandatory.
+See `minimal-desktop-ui.md` and the latest manifest for full gate results.
+
+## Quick-create exits
+
+Fresh gateway + repository per widget case: two modes x (keep/discard, blank,
+invalid raw date) plus save completer -> explicit exit cannot silently lose draft
+or interrupt save. Native quick_create_exit_test.dart uses a dedicated preference
+key and checks full saved-record equality after discard/re-entry. Separate native
+invocation; no user data/network. Commands and actual gates are in manifest.
+
 ## UI spacing
 
 form_layout_test.dart: fresh dialogs at 390px, >=16px field gaps (20px in code),

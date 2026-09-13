@@ -1,5 +1,11 @@
 # Implementation milestones
 
+## Quick-create exits - 2026-09-12
+
+UI spacing published as 4913c2d after an additional 84-case rerun. Next B1 slice
+guards explicit offline/sample exits; eight widget tests and one independent
+preference-backed native test. See quick-create-exit.md. B2 remains next.
+
 ## UI spacing - 2026-09-12
 
 User-directed UI fix interrupts B roadmap: reproduce cramped forms/enlarged

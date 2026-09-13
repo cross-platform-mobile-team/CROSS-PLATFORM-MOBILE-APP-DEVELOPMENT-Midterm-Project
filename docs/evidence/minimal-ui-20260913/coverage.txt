@@ -1,0 +1,122 @@
+00:00 +0: loading D:/flutter/test/golden/account_screen_golden_test.dart
+00:00 +0: D:/flutter/test/golden/account_screen_golden_test.dart: (setUpAll)
+00:00 +0: D:/flutter/test/golden/auth_screen_golden_test.dart: (setUpAll)
+00:00 +0: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +1: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +2: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +3: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +4: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +5: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +6: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +7: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +8: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +9: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +10: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +11: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +12: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +13: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +14: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +15: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +16: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +17: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +18: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +19: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:02 +20: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +21: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +22: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +23: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +24: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:02 +25: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:02 +26: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:02 +27: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:02 +28: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:02 +29: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:02 +30: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:03 +31: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:03 +32: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:03 +33: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:03 +34: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:03 +35: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:03 +36: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:03 +37: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:03 +38: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:03 +39: D:/flutter/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:04 +40: D:/flutter/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:05 +41: D:/flutter/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:05 +42: D:/flutter/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:05 +43: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:06 +44: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:06 +45: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:06 +46: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:06 +47: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:06 +48: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:07 +49: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:07 +50: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:07 +51: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:07 +52: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:07 +53: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:07 +54: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:07 +55: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:07 +56: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:07 +57: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:07 +58: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:08 +59: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:08 +60: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:08 +61: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:08 +62: D:/flutter/test/widget/accessibility_test.dart: keyboard traverses from title and submits a task (variant: TargetPlatform.windows)
+00:08 +63: D:/flutter/test/widget/accessibility_test.dart: keyboard traverses from title and submits a task (variant: TargetPlatform.windows)
+00:08 +64: D:/flutter/test/widget/minimal_workspace_test.dart: quick priority and date save and reset together
+00:10 +65: D:/flutter/test/widget/minimal_workspace_test.dart: quick priority and date save and reset together
+00:10 +66: D:/flutter/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:12 +67: D:/flutter/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:13 +68: D:/flutter/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:13 +69: D:/flutter/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:14 +70: D:/flutter/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:15 +71: D:/flutter/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:15 +72: D:/flutter/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:16 +73: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:16 +74: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:16 +75: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:16 +76: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:16 +77: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:16 +78: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:16 +79: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:17 +80: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:17 +81: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:18 +82: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:18 +83: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:18 +84: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:18 +85: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:19 +86: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:19 +87: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:19 +88: D:/flutter/test/widget/workspace_layout_test.dart: desktop status navigation filters without changing stored tasks
+00:19 +89: D:/flutter/test/widget/quick_create_exit_test.dart: sample blank draft exits without confirmation
+00:20 +90: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 1100.0
+00:20 +91: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 1100.0
+00:21 +92: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 1100.0
+00:22 +93: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 1100.0
+00:23 +94: D:/flutter/test/widget/quick_create_exit_test.dart: pending save blocks exit then saved draft exits cleanly
+
+Warning: A call to tap() with finder "Found 1 widget with widget matching predicate: [
+  RawTooltip-[LabeledGlobalKey<RawTooltipState>#f3b25]("Return to sign in", hover delay: 0:00:00.000000, touch delay: 0:00:01.500000, dismiss delay: 0:00:00.100000, triggerMode: TooltipTriggerMode.longPress, enableFeedback: true, positionDelegate: Closure: (TooltipPositionContext) => Offset from Function '_getDefaultPositionDelegate@669220820':., dependencies: [_ScrollableScope], state: RawTooltipState#ddd13(ticker inactive)),
+]" derived an Offset (Offset(40.0, 1548.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: _RenderLayoutSurrogateProxyBox#06cad relayoutBoundary=up8
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#a1268@Offset(25.0, 6.0), RenderCustomPaint#4bd26@Offset(25.0, 6.0), RenderPhysicalShape#72e40@Offset(25.0, 6.0), RenderPadding#ec5e8@Offset(40.0, 11.0), RenderPadding#a24e5@Offset(40.0, 11.0), RenderPointerListener#70b46@Offset(40.0, 11.0), RenderSemanticsGestureHandler#45d2e@Offset(40.0, 11.0), RenderSemanticsAnnotations#a2d5c@Offset(40.0, 11.0), RenderPositionedBox#87227@Offset(40.0, 11.0), RenderAnimatedOpacity#ad80b@Offset(40.0, 11.0), RenderClipRect#ea345@Offset(40.0, 11.0), RenderOffstage#b530b@Offset(40.0, 11.0), RenderConstrainedBox#fb5f0@Offset(40.0, 11.0), RenderCustomMultiChildLayoutBox#7743e@Offset(40.0, 1548.0), _RenderInkFeatures#6a0a6@Offset(40.0, 1548.0), RenderPhysicalModel#0a280@Offset(40.0, 1548.0), RenderSemanticsAnnotations#f3c69@Offset(40.0, 1548.0), RenderSemanticsAnnotations#d4d39@Offset(40.0, 1548.0), RenderSemanticsAnnotations#0b2e9@Offset(40.0, 1548.0), RenderRepaintBoundary#11046@Offset(40.0, 1548.0), RenderIgnorePointer#f2535@Offset(40.0, 1548.0), RenderAnimatedOpacity#4d869@Offset(40.0, 1548.0), RenderAnimatedOpacity#e5bb7@Offset(40.0, 1548.0), _RenderColoredBox#bf04d@Offset(40.0, 1548.0), RenderAnimatedOpacity#acdca@Offset(40.0, 1548.0), RenderIgnorePointer#33f30@Offset(40.0, 1548.0), RenderAnimatedOpacity#da05f@Offset(40.0, 1548.0), RenderRepaintBoundary#08bd7@Offset(40.0, 1548.0), RenderSemanticsAnnotations#7da52@Offset(40.0, 1548.0), RenderOffstage#01ae5@Offset(40.0, 1548.0), RenderSemanticsAnnotations#85fe1@Offset(40.0, 1548.0), _RenderTheater#c536d@Offset(40.0, 1548.0), RenderAbsorbPointer#dd294@Offset(40.0, 1548.0), RenderPointerListener#88327@Offset(40.0, 1548.0), RenderSemanticsAnnotations#d3d7c@Offset(40.0, 1548.0), RenderSemanticsAnnotations#a35d4@Offset(40.0, 1548.0), RenderSemanticsAnnotations#d5312@Offset(40.0, 1548.0), RenderSemanticsAnnotations#e937b@Offset(40.0, 1548.0), RenderTapRegionSurface#a452e@Offset(40.0, 1548.0), RenderSemanticsAnnotations#ba297@Offset(40.0, 1548.0), RenderSemanticsAnnotations#d9ee7@Offset(40.0, 1548.0), HitTestEntry<HitTestTarget>#99455(_ReusableRenderView#afeae), HitTestEntry<HitTestTarget>#4fff0(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      tapVisible (file:///D:/flutter/test/support/metadata_workflow.dart:7:16)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///D:/flutter/test/widget/quick_create_exit_test.dart:131:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:23 +95: All tests passed!

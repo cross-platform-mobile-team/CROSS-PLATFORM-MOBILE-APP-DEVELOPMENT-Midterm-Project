@@ -1,0 +1,5 @@
+Analyzing flutter...                                            
+
+warning - Unused import: 'package:flutter/material.dart'. Try removing the import directive - integration_test\quick_create_exit_test.dart:1:8 - unused_import
+
+1 issue found. (ran in 40.2s)

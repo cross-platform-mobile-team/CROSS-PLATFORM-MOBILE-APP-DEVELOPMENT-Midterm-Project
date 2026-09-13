@@ -1,0 +1,9 @@
+00:00 +0: loading D:/flutter/test/widget/quick_create_exit_test.dart
+00:00 +0: offline exit keeps or discards draft without storage writes
+00:01 +1: offline blank draft exits without confirmation
+00:01 +2: offline metadata-only invalid date is protected
+00:02 +3: sample exit keeps or discards draft without storage writes
+00:02 +4: sample blank draft exits without confirmation
+00:02 +5: sample metadata-only invalid date is protected
+00:03 +6: pending save blocks exit then saved draft exits cleanly
+00:03 +7: All tests passed!

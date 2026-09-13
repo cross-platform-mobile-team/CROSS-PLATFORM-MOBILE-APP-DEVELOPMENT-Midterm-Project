@@ -2,9 +2,20 @@
 
 ## Current verified state
 
+2026-09-13 responsive/accessibility UI refinement -> SidebarNavigation,
+TaskHeader, QuickTaskInput, EmptyStateWidget -> minimal_workspace_test.dart
+(shortcuts, metadata, sorting, resize/200% text) plus existing suites and 15
+reviewed goldens -> docs/minimal-desktop-ui.md and latest evidence manifest.
+Product/test scope is unchanged; no report or scoring claim.
+
+B1 quick-create: accidental offline/sample exit -> TaskScreen.exitActions and
+AccountGateway -> eight widget cases + one isolated native saved-record check
+-> quick-create-exit.md and manifest. 92 Flutter cases, unchanged 15 goldens;
+11 local Windows cases across five suites. B2/OS exit/security recovery not claimed.
+
 UI spacing audit: cramped fields/large text -> edit/details/filter UI -> three
 layout tests and four reviewed dialog goldens -> ui-spacing-20260912.md/manifest.
-Current Flutter suite: 84 cases, 15 goldens. Earlier counts below are history.
+At the UI-spacing milestone: 84 cases, 15 goldens. Current totals are above.
 
 B1 edit slice: accidental Cancel/Escape/Back -> edit_task_dialog.dart and raw
 metadata dirty callback -> edit_draft_test.dart (five cases) plus persisted edit
@@ -79,7 +90,7 @@ workflow executions on an Android 16/API 36 emulator.
 | Meaningful workflow | CRUD, metadata, search, filters, sort, undo | Widget CRUD/metadata tests and Windows workflows | Broader failure/platform scenarios |
 | Robustness | Loading, empty, error/retry, persist before state change | Native plus Edge harness load/save failures, Retry and draft preservation; API/client failures | Public deployment/long-duration failure evidence |
 | Cross-platform | Android/Web/Windows runners | Edge online lifecycle/sample plus deterministic harness; Windows release/native suites; hosted API 36 APK/E2E gate | Physical Android/manual APK and Android online mode; another browser/host |
-| Testing pyramid | 77 local unit/widget/golden cases after B1; 10 Windows scenarios across 4 suites, 14 API cases; Edge CLI checks; separate hosted Android evidence | current-verified-state.md; evidence/manifest.md; independent-e2e.md; web-edge-testing.md | Manual platform checks; report comparison; historical Android counts must stay SHA-specific |
+| Testing pyramid | 92 local unit/widget/golden cases; 11 Windows scenarios across 5 suites, 14 API cases; Edge CLI checks; separate hosted Android evidence | current-verified-state.md; evidence/manifest.md; independent-e2e.md; web-edge-testing.md | Manual platform checks; report comparison; interrupted native run retained; Android counts stay SHA-specific |
 | Visual/accessibility | Phone/wide baselines, validation errors, account entry/settings guidelines, focus recovery/order, 200% text and text-only tag semantics | test/golden; widget/accessibility_test.dart; widget/sample_accessibility_test.dart; widget/account_settings_accessibility_test.dart; Edge snapshots | Manual Narrator/full-page physical focus order and clean-machine assistive-technology pass |
 | Safe sample data | Fresh in-memory repository per sample entry; no offline overwrite/upload | Widget isolation/reset and scripts/browser/edge-sample-check.js | Clean-machine demo rehearsal |
 | Experiments | Search mutation; repeated browser and four test-level commands | Intentional-defect fail/fix artifacts; five-run Edge and three-round test-level timing experiments | Broader sessions/hosts and report synthesis |

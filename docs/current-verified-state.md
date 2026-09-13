@@ -1,12 +1,31 @@
 # Current verified state
 
-## UI spacing - 2026-09-12, uncommitted
+## Minimal desktop UI — 2026-09-13 (local worktree)
+
+User-requested indigo/off-white TaskFlow workspace: see minimal-desktop-ui.md.
+96 Flutter cases PASS, including 15 reviewed new goldens; 14 backend cases PASS;
+11 Windows E2E cases PASS across separate invocations; Windows Release PASS.
+Exact commands/logs and Edge status are in the latest evidence manifest.
+Earlier 92-case/unchanged-golden statements below describe the previous slice.
+No new commit, push, hosted CI or Android execution is claimed.
+
+## Quick-create exit increment - 2026-09-12
+
+UI spacing was published as 4913c2d after an additional 84-case PASS. The next
+slice protects explicit offline/sample draft exits; its full Flutter coverage
+run passes 92 cases, 15 unchanged goldens, including metadata-after-rebuild safety.
+New independent Windows case adds
+one to the previous ten; see latest manifest for each gate and quick-create-exit.md
+for scope. Historical references to uncommitted UI below describe capture time.
+Hosted results for older SHAs must not be assigned to this increment.
+
+## Historical UI spacing capture - 2026-09-12
 
 After abbc203: form gaps, enlarged dropdowns, floating-label clipping and
 redundant dirty-state rebuilds fixed. Flutter coverage invocation passes 84
 cases with 15 goldens (four added/reviewed, eleven unchanged). See
-[UI audit](ui-spacing-20260912.md) and latest manifest. Older CI results below
-do not verify this uncommitted source.
+[UI audit](ui-spacing-20260912.md) and latest manifest. This was uncommitted at
+capture time, then published as 4913c2d; run 34697153061 subsequently succeeded.
 
 ## B1 edit-slice update - 2026-09-12
 

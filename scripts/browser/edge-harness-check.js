@@ -25,7 +25,7 @@ async (page) => {
       throw new Error(`${error.message}\nSemantics bootstrap diagnostics: ${JSON.stringify({ ...diagnostics, pending: [...pending], failed })}`);
     });
     await enable.evaluate(element => element.click());
-    await page.getByRole('heading', { name: 'TaskFlow QA Lab' }).waitFor();
+    await page.getByRole('heading', { name: 'Focus on what matters today.' }).waitFor();
   };
   const openScenario = async name => {
     const origin = await page.evaluate(() => location.origin);
@@ -36,10 +36,17 @@ async (page) => {
   const type = async (name, text) => {
     const field = page.getByRole('textbox', { name, exact: true });
     await field.click();
+    // Flutter appends the visible hint to the focused input's accessible name.
+    // Validate the exact first-line label, then type into that verified input.
     await page.waitForFunction(label => document.activeElement?.tagName === 'INPUT' &&
-      document.activeElement.getAttribute('aria-label') === label, name);
-    await field.press('ControlOrMeta+A');
-    await field.pressSequentially(text);
+      document.activeElement.getAttribute('aria-label')?.split('\n')[0] === label, name, { timeout: 5000 }).catch(async error => {
+        const focus = await page.evaluate(() => ({ tag: document.activeElement?.tagName,
+          label: document.activeElement?.getAttribute('aria-label'),
+          description: document.activeElement?.getAttribute('aria-description') }));
+        throw new Error(`Typing ${name}: ${error.message}; focus=${JSON.stringify(focus)}`);
+      });
+    await page.keyboard.press('ControlOrMeta+A');
+    await page.keyboard.type(text);
   };
   const taskNames = async () => page.getByRole('checkbox').evaluateAll(nodes =>
     nodes.map(node => node.getAttribute('aria-label')?.replace(/\s+/g, ' ').trim()));
@@ -59,6 +66,12 @@ async (page) => {
     const field = document.querySelector('input[aria-label="Task title"]');
     return field?.getAttribute('aria-invalid') === 'true' &&
       field.getAttribute('aria-description') === 'Enter a task title';
+  }, null, { timeout: 5000 }).catch(async error => {
+    const fields = await page.locator('input').evaluateAll(nodes => nodes.map(node => ({
+      label: node.getAttribute('aria-label'), invalid: node.getAttribute('aria-invalid'),
+      description: node.getAttribute('aria-description'),
+    })));
+    throw new Error(`${error.message}\nValidation semantics: ${JSON.stringify(fields)}`);
   });
   await type('Task title', 'Keep browser draft');
   await page.getByRole('button', { name: 'Add task', exact: true }).click();

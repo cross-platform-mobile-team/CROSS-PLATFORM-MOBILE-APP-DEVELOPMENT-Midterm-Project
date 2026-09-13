@@ -85,12 +85,17 @@ class _AccountGatewayState extends State<AccountGateway> {
       return TaskScreen(
         key: ObjectKey(samples),
         repository: samples!,
+        temporary: true,
         notice: 'Sample sandbox: changes are discarded on exit. Saved tasks are untouched.',
-        actions: [
+        exitActions: (confirmExit) => [
           IconButton(
             tooltip: 'Exit sample sandbox',
             icon: const Icon(Icons.close),
-            onPressed: () => setState(() => samples = null),
+            onPressed: () async {
+              if (await confirmExit() && mounted) {
+                setState(() => samples = null);
+              }
+            },
           ),
         ],
       );
@@ -99,12 +104,14 @@ class _AccountGatewayState extends State<AccountGateway> {
       return TaskScreen(
         key: const ValueKey('offline'),
         repository: local,
-        actions: [
+        exitActions: (confirmExit) => [
           IconButton(
             tooltip: 'Return to sign in',
-            onPressed: () => setState(() {
-              offline = false;
-            }),
+            onPressed: () async {
+              if (await confirmExit() && mounted) {
+                setState(() => offline = false);
+              }
+            },
             icon: const Icon(Icons.login),
           ),
         ],

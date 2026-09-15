@@ -1,5 +1,12 @@
 # Remaining work
 
+Latest consolidated status: [15 September progress review](project-progress-20260915.md).
+Android release/emulator and 15 native cases now PASS; Windows has 15 native
+cases from 14 September. Older platform gaps below are historical where superseded.
+iOS, manual screen-reader/full keyboard audit, clean-machine setup, final report
+review, video and confirmed individual contributions remain open. Passing tests
+do not prove absence of all bugs or establish production readiness.
+
 Quick-create exit verification (2026-09-12): a Windows metadata invocation
 stalled with no assertion outcome and was interrupted by stopping its verified
 test-owned Debug process. Preserve windows_workflow_test-final.txt and separate

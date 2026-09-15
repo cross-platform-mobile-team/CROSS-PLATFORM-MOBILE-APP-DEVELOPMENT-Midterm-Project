@@ -1,5 +1,10 @@
 # TaskFlow QA Lab
 
+Local platform verification: [Android/Windows audit](docs/platform-audit-20260914.md),
+[Android SDK and emulator on D:](docs/android-local-setup.md), and
+[iOS Mac/Xcode handoff](docs/ios-validation.md). The iOS runner is scaffolded,
+not yet build/run verified. Do not infer iOS support from the folder alone.
+
 Desktop UI refresh: [minimal TaskFlow workspace](docs/minimal-desktop-ui.md).
 The sidebar shows real task counts; quick capture supports Enter, date/priority
 shortcuts, and Ctrl+K / Command+K focuses search. Sort uses a popup; the advanced

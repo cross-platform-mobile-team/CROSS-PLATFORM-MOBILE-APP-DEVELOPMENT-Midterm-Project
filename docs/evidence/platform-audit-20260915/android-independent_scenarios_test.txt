@@ -1,0 +1,12 @@
+00:00 +0: loading D:/flutter/integration_test/independent_scenarios_test.dart
+Running Gradle task 'assembleDebug'...                          
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Running Gradle task 'assembleDebug'...                            108,0s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          998ms
+00:00 +0: independent empty validation correction at width 390.0
+00:03 +1: independent empty validation correction at width 1100.0
+00:06 +2: independent seeded search AND filters and deterministic order
+00:13 +3: independent load and save failure recover without losing draft
+00:16 +4: (tearDownAll)
+00:17 +4: All tests passed!

@@ -1,0 +1,8 @@
+00:00 +0: loading D:/flutter/integration_test/windows_workflow_test.dart
+Running Gradle task 'assembleDebug'...                             13,4s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          609ms
+00:00 +0: native create, edit, complete, delete, undo and reload
+00:08 +1: native metadata form and filters persist across remount
+00:22 +2: (tearDownAll)
+00:22 +2: All tests passed!

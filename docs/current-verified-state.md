@@ -1,5 +1,16 @@
 # Current verified state
 
+## Platform audit and publication review — 2026-09-15
+
+Latest: [progress review](project-progress-20260915.md) and
+[platform evidence](evidence/platform-audit-20260915/README.md).
+100 Flutter cases and 14 API cases PASS, repeated during publication review.
+Android: 15 native cases and release install/launch/restart persistence PASS.
+Windows: 15 native cases and release build PASS on 14 September.
+iOS scaffold exists; build/run NOT RUN without Mac/Xcode. No new Edge run.
+Submission readiness is estimated at 80%, not an expected grade or bug-free claim.
+The entries below are historical, not the latest platform status.
+
 ## Minimal desktop UI — 2026-09-13 (local worktree)
 
 User-requested indigo/off-white TaskFlow workspace: see minimal-desktop-ui.md.

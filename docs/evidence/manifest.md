@@ -1,5 +1,14 @@
 # Evidence manifest
 
+## 2026-09-15 Android execution and platform review
+
+See [platform-audit-20260915/README.md](platform-audit-20260915/README.md):
+release build/install/cold launch, visual process-restart persistence, and 15
+native Android executions including isolated API/SQLite all PASS. Earlier
+SDK/NDK/Kotlin/registrant failures are retained, not relabelled. Windows has 15
+native case executions in platform-audit-20260914. iOS runner configuration is
+present but no Mac/Xcode build or runtime evidence is claimed.
+
 ## 2026-09-13 draft-consistency update
 
 See [capture-fix/README.md](capture-fix/README.md): 100 Flutter cases, 14 API

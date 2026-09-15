@@ -1,0 +1,45 @@
+[1/1] Android SDK
+  ├─ [1/6] android-arm-profile/windows-x64                          9,1s
+  ├─ [2/6] android-arm-release/windows-x64                       1.777ms
+  ├─ [3/6] android-arm64-profile/windows-x64                     2.033ms
+  ├─ [4/6] android-arm64-release/windows-x64                     2.186ms
+  ├─ [5/6] android-x64-profile/windows-x64                       2.145ms
+  └─ [6/6] android-x64-release/windows-x64                       2.159ms
+Running Gradle task 'assembleRelease'...                        
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Android CLI will be used instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+Downloading Android CLI...
+Unpacking embedded installation...
+
+Terms of Service and License Agreement for the Android Software Development Kit
+
+https://developer.android.com/studio/terms
+
+Google collects usage data for the Android CLI, such as commands, sub-commands, and flags used. This data does not include custom parameters or identifiable information. This information helps improve the tool and is collected in accordance with Google's Privacy Policy.
+
+https://policies.google.com/privacy
+
+Disable Android CLI metrics collection by using the --no-metrics flag.
+Package ndk not found.
+Package 28.2.13676358 not found.
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'D:\flutter\android\build.gradle.kts' line: 19
+
+* What went wrong:
+A problem occurred configuring project ':app'.
+> Process 'command 'D:/Android/sdk\cmdline-tools\latest\bin\sdkmanager.bat'' finished with non-zero exit value -1073740791 (NTSTATUS 0xC0000409)
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 3m 46s
+Running Gradle task 'assembleRelease'...                          227,1s
+Gradle task assembleRelease failed with exit code 1

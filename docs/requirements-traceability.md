@@ -2,6 +2,12 @@
 
 ## Current verified state
 
+2026-09-14 platform review -> Android debug-only local network configuration,
+iOS runner scaffold, native pending-capture scenarios ->
+docs/platform-audit-20260914.md. On 15 September, Android release build,
+install/launch, process-restart persistence and 15 native cases passed. Windows
+has 15 native executions from 14 September. iOS is NOT RUN without a Mac.
+
 2026-09-13 draft consistency -> TaskScreen.add snapshot ownership -> four
 pending_capture_test.dart cases -> docs/evidence/capture-fix/ -> report 5.2/6.1.
 100 Flutter and 14 API cases pass; Windows draft-exit case and Web build pass.

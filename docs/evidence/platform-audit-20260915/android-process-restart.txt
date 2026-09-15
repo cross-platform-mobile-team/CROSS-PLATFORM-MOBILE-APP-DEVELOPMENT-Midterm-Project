@@ -1,0 +1,7 @@
+Starting: Intent { cmp=com.taskflow.taskflow_qa_lab/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: com.taskflow.taskflow_qa_lab/.MainActivity
+TotalTime: 1667
+WaitTime: 1673
+Complete

@@ -30,7 +30,7 @@ void main() {
   setUp(binding.testTextInput.register);
   tearDown(binding.testTextInput.unregister);
   testWidgets(
-    'online account lifecycle, isolation and optimistic conflict on Windows',
+    'online account lifecycle, isolation and optimistic conflict on native host',
     (tester) async {
       final api = ApiClient(
         Uri.parse(

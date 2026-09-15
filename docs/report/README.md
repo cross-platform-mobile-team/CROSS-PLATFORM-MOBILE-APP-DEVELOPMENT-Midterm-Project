@@ -39,6 +39,8 @@ the official GitHub release; archive SHA-256:
 f61ce51f0b0ade1015b7de7ef368541c5424e9756ecbd0d7af97d6d48030845f.
 Compilation downloads TeX support data, not manuscript uploads. No global install.
 
-Source baseline: 39dd199. Fresh analyze and existing Flutter/API logs are under
-evidence; native and browser results keep their historical evidence identities.
+Source baseline: 3e4f733. The manuscript includes the 14-15 September platform
+audit: 100 Flutter, 14 API, 15 Windows and 15 Android native cases, plus Android
+release install/launch/process-restart persistence. iOS remains NOT RUN.
+Earlier browser/CI experiments retain their original identities.
 This report is not a certification that the application is defect-free.

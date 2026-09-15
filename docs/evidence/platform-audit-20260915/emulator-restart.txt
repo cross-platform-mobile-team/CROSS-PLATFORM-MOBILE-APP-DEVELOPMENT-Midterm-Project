@@ -1,0 +1,117 @@
+INFO         | Android emulator version 37.1.11.0 (build_id 15917651) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath D:\Android\sdk\system-images\android-36\google_apis\x86_64\
+INFO         | Guest usage of host flag 'VulkanVirtualQueue' will be ignored.
+INFO         | Increasing RAM size to 2560MB
+INFO         | IPv4 server found: 123.23.23.23
+INFO         | Ignore IPv6 address: 489f:67d2:3a02:0:9089:67d2:3a02:0
+INFO         | Ignore IPv6 address: 489f:67d2:3a02:0:9089:67d2:3a02:0
+INFO         | Ignore IPv6 address: 489f:67d2:3a02:0:9089:67d2:3a02:0
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_init: vulkan_mode_selected:swiftshader gles_mode_selected:swiftshader
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasCompatibleHypervisor
+INFO         |      Ok: Hypervisor compatibility to run avd: `taskflow_api36` are met
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `taskflow_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `taskflow_api36` are met
+INFO         | Storing crashdata in: C:\Users\LENOVO\AppData\Local\Temp\\AndroidEmulator\emu-crash-37.1.11.db, detection is enabled for process: 6536
+INFO         | Initializing gfxstream backend
+INFO         | startOpenglesRendererImpl: gpu info
+INFO         | GPU #1
+  Make: 10de
+  Model: NVIDIA GeForce RTX 3060 Laptop GPU
+  Device ID: 2560
+
+INFO         | Disabling implicit Vulkan layers to avoid compatibility issues. Set VK_LOADER_LAYERS_DISABLE manually to disable this behavior.
+INFO         | initIcdPaths: ICD set to 'swiftshader', using Swiftshader ICD
+INFO         | Setting ICD filenames for the loader = D:\Android\sdk\emulator\lib64\vulkan\vk_swiftshader_icd.json
+INFO         | SharedLibrary::open for [D:\Android\sdk\emulator\qemu\windows-x86_64\lib64\vulkan\vulkan-1.dll]
+INFO         | SharedLibrary::open for [D:\Android\sdk\emulator\lib64\vulkan\vulkan-1.dll]
+INFO         | Added library: D:\Android\sdk\emulator\lib64\vulkan\vulkan-1.dll
+INFO         | Selecting Vulkan device: SwiftShader Device (LLVM 10.0.0), Version: 1.2.0
+INFO         | Using Vulkan externalMemoryMode: HostAllocation for VkEmulation
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc.)
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (Google SwiftShader)
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.0 SwiftShader 4.0.0.1)
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Sending adb public key [QAAAAG9NyuxxTqSEk8gVAvinaMAd8EHzJKjYUcDnWvzMm4Ju4Ivr0a/QAgG9NH89SYNe1GKyPUDQ6r9omDwFD3GPvUVkPgFbtKuMrtFQnHEiOS0yYP+j/eGp5rgZEiu9N22BrNat8M0EZq1u6dHWyOfqvaz3UG5wMHVUZiOnWniRPc1XQjuEKeXEl7lPuSV60bpCPm9OoTzucfH7RfYVUKRv+2n0/v3zmFTj2lVjKEjXDIjKaIOWYWaKF7ocRCwfevFtGtrrOaINfFS9izrojK+gqMM1tcVIFrUle3bY3dZ7CAK4XGTUh9RjV1vhHDuakWa6lVXHAlQ2Vizu2elfAJvgvwExjofqSjokPPyJY3C+dEvJvB6Kwo1Uo0ZVD7POYkH6LBnUEfQnhzxroKyRWSeqGDEPar+M1w/athrU+DDRG355MUC60TCaw97ayFY71gUmnxMkpXnjCed6TXrDVa5u+Sx2qcUw0MAU1XLTqor6YqZwnZexAcDRI0Y0b5eMM0DIOtagjUgZMBdp3ZjKjYYQ1/qbqgdyhaF5W5ak8lBOCpr4w6WAnpwcXDK/Z0IeMKP1jMfFu9+omvJV+ILoxvP5GJJGFQknwspnVLda87xndG4484w52m7NE7itO3++goCJQuB7EzndHGS8BSwxxdjZ/y47g8Xl1tZACwKWnQsFkT/D8aT8AgEAAQA= @unknown]
+INFO         | Userspace boot properties:
+INFO         |   androidboot.boot_devices=pci0000:00/0000:00:03.0 pci0000:00/0000:00:06.0
+INFO         |   androidboot.dalvik.vm.heapsize=576m
+INFO         |   androidboot.debug.hwui.renderer=skiagl
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.gltransport=pipe
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.logcat=*:V
+INFO         |   androidboot.opengles.version=196608
+INFO         |   androidboot.qemu=1
+INFO         |   androidboot.qemu.adb.pubkey=QAAAAG9NyuxxTqSEk8gVAvinaMAd8EHzJKjYUcDnWvzMm4Ju4Ivr0a/QAgG9NH89SYNe1GKyPUDQ6r9omDwFD3GPvUVkPgFbtKuMrtFQnHEiOS0yYP+j/eGp5rgZEiu9N22BrNat8M0EZq1u6dHWyOfqvaz3UG5wMHVUZiOnWniRPc1XQjuEKeXEl7lPuSV60bpCPm9OoTzucfH7RfYVUKRv+2n0/v3zmFTj2lVjKEjXDIjKaIOWYWaKF7ocRCwfevFtGtrrOaINfFS9izrojK+gqMM1tcVIFrUle3bY3dZ7CAK4XGTUh9RjV1vhHDuakWa6lVXHAlQ2Vizu2elfAJvgvwExjofqSjokPPyJY3C+dEvJvB6Kwo1Uo0ZVD7POYkH6LBnUEfQnhzxroKyRWSeqGDEPar+M1w/athrU+DDRG355MUC60TCaw97ayFY71gUmnxMkpXnjCed6TXrDVa5u+Sx2qcUw0MAU1XLTqor6YqZwnZexAcDRI0Y0b5eMM0DIOtagjUgZMBdp3ZjKjYYQ1/qbqgdyhaF5W5ak8lBOCpr4w6WAnpwcXDK/Z0IeMKP1jMfFu9+omvJV+ILoxvP5GJJGFQknwspnVLda87xndG4484w52m7NE7itO3++goCJQuB7EzndHGS8BSwxxdjZ/y47g8Xl1tZACwKWnQsFkT/D8aT8AgEAAQA= @unknown
+INFO         |   androidboot.qemu.avd_name=taskflow_api36
+INFO         |   androidboot.qemu.camera_hq_edge_processing=0
+INFO         |   androidboot.qemu.camera_protocol_ver=1
+INFO         |   androidboot.qemu.cpuvulkan.version=4206592
+INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
+INFO         |   androidboot.qemu.gltransport.name=pipe
+INFO         |   androidboot.qemu.hwcodec.avcdec=2
+INFO         |   androidboot.qemu.hwcodec.hevcdec=2
+INFO         |   androidboot.qemu.hwcodec.vpxdec=2
+INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   androidboot.qemu.skin=1080x2400
+INFO         |   androidboot.qemu.virtiowifi=1
+INFO         |   androidboot.qemu.vsync=60
+INFO         |   androidboot.serialno=EMULATOR37X1X11X0
+INFO         |   androidboot.vbmeta.digest=7466b5c28e6a3e1427b22ed2c317c6c7066294bde838d4d5243cce5d37992bd5
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6848
+INFO         |   androidboot.veritymode=enforcing
+WHPX on Windows 10.0.26200 detected.
+Windows Hypervisor Platform accelerator is operational
+INFO         | Monitoring duration of emulator setup.
+INFO         | Activated packet streamer for uwb emulation
+INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Successfully initialized netsim WiFi
+INFO         | Setting display: 0 configuration to: 1080x2400, dpi: 420x420 
+INFO         | setDisplayActiveConfig: id:0, 1080x2400
+INFO         | emulatorSetupEnvironment: Environment scene is not required
+USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
+INFO         | Boot completed in 34984 ms
+INFO         | Increasing screen off timeout, logcat buffer size to 2M.
+INFO         | IPv4 server found: 123.23.23.23
+INFO         | Ignore IPv6 address: c845:4dc1:3a02:0:1030:4dc1:3a02:0
+INFO         | Ignore IPv6 address: c845:4dc1:3a02:0:1030:4dc1:3a02:0
+INFO         | Ignore IPv6 address: c845:4dc1:3a02:0:1030:4dc1:3a02:0
+INFO         | IPv4 server found: 123.23.23.23
+INFO         | Ignore IPv6 address: c845:4dc1:3a02:0:1030:4dc1:3a02:0
+INFO         | Ignore IPv6 address: c845:4dc1:3a02:0:1030:4dc1:3a02:0
+INFO         | Ignore IPv6 address: c845:4dc1:3a02:0:1030:4dc1:3a02:0
+INFO         | IPv4 server found: 123.23.23.23
+INFO         | Ignore IPv6 address: c845:4dc1:3a02:0:1030:4dc1:3a02:0
+INFO         | Ignore IPv6 address: c845:4dc1:3a02:0:1030:4dc1:3a02:0
+INFO         | Ignore IPv6 address: c845:4dc1:3a02:0:1030:4dc1:3a02:0
+INFO         | Wait for emulator (pid 6536) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+WARNING      | Not saving state: RAM not mapped as shared
+INFO         | Saving snapshot 'default_boot' using 1 ms
+WARNING      | Emulator client has not yet been configured.. Call configure me first!
+INFO         | removeAll
+WARNING      | Netsim Wifi dns:///localhost:64246 is gone due to Stream removed (CANCELLED)

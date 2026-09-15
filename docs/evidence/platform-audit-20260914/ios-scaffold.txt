@@ -1,0 +1,55 @@
+Recreating project ....
+  ios\.gitignore (created)
+  ios\Flutter\AppFrameworkInfo.plist (created)
+  ios\Flutter\Debug.xcconfig (created)
+  ios\Flutter\Release.xcconfig (created)
+  ios\Runner\AppDelegate.swift (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-1024x1024@1x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-20x20@1x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-20x20@2x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-20x20@3x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-29x29@1x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-29x29@2x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-29x29@3x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-40x40@1x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-40x40@2x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-40x40@3x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-60x60@2x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-60x60@3x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-76x76@1x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-76x76@2x.png (created)
+  ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5@2x.png (created)
+  ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json (created)
+  ios\Runner\Assets.xcassets\LaunchImage.imageset\LaunchImage.png (created)
+  ios\Runner\Assets.xcassets\LaunchImage.imageset\LaunchImage@2x.png (created)
+  ios\Runner\Assets.xcassets\LaunchImage.imageset\LaunchImage@3x.png (created)
+  ios\Runner\Assets.xcassets\LaunchImage.imageset\README.md (created)
+  ios\Runner\Base.lproj\LaunchScreen.storyboard (created)
+  ios\Runner\Base.lproj\Main.storyboard (created)
+  ios\Runner\Info.plist (created)
+  ios\Runner\Runner-Bridging-Header.h (created)
+  ios\Runner\SceneDelegate.swift (created)
+  ios\Runner.xcodeproj\project.pbxproj (created)
+  ios\Runner.xcodeproj\project.xcworkspace\contents.xcworkspacedata (created)
+  ios\Runner.xcodeproj\project.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist (created)
+  ios\Runner.xcodeproj\project.xcworkspace\xcshareddata\WorkspaceSettings.xcsettings (created)
+  ios\Runner.xcodeproj\xcshareddata\xcschemes\Runner.xcscheme (created)
+  ios\Runner.xcworkspace\contents.xcworkspacedata (created)
+  ios\Runner.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist (created)
+  ios\Runner.xcworkspace\xcshareddata\WorkspaceSettings.xcsettings (created)
+  ios\RunnerTests\RunnerTests.swift (created)
+  test\widget_test.dart (created)
+Wrote 41 files.
+
+All done!
+You can find general documentation for Flutter at: https://docs.flutter.dev/
+Detailed API documentation is available at: https://api.flutter.dev/
+If you prefer video documentation, consider: https://www.youtube.com/c/flutterdev
+
+In order to run your application, type:
+
+  $ flutter run
+
+Your application code is in .\lib\main.dart.
+

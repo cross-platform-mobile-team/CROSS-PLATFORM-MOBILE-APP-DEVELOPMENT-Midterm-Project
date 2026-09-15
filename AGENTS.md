@@ -1,5 +1,9 @@
 # AGENTS.md - TaskFlow QA Lab
 
+Publication review 2026-09-15: user authorized review/fixes and push to main-test.
+See docs/project-progress-20260915.md for the 80% submission-readiness estimate,
+its explicit weights and remaining gates; never present this as an expected grade.
+
 ## 1. Mission
 
 Build an original, reproducible Flutter coursework project for Topic 4:
@@ -39,6 +43,19 @@ The following items must remain placeholders until the user supplies them:
 Incorrect official information causes fixed deductions, so do not guess it.
 
 ## 3. Current repository state
+
+2026-09-15 platform audit (local, not published): see
+docs/platform-audit-20260914.md and docs/evidence/platform-audit-20260915/README.md.
+Android SDK/AVD/Gradle/Pub cache now live under D:/Android. Dot-source
+scripts/use-android-d.ps1. Android API 36 release build/install/cold launch and
+process-restart persistence passed; 15 native cases passed including isolated
+API/SQLite via the debug-only 10.0.2.2 HTTP policy. Windows has 15 native cases
+from 14 September. iOS scaffold exists but build/run remain NOT RUN without Mac.
+Preserve Kotlin cache and stale-registrant failure logs. After test/release
+switching, build APK normally (do not use --no-pub with a stale registrant).
+Keep Pub cache on the project drive to avoid Kotlin cross-drive failures.
+No full flutter clean: ignored build/ also holds report tools and artifacts.
+Emulator and dedicated Gradle daemon were stopped after verification to free RAM.
 
 Publication authorization 2026-09-13: the user explicitly requested pushing
 the verified minimalist UI and pending quick-create exit slice to `main-test`.

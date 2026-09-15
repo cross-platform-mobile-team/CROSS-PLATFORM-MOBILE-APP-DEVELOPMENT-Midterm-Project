@@ -1,5 +1,13 @@
 # Environment
 
+2026-09-14 Android setup: SDK and emulator under D:/Android/sdk, AVD under
+D:/Android/avd, Gradle cache under D:/Android/gradle. Flutter 3.47.1 / Dart 3.13.1,
+Windows 10.0.26200.9445, existing Oracle JDK 21.0.3. Emulator 37.1.11, Google
+APIs Android 16/API 36 x86_64 revision 7, WHPX acceleration available. The first
+boot encountered System UI ANR under host load; subsequent execution evidence
+must be assessed separately. See platform-audit-20260914.md and its raw logs.
+No macOS/Xcode available; iOS scaffold is not runtime validation.
+
 2026-09-13 minimal-UI recheck: Flutter 3.47.1 / Dart 3.13.1 at
 `C:/Users/LENOVO/flutter-sdk`; Windows 10.0.26200.9445; Edge **153.0.4234.32**,
 Chrome 149.0.7827.201. Android SDK is still absent. See

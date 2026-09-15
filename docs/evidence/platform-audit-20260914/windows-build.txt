@@ -1,0 +1,3 @@
+Waiting for another flutter command to release the startup lock...
+Building Windows application...                                    32,7s
+√ Built build\windows\x64\runner\Release\taskflow_qa_lab.exe

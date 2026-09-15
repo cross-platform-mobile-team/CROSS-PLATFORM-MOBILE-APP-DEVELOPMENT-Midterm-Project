@@ -1,5 +1,28 @@
 # Report verification
 
+## Latest refresh 15 September 2026
+
+This documentation-only update synchronizes README and both report editions to
+implementation 3e4f733. No application source, test evidence or golden changed.
+The evaluation now distinguishes 100 Flutter/14 API cases, 15 Windows native
+cases on 14 September and 15 Android cases on 15 September. iOS stays NOT RUN.
+
+- Word and matching PDF: 43 physical pages, 31 main-content pages (7-37).
+- LaTeX PDF: 42 physical pages, 29 main-content pages (8-36).
+- Both remain within the required 20-35 main-content pages.
+- Word fields and contents refreshed; Tectonic compilation PASS. Retained
+  font-path warnings and one underfull box are not hidden; no overfull box reported.
+- Canonical render attempted and failed for missing soffice.exe. Word export
+  and PDFium rendered all pages to build/report-qa/review-20260915/.
+- Changed Word and LaTeX pages were visually inspected; unchanged pages were
+  compared with the previously reviewed v8 PNGs. A nearly empty LaTeX overflow
+  page was removed by shortening repeated input-limit prose, without reducing font.
+- Final reference entries now link to 3e4f733; historical experiment numbers
+  and retrieval dates were preserved. No new test or hosted CI run is claimed.
+- No commit/push in this documentation update; publication requires user request.
+
+The sections below describe earlier editions.
+
 ## Generated editions
 
 - LaTeX PDF: 41 physical pages; main chapters 1–28 (physical 8–35).

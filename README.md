@@ -1,5 +1,10 @@
 # TaskFlow QA Lab
 
+Local platform verification: [Android/Windows audit](docs/platform-audit-20260914.md),
+[Android SDK and emulator on D:](docs/android-local-setup.md), and
+[iOS Mac/Xcode handoff](docs/ios-validation.md). The iOS runner is scaffolded,
+not yet build/run verified. Do not infer iOS support from the folder alone.
+
 Desktop UI refresh: [minimal TaskFlow workspace](docs/minimal-desktop-ui.md).
 The sidebar shows real task counts; quick capture supports Enter, date/priority
 shortcuts, and Ctrl+K / Command+K focuses search. Sort uses a popup; the advanced
@@ -10,6 +15,23 @@ Implementing End-to-End Testing (503107). Account-based REST/SQLite backend plus
 an isolated offline demo. This is not yet the final coursework submission.
 
 ## Verified state and upgrade plan
+
+Latest reviewed implementation: `3e4f733` (15 September 2026).
+
+| Check | Latest recorded result |
+| --- | --- |
+| Flutter unit/widget/golden | 100 cases PASS, including 15 golden images |
+| Node API | 14 cases PASS |
+| Analysis and format | PASS |
+| Android API 36 emulator | 15 native cases PASS, including local API/SQLite |
+| Android release | Build/install/cold launch/process-restart persistence PASS |
+| Windows | 15 native cases and release build PASS on 14 September |
+| iOS | Scaffold only; build/run NOT RUN without Mac/Xcode |
+
+See [15 September evidence](docs/evidence/platform-audit-20260915/README.md)
+and [progress breakdown](docs/project-progress-20260915.md). The approximate 80%
+submission-readiness estimate is not a grade prediction. Edge evidence below
+is historical; no new browser or hosted CI run is claimed by this update.
 
 [Quick-create exit protection](docs/quick-create-exit.md) asks before discarding
 drafts when leaving offline/sample workspaces and prevents exit during saves.
@@ -22,7 +44,7 @@ No measured FPS improvement is claimed.
 
 [B1 edit-draft protection](docs/upgrade-b1.md) adds explicit Continue editing /
 Discard on dirty Cancel, Escape or Back, while blocking dismissal during save.
-Quick-create exit protection and B2 validation improvements remain planned.
+Quick-create exit protection is implemented; remaining B2 work stays on the roadmap.
 
 See [current verified state](docs/current-verified-state.md) for SHA-specific
 local/hosted results and remaining gates, and [upgrade roadmap](docs/upgrade-roadmap.md)
@@ -41,10 +63,10 @@ remaining form protection and conflict-recovery upgrades are still next steps.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
 - Shared modern indigo theme, responsive status navigation, task cards and
   cohesive sign-in/settings panels. See [UI review](docs/ui-refresh-20260911.md).
-- Latest [color studio refinement](docs/color-studio-ui.md): violet actions,
+- Historical [color studio refinement](docs/color-studio-ui.md): violet actions,
   mint/peach task surfaces and original geometric header with readable labels.
 
-- 92 unit/widget/golden tests, including 15 task/auth/settings/dialog visual baselines,
+- 100 unit/widget/golden tests, including 15 task/auth/settings/dialog visual baselines,
   accessibility guidelines, text scaling, keyboard interaction and signed-in
   account-settings validation/focus coverage.
 - [Bug audit](docs/bug-audit-20260912.md): snapshot-load safety and session-race
@@ -52,11 +74,10 @@ remaining form protection and conflict-recovery upgrades are still next steps.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
 - Account registration/login, profile/password/recovery, session revocation and
   account deletion; server-owned per-user tasks and conflict-safe writes.
-- 14 backend tests and 10 Windows integration case executions pass for the UI refresh.
-  Historical Android API 36 evidence has 9 case executions, not a run of this UI.
-  That Android gate repeats the 4 controlled-repository, 3
-  persisted-preference and 2 preference-backed workflows; the online API/SQLite
-  workflow remains Windows-only. See the evidence manifest for fidelity boundaries.
+- 14 backend tests and 15 integration executions on each of Windows and Android.
+  Each native selection includes 4 independent, 3 persisted, 2 preference-backed,
+  1 quick-exit, 4 pending-capture and 1 real API/SQLite case. The older 9-case
+  Android CI result remains separate historical evidence.
 
 ## Run
 
@@ -98,7 +119,7 @@ tasks load in memory. Create/edit/delete freely; exit and re-enter to reset.
 This mode neither overwrites offline tasks nor calls the account API. Changes
 are intentionally discarded, including after a page refresh.
 
-Development branch: `main-test` (Edge/sample/accessibility milestone 2026-09-08). The remote default remains
+Development branch: `main-test` (platform audit milestone 2026-09-15). The remote default remains
 `main`; use the explicit clone branch above for this milestone. The repository
 has moved from Long-D176 to cross-platform-mobile-team.
 
@@ -130,7 +151,35 @@ Preferences are for small non-critical demo data and do not guarantee durability
 
 ## Verify
 
-### Android and CI status - 2026-09-09
+### Current local Android verification
+
+The current host stores SDK, AVD, Pub and Gradle caches under `D:/Android`.
+Read [Android setup](docs/android-local-setup.md), start the configured AVD,
+and wait for boot completion before installation. Commands assume Flutter on PATH:
+
+```powershell
+. .\scripts\use-android-d.ps1
+flutter pub get --enforce-lockfile
+flutter devices
+flutter run -d emulator-5554
+# Account mode with the backend running on the host:
+flutter run -d emulator-5554 --dart-define=API_BASE_URL=http://10.0.2.2:8080
+.\scripts\test-online-windows.ps1 -TargetDevice emulator-5554 -ApiHost 10.0.2.2
+flutter build apk --release
+```
+
+Debug HTTP is restricted to 10.0.2.2 and loopback hosts; release policy is unchanged.
+Do not use `--no-pub` when switching from integration tests to release: normal
+refresh keeps the generated plugin registry consistent. Keep Pub cache on the
+project drive. Avoid a full clean here because `build/` also holds report tools.
+
+Recorded release APK: `build/app/outputs/flutter-apk/app-release.apk`,
+53,112,106 bytes, SHA-256
+`9f1a3c1743980f6f3d67176f4592023d35ec093f62fb09d0573a79b5b5b89e88`.
+Rebuilds may differ; recalculate their checksum. This artifact uses coursework
+debug signing. Physical-device and release HTTPS account tests remain open.
+
+### Historical hosted CI - 2026-09-09
 
 GitHub Actions [run #2](https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/actions/runs/34377270886)
 for commit `9ca2a96` passed all three jobs. The pinned Flutter 3.47.0/JDK 17
@@ -139,7 +188,7 @@ release builds, debug/release APK builds, and 9 isolated workflows on an Android
 16/API 36 Google APIs emulator. Artifact `taskflow-android-apks` contains both
 APKs and `SHA256SUMS.txt`; GitHub retains it for 14 days, through 2026-09-23.
 
-The current Windows host has SDK `C:\Android\sdk`, NDK `28.2.13676358`, and AVD
+That earlier Windows host used SDK `C:\Android\sdk`, NDK `28.2.13676358`, and AVD
 `taskflow_api36`. Equivalent local commands, with an emulator running as
 `emulator-5554`, are:
 
@@ -175,7 +224,7 @@ flutter build web --release
 ```
 
 Latest commands and results: [evidence manifest](docs/evidence/manifest.md).
-The 61-case suite includes 8 goldens with a Windows-host/Flutter-3.47.1 baseline;
+The current 100-case suite includes 15 golden images with a Windows-host/Flutter-3.47.1 baseline;
 read [golden and accessibility setup](docs/golden-testing.md) before running on a
 different host or changing images. Android API 36 now has the separate hosted CI
 evidence described above; golden images still are not Android-device screenshots.
@@ -194,13 +243,15 @@ flutter run -d windows
 flutter test integration_test/windows_workflow_test.dart -d windows
 flutter test integration_test/independent_scenarios_test.dart -d windows --reporter expanded
 flutter test integration_test/persisted_scenarios_test.dart -d windows --reporter expanded
+flutter test integration_test/quick_create_exit_test.dart -d windows
+flutter test integration_test/pending_capture_test.dart -d windows
 .\scripts\test-online-windows.ps1
 flutter build windows --release
 ```
 
 Launch `build/windows/x64/runner/Release/taskflow_qa_lab.exe`. Distribute the entire
 Release directory, including flutter_windows.dll and data, not just the executable.
-The local archive `build/TaskFlow-Windows-x64-20260908.zip` contains the
+The historical archive `build/TaskFlow-Windows-x64-20260908.zip` contains the
 backend-enabled Release directory. Start the API separately for account mode.
 Its SHA-256 on this machine is
 `FCA4227B9E292C5E0E70C7A4E6AC65C4C00A6A3D77CDC957AC10FB3E29AD3FB7`.
@@ -272,9 +323,21 @@ Recorded six-run result: [fresh-session verification](docs/evidence/edge-session
 
 The [accessibility protocol](docs/accessibility-testing.md) documents automated
 account entry/settings coverage and the still-NOT-RUN manual Narrator/full focus
-order pass. Next: execute that manual pass, perform a clean-machine/manual APK
-reproduction, configure production Android signing if required, and prepare the
-next engineering increment. Report/video work is deferred at the user's request.
+order pass. Next: execute that manual pass and clean-machine reproduction,
+verify the final report, record the English video (at most 20 minutes), and
+confirm real contributions from both members. Android emulator installation is
+already verified; physical-device testing and production signing are separate.
+
+## Report
+
+- [LaTeX PDF](output/pdf/taskflow-report.pdf).
+- [Editable Word](output/pdf/taskflow-report.docx).
+- [Matching Word PDF](output/pdf/taskflow-report-word.pdf).
+- [Sources and rebuild instructions](docs/report/README.md).
+
+The editions share manuscript content but paginate differently. Use the matching
+Word PDF when identical Word/PDF pagination is required. Submission date,
+signatures and actual contribution allocation still require team confirmation.
 
 This bootstrap was created with AI assistance for team review and understanding.
 Follow instructor disclosure requirements. Platform runners come from flutter

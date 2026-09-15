@@ -8,13 +8,15 @@ Run flutter pub get, then flutter analyze and flutter test --coverage. The backe
 
 Run native suites in separate invocations. The selected files are integration_test/independent_scenarios_test.dart, integration_test/persisted_scenarios_test.dart, integration_test/quick_create_exit_test.dart and integration_test/windows_workflow_test.dart. Use flutter test followed by the actual file and -d windows. Verify the current filenames against the repository before execution. The real API workflow is orchestrated by scripts/test-online-windows.ps1 with an isolated service and database. Never direct synthetic test accounts or destructive account tests at a production endpoint.
 
+Also run integration_test/pending_capture_test.dart separately; its four cases complete the 15-case native selection. For Android, dot-source scripts/use-android-d.ps1, start the configured emulator and use -d emulator-5554 after confirming the device ID. The isolated online helper accepts -TargetDevice emulator-5554 -ApiHost 10.0.2.2. Build the release APK with flutter build apk --release using normal dependency refresh after integration runs. The iOS procedure in docs/ios-validation.md requires Mac/Xcode and has not been executed here.
+
 For browser reproduction, inspect scripts/test-edge-harness.ps1 and its supported parameters. It manages a QA build, server and isolated browser session, retains logs and restores the default Web build. The harness is a controlled in-memory test surface, not a replacement for the separate online browser lifecycle evidence. Output folders are unique and must not be overwritten to hide unsuccessful attempts.
 
 ## Deliberate defect safety
 
 The intentional-defect package is docs/evidence/intentional_defect. Read its README before using either patch. Reproduce the defect only in an isolated worktree, run test/widget/search_regression_test.dart, then restore the corrected implementation and rerun the same test. Do not leave the faulty search in the development branch. A patch failing to apply to a later revision requires inspection, not forceful replacement of unrelated work.
 
-Additional engineering findings and their original diagnostics are maintained separately in docs/report/DEFERRED_REVIEW.md for a later manuscript update. They are outside the selected experiment results reported here and have not been relabelled as passing checks.
+The resolved draft-consistency review is retained in docs/report/DEFERRED_REVIEW.md. The current report includes its corrected behavior and permanent regressions. Original diagnostics remain unchanged.
 
 # Appendix B Evidence index
 
@@ -23,7 +25,9 @@ Table B.1 Evidence packages used in this report
 | Package or file | Purpose | Interpretation |
 | --- | --- | --- |
 | docs/evidence/manifest.md | Master evidence inventory | Consult dated sections and source revisions |
-| docs/evidence/minimal-ui-20260913 | Current UI milestone logs | Windows, Flutter, API and corrected Edge run |
+| docs/evidence/minimal-ui-20260913 | Historical UI milestone logs | Retained corrected Edge run |
+| docs/evidence/platform-audit-20260914 | Windows native and release results | 15 native case executions |
+| docs/evidence/platform-audit-20260915 | Android release and source gates | 15 Android, 100 Flutter and 14 API cases |
 | docs/evidence/intentional_defect | Baseline, faulty patch, fail log and fix pass | One selected search defect |
 | docs/experiments/test-levels-20260909.md | Experiment method and timing summary | Unequal workloads, three rounds, one host |
 | docs/evidence/test-levels-20260909 | Raw timing outputs | Whole-command wall time |

@@ -22,7 +22,7 @@ The application supports creating, editing, completing, searching, filtering, so
 
 Implementation claims describe inspected code; measured claims describe retained runs. Proposed improvements and missing evidence are labelled separately. A runnable backend, for example, does not establish production readiness or sustained-load capacity.
 
-The evaluated source is baseline commit 39dd199 on branch main-test plus the verified draft-consistency update in the working tree. The review reran the Flutter and backend suites and a Windows draft-exit workflow. Historical Windows, Edge and Android results retain their original dates and revisions. This manuscript describes the corrected implementation and completed experiments within their stated verification boundaries.
+The evaluated source is commit 3e4f733 on branch main-test, containing the verified draft-consistency and platform updates. The 15 September review repeated 100 Flutter cases and 14 backend cases. Native suites passed 15 cases on Windows on 14 September and 15 cases on Android on 15 September. Earlier Edge and hosted Android results retain their original dates and revisions. This manuscript describes the corrected implementation within these verification boundaries.
 
 ## Research and evidence method
 

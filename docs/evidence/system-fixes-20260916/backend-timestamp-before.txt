@@ -1,0 +1,29 @@
+✖ createdAt rejects impossible calendar dates without changing saved tasks (444.2749ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 690.0815
+
+✖ failing tests:
+
+test at build\backend-timestamp-before-8a374301483d4541a94be896bed6e2a8\test\api.test.js:119:1
+✖ createdAt rejects impossible calendar dates without changing saved tasks (444.2749ms)
+  AssertionError [ERR_ASSERTION]: POST must reject 2026-02-29T00:00:00Z
+  
+  201 !== 422
+  
+      at TestContext.<anonymous> (file:///C:/CROSS-PLATFORM%20MOBILE%20APP%20DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/build/backend-timestamp-before-8a374301483d4541a94be896bed6e2a8/test/api.test.js:131:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 201,
+    expected: 422,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

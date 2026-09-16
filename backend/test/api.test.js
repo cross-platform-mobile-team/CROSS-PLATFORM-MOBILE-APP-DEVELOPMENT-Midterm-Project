@@ -116,6 +116,36 @@ test('snapshot validation and stale writers never partially replace saved data',
   assert.deepEqual(simultaneous.map((r) => r.status).sort(), [200, 409]);
 });
 
+test('createdAt rejects impossible calendar dates without changing saved tasks', async (t) => {
+  const { call, register } = await fixture(t);
+  const { accessToken: access } = await register();
+  const put = (body) => call('/v1/tasks/snapshot', { method: 'PUT', access, body });
+  const saved = await put({ revision: 0, tasks: [item('existing')] });
+  assert.equal(saved.status, 200);
+
+  for (const createdAt of ['2026-02-29T00:00:00Z', '2026-02-30T12:00:00+07:00', '2026-04-31T00:00:00Z']) {
+    const invalid = { ...item('invalid'), createdAt };
+    const created = await call('/v1/tasks', {
+      method: 'POST', access, headers: { 'If-Match': '"1"' }, body: invalid,
+    });
+    assert.equal(created.status, 422, `POST must reject ${createdAt}`);
+    assert.equal(created.body.error.code, 'validation');
+    const replaced = await put({ revision: 1, tasks: [item('replacement'), invalid] });
+    assert.equal(replaced.status, 422, `Snapshot must reject ${createdAt}`);
+    const unchanged = await call('/v1/tasks/snapshot', { access });
+    assert.deepEqual(unchanged.body, saved.body);
+  }
+
+  const valid = await put({ revision: 1, tasks: [
+    { ...item('leap-day'), createdAt: '2024-02-29T23:30:00-02:00' },
+    { ...item('local-midnight'), createdAt: '2026-03-01T00:30:00+07:00' },
+  ] });
+  assert.equal(valid.status, 200);
+  assert.equal(valid.body.revision, 2);
+  assert.equal(valid.body.tasks.find((task) => task.id === 'leap-day').createdAt, '2024-03-01T01:30:00.000Z');
+  assert.equal(valid.body.tasks.find((task) => task.id === 'local-midnight').createdAt, '2026-02-28T17:30:00.000Z');
+});
+
 test('search, filters, deterministic sort, stats and pagination', async (t) => {
   const { call, register } = await fixture(t);
   const { accessToken: access } = await register();

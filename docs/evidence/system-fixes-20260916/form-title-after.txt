@@ -1,0 +1,6 @@
+00:00 +0: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_validation_recovery_test.dart
+00:00 +0: collapsed invalid details reveal and recover at 390.0
+00:02 +1: collapsed invalid details reveal and recover at 1100.0
+00:03 +2: quick create invalid title restores focus
+00:03 +3: edit submit focuses first invalid field before saving
+00:04 +4: All tests passed!

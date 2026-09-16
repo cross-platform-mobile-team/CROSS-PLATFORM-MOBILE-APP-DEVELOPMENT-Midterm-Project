@@ -28,6 +28,7 @@ class QuickTaskInput extends StatefulWidget {
 class _QuickTaskInputState extends State<QuickTaskInput> {
   final fields = GlobalKey<TaskDetailsFieldsState>();
   final expansion = ExpansibleController();
+  final titleFocus = FocusNode();
   TaskDetails details = TaskDetails();
 
   void submit() {
@@ -36,7 +37,15 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
       widget.onSubmit();
       return;
     }
-    if (TaskItem.validateTitle(widget.title.text) != null) return;
+    if (TaskItem.validateTitle(widget.title.text) != null) {
+      titleFocus.requestFocus();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        final target = titleFocus.context;
+        if (target != null) Scrollable.ensureVisible(target);
+      });
+      return;
+    }
     expansion.expand();
     // Retained fields cannot receive focus while the tile is still offstage.
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -47,6 +56,7 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
   @override
   void dispose() {
     expansion.dispose();
+    titleFocus.dispose();
     super.dispose();
   }
 
@@ -75,6 +85,7 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
               final input = TextFormField(
                 key: const Key('task-title'),
                 controller: widget.title,
+                focusNode: titleFocus,
                 validator: TaskItem.validateTitle,
                 textInputAction: TextInputAction.done,
                 decoration: const InputDecoration(

@@ -65,6 +65,17 @@ void main() {
     });
   }
 
+  testWidgets('quick create invalid title restores focus', (tester) async {
+    configureViewport(tester, const Size(390, 900));
+    final repository = InMemoryTaskRepository();
+    await tester.pumpWidget(TaskFlowApp(repository: repository));
+    await tester.pumpAndSettle();
+    await tapVisible(tester, find.text('Add task'));
+    expect(find.text('Enter a task title'), findsOneWidget);
+    expectFocused(tester, 'task-title');
+    expect(await repository.load(), isEmpty);
+  });
+
   testWidgets('edit submit focuses first invalid field before saving', (
     tester,
   ) async {

@@ -1,0 +1,7 @@
+Exception: C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\scripts\tests\backend-ci-contract.ps1:46
+Line |
+  46 |  …  ($failures.Count) { throw ($failures -join [Environment]::NewLine) }
+     |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Failure at command 1 was not reported immediately with code 7 (ran 8 commands). Failure at command 4 was not
+     | reported immediately with code 7 (ran 8 commands). Failure at command 7 was not reported immediately with code 7
+     | (ran 8 commands).

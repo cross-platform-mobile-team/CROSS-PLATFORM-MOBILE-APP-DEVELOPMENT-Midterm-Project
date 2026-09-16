@@ -46,19 +46,26 @@ jobs:
       - name: Edge runner contracts (synthetic, no browser)
         shell: pwsh
         run: ./scripts/tests/edge-runner-contract.ps1
+      - name: Toolchain and backend CI contracts (synthetic)
+        shell: pwsh
+        run: |
+          ./scripts/tests/android-environment-contract.ps1
+          ./scripts/tests/flutter-resolver-contract.ps1
+          ./scripts/tests/backend-ci-contract.ps1
       - name: Backend syntax and tests
         shell: pwsh
         run: |
-          node --check backend/src/server.js
-          node --check backend/src/api.js
-          node --check backend/src/store.js
-          node --check backend/src/security.js
-          node --check backend/src/validation.js
-          node --check backend/src/openapi.js
-          node --check backend/scripts/backup.js
+          foreach ($file in @('src/server.js', 'src/api.js', 'src/store.js', 'src/security.js', 'src/validation.js', 'src/openapi.js', 'scripts/backup.js')) {
+            node --check "backend/$file"
+            if ($LASTEXITCODE -ne 0) { throw "Backend syntax check failed for $file with code $LASTEXITCODE" }
+          }
           Push-Location backend
-          node --test --test-concurrency=1
-          Pop-Location
+          try {
+            node --test --test-concurrency=1
+            if ($LASTEXITCODE -ne 0) { throw "Backend tests failed with code $LASTEXITCODE" }
+          } finally {
+            Pop-Location
+          }
       - name: Web release
         run: flutter build web --release
       - name: Windows release

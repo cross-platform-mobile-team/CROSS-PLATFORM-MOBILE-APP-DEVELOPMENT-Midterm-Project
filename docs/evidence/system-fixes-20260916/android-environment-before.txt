@@ -1,0 +1,5 @@
+Exception: C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\android-environment-before\scripts\tests\android-environment-contract.ps1:26
+Line |
+  26 |              throw "Rejected configuration changed $name in the caller …
+     |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Rejected configuration changed ANDROID_HOME in the caller's environment.

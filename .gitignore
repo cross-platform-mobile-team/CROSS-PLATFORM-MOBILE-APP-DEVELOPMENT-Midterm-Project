@@ -56,3 +56,41 @@ backend/node_modules/
 /.playwright-cli/
 /output/playwright/
 /test/golden/failures/
+
+# Local study notes for presentation; never publish this file.
+/TASKFLOW_GIAI_THICH_CODE_VA_THUYET_TRINH_LOCAL.md
+
+# Personal notes and temporary work (not submission sources).
+/local-notes/
+/tmp/
+/temp/
+/.vscode/
+__pycache__/
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# Local secrets and backend database/backup files. Keep config examples.
+.env
+.env.*
+!.env.example
+/backend/backups/
+/backend/**/*.sqlite
+/backend/**/*.sqlite3
+
+# Report rendering scratch files; retain final Word/PDF and LaTeX sources.
+/output/qa/
+/output/previews/
+/docs/report/latex/*.aux
+/docs/report/latex/*.toc
+/docs/report/latex/*.lof
+/docs/report/latex/*.lot
+/docs/report/latex/*.out
+/docs/report/latex/*.fls
+/docs/report/latex/*.fdb_latexmk
+/docs/report/latex/*.synctex.gz
+/docs/report/latex/*.xdv
+/docs/report/latex/*.pdf
+
+# Do not ignore docs/evidence, test baselines, report assets or output/pdf:
+# these are reviewed coursework evidence and final submission deliverables.

@@ -1,5 +1,23 @@
 # Golden and accessibility verification
 
+## Focused validation baseline repair - 2026-09-16
+
+Commit a1b25d1 intentionally restores title focus after an invalid quick-create
+submission. Its two validation goldens still depicted the unfocused field.
+Reproduction on Windows 11 10.0.26200.9445, Flutter 3.47.0 / Dart 3.13.0
+(matching the CI SDK pin) failed by 1512 pixels in each image: 0.40% phone,
+0.13% wide. Expected, actual and difference images were inspected: changes are
+confined to the floating title label and newly visible input hint; the validation
+message and surrounding layout remain intact.
+
+Repair plan: reproduce both failures, inspect differences, update only the two
+validation baselines, then run the complete coverage suite. All steps completed:
+`flutter test test/golden/task_screen_golden_test.dart --plain-name validation
+--update-goldens --reporter expanded` updated the reviewed images;
+`flutter test --coverage --reporter expanded` passed all 104 cases with exact
+pixel comparison. No comparator tolerance, production code or other baselines
+changed. Hosted CI and merge remain pending; this is local verification only.
+
 ## Intentional UI refresh - 2026-09-11
 
 The original eight task states below retain their fixtures and dimensions but

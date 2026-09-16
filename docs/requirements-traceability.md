@@ -2,6 +2,11 @@
 
 ## Current verified state
 
+2026-09-16 invalid-title focus recovery -> reviewed phone/wide validation
+goldens -> `test/golden/task_screen_golden_test.dart` and
+`test/widget/task_validation_recovery_test.dart` ->
+`docs/golden-testing.md` (104 local coverage-suite cases passed; hosted CI pending).
+
 2026-09-14 platform review -> Android debug-only local network configuration,
 iOS runner scaffold, native pending-capture scenarios ->
 docs/platform-audit-20260914.md. On 15 September, Android release build,

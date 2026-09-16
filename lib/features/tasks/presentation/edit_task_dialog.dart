@@ -25,6 +25,8 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
     text: widget.task.title,
   );
   final form = GlobalKey<FormState>();
+  final titleFocus = FocusNode();
+  final fields = GlobalKey<TaskDetailsFieldsState>();
   bool saving = false;
   bool failed = false;
   bool detailsDirty = false;
@@ -77,11 +79,25 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
   @override
   void dispose() {
     title.dispose();
+    titleFocus.dispose();
     super.dispose();
   }
 
   Future<void> save() async {
-    if (saving || !form.currentState!.validate()) return;
+    if (saving) return;
+    if (!form.currentState!.validate()) {
+      if (TaskItem.validateTitle(title.text) != null) {
+        titleFocus.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!mounted) return;
+          final target = titleFocus.context;
+          if (target != null) Scrollable.ensureVisible(target);
+        });
+      } else {
+        fields.currentState?.focusFirstInvalid();
+      }
+      return;
+    }
     setState(() {
       saving = true;
       failed = false;
@@ -123,6 +139,7 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
                   TextFormField(
                     key: const Key('edit-task-title'),
                     controller: title,
+                    focusNode: titleFocus,
                     autofocus: true,
                     minLines: 1,
                     maxLines: 3,
@@ -141,6 +158,7 @@ class _EditTaskDialogState extends State<EditTaskDialog> {
                       ),
                     ),
                   TaskDetailsFields(
+                    key: fields,
                     initial: widget.task.details,
                     enabled: !saving,
                     onChanged: (value) => details = value,

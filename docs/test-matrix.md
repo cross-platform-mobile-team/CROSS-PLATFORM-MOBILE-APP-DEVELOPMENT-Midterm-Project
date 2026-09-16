@@ -1,5 +1,18 @@
 # Test matrix
 
+## Validation recovery and runner safety 16 September 2026
+
+| Risk | Regression and oracle | Level |
+| --- | --- | --- |
+| Collapsed metadata hides errors | `task_validation_recovery_test.dart`: notes/date/tags are revealed and focused, storage remains empty until corrected, full metadata persists at 390/1100 widths | Widget, isolated repository |
+| Edit validation leaves focus elsewhere | Same file: title first, then date, with zero writes until valid | Widget |
+| Invalid timestamp silently changes day | `backend/test/api.test.js`: impossible dates return 422 for POST and snapshot, preserve revision/data, valid leap day/timezone accepted | API with isolated SQLite |
+| Rejected Android setup damages shell environment | `scripts/tests/android-environment-contract.ps1`: all seven original variables preserved on invalid paths | Synthetic script contract |
+| Installed Flutter cannot be located | `scripts/tests/flutter-resolver-contract.ps1`: explicit/PATH/fallback selection, rejection, runner arguments and exit propagation | Synthetic script contract |
+| CI hides an earlier syntax error | `scripts/tests/backend-ci-contract.ps1`: actual YAML block stops at first/middle/last failed check or failed tests | Synthetic workflow contract |
+
+Raw commands/results: [system-fix evidence](evidence/system-fixes-20260916/README.md).
+
 ## Minimal desktop workspace
 
 `flutter test test/widget/minimal_workspace_test.dart`: four deterministic cases

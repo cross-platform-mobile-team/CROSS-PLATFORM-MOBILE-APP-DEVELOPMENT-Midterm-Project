@@ -1,0 +1,64 @@
+bba02cd999866844136125e400a07e0541749229
+?? docs/evidence/system-fixes-20260916/analyze.txt
+?? docs/evidence/system-fixes-20260916/backend-suite.txt
+?? docs/evidence/system-fixes-20260916/environment.txt
+?? docs/evidence/system-fixes-20260916/flutter-suite.txt
+?? docs/evidence/system-fixes-20260916/format.txt
+?? docs/evidence/system-fixes-20260916/windows-online.txt
+?? docs/evidence/system-fixes-20260916/windows-release.txt
+Flutter 3.47.0 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 4cf2416426 (5 weeks ago) • 2026-08-11 11:53:49 -0700
+Engine • hash 59d54a2b2896a6bbf356c94b7fac7b9e235bdacd (revision 5f77625673) (1 months ago) • 2026-08-11 16:38:36.000Z
+Tools • Dart 3.13.0 • DevTools 2.60.0
+Dart SDK version: 3.13.0 (stable) (Wed Aug 5 00:28:05 2026 -0700) on "windows_x64"
+[√] Flutter (Channel stable, 3.47.0, on Microsoft Windows [Version 10.0.26200.9445], locale en-US) [482ms]
+    • Flutter version 3.47.0 on channel stable at C:\Users\Nguyen Long\develop\flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 4cf2416426 (5 weeks ago), 2026-08-11 11:53:49 -0700
+    • Engine revision 5f77625673
+    • Dart version 3.13.0
+    • DevTools version 2.60.0
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, enable-record-use, enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging, enable-uiscene-migration
+
+[√] Windows Version (Windows 11 or higher, 25H2, 2009) [2.0s]
+
+[!] Android toolchain - develop for Android devices (Android SDK version 36.0.0) [671ms]
+    • Android SDK at C:\Android\sdk
+    • Emulator version 37.1.11.0 (build_id 15917651) (CL:N/A)
+    • Platform android-37.0, build-tools 36.0.0
+    • Java binary at: C:\Program Files\Eclipse Adoptium\jdk-17.0.20.101-hotspot\bin\java
+      This JDK is specified in your Flutter configuration.
+      To change the current JDK, run: `flutter config --jdk-dir="path/to/jdk"`.
+    • Java version OpenJDK Runtime Environment Temurin-17.0.20.1+1 (build 17.0.20.1+1)
+    X Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/to/windows-android-setup for more details.
+
+[√] Chrome - develop for the web [152ms]
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[√] Visual Studio - develop Windows apps (Visual Studio Build Tools 2022 17.14.39 (August 2026)) [151ms]
+    • Visual Studio at C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools
+    • Visual Studio Build Tools 2022 version 17.14.37614.0
+    • Windows 10 SDK version 10.0.26100.0
+
+[√] Connected device (3 available) [551ms]
+    • Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.26200.9445]
+    • Chrome (web)      • chrome  • web-javascript • Google Chrome 153.0.8010.36
+    • Edge (web)        • edge    • web-javascript • Microsoft Edge 153.0.4234.32
+
+[√] Network resources [1,576ms]
+    • All expected network resources are available.
+
+! Doctor found issues in 1 category.
+Found 3 connected devices:
+  Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.26200.9445]
+  Chrome (web)      • chrome  • web-javascript • Google Chrome 153.0.8010.36
+  Edge (web)        • edge    • web-javascript • Microsoft Edge 153.0.4234.32
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.
+v24.19.0
+7.6.5
+android-37.0

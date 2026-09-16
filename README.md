@@ -16,7 +16,15 @@ an isolated offline demo. This is not yet the final coursework submission.
 
 ## Verified state and upgrade plan
 
-Latest reviewed implementation: `3e4f733` (15 September 2026).
+Latest reviewed implementation: `bba02cd` (16 September 2026).
+The [system-fix verification](docs/evidence/system-fixes-20260916/README.md)
+records 103 passing Flutter cases (15 unchanged goldens), 15 passing API cases,
+and four rerun Windows persisted/online cases. It covers visible validation
+recovery, strict API dates, SDK discovery and reliable script/CI failure handling.
+The report still describes `3e4f733`; later counts are not retroactively assigned
+to its experiments or to the Android evidence below.
+
+Platform milestone at `3e4f733` (14–15 September 2026):
 
 | Check | Latest recorded result |
 | --- | --- |
@@ -66,7 +74,7 @@ remaining form protection and conflict-recovery upgrades are still next steps.
 - Historical [color studio refinement](docs/color-studio-ui.md): violet actions,
   mint/peach task surfaces and original geometric header with readable labels.
 
-- 100 unit/widget/golden tests, including 15 task/auth/settings/dialog visual baselines,
+- 103 unit/widget/golden tests, including 15 task/auth/settings/dialog visual baselines,
   accessibility guidelines, text scaling, keyboard interaction and signed-in
   account-settings validation/focus coverage.
 - [Bug audit](docs/bug-audit-20260912.md): snapshot-load safety and session-race
@@ -74,8 +82,9 @@ remaining form protection and conflict-recovery upgrades are still next steps.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
 - Account registration/login, profile/password/recovery, session revocation and
   account deletion; server-owned per-user tasks and conflict-safe writes.
-- 14 backend tests and 15 integration executions on each of Windows and Android.
-  Each native selection includes 4 independent, 3 persisted, 2 preference-backed,
+- 15 backend tests. The 14–15 September milestone recorded 15 integration
+  executions on each of Windows and Android. Each native selection included
+  4 independent, 3 persisted, 2 preference-backed,
   1 quick-exit, 4 pending-capture and 1 real API/SQLite case. The older 9-case
   Android CI result remains separate historical evidence.
 
@@ -153,9 +162,13 @@ Preferences are for small non-critical demo data and do not guarantee durability
 
 ### Current local Android verification
 
-The current host stores SDK, AVD, Pub and Gradle caches under `D:/Android`.
+The 15 September verification host stores SDK, AVD, Pub and Gradle caches under `D:/Android`.
 Read [Android setup](docs/android-local-setup.md), start the configured AVD,
 and wait for boot completion before installation. Commands assume Flutter on PATH:
+
+These D: paths are host-specific. On the C: development host, use its configured
+`C:/Android/sdk` and JDK; do not apply the D: environment helper unless deliberately
+relocating the toolchain. See [setup details](docs/android-local-setup.md).
 
 ```powershell
 . .\scripts\use-android-d.ps1
@@ -224,7 +237,7 @@ flutter build web --release
 ```
 
 Latest commands and results: [evidence manifest](docs/evidence/manifest.md).
-The current 100-case suite includes 15 golden images with a Windows-host/Flutter-3.47.1 baseline;
+The current 103-case suite includes 15 golden images with a Windows-host/Flutter-3.47.1 baseline;
 read [golden and accessibility setup](docs/golden-testing.md) before running on a
 different host or changing images. Android API 36 now has the separate hosted CI
 evidence described above; golden images still are not Android-device screenshots.
@@ -235,6 +248,11 @@ in a disposable checkout; keep the corrected source in normal development.
 
 Windows toolchain: Visual Studio Build Tools 2022 17.14.39 with C++ workload,
 CMake and Windows SDK 10.0.26100. Installed locally at D:/VSBuildTools2022.
+
+The Windows launcher, online-test runner and test-level repetition runner use
+`-FlutterSdk` when supplied, otherwise `flutter.bat` on PATH, then the legacy
+`$env:USERPROFILE/flutter-sdk` location. An invalid explicit path fails without
+silently selecting another SDK.
 
 ```powershell
 .\scripts\run-windows.ps1

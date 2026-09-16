@@ -1,5 +1,14 @@
 # Evidence manifest
 
+## 2026-09-16 system fixes
+
+See [system-fixes-20260916/README.md](system-fixes-20260916/README.md) for
+source-linked commits, raw expected failures and successful reruns. Local gates:
+103 Flutter cases (15 unchanged goldens), 15 API cases, four Windows native
+persisted/online executions, analysis/format and Windows/Web release builds PASS.
+The script/CI contracts use synthetic fixtures and are labelled separately.
+Android and hosted CI results from prior revisions do not establish these fixes.
+
 ## 2026-09-15 Android execution and platform review
 
 See [platform-audit-20260915/README.md](platform-audit-20260915/README.md):

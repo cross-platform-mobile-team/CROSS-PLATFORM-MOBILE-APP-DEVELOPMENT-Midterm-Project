@@ -1,5 +1,5 @@
 param(
-    [string]$FlutterSdk = "$env:USERPROFILE\flutter-sdk",
+    [string]$FlutterSdk,
     [string]$NodeExecutable = 'node',
     [int]$Port = 8081,
     [string]$TargetDevice = 'windows',
@@ -10,8 +10,10 @@ param(
 $ErrorActionPreference = 'Stop'
 if ($Port -lt 1 -or $Port -gt 65535) { throw 'Port must be 1-65535.' }
 $projectPath = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$flutterCommand = Join-Path $FlutterSdk 'bin\flutter.bat'
-if (!(Test-Path -LiteralPath $flutterCommand)) { throw 'Flutter SDK not found.' }
+. (Join-Path $PSScriptRoot 'resolve-flutter.ps1')
+$resolverArguments = @{}
+if ($PSBoundParameters.ContainsKey('FlutterSdk')) { $resolverArguments.FlutterSdk = $FlutterSdk }
+$flutterCommand = Resolve-TaskFlowFlutterCommand @resolverArguments
 $nodeCommand = (Get-Command $NodeExecutable -ErrorAction Stop).Source
 $probe = [System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Loopback, $Port)
 try { $probe.Start() } finally { $probe.Stop() }

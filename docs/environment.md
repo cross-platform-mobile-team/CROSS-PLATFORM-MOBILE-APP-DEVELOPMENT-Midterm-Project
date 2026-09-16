@@ -1,5 +1,15 @@
 # Environment
 
+2026-09-16 C: host recheck: Flutter 3.47.0 / Dart 3.13.0 on PATH at
+`C:/Users/Nguyen Long/develop/flutter`, Windows 11 10.0.26200.9445,
+Visual Studio Build Tools 2022 17.14.39, Node 24.19.0, PowerShell 7.6.5.
+Android SDK is `C:/Android/sdk`, JDK is Temurin 17.0.20.1; license status
+remains unknown. Only platform 37.0 is installed here, while Flutter requires
+compile SDK 36. Windows, Chrome and Edge are detected; no emulator is connected.
+No toolchain installation or upgrade was performed. Complete output:
+`evidence/system-fixes-20260916/environment.txt`. The D: host entries below
+describe the other development machine.
+
 2026-09-14 Android setup: SDK and emulator under D:/Android/sdk, AVD under
 D:/Android/avd, Gradle cache under D:/Android/gradle. Flutter 3.47.1 / Dart 3.13.1,
 Windows 10.0.26200.9445, existing Oracle JDK 21.0.3. Emulator 37.1.11, Google

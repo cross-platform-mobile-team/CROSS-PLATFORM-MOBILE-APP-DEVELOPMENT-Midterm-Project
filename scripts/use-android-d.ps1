@@ -1,15 +1,30 @@
 # Dot-source this file before Android build/run commands on this Windows host.
 param(
-    [string]$AndroidRoot = 'D:/Android',
-    [string]$JavaHomePath = 'C:/Program Files/Java/jdk-21'
+    [ValidateNotNullOrEmpty()][string]$AndroidRoot = 'D:/Android',
+    [ValidateNotNullOrEmpty()][string]$JavaHomePath = 'C:/Program Files/Java/jdk-21'
 )
-$env:ANDROID_HOME = Join-Path $AndroidRoot 'sdk'
-$env:ANDROID_SDK_ROOT = $env:ANDROID_HOME
-$env:ANDROID_USER_HOME = Join-Path $AndroidRoot 'user'
-$env:ANDROID_AVD_HOME = Join-Path $AndroidRoot 'avd'
-$env:GRADLE_USER_HOME = Join-Path $AndroidRoot 'gradle'
-$env:PUB_CACHE = Join-Path $AndroidRoot 'pub-cache'
-$env:JAVA_HOME = $JavaHomePath
+# Resolve and validate everything before changing the caller's environment.
+# A failed dot-source must not leave an existing working toolchain half replaced.
+$taskflowAndroidRoot = (Resolve-Path -LiteralPath $AndroidRoot -ErrorAction Stop).ProviderPath
+$taskflowJavaRoot = (Resolve-Path -LiteralPath $JavaHomePath -ErrorAction Stop).ProviderPath
+$taskflowSdk = Join-Path $taskflowAndroidRoot 'sdk' -ErrorAction Stop
+$taskflowJava = Join-Path $taskflowJavaRoot 'bin/java.exe' -ErrorAction Stop
+if (!(Test-Path -LiteralPath $taskflowSdk -PathType Container)) {
+    throw "Android SDK directory not found: $taskflowSdk. Pass -AndroidRoot for this host."
+}
+if (!(Test-Path -LiteralPath $taskflowJava -PathType Leaf)) {
+    throw "JDK executable not found: $taskflowJava. Pass -JavaHomePath for this host."
+}
+$taskflowAndroidEnvironment = @{
+    ANDROID_HOME = $taskflowSdk
+    ANDROID_SDK_ROOT = $taskflowSdk
+    ANDROID_USER_HOME = Join-Path $taskflowAndroidRoot 'user'
+    ANDROID_AVD_HOME = Join-Path $taskflowAndroidRoot 'avd'
+    GRADLE_USER_HOME = Join-Path $taskflowAndroidRoot 'gradle'
+    PUB_CACHE = Join-Path $taskflowAndroidRoot 'pub-cache'
+    JAVA_HOME = $taskflowJavaRoot
+}
 # These affect this PowerShell session and its children, not global PATH.
-if (!(Test-Path (Join-Path $env:JAVA_HOME 'bin/java.exe'))) { throw 'JDK not found.' }
-if (!(Test-Path $env:ANDROID_HOME)) { throw 'Android SDK directory not found.' }
+foreach ($taskflowVariable in $taskflowAndroidEnvironment.Keys) {
+    [Environment]::SetEnvironmentVariable($taskflowVariable, $taskflowAndroidEnvironment[$taskflowVariable], 'Process')
+}

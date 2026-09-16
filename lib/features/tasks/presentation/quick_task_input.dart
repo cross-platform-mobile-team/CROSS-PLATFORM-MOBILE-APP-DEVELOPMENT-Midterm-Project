@@ -27,7 +27,39 @@ class QuickTaskInput extends StatefulWidget {
 
 class _QuickTaskInputState extends State<QuickTaskInput> {
   final fields = GlobalKey<TaskDetailsFieldsState>();
+  final expansion = ExpansibleController();
+  final titleFocus = FocusNode();
   TaskDetails details = TaskDetails();
+
+  void submit() {
+    if (widget.busy) return;
+    if (widget.formKey.currentState!.validate()) {
+      widget.onSubmit();
+      return;
+    }
+    if (TaskItem.validateTitle(widget.title.text) != null) {
+      titleFocus.requestFocus();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        final target = titleFocus.context;
+        if (target != null) Scrollable.ensureVisible(target);
+      });
+      return;
+    }
+    expansion.expand();
+    // Retained fields cannot receive focus while the tile is still offstage.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) fields.currentState?.focusFirstInvalid();
+    });
+  }
+
+  @override
+  void dispose() {
+    expansion.dispose();
+    titleFocus.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.all(20),
@@ -53,6 +85,7 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
               final input = TextFormField(
                 key: const Key('task-title'),
                 controller: widget.title,
+                focusNode: titleFocus,
                 validator: TaskItem.validateTitle,
                 textInputAction: TextInputAction.done,
                 decoration: const InputDecoration(
@@ -65,9 +98,7 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
                   contentPadding: EdgeInsets.symmetric(vertical: 12),
                   helperText: 'Press Enter to add',
                 ),
-                onFieldSubmitted: (_) {
-                  if (!widget.busy) widget.onSubmit();
-                },
+                onFieldSubmitted: (_) => submit(),
               );
               final actions = Wrap(
                 spacing: 8,
@@ -98,7 +129,7 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
                   ),
                   FilledButton.icon(
                     style: FilledButton.styleFrom(shape: const StadiumBorder()),
-                    onPressed: widget.busy ? null : widget.onSubmit,
+                    onPressed: widget.busy ? null : submit,
                     icon: const Icon(Icons.add, size: 18),
                     label: const Text('Add task'),
                   ),
@@ -128,6 +159,7 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
           const SizedBox(height: 8),
           ExpansionTile(
             key: ObjectKey(fields),
+            controller: expansion,
             title: const Text('Task details (optional)'),
             maintainState: true,
             tilePadding: EdgeInsets.zero,

@@ -1,10 +1,12 @@
 param(
-    [string]$FlutterSdk = "$env:USERPROFILE\flutter-sdk",
+    [string]$FlutterSdk,
     [ValidateRange(2, 20)][int]$Repetitions = 3
 )
 $ErrorActionPreference = 'Stop'
-$flutter = Join-Path $FlutterSdk 'bin\flutter.bat'
-if (!(Test-Path -LiteralPath $flutter)) { throw 'Flutter SDK not found.' }
+. (Join-Path $PSScriptRoot 'resolve-flutter.ps1')
+$resolverArguments = @{}
+if ($PSBoundParameters.ContainsKey('FlutterSdk')) { $resolverArguments.FlutterSdk = $FlutterSdk }
+$flutter = Resolve-TaskFlowFlutterCommand @resolverArguments
 $project = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $folder = Join-Path $project "build\test-levels-$([guid]::NewGuid().ToString('N'))"
 New-Item -ItemType Directory -Path $folder | Out-Null

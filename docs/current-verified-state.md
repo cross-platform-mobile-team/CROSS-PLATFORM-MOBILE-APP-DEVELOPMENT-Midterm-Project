@@ -1,5 +1,16 @@
 # Current verified state
 
+## System fixes — 2026-09-16
+
+Implementation `bba02cd` follows `04105d6` with five fixes: atomic Android
+environment setup, portable Flutter resolution, strict API creation dates,
+visible task-form validation recovery, and fail-fast backend CI checks.
+[Commands and original fail/pass outputs](evidence/system-fixes-20260916/README.md).
+103 Flutter cases including 15 unchanged goldens, 15 API cases, three persisted
+Windows cases and one Windows API case PASS. Windows and Web release builds PASS.
+Local Android rerun is NOT RUN: the C: host lacks SDK platform 36 and has no
+connected emulator. Previous platform and report evidence below remains dated.
+
 ## Platform audit and publication review — 2026-09-15
 
 Latest: [progress review](project-progress-20260915.md) and

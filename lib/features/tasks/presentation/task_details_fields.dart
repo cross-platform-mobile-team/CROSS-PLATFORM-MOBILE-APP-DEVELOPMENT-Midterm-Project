@@ -26,6 +26,33 @@ class TaskDetailsFieldsState extends State<TaskDetailsFields> {
   late String rawDate = due == null ? '' : TaskDetails.dateLabel(due!);
   late final dateText = TextEditingController(text: rawDate);
   final priorityField = GlobalKey<FormFieldState<TaskPriority>>();
+  final notesFocus = FocusNode();
+  final dateFocus = FocusNode();
+  final tagsFocus = FocusNode();
+
+  void focusFirstInvalid() {
+    final focus = validateNotes(notes) != null
+        ? notesFocus
+        : validateDate(rawDate) != null
+        ? dateFocus
+        : validateTags(tags) != null
+        ? tagsFocus
+        : null;
+    if (focus == null) return;
+    focus.requestFocus();
+    // Wait for the inline errors to take their layout space before scrolling.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final target = focus.context;
+      if (target != null) {
+        Scrollable.ensureVisible(
+          target,
+          alignment: 0.2,
+          duration: const Duration(milliseconds: 200),
+        );
+      }
+    });
+  }
 
   void setPriority(TaskPriority value) {
     if (!widget.enabled) return;
@@ -53,6 +80,9 @@ class TaskDetailsFieldsState extends State<TaskDetailsFields> {
   @override
   void dispose() {
     dateText.dispose();
+    notesFocus.dispose();
+    dateFocus.dispose();
+    tagsFocus.dispose();
     super.dispose();
   }
 
@@ -87,19 +117,25 @@ class TaskDetailsFieldsState extends State<TaskDetailsFields> {
     return null;
   }
 
+  static String? validateNotes(String? text) =>
+      (text?.length ?? 0) > 2000 ? 'Use 2000 characters or fewer' : null;
+
+  static String? validateTags(String? text) =>
+      TaskDetails(tags: (text ?? '').split(',')).validationError;
+
   @override
   Widget build(BuildContext context) => Column(
     mainAxisSize: MainAxisSize.min,
     children: [
       TextFormField(
         key: const Key('task-notes'),
+        focusNode: notesFocus,
         initialValue: notes,
         enabled: widget.enabled,
         decoration: const InputDecoration(labelText: 'Notes (optional)'),
         minLines: 1,
         maxLines: 3,
-        validator: (text) =>
-            (text?.length ?? 0) > 2000 ? 'Use 2000 characters or fewer' : null,
+        validator: validateNotes,
         onChanged: (text) {
           notes = text;
           emit();
@@ -133,6 +169,7 @@ class TaskDetailsFieldsState extends State<TaskDetailsFields> {
       const SizedBox(height: 20),
       TextFormField(
         key: const Key('task-due-date'),
+        focusNode: dateFocus,
         enabled: widget.enabled,
         controller: dateText,
         decoration: const InputDecoration(
@@ -151,14 +188,14 @@ class TaskDetailsFieldsState extends State<TaskDetailsFields> {
       const SizedBox(height: 20),
       TextFormField(
         key: const Key('task-tags'),
+        focusNode: tagsFocus,
         initialValue: tags,
         enabled: widget.enabled,
         decoration: const InputDecoration(
           labelText: 'Tags',
           helperText: 'Separate tags with commas.',
         ),
-        validator: (text) =>
-            TaskDetails(tags: (text ?? '').split(',')).validationError,
+        validator: validateTags,
         onChanged: (text) {
           tags = text;
           emit();

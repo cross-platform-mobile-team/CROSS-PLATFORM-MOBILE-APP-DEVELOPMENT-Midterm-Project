@@ -1,5 +1,17 @@
 # Android on the D: drive
 
+The paths below describe the D: development host, not a requirement for every
+checkout. `use-android-d.ps1` relocates SDK, AVD and package/cache variables for
+the current shell. Use it only when those locations match your host. On the
+C: development host, Flutter already locates `C:/Android/sdk` and Temurin JDK
+17; the normal `flutter` commands can use that existing configuration without
+dot-sourcing this D: helper or moving the current AVD.
+
+For a deliberately relocated setup, pass `-AndroidRoot <root-containing-sdk>`
+and `-JavaHomePath <jdk-directory>`. Both paths are validated before any
+environment variable is changed; rejected paths leave the current configuration
+intact. The helper does not install tools or create/migrate emulator data.
+
 This host uses Flutter 3.47.1, an existing JDK 21.0.3, and the following paths:
 
 - D:/Android/sdk — SDK, build-tools 36.0.0, platform 36, NDK 28.2.13676358,

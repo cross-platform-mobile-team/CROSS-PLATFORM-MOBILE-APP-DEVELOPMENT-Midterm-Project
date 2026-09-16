@@ -1,0 +1,24 @@
+v24.19.0
+✔ register, hashed credentials, normalized email, duplicate and login (1032.1717ms)
+✔ validation rejects weak password and mass-assigned account privilege (235.3336ms)
+✔ refresh rotates credentials; replay revokes the entire session (456.7502ms)
+✔ absolute refresh expiration and logout cannot be bypassed (632.0781ms)
+✔ per-user CRUD, read isolation, owner injection and no cross-user delete (664.423ms)
+✔ snapshot validation and stale writers never partially replace saved data (540.1812ms)
+✔ createdAt rejects impossible calendar dates without changing saved tasks (545.9797ms)
+✔ search, filters, deterministic sort, stats and pagination (428.0627ms)
+✔ recovery is single-use, rotates the code and revokes all sessions (1023.0255ms)
+✔ profile, session ownership/revocation and password change (1254.9061ms)
+✔ account deletion requires password and cascades only its own data (981.7911ms)
+✔ CORS, malformed bodies, rate limits and safe logs (418.6986ms)
+✔ SQLite API persistence, sessions, schema and backup survive restart (676.8659ms)
+✔ body limits, content type, null bodies and contract endpoint (442.4592ms)
+✔ logout-all and one-session revocation do not sign out another user (847.8237ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10306.0247

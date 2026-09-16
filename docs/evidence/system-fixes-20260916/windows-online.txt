@@ -1,0 +1,7 @@
+00:00 +0: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/online_workflow_test.dart
+Building Windows application...                                    18.9s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+00:00 +0: online account lifecycle, isolation and optimistic conflict on native host
+00:08 +1: (tearDownAll)
+00:08 +1: All tests passed!
+Isolated test database and logs: C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\online-e2e-4c3884003f97437c9aa37f52dd417e50

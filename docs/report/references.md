@@ -24,7 +24,7 @@ Node.js. (n.d.). SQLite. Retrieved September 13, 2026, from https://nodejs.org/a
 
 SQLite. (n.d.). Transaction. Retrieved September 13, 2026, from https://www.sqlite.org/lang_transaction.html
 
-TaskFlow project. (2026). TaskFlow QA Lab [Source code and test evidence, revision 3e4f733]. https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/tree/3e4f733acfcb219596aa4b60376f41b142d65857
+TaskFlow project. (2026). TaskFlow QA Lab [Source baseline, revision 06d3790; local 19 September verification is identified separately]. https://github.com/cross-platform-mobile-team/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/tree/06d3790deb6b5b1376311e102b15b968b2b51baf
 
 Ton Duc Thang University. (2026). Cross-Platform Mobile App Development 503107 midterm assignment, semester 1, academic year 2026–2027 [Course brief, 503107-Essay-V2 (1).pdf, supplied to the team].
 

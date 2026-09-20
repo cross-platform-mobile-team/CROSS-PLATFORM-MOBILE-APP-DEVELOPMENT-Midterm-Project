@@ -1,5 +1,18 @@
 # AGENTS.md - TaskFlow QA Lab
 
+2026-09-20: user explicitly authorized completing pending checks and pushing
+the reviewed changes to main-test, then verifying local/remote synchronization.
+This supersedes the 19 September no-publication note below. Do not claim the
+new hosted CI succeeds merely because push succeeds.
+
+2026-09-19 risk closure: baseline 06d3790 plus local snapshot capacity fix.
+104 Flutter, 17 API, 15 Windows native and one Android online case PASS.
+Authenticated snapshot PUT has an 8 MiB budget; other routes retain 1 MiB.
+Keep maximum escaped-Unicode snapshot and rejection/no-mutation regressions.
+Expanded native CI is configured but NOT hosted-verified. User has Windows
+hardware only. No video work and no new commit/push authorization in this turn.
+See docs/risk-closure-20260919.md and its evidence index before continuing.
+
 Publication review 2026-09-15: user authorized review/fixes and push to main-test.
 See docs/project-progress-20260915.md for the 80% submission-readiness estimate,
 its explicit weights and remaining gates; never present this as an expected grade.

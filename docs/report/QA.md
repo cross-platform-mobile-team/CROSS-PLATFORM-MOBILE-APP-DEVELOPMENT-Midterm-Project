@@ -1,5 +1,28 @@
 # Report verification
 
+## Refresh 19 September 2026
+
+Shared source and both editions now distinguish baseline 06d3790 plus the local
+snapshot-budget change, 104 Flutter / 17 API cases and 15 Windows reruns.
+Historical Android, Edge and timing experiments retain original dates.
+Word: 43 physical pages, 31 main pages (7-37). LaTeX: 42 physical pages,
+29 main pages (8-36). Both remain within the 20-35 main-page range.
+
+Rebuilt with the bundled Python runtime and retained template contract;
+reference SHA-256 remains B2E75BBBAB293CEC424726B20DC6880D4A83BC22B5F8A10F4D2B4FD68EDEFB6D.
+Packaged render_docx failed because soffice.exe is unavailable. Word COM
+refreshed fields/TOC and exported the matching PDF; PDFium rendered every page.
+LaTeX compiled with existing Tectonic; font-path/underfull warnings remain,
+without an overfull warning. Every changed page image was inspected; unchanged
+pages were compared by SHA-256 against the previously reviewed renders.
+The first Word pass had an unnecessary continuation page; shortened prose
+restored the 43-page layout without shrinking text or removing qualifications.
+QA renders: ignored build/report-qa/risk-closure-20260919/final-word and
+final-latex. Raw compile/renderer diagnostics are in the risk-closure evidence.
+
+Report completion does not certify manual accessibility or clean-machine setup.
+The previous dated verification below remains historical.
+
 ## Latest refresh 15 September 2026
 
 This documentation-only update synchronizes README and both report editions to

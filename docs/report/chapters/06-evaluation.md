@@ -2,18 +2,18 @@
 
 ## Evaluation protocol and evidence identity
 
-Evaluation separates source identity, test selection, environment and observed outcome. The evaluated implementation is commit 3e4f733. Logs under docs/evidence/platform-audit-20260914 and docs/evidence/platform-audit-20260915 record the local audit. On 15 September, the Flutter suite passed 100 cases with coverage enabled and the Node suite passed 14 cases; publication review repeated both successfully. Earlier browser and hosted Android experiments keep their original evidence identities.
+Evaluation separates source identity, test selection, environment and observed outcome. The latest local evaluation uses commit 06d3790 plus the snapshot-capacity correction of 19 September, recorded under docs/evidence/risk-closure-20260919. The Flutter suite passed 104 cases with coverage enabled and the Node suite passed 17 cases. Earlier native, browser and hosted Android experiments keep their original evidence identities; they are not relabelled as executions of the updated source.
 
-The local environment is Flutter 3.47.1 with Dart 3.13.1 on Windows 11, build 26200.9445, and Node 22.14.0 with built-in SQLite. The Android target is Google APIs Android 16/API 36 x86_64, emulator 37.1.11, at 720 by 1280 pixels and density 240, with two cores and 2048 MB guest memory. SDK and caches are under D:/Android. Host PATH and SDK-manager license-status warnings remain documented rather than reported as a fully clean toolchain check.
+The latest local environment is Flutter 3.47.1 with Dart 3.13.1 on Windows 11, build 26200.9457, and Node 22.14.0 with built-in SQLite. The earlier Android target is Google APIs Android 16/API 36 x86_64, emulator 37.1.11, at 720 by 1280 pixels and density 240, with two cores and 2048 MB guest memory. SDK and caches are under D:/Android. Host PATH and SDK-manager license-status warnings remain documented rather than reported as a fully clean toolchain check.
 
 Table 6.1 Results and their actual verification boundaries
 
 | Check | Recorded outcome | Boundary and qualification |
 | --- | --- | --- |
 | Flutter analysis | PASS during report preparation | Static analysis, not runtime correctness |
-| Flutter suite with coverage | 100 cases PASS on 15 September | Includes draft-consistency cases and goldens; no coverage percentage asserted |
-| Node API suite | 14 cases PASS on 15 September | Local HTTP, account and SQLite behaviors |
-| Windows workflows | 15 cases PASS on 14 September | Six separate invocations, including real API/SQLite |
+| Flutter suite with coverage | 104 cases PASS on 19 September | Includes validation and golden checks; no coverage percentage asserted |
+| Node API suite | 17 cases PASS on 19 September | Includes full 500-task snapshot, byte limits and unchanged rejected writes |
+| Windows workflows | 15 cases PASS on 19 September | Six separate invocations, including real API/SQLite |
 | Windows release build | PASS on 14 September | Not a clean-machine install certificate |
 | Android local workflows | 15 cases PASS on 15 September | API 36 emulator; debug local API included |
 | Android release | Build, install, launch and persistence PASS | Offline process restart; not physical-device HTTPS |
@@ -21,7 +21,9 @@ Table 6.1 Results and their actual verification boundaries
 | Edge UI harness | Final 1 of 1 run PASS after corrections | Four earlier failed attempts retained; not a five-run success result |
 | Android hosted gate | 9 executions PASS at 9ca2a96 | Historical API 36 emulator evidence, not the newest UI revision |
 
-The 100-case result includes comparisons against 15 unchanged golden images; these are not additional tests. Each native platform executes six selections: four independent scenarios, three persisted scenarios, two preference-backed workflows, one quick-create exit scenario, four pending-capture cases and one online API workflow. The resulting 15 executions per platform do not represent 30 distinct scenarios across both platforms. Acceptance conditions determine what these counts establish.
+The 104-case total includes golden comparisons using checked-in baselines reviewed at 06d3790, without regeneration. The six native selections comprise four independent, three persisted, two preference-backed, one quick-create exit, four pending-capture and one online case. Windows repeated all 15 successfully on 19 September; Android retains its 15 September evidence. These are overlapping scenarios, not 30 distinct tests.
+
+The snapshot endpoint accepts 500 records within an authenticated 8 MiB budget; other routes retain 1 MiB. Tests round-trip maximum-length notes and multibyte tags and verify rejection without mutation for stale revisions, excess records and excess bytes. CI now selects all six native suites; hosted execution remains pending.
 
 ## Scenario design and assertion strength
 
@@ -76,11 +78,11 @@ The earlier browser stability experiment and multi-session work remain useful hi
 
 ## Threats to validity and remaining gates
 
-Internal validity depends on using independent fixtures and meaningful assertions. A fake may model an error more simply than a real transport failure, so a passing recovery test is not a complete network proof. Golden results depend on fonts and rendering environment. Test-level timings include overhead and unequal work. Browser-script corrections change the measurement procedure, which is why previous failed attempts remain visible rather than being replaced.
+Independent fixtures and meaningful assertions support internal validity. Fake failures simplify real transport behavior; golden comparisons depend on fonts and rendering; timings include overhead and unequal workloads. Browser-script corrections change the procedure, so earlier failed attempts remain available.
 
 External validity is limited by the small coursework dataset and selected Windows host and Android emulator. The eager task list has not been stress-tested at the server's 500-record acceptance limit. No frame-time or sustained API-load study is reported. The local Android API workflow does not establish physical-device connectivity, release HTTPS operation or production signing.
 
-Construct validity also matters. Automated accessibility guidelines do not equal a complete screen-reader review, and successful remount does not equal process restart. Passing the selected checks does not imply absence of bugs. These distinctions prevent convenience metrics, especially total test count, from replacing the actual user risks under evaluation.
+Automated accessibility checks do not establish screen-reader usability, and remount does not establish process-restart persistence. Passing test counts alone cannot establish absence of defects.
 
 The Android release check adds a stronger persistence boundary than UI remount: a task entered through Android input events remained visible after force-stop and relaunch. This does not establish an operating-system reboot or general input-method compatibility. The APK is 53,112,106 bytes; its checksum and installation commands are retained in the platform evidence package.
 

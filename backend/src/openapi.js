@@ -56,7 +56,7 @@ export const openapi = {
     '/v1/auth/activity': { get: op('Latest 50 account audit events; no credential/IP payloads', object({ events: { type: 'array', items: object({ event: str, at: str }) } })) },
     '/v1/tasks/snapshot': {
       get: op('Read complete own collection with revision', ref('Snapshot')),
-      put: op('Atomically replace own collection if revision matches; enables Flutter undo', ref('Snapshot'), object({ revision: ref('Revision'), tasks: { type: 'array', maxItems: 500, items: object({ ...taskFields,
+      put: op('Atomically replace own collection if revision matches; authenticated body limit 8 MiB; enables Flutter undo', ref('Snapshot'), object({ revision: ref('Revision'), tasks: { type: 'array', maxItems: 500, items: object({ ...taskFields,
         updatedAt: { description: 'Accepted for snapshot round trips but ignored; computed by the server.' },
         completedAt: { description: 'Accepted for snapshot round trips but ignored; computed by the server.' },
       }, ['id', 'title']) } })),

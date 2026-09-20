@@ -9,13 +9,14 @@ const publicUser = (row) => ({ id: row.id, email: row.email, name: row.name, cre
 const accessMs = 15 * 60 * 1000;
 const sessionMs = 7 * 24 * 60 * 60 * 1000;
 
-async function readBody(req) {
-  if (Number(req.headers['content-length']) > 1024 * 1024) fail(413, 'too_large', 'Request body exceeds 1 MiB.');
+async function readBody(req, maxBytes = 1024 * 1024) {
+  const tooLarge = () => fail(413, 'too_large', `Request body exceeds ${maxBytes / (1024 * 1024)} MiB. Reduce the payload before retrying.`);
+  if (Number(req.headers['content-length']) > maxBytes) tooLarge();
   const chunks = [];
   let bytes = 0;
   for await (const chunk of req) {
     bytes += chunk.length;
-    if (bytes > 1024 * 1024) fail(413, 'too_large', 'Request body exceeds 1 MiB.');
+    if (bytes > maxBytes) tooLarge();
     chunks.push(chunk);
   }
   if (bytes === 0) return {};
@@ -134,7 +135,14 @@ export async function createApi({ filename = ':memory:', origins = ['http://loca
       if (path.startsWith('/v1/auth/') && req.method !== 'GET' && !authRate.allow(ip)) {
         fail(429, 'rate_limited', 'Too many account requests. Try again later.');
       }
-      const body = ['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method) ? await readBody(req) : {};
+      const snapshotWrite = path === '/v1/tasks/snapshot' && req.method === 'PUT';
+      // Authenticate before accepting the larger budget; authenticate again after
+      // reading because the session can be revoked while a request is streaming.
+      if (snapshotWrite) authenticate(req);
+      // 500 records * bounded fields * up to 6 JSON bytes per UTF-16 code unit
+      // fits within 8 MiB for canonical payloads, including metadata overhead.
+      const body = ['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method)
+        ? await readBody(req, snapshotWrite ? 8 * 1024 * 1024 : 1024 * 1024) : {};
       if (path === '/v1/auth/register' && req.method === 'POST') {
         fields(body, ['email', 'password', 'name']);
         const address = email(body.email), name = text(body.name, 'Name', 80, 1);

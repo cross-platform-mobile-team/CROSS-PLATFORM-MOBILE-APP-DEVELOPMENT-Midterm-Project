@@ -1,5 +1,19 @@
 # Current verified state
 
+20 September publication continuation: user authorized pushing the reviewed
+risk-closure increment to main-test after repeat checks. Windows, Web and APK
+release builds PASS; the older no-push statement below describes capture time.
+
+## Risk closure — 2026-09-19
+
+Baseline 06d3790 plus local snapshot-capacity correction: 104 Flutter,
+17 API and 15 Windows native cases PASS; analyze and format PASS.
+See [scope and remaining acceptance](risk-closure-20260919.md) and
+[original logs](evidence/risk-closure-20260919/README.md).
+Expanded Windows/Android CI is not yet hosted-verified. Only Windows hardware
+is available; iOS, physical Android and manual Narrator remain unverified.
+No new commit/push is implied. Historical entries below retain their dates.
+
 ## System fixes — 2026-09-16
 
 Implementation `bba02cd` follows `04105d6` with five fixes: atomic Android

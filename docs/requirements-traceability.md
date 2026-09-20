@@ -1,5 +1,11 @@
 # Rubric traceability
 
+19 September addendum: [risk closure](risk-closure-20260919.md) maps the updated
+capacity regression, 104 Flutter / 17 API / 15 Windows results, one Android
+online rerun and report synchronization to existing requirements. Native CI
+expansion is configured but not hosted-verified. Manual accessibility and clean
+setup remain acceptance gaps; iOS is not part of the verified platform claim.
+
 ## Current verified state
 
 2026-09-16 invalid-title focus recovery -> reviewed phone/wide validation

@@ -16,13 +16,13 @@ an isolated offline demo. This is not yet the final coursework submission.
 
 ## Verified state and upgrade plan
 
-Latest reviewed implementation: `bba02cd` (16 September 2026).
-The [system-fix verification](docs/evidence/system-fixes-20260916/README.md)
-records 103 passing Flutter cases (15 unchanged goldens), 15 passing API cases,
-and four rerun Windows persisted/online cases. It covers visible validation
-recovery, strict API dates, SDK discovery and reliable script/CI failure handling.
-The report still describes `3e4f733`; later counts are not retroactively assigned
-to its experiments or to the Android evidence below.
+Latest local review: `06d3790` plus the 19 September snapshot-capacity correction.
+The [risk closure](docs/risk-closure-20260919.md) and
+[raw verification](docs/evidence/risk-closure-20260919/README.md) record
+104 Flutter, 17 API and 15 Windows native cases PASS. The authenticated snapshot
+budget is now 8 MiB for up to 500 records; other JSON routes retain 1 MiB.
+The report reflects these source gates without relabelling historical Android
+or Edge evidence. Expanded native CI is configured, not yet hosted-verified.
 
 Platform milestone at `3e4f733` (14–15 September 2026):
 

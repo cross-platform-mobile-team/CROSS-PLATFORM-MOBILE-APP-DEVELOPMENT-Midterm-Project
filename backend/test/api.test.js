@@ -29,6 +29,41 @@ async function fixture(t, options = {}) {
 }
 const item = (id = 'one', title = 'Review Flutter testing') => ({ id, title, createdAt: '2026-09-06T00:00:00.000Z', completed: false });
 
+test('maximum snapshot round-trips escaped Unicode metadata and preserves revision safety', async (t) => {
+  const { call, register } = await fixture(t);
+  const a = await register();
+  // JSON control-character escaping costs six bytes per UTF-16 code unit.
+  const tasks = Array.from({ length: 500 }, (_, i) => ({
+    ...item(`max-${i}`, 'T'.repeat(120)), notes: '\u0000'.repeat(2000),
+    tags: Array.from({ length: 10 }, (_, j) => `${j}${'界'.repeat(23)}`),
+    priority: 'high', dueDate: '2026-12-31',
+  }));
+  assert.ok(Buffer.byteLength(JSON.stringify({ revision: 0, tasks })) > 1024 * 1024);
+  const saved = await call('/v1/tasks/snapshot', { method: 'PUT', access: a.accessToken, body: { revision: 0, tasks } });
+  assert.equal(saved.status, 200);
+  assert.equal(saved.body.revision, 1);
+  const loaded = await call('/v1/tasks/snapshot', { access: a.accessToken });
+  assert.equal(loaded.body.tasks.length, 500);
+  assert.equal(loaded.body.tasks.find(x => x.id === 'max-499').notes, tasks[499].notes);
+  assert.deepEqual(loaded.body.tasks.find(x => x.id === 'max-0').tags, tasks[0].tags);
+  assert.equal((await call('/v1/tasks/snapshot', { method: 'PUT', access: a.accessToken, body: { revision: 0, tasks: [] } })).status, 409);
+  assert.equal((await call('/v1/tasks/snapshot', { method: 'PUT', access: a.accessToken, body: { revision: 1, tasks: [...tasks, item('extra')] } })).status, 422);
+  assert.deepEqual((await call('/v1/tasks/snapshot', { access: a.accessToken })).body, loaded.body);
+});
+
+test('snapshot byte budget rejects excess and unauthenticated writes without mutation', async (t) => {
+  const { call, register, base } = await fixture(t);
+  const a = await register();
+  const body = JSON.stringify({ revision: 0, tasks: [] }) + ' '.repeat(8 * 1024 * 1024);
+  const oversized = await fetch(`${base}/v1/tasks/snapshot`, { method: 'PUT', headers: {
+    'Content-Type': 'application/json', Authorization: `Bearer ${a.accessToken}`,
+  }, body });
+  assert.equal(oversized.status, 413);
+  assert.equal((await oversized.json()).error.code, 'too_large');
+  assert.equal((await call('/v1/tasks/snapshot', { method: 'PUT', body: { revision: 0, tasks: [] } })).status, 401);
+  assert.deepEqual((await call('/v1/tasks/snapshot', { access: a.accessToken })).body, { revision: 0, tasks: [] });
+});
+
 test('register, hashed credentials, normalized email, duplicate and login', async (t) => {
   const { call, register, db } = await fixture(t);
   const account = await register(' ALICE@example.test ');

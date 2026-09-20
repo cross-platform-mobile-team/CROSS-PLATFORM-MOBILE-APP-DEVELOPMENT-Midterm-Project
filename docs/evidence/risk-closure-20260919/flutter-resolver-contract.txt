@@ -1,0 +1,3 @@
+PASS: explicit/PATH/fallback precedence, invalid SDK rejection, runner forwarding, invocation arguments, exit codes and location restoration.
+Synthetic SDK resolver contract only; no real Flutter command or app build was run.
+Contract fixtures: D:\flutter\build\flutter-resolver-contract-e22009e737b7408b98ec93e025b9019e

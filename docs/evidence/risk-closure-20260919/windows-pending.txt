@@ -1,0 +1,9 @@
+00:00 +0: loading D:/flutter/integration_test/pending_capture_test.dart
+Building Windows application...                                    33,8s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+00:00 +0: pending capture preserves newer title at 390.0 fail=false
+00:02 +1: pending capture preserves newer title at 390.0 fail=true
+00:03 +2: pending capture preserves newer title at 1280.0 fail=false
+00:04 +3: pending capture preserves newer title at 1280.0 fail=true
+00:05 +4: (tearDownAll)
+00:05 +4: All tests passed!

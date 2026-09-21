@@ -1,5 +1,14 @@
 # Test matrix
 
+## Snapshot capacity and native CI 19 September 2026
+
+| Risk | Level | Selection | Evidence |
+| --- | --- | --- | --- |
+| Legal snapshot cannot be saved | API integration | Maximum 500 records with JSON escape expansion; full round-trip | risk-closure-20260919/backend-after.txt |
+| Expanded byte budget weakens isolation | API integration | 401 without auth, 413 oversized, 409 stale, 422 excess records; unchanged snapshot | Same 17-case run |
+| Platform drift | Native integration | All six Windows selections; Android online workflow | risk-closure-20260919/README.md |
+| CI misses newer native workflows | Configuration | Five file selections plus isolated online helper per native job | Hosted run pending; not a test result |
+
 ## Validation recovery and runner safety 16 September 2026
 
 | Risk | Regression and oracle | Level |

@@ -1,5 +1,21 @@
 # Bootstrap decisions
 
+## Snapshot request budget and CI selection 19 September 2026
+
+- The one-MiB global body limit contradicted 500 bounded task records. A real
+  failing HTTP regression established 413 instead of 200. Authenticated snapshot
+  PUT now permits 8 MiB, covering canonical JSON including six-byte character
+  escapes. Other routes stay at 1 MiB. Record, field, revision and ownership
+  limits remain; session authentication is checked before buffering and again
+  before mutation. This is not an unbounded import endpoint.
+- Native CI now selects the same six suites as local Windows verification.
+  Android Linux orchestration owns a temporary SQLite database and ephemeral
+  local port; no production URL is accepted. Windows keeps its existing helper.
+- Pin Node 22.14.0 because this is the locally tested built-in SQLite runtime.
+  setup-node's exact-version input was checked against the official README:
+  https://github.com/actions/setup-node/tree/v4 (accessed 19 September 2026).
+  No runtime dependency was added. New hosted execution is pending publication.
+
 ## Deterministic browser harness - 2026-09-09
 
 - The installed Flutter runner cannot execute integration_test on Web devices.

@@ -1,5 +1,14 @@
 # Evidence manifest
 
+## 2026-09-19 risk closure
+
+[Original outputs and commands](risk-closure-20260919/README.md): 104 Flutter,
+17 API and 15 Windows native cases PASS; Android online API/SQLite workflow
+1 PASS on the existing API 36 emulator. Snapshot regression first failed with
+413 instead of 200, then passed with an authenticated 8 MiB budget. Synthetic
+SDK/resolver/backend-CI contracts PASS. Hosted expanded CI remains NOT RUN.
+See [remaining acceptance](../risk-closure-20260919.md); video is excluded.
+
 ## 2026-09-16 system fixes
 
 See [system-fixes-20260916/README.md](system-fixes-20260916/README.md) for

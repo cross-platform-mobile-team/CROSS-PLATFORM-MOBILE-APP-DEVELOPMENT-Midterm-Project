@@ -1,5 +1,14 @@
 # Environment
 
+2026-09-19 D: host recheck: Flutter 3.47.1 / Dart 3.13.1 at
+C:/Users/LENOVO/flutter-sdk; Windows 11 10.0.26200.9457; Node 22.14.0.
+Chrome 153.0.8010.48 and Edge 153.0.4234.32 detected. Existing Android API 36
+emulator ran the online integration workflow successfully using D:/Android
+SDK and caches. Doctor warnings remain in
+[raw environment output](evidence/risk-closure-20260919/environment.txt).
+The user confirms only Windows hardware is available; no Mac/physical Android
+acceptance is claimed.
+
 2026-09-16 C: host recheck: Flutter 3.47.0 / Dart 3.13.0 on PATH at
 `C:/Users/Nguyen Long/develop/flutter`, Windows 11 10.0.26200.9445,
 Visual Studio Build Tools 2022 17.14.39, Node 24.19.0, PowerShell 7.6.5.

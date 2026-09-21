@@ -108,7 +108,8 @@ calendar-day filters rather than pagination. This is a small-task-list design.
 
 Standard failures contain `{error: {code, message, requestId}}`. Important statuses:
 400 malformed JSON, 401 unauthorized/incorrect credential, 403 disallowed origin,
-404 missing or not-owned resource, 409 conflict, 413 body over 1 MiB, 415 wrong
+404 missing or not-owned resource, 409 conflict, 413 body over its byte budget
+(8 MiB for authenticated snapshot PUT; 1 MiB for other routes), 415 wrong
 content type, 422 invalid data, 428 missing If-Match, 429 rate limit, 503 busy
 password worker capacity. Unexpected errors return a generic 500, not stack traces.
 

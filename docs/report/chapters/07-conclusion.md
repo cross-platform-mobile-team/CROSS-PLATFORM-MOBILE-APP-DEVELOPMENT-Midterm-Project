@@ -8,7 +8,7 @@ For RQ2, the permanent search regression detected the temporary prefix-only defe
 
 For RQ3, isolated fixtures, injected dependencies and completion gates make pending, failed and committed states inspectable. The study demonstrates their use without claiming a measured reduction in flakiness.
 
-For RQ4, the current selection passed 15 native cases on each of Windows and Android, alongside 100 Flutter and 14 API cases. Android release installation and offline process-restart persistence were verified on the emulator. These observations support the required two-platform demonstration within the recorded conditions. iOS, physical-device HTTPS operation and manual screen-reader behavior remain outside the verified scope.
+For RQ4, the retained platform selection passed 15 native cases on each of Windows and Android on 14 and 15 September. The latest local source checks passed 104 Flutter and 17 API cases on 19 September. Android release installation and offline process-restart persistence were verified on the emulator during the earlier audit. These observations support the required two-platform demonstration within the recorded conditions. iOS, physical-device HTTPS operation and manual screen-reader behavior remain outside the verified scope.
 
 ## Prioritized continuation
 

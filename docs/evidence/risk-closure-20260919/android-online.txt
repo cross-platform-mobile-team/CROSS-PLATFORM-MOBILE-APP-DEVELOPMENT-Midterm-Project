@@ -1,0 +1,10 @@
+00:00 +0: loading D:/flutter/integration_test/online_workflow_test.dart
+Running Gradle task 'assembleDebug'...                          
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Running Gradle task 'assembleDebug'...                             74,0s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          802ms
+00:00 +0: online account lifecycle, isolation and optimistic conflict on native host
+00:11 +1: (tearDownAll)
+00:12 +1: All tests passed!
+Isolated test database and logs: D:\flutter\build\online-e2e-1c50f0309a864a68a88216a464734f3e

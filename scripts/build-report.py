@@ -39,7 +39,7 @@ ABSTRACT = (
     'by a permanent regression, with authentic baseline, failure and corrected outputs. Three '
     'rounds of selected test-level commands illustrate local wall-time differences, but unequal '
     'workloads and startup overhead prevent a universal speed ranking. During report preparation, '
-    'the updated Flutter suite passed 100 cases and the backend suite passed 14 cases. Retained '
+    'the 19 September Flutter suite passed 104 cases and the backend suite passed 17 cases. Retained '
     'Windows and Android native suites each passed 15 cases on 14 and 15 September 2026, '
     'respectively. Android release installation and process-restart persistence were verified '
     'on the local API 36 emulator. Edge and historical Android CI results retain their '

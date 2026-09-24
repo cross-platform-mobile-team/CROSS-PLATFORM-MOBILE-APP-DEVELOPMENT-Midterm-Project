@@ -1,0 +1,97 @@
+TAP version 13
+# (node:18076) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: maximum snapshot round-trips escaped Unicode metadata and preserves revision safety
+ok 1 - maximum snapshot round-trips escaped Unicode metadata and preserves revision safety
+  ---
+  duration_ms: 2301.3703
+  ...
+# Subtest: snapshot byte budget rejects excess and unauthenticated writes without mutation
+ok 2 - snapshot byte budget rejects excess and unauthenticated writes without mutation
+  ---
+  duration_ms: 1077.6298
+  ...
+# Subtest: register, hashed credentials, normalized email, duplicate and login
+ok 3 - register, hashed credentials, normalized email, duplicate and login
+  ---
+  duration_ms: 2517.6266
+  ...
+# Subtest: validation rejects weak password and mass-assigned account privilege
+ok 4 - validation rejects weak password and mass-assigned account privilege
+  ---
+  duration_ms: 523.4353
+  ...
+# Subtest: refresh rotates credentials; replay revokes the entire session
+ok 5 - refresh rotates credentials; replay revokes the entire session
+  ---
+  duration_ms: 1075.4219
+  ...
+# Subtest: absolute refresh expiration and logout cannot be bypassed
+ok 6 - absolute refresh expiration and logout cannot be bypassed
+  ---
+  duration_ms: 1506.0781
+  ...
+# Subtest: per-user CRUD, read isolation, owner injection and no cross-user delete
+ok 7 - per-user CRUD, read isolation, owner injection and no cross-user delete
+  ---
+  duration_ms: 1342.9952
+  ...
+# Subtest: snapshot validation and stale writers never partially replace saved data
+ok 8 - snapshot validation and stale writers never partially replace saved data
+  ---
+  duration_ms: 848.2867
+  ...
+# Subtest: createdAt rejects impossible calendar dates without changing saved tasks
+ok 9 - createdAt rejects impossible calendar dates without changing saved tasks
+  ---
+  duration_ms: 792.7018
+  ...
+# Subtest: search, filters, deterministic sort, stats and pagination
+ok 10 - search, filters, deterministic sort, stats and pagination
+  ---
+  duration_ms: 699.9048
+  ...
+# Subtest: recovery is single-use, rotates the code and revokes all sessions
+ok 11 - recovery is single-use, rotates the code and revokes all sessions
+  ---
+  duration_ms: 1637.3808
+  ...
+# Subtest: profile, session ownership/revocation and password change
+ok 12 - profile, session ownership/revocation and password change
+  ---
+  duration_ms: 1929.3355
+  ...
+# Subtest: account deletion requires password and cascades only its own data
+ok 13 - account deletion requires password and cascades only its own data
+  ---
+  duration_ms: 1527.4957
+  ...
+# Subtest: CORS, malformed bodies, rate limits and safe logs
+ok 14 - CORS, malformed bodies, rate limits and safe logs
+  ---
+  duration_ms: 590.9536
+  ...
+# Subtest: SQLite API persistence, sessions, schema and backup survive restart
+ok 15 - SQLite API persistence, sessions, schema and backup survive restart
+  ---
+  duration_ms: 1277.6181
+  ...
+# Subtest: body limits, content type, null bodies and contract endpoint
+ok 16 - body limits, content type, null bodies and contract endpoint
+  ---
+  duration_ms: 816.3764
+  ...
+# Subtest: logout-all and one-session revocation do not sign out another user
+ok 17 - logout-all and one-session revocation do not sign out another user
+  ---
+  duration_ms: 1973.272
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 22912.9367

@@ -1,5 +1,32 @@
 # Current verified state
 
+## Automation audit — 2026-09-22
+
+See [audit](automation-audit-20260922.md) and
+[raw evidence](evidence/automation-audit-20260922/README.md). The repaired
+decorative-focus semantics and new motion tests pass in the 110-case Flutter
+suite, with the 15 reviewed color/motion golden baselines unchanged. User now
+authorizes publication of the pending UI and verified audit fixes to main-test.
+Post-fix checks: Windows 15/15, Android emulator 15/15, Edge 4/4 across two
+fresh sessions, API 17/17, format/analyze PASS. Windows/Web release builds PASS;
+APK release also PASS on 24 September after dependency regeneration. The
+evidence index retains earlier failed/incomplete attempts. Local checks are
+complete for this scoped increment; a new hosted CI result is not implied.
+
+## Local color and motion UI — 2026-09-21
+
+User-requested visual refresh after b4479e3; no publication/report update.
+107 Flutter cases including 15 reviewed golden images PASS; analyze/format
+PASS. See [evidence](evidence/color-motion-20260921/README.md) for the native
+and build results, retained earlier failures and unrun platform boundaries.
+
+22 September continuation: final format/analyze PASS after the native test
+locator adjustment. Windows 15 cases and backend 17 cases PASS. Windows and
+Web release builds PASS; the fresh Web build bundles resources with
+`--no-web-resources-cdn`. These remain local, uncommitted UI results.
+Android release APK also built successfully on 22 September; this is build
+evidence, not a new emulator/device execution of the refreshed UI.
+
 20 September publication continuation: user authorized pushing the reviewed
 risk-closure increment to main-test after repeat checks. Windows, Web and APK
 release builds PASS; the older no-push statement below describes capture time.

@@ -1,5 +1,17 @@
 # Environment
 
+2026-09-22/23 automation audit: same Flutter 3.47.1/Dart 3.13.1 toolchain;
+raw doctor/devices output is in evidence/automation-audit-20260922/environment.txt.
+Headless emulator processes crashed with 0xc0000005 (Windows event evidence).
+Continuation uses the existing taskflow_api36 AVD with `-gpu host -cores 2
+-memory 1536 -no-snapshot`, without installing tools or changing its saved
+configuration. Platform results are recorded individually in the audit index.
+
+2026-09-21 UI recheck: Flutter 3.47.1 / Dart 3.13.1, Windows
+10.0.26200.9457, VS Build Tools 17.14.39, Android SDK 36 under D:/Android.
+Windows, Chrome 153.0.8010.48 and Edge 153.0.4234.48 detected. Existing
+SDK license-status and SDK-not-on-PATH warnings remain; no SDK upgrade/install.
+
 2026-09-19 D: host recheck: Flutter 3.47.1 / Dart 3.13.1 at
 C:/Users/LENOVO/flutter-sdk; Windows 11 10.0.26200.9457; Node 22.14.0.
 Chrome 153.0.8010.48 and Edge 153.0.4234.32 detected. Existing Android API 36

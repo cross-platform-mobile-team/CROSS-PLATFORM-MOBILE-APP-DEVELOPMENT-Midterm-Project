@@ -38,7 +38,11 @@ void main() {
 
   Finder card(String title) => find.ancestor(
     of: find.widgetWithText(CheckboxListTile, title),
-    matching: find.byType(Card),
+    matching: find.byWidgetPredicate(
+      (widget) =>
+          widget.key is ValueKey<String> &&
+          (widget.key! as ValueKey<String>).value.startsWith('task-card-'),
+    ),
   );
   Finder action(String title, String label) =>
       find.descendant(of: card(title), matching: find.text(label));

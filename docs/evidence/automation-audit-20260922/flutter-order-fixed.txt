@@ -1,0 +1,127 @@
+00:00 +0: loading D:/flutter/test/golden/account_screen_golden_test.dart
+00:00 +0: D:/flutter/test/golden/account_screen_golden_test.dart: (setUpAll)
+00:00 +0: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +1: D:/flutter/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:00 +2: D:/flutter/test/golden/auth_screen_golden_test.dart: golden wide-sign-in (variant: TargetPlatform.android)
+00:00 +3: D:/flutter/test/golden/auth_screen_golden_test.dart: (tearDownAll)
+00:01 +3: loading D:/flutter/test/golden/task_dialog_golden_test.dart
+00:01 +3: D:/flutter/test/golden/task_dialog_golden_test.dart: (setUpAll)
+00:01 +3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:02 +4: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +5: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +6: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +7: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +8: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:03 +9: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-validation (variant: TargetPlatform.android)
+00:03 +10: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:03 +11: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:03 +12: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:03 +13: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:03 +14: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:03 +15: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:03 +16: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:03 +17: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:03 +18: D:/flutter/test/golden/task_screen_golden_test.dart: golden phone-error (variant: TargetPlatform.android)
+00:03 +19: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-empty (variant: TargetPlatform.android)
+00:03 +20: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-populated (variant: TargetPlatform.android)
+00:04 +21: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-validation (variant: TargetPlatform.android)
+00:04 +22: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-error (variant: TargetPlatform.android)
+00:04 +23: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-error (variant: TargetPlatform.android)
+00:04 +24: D:/flutter/test/golden/task_screen_golden_test.dart: golden wide-error (variant: TargetPlatform.android)
+00:04 +25: D:/flutter/test/golden/task_screen_golden_test.dart: (tearDownAll)
+00:04 +25: loading D:/flutter/test/unit/snapshot_safety_test.dart
+00:05 +25: D:/flutter/test/unit/snapshot_safety_test.dart: unloaded controller cannot overwrite an existing snapshot
+00:05 +26: D:/flutter/test/unit/snapshot_safety_test.dart: failed load blocks writes until explicit successful reload
+00:05 +27: D:/flutter/test/unit/snapshot_safety_test.dart: failed reload blocks stale edit delete toggle and undo
+00:05 +28: D:/flutter/test/unit/task_controller_test.dart: rejects blank and oversized titles
+00:05 +29: D:/flutter/test/unit/task_controller_test.dart: creates deterministic task and finds a case-insensitive substring
+00:05 +30: D:/flutter/test/unit/task_controller_test.dart: failed write does not publish unpersisted task; load retry recovers
+00:05 +31: D:/flutter/test/unit/task_controller_test.dart: task JSON round trip preserves fields
+00:05 +32: loading D:/flutter/test/unit/task_crud_test.dart
+00:06 +32: D:/flutter/test/unit/task_crud_test.dart: edit preserves identity, creation time and completed state
+00:06 +33: D:/flutter/test/unit/task_crud_test.dart: failed edit retains persisted data and can retry
+00:06 +34: D:/flutter/test/unit/task_crud_test.dart: delete and undo preserve all fields and deterministic ordering
+00:06 +35: D:/flutter/test/unit/task_crud_test.dart: failed delete retains tasks; failed undo retains recovery opportunity
+00:06 +36: D:/flutter/test/unit/task_crud_test.dart: only latest successful deletion is undoable
+00:06 +37: D:/flutter/test/unit/task_crud_test.dart: in-flight deletion prevents concurrent mutation
+00:06 +38: D:/flutter/test/unit/task_metadata_test.dart: legacy JSON receives defaults without losing old fields
+00:06 +39: D:/flutter/test/unit/task_metadata_test.dart: tags normalize, deduplicate, sort and cannot be mutated
+00:06 +40: D:/flutter/test/unit/task_metadata_test.dart: calendar date round trips without time-of-day or timezone
+00:06 +41: D:/flutter/test/unit/task_metadata_test.dart: combined filters use AND, exact normalized tag and note search
+00:06 +42: D:/flutter/test/unit/task_metadata_test.dart: due boundaries exclude completed overdue and separate future/no date
+00:06 +43: D:/flutter/test/unit/task_metadata_test.dart: priority and due sorting use stable IDs; no-date tasks sort last
+00:06 +44: D:/flutter/test/unit/task_metadata_test.dart: save, rename-only, toggle, delete/undo preserve metadata; edit can clear date
+00:06 +45: loading D:/flutter/test/widget/accessibility_test.dart
+00:07 +45: D:/flutter/test/widget/accessibility_test.dart: (setUpAll)
+00:07 +45: D:/flutter/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:08 +46: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:08 +47: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:08 +48: D:/flutter/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:08 +49: D:/flutter/test/widget/accessibility_test.dart: accessibility guidelines: validation (variant: TargetPlatform.android)
+00:09 +50: D:/flutter/test/widget/account_flow_test.dart: failed login is readable; offline mode does not call the backend
+00:09 +51: D:/flutter/test/widget/accessibility_test.dart: keyboard traverses from title and submits a task (variant: TargetPlatform.windows)
+00:09 +52: D:/flutter/test/widget/accessibility_test.dart: large text at phone width keeps controls usable
+00:09 +53: D:/flutter/test/widget/accessibility_test.dart: (tearDownAll)
+00:09 +53: D:/flutter/test/widget/account_settings_accessibility_test.dart: (setUpAll)
+00:09 +53: D:/flutter/test/widget/account_settings_accessibility_test.dart: account settings exposes headings, validation and logical keyboard focus (variant: TargetPlatform.android)
+00:10 +54: D:/flutter/test/widget/account_settings_accessibility_test.dart: account settings exposes headings, validation and logical keyboard focus (variant: TargetPlatform.android)
+00:11 +55: D:/flutter/test/widget/color_motion_test.dart: entrance does not replay or replace draft on parent rebuild
+00:11 +56: D:/flutter/test/widget/color_motion_test.dart: entrance does not replay or replace draft on parent rebuild
+00:11 +57: D:/flutter/test/widget/color_motion_test.dart: surface responds immediately to reduced motion preference
+00:11 +58: D:/flutter/test/widget/color_motion_test.dart: hover and focus keep the same editable draft and settle
+00:11 +59: D:/flutter/test/widget/color_motion_test.dart: header progress settles with reduced motion false
+00:11 +60: D:/flutter/test/widget/color_motion_test.dart: header progress settles with reduced motion true
+00:11 +61: loading D:/flutter/test/widget/edit_draft_test.dart
+00:11 +61: D:/flutter/test/widget/edit_draft_test.dart: unchanged and reverted edits close without confirmation
+00:12 +62: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:13 +63: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:13 +64: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:13 +65: D:/flutter/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:13 +66: D:/flutter/test/widget/edit_draft_test.dart: compact large text confirmation remains usable
+00:13 +67: loading D:/flutter/test/widget/form_layout_test.dart
+00:14 +67: D:/flutter/test/widget/form_layout_test.dart: edit fields have breathing room and stable scroll while typing
+00:15 +68: D:/flutter/test/widget/minimal_workspace_test.dart: sort menu orders tasks and preserves status filter
+00:15 +69: D:/flutter/test/widget/minimal_workspace_test.dart: sort menu orders tasks and preserves status filter
+00:15 +70: D:/flutter/test/widget/minimal_workspace_test.dart: sort menu orders tasks and preserves status filter
+00:15 +71: D:/flutter/test/widget/minimal_workspace_test.dart: search shortcuts focus the actual field
+00:16 +72: D:/flutter/test/widget/minimal_workspace_test.dart: quick priority and date save and reset together
+00:16 +73: D:/flutter/test/widget/pending_capture_test.dart: pending capture preserves newer title at 390.0 fail=false
+00:17 +74: D:/flutter/test/widget/pending_capture_test.dart: pending capture preserves newer title at 390.0 fail=false
+00:17 +75: D:/flutter/test/widget/pending_capture_test.dart: pending capture preserves newer title at 390.0 fail=true
+00:17 +76: D:/flutter/test/widget/pending_capture_test.dart: pending capture preserves newer title at 1280.0 fail=false
+00:18 +77: D:/flutter/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:18 +78: D:/flutter/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:19 +79: D:/flutter/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:19 +80: D:/flutter/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:20 +81: D:/flutter/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:20 +82: D:/flutter/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:21 +83: D:/flutter/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:21 +84: D:/flutter/test/widget/quick_create_exit_test.dart: sample metadata-only invalid date is protected
+00:21 +85: D:/flutter/test/widget/sample_accessibility_test.dart: account login invalid form accessibility guidelines (variant: TargetPlatform.android)
+00:21 +86: D:/flutter/test/widget/quick_create_exit_test.dart: metadata draft remains dirty after unrelated screen rebuild
+00:21 +87: D:/flutter/test/widget/quick_create_exit_test.dart: metadata draft remains dirty after unrelated screen rebuild
+00:21 +88: D:/flutter/test/widget/quick_create_exit_test.dart: metadata draft remains dirty after unrelated screen rebuild
+00:21 +89: D:/flutter/test/widget/sample_accessibility_test.dart: account keyboard focus moves email to password and submits (variant: TargetPlatform.windows)
+00:21 +90: D:/flutter/test/widget/quick_create_exit_test.dart: pending save blocks exit then saved draft exits cleanly
+00:22 +91: D:/flutter/test/widget/quick_create_exit_test.dart: pending save blocks exit then saved draft exits cleanly
+00:22 +92: loading D:/flutter/test/widget/search_regression_test.dart
+00:22 +92: D:/flutter/test/widget/search_regression_test.dart: search regression: a middle word must match the saved task
+00:23 +93: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:24 +94: D:/flutter/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 1100.0
+00:25 +95: D:/flutter/test/widget/task_loading_test.dart: initial loading blocks submit then shows data at 390.0
+00:25 +96: D:/flutter/test/widget/task_loading_test.dart: initial loading blocks submit then shows data at 1100.0
+00:26 +97: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:26 +98: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:26 +99: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:28 +100: D:/flutter/test/widget/task_screen_test.dart: validate, create and complete at width 390.0
+00:29 +101: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 1100.0
+00:29 +102: D:/flutter/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 1100.0
+00:29 +103: D:/flutter/test/widget/task_screen_test.dart: storage failure offers retry and recovers
+00:29 +104: loading D:/flutter/test/widget/task_validation_recovery_test.dart
+00:30 +104: D:/flutter/test/widget/task_validation_recovery_test.dart: collapsed invalid details reveal and recover at 390.0
+00:32 +105: D:/flutter/test/widget/task_validation_recovery_test.dart: collapsed invalid details reveal and recover at 390.0
+00:32 +106: D:/flutter/test/widget/task_validation_recovery_test.dart: collapsed invalid details reveal and recover at 390.0
+00:32 +107: D:/flutter/test/widget/task_validation_recovery_test.dart: collapsed invalid details reveal and recover at 1100.0
+00:33 +108: D:/flutter/test/widget/task_validation_recovery_test.dart: quick create invalid title restores focus
+00:33 +109: D:/flutter/test/widget/task_validation_recovery_test.dart: edit submit focuses first invalid field before saving
+00:33 +110: All tests passed!

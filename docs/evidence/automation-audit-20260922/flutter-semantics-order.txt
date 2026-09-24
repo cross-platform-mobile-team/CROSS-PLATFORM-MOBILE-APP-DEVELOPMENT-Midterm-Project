@@ -1,0 +1,636 @@
+00:00 +0: loading D:/flutter/test/golden/account_screen_golden_test.dart
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:00 +0 -1: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Failed to load "D:/flutter/test/golden/account_screen_golden_test.dart":
+  Compilation failed for testPath=D:/flutter/test/golden/account_screen_golden_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:00 +0 -2: loading D:/flutter/test/golden/auth_screen_golden_test.dart [E]
+  Failed to load "D:/flutter/test/golden/auth_screen_golden_test.dart":
+  Compilation failed for testPath=D:/flutter/test/golden/auth_screen_golden_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:00 +0 -2: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:00 +0 -3: loading D:/flutter/test/golden/task_screen_golden_test.dart [E]
+  Failed to load "D:/flutter/test/golden/task_screen_golden_test.dart":
+  Compilation failed for testPath=D:/flutter/test/golden/task_screen_golden_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:00 +0 -3: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: (setUpAll)
+00:00 +0 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:00 +1 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:00 +2 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:00 +3 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:00 +4 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:00 +5 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:00 +6 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:00 +7 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:00 +8 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:00 +9 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: edit dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:01 +10 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:01 +11 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:01 +12 -3: D:/flutter/test/golden/task_dialog_golden_test.dart: (tearDownAll)
+00:01 +12 -3: loading D:/flutter/test/unit/session_race_test.dart
+00:01 +12 -3: D:/flutter/test/unit/session_race_test.dart: wrong password after token refresh preserves the refreshed session
+00:01 +13 -3: D:/flutter/test/unit/session_race_test.dart: old logout response must not erase a newer login
+00:02 +14 -3: D:/flutter/test/unit/snapshot_safety_test.dart: unloaded controller cannot overwrite an existing snapshot
+00:02 +15 -3: D:/flutter/test/unit/snapshot_safety_test.dart: failed load blocks writes until explicit successful reload
+00:02 +16 -3: D:/flutter/test/unit/snapshot_safety_test.dart: failed reload blocks stale edit delete toggle and undo
+00:02 +17 -3: loading D:/flutter/test/unit/task_controller_test.dart
+00:02 +17 -3: D:/flutter/test/unit/task_controller_test.dart: rejects blank and oversized titles
+00:02 +18 -3: D:/flutter/test/unit/task_controller_test.dart: creates deterministic task and finds a case-insensitive substring
+00:02 +19 -3: D:/flutter/test/unit/task_controller_test.dart: failed write does not publish unpersisted task; load retry recovers
+00:02 +20 -3: D:/flutter/test/unit/task_controller_test.dart: task JSON round trip preserves fields
+00:02 +21 -3: D:/flutter/test/unit/task_crud_test.dart: edit preserves identity, creation time and completed state
+00:03 +22 -3: D:/flutter/test/unit/task_crud_test.dart: failed edit retains persisted data and can retry
+00:03 +23 -3: D:/flutter/test/unit/task_crud_test.dart: delete and undo preserve all fields and deterministic ordering
+00:03 +24 -3: D:/flutter/test/unit/task_crud_test.dart: failed delete retains tasks; failed undo retains recovery opportunity
+00:03 +25 -3: D:/flutter/test/unit/task_crud_test.dart: only latest successful deletion is undoable
+00:03 +26 -3: D:/flutter/test/unit/task_crud_test.dart: in-flight deletion prevents concurrent mutation
+00:03 +27 -3: loading D:/flutter/test/unit/task_metadata_test.dart
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:03 +27 -4: loading D:/flutter/test/widget/accessibility_test.dart [E]
+  Failed to load "D:/flutter/test/widget/accessibility_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/accessibility_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:03 +27 -4: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:03 +27 -4: D:/flutter/test/unit/task_metadata_test.dart: legacy JSON receives defaults without losing old fields
+00:03 +28 -4: D:/flutter/test/unit/task_metadata_test.dart: tags normalize, deduplicate, sort and cannot be mutated
+00:03 +29 -4: D:/flutter/test/unit/task_metadata_test.dart: calendar date round trips without time-of-day or timezone
+00:03 +30 -4: D:/flutter/test/unit/task_metadata_test.dart: combined filters use AND, exact normalized tag and note search
+00:03 +31 -4: D:/flutter/test/unit/task_metadata_test.dart: due boundaries exclude completed overdue and separate future/no date
+00:03 +32 -4: D:/flutter/test/unit/task_metadata_test.dart: priority and due sorting use stable IDs; no-date tasks sort last
+00:03 +33 -4: D:/flutter/test/unit/task_metadata_test.dart: save, rename-only, toggle, delete/undo preserve metadata; edit can clear date
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:04 +34 -5: loading D:/flutter/test/widget/account_flow_test.dart [E]
+  Failed to load "D:/flutter/test/widget/account_flow_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/account_flow_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:04 +34 -5: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:05 +34 -6: loading D:/flutter/test/widget/account_settings_accessibility_test.dart [E]
+  Failed to load "D:/flutter/test/widget/account_settings_accessibility_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/account_settings_accessibility_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:05 +34 -6: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:06 +34 -6: D:/flutter/test/widget/color_motion_test.dart: decorative surface preserves separate message semantics
+00:07 +35 -6: D:/flutter/test/widget/edit_draft_test.dart: unchanged and reverted edits close without confirmation
+00:07 +36 -6: D:/flutter/test/widget/edit_draft_test.dart: unchanged and reverted edits close without confirmation
+00:07 +37 -6: D:/flutter/test/widget/edit_draft_test.dart: unchanged and reverted edits close without confirmation
+00:07 +38 -6: D:/flutter/test/widget/edit_draft_test.dart: unchanged and reverted edits close without confirmation
+00:07 +39 -6: D:/flutter/test/widget/edit_draft_test.dart: unchanged and reverted edits close without confirmation
+00:07 +40 -6: D:/flutter/test/widget/edit_draft_test.dart: unchanged and reverted edits close without confirmation
+00:07 +41 -6: D:/flutter/test/widget/edit_draft_test.dart: cancel preserves draft or discards without saving
+00:08 +42 -6: D:/flutter/test/widget/edit_draft_test.dart: invalid raw date is protected on back and Escape
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:08 +42 -7: loading D:/flutter/test/widget/failed_load_safety_test.dart [E]
+  Failed to load "D:/flutter/test/widget/failed_load_safety_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/failed_load_safety_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:08 +42 -7: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:08 +43 -7: D:/flutter/test/widget/edit_draft_test.dart: pending save prevents dismissal and duplicate writes
+00:08 +44 -7: D:/flutter/test/widget/edit_draft_test.dart: compact large text confirmation remains usable
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:09 +45 -8: loading D:/flutter/test/widget/minimal_workspace_test.dart [E]
+  Failed to load "D:/flutter/test/widget/minimal_workspace_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/minimal_workspace_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:09 +45 -8: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:09 +45 -8: D:/flutter/test/widget/form_layout_test.dart: edit fields have breathing room and stable scroll while typing
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:10 +45 -9: loading D:/flutter/test/widget/pending_capture_test.dart [E]
+  Failed to load "D:/flutter/test/widget/pending_capture_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/pending_capture_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:10 +45 -9: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:10 +46 -9: D:/flutter/test/widget/form_layout_test.dart: filter fields have separate boxes
+00:10 +47 -9: D:/flutter/test/widget/form_layout_test.dart: large text filter selections fit without overflow
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:11 +48 -10: loading D:/flutter/test/widget/quick_create_exit_test.dart [E]
+  Failed to load "D:/flutter/test/widget/quick_create_exit_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/quick_create_exit_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:11 +48 -10: loading D:/flutter/test/widget/sample_accessibility_test.dart
+00:11 +48 -10: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:12 +48 -11: loading D:/flutter/test/widget/sample_accessibility_test.dart [E]
+  Failed to load "D:/flutter/test/widget/sample_accessibility_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/sample_accessibility_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:12 +48 -11: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:12 +48 -12: loading D:/flutter/test/widget/search_regression_test.dart [E]
+  Failed to load "D:/flutter/test/widget/search_regression_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/search_regression_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:12 +48 -12: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:13 +48 -13: loading D:/flutter/test/widget/task_crud_test.dart [E]
+  Failed to load "D:/flutter/test/widget/task_crud_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/task_crud_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:13 +48 -13: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:14 +48 -14: loading D:/flutter/test/widget/task_loading_test.dart [E]
+  Failed to load "D:/flutter/test/widget/task_loading_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/task_loading_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:14 +48 -14: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:15 +48 -15: loading D:/flutter/test/widget/task_metadata_test.dart [E]
+  Failed to load "D:/flutter/test/widget/task_metadata_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/task_metadata_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:15 +48 -15: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:16 +48 -16: loading D:/flutter/test/widget/task_screen_test.dart [E]
+  Failed to load "D:/flutter/test/widget/task_screen_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/task_screen_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:16 +48 -16: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:17 +48 -17: loading D:/flutter/test/widget/task_validation_recovery_test.dart [E]
+  Failed to load "D:/flutter/test/widget/task_validation_recovery_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/task_validation_recovery_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:17 +48 -17: loading D:/flutter/test/golden/account_screen_golden_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+ - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                             ^^^^^^^^^^^^^^
+00:18 +48 -18: loading D:/flutter/test/widget/workspace_layout_test.dart [E]
+  Failed to load "D:/flutter/test/widget/workspace_layout_test.dart":
+  Compilation failed for testPath=D:/flutter/test/widget/workspace_layout_test.dart: lib/features/tasks/presentation/task_screen.dart:450:46: Error: The method 'OrdinalSortKey' isn't defined for the type '_TaskScreenState'.
+   - '_TaskScreenState' is from 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart' ('lib/features/tasks/presentation/task_screen.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'OrdinalSortKey'.
+                                      sortKey: OrdinalSortKey(index.toDouble()),
+                                               ^^^^^^^^^^^^^^
+  .
+00:18 +48 -18: Some tests failed.
+
+Failing tests:
+  D:/flutter/test/golden/account_screen_golden_test.dart: loading D:/flutter/test/golden/account_screen_golden_test.dart
+  D:/flutter/test/golden/auth_screen_golden_test.dart: loading D:/flutter/test/golden/auth_screen_golden_test.dart
+  D:/flutter/test/golden/task_screen_golden_test.dart: loading D:/flutter/test/golden/task_screen_golden_test.dart
+  D:/flutter/test/widget/accessibility_test.dart: loading D:/flutter/test/widget/accessibility_test.dart
+  ... and 14 more

@@ -1,0 +1,8 @@
+00:00 +0: loading D:/flutter/test/widget/color_motion_test.dart
+00:00 +0: decorative surface preserves separate message semantics
+00:01 +1: entrance does not replay or replace draft on parent rebuild
+00:01 +2: surface responds immediately to reduced motion preference
+00:01 +3: hover and focus keep the same editable draft and settle
+00:01 +4: header progress settles with reduced motion false
+00:02 +5: header progress settles with reduced motion true
+00:02 +6: All tests passed!

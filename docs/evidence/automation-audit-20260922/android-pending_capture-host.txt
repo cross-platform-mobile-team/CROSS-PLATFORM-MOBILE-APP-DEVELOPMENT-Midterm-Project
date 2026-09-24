@@ -1,0 +1,10 @@
+00:00 +0: loading D:/flutter/integration_test/pending_capture_test.dart
+Running Gradle task 'assembleDebug'...                             28,4s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          818ms
+00:00 +0: pending capture preserves newer title at 390.0 fail=false
+00:04 +1: pending capture preserves newer title at 390.0 fail=true
+00:06 +2: pending capture preserves newer title at 1280.0 fail=false
+00:08 +3: pending capture preserves newer title at 1280.0 fail=true
+00:09 +4: (tearDownAll)
+00:10 +4: All tests passed!

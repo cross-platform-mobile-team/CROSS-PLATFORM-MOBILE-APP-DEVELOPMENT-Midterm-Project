@@ -1,5 +1,24 @@
 # Test matrix
 
+## Automation audit 22 September 2026
+
+- Decorative Focus merging error labels: widget semantics regression, plus
+  unchanged Edge load/save recovery assertions.
+- Parent rebuild hiding/resetting draft: WorkspaceEntrance identity and opacity.
+- Runtime reduced-motion preference: MotionSurface duration and finite settling.
+- Reproduce with `flutter test test/widget/color_motion_test.dart` and
+  `scripts/test-edge-harness.ps1 -Sessions 2 -Repetitions 2` (explicit SDK path
+  when Flutter is outside PATH). Dated results: automation-audit-20260922.md.
+
+## Color and motion 21 September 2026
+
+test/widget/color_motion_test.dart protects editable-state identity during
+hover/focus, finite settling, progress updates and zero-duration reduced-motion
+behavior at 320px. Existing responsive/200%-text, accessible validation, draft,
+loading and retry cases remain active. The CRUD test scrolls Edit into view
+before tapping; its repository/state assertions are unchanged. All 15 affected
+goldens were visually reviewed, including 1x/2x dialogs and account forms.
+
 ## Snapshot capacity and native CI 19 September 2026
 
 | Risk | Level | Selection | Evidence |

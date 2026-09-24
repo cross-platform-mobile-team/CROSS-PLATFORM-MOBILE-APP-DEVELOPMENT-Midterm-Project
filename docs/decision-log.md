@@ -1,5 +1,15 @@
 # Bootstrap decisions
 
+## Color and finite motion — 2026-09-21
+
+Use Flutter's implicit animations rather than a new dependency. Keep a single
+live form subtree during hover/focus and completion updates; do not cross-fade
+two editable forms. Surface paint transitions are 200ms, greeting entrance
+320ms and progress 360ms, with zero duration when disableAnimations is set.
+No continuously scheduled decorative frames or delayed submissions are added.
+Color is redundant with existing status/priority text. Report performance only
+as a design choice until frame-time profiling is actually performed.
+
 ## Snapshot request budget and CI selection 19 September 2026
 
 - The one-MiB global body limit contradicted 500 bounded task records. A real

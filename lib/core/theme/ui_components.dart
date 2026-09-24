@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_theme.dart';
+import 'app_motion.dart';
 
 /// Decorative artwork never adds focus targets or obscures the text surface.
 class StudioHeader extends StatelessWidget {
@@ -95,7 +96,7 @@ class BrandTitle extends StatelessWidget {
       Container(
         padding: const EdgeInsets.all(7),
         decoration: BoxDecoration(
-          color: AppTheme.accent,
+          gradient: AppTheme.brandGradient,
           borderRadius: BorderRadius.circular(10),
         ),
         child: const Icon(
@@ -173,10 +174,8 @@ class SurfacePanel extends StatelessWidget {
   final Widget child;
   final EdgeInsetsGeometry padding;
   @override
-  Widget build(BuildContext context) => Card(
-    semanticContainer: false,
-    child: Padding(padding: padding, child: child),
-  );
+  Widget build(BuildContext context) =>
+      MotionSurface(padding: padding, child: child);
 }
 
 class StatePanel extends StatelessWidget {

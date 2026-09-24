@@ -1,0 +1,2 @@
+PASS: invalid JDK, missing/empty SDK roots and SDK files preserve the caller environment; valid paths with spaces configure all seven variables without creating emulator data.
+Synthetic path contract only; no SDK, Java or emulator was executed.

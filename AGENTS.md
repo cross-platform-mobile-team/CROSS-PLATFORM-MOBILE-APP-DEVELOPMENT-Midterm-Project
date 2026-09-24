@@ -1,5 +1,23 @@
 # AGENTS.md - TaskFlow QA Lab
 
+2026-09-22: user authorizes automation audit, fixes and push to main-test,
+including the pending color/motion UI. See docs/automation-audit-20260922.md.
+Decorative MotionSurface Focus must set includeSemantics:false: otherwise it
+merges descendant labels and breaks accessible Web message discovery. Retain
+the regression and original failed Edge logs. Passing selected tests is not
+a guarantee of zero bugs; iOS/manual accessibility remain separate gates.
+23 September continuation: stable task-card keys also need explicit Semantics
+containers and ordinal sort keys so Web accessibility order follows visible
+reordering. Browser runner must verify selected dropdown values and the exact
+eventual task order. Headless emulator crash evidence must not be relabelled PASS.
+
+2026-09-21 local UI refresh requested, not publication/report work. See
+docs/color-motion-ui-20260921.md. Shared MotionSurface must retain its child
+identity, put padding INSIDE the transparent Material to avoid clipping text,
+and honor MediaQuery.disableAnimations. Keep stable task-card keys and draft
+form keys. 107 Flutter cases PASS after review of 15 changed golden baselines;
+native/build results belong to the new evidence index, not earlier CI.
+
 2026-09-20: user explicitly authorized completing pending checks and pushing
 the reviewed changes to main-test, then verifying local/remote synchronization.
 This supersedes the 19 September no-publication note below. Do not claim the

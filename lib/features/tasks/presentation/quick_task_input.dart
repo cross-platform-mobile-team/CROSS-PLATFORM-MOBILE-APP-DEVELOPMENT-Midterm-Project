@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theme/app_theme.dart';
+import '../../../core/theme/app_motion.dart';
 import '../domain/task_details.dart';
 import '../domain/task_item.dart';
 import 'task_details_fields.dart';
@@ -61,20 +61,9 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
   }
 
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context) => MotionSurface(
     padding: const EdgeInsets.all(20),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(16),
-      border: Border.all(color: AppTheme.line),
-      boxShadow: const [
-        BoxShadow(
-          color: Color(0x08000000),
-          blurRadius: 16,
-          offset: Offset(0, 4),
-        ),
-      ],
-    ),
+    tint: const Color(0xFFFFFEFF),
     child: Form(
       key: widget.formKey,
       child: Column(

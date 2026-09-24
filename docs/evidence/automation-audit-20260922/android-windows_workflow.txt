@@ -1,0 +1,33 @@
+00:00 +0: loading D:/flutter/integration_test/windows_workflow_test.dart
+Running Gradle task 'assembleDebug'...                             34,4s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        1.685ms
+00:00 +0: native create, edit, complete, delete, undo and reload
+00:15 +0: native create, edit, complete, delete, undo and reload - did not complete [E]
+00:15 +0: native metadata form and filters persist across remount - did not complete [E]
+00:15 +0: (tearDownAll) - did not complete [E]
+00:15 +0: Some tests failed.
+
+Failing tests:
+  D:/flutter/integration_test/windows_workflow_test.dart: (tearDownAll) (did not complete)
+  D:/flutter/integration_test/windows_workflow_test.dart: native create, edit, complete, delete, undo and reload (did not complete)
+  D:/flutter/integration_test/windows_workflow_test.dart: native metadata form and filters persist across remount (did not complete)
+No tests were found.
+adb uninstall failed: ProcessException: Process exited abnormally with exit code 1:
+adb.exe: device 'emulator-5554' not found
+  Command: D:/Android/sdk\platform-tools\adb.exe -s emulator-5554 uninstall com.taskflow.taskflow_qa_lab
+unhandled error during finalization of test:
+D:/flutter/integration_test/windows_workflow_test.dart
+PathNotFoundException: Deletion failed, path = 'C:\Users\LENOVO\AppData\Local\Temp\flutter_tools.b1c3388d\flutter_test_listener.dd25deeb' (OS Error: The system cannot find the path specified, errno = 3)
+#0      _Directory._deleteSync (dart:io/directory_impl.dart:216:7)
+#1      FileSystemEntity.deleteSync (dart:io/file_system_entity.dart:425:7)
+#2      ForwardingFileSystemEntity.deleteSync (package:file/src/forwarding/forwarding_file_system_entity.dart:70:16)
+#3      ErrorHandlingDirectory.deleteSync.<anonymous closure> (package:flutter_tools/src/base/error_handling_io.dart:717:22)
+#4      _runSync (package:flutter_tools/src/base/error_handling_io.dart:1118:16)
+#5      ErrorHandlingDirectory.deleteSync (package:flutter_tools/src/base/error_handling_io.dart:716:12)
+#6      FlutterPlatform._createListenerDart.<anonymous closure> (package:flutter_tools/src/test/flutter_platform.dart:786:15)
+#7      FlutterPlatform._startTest.finalize (package:flutter_tools/src/test/flutter_platform.dart:591:26)
+<asynchronous suspension>
+#8      FlutterPlatform._startTest (package:flutter_tools/src/test/flutter_platform.dart:762:7)
+<asynchronous suspension>
+

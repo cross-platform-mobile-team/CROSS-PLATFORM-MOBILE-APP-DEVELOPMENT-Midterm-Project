@@ -1,5 +1,12 @@
 # Golden and accessibility verification
 
+## Color and motion refresh — 2026-09-21
+
+All 15 golden images were intentionally reviewed/replaced for shared surfaces,
+new greeting/sidebar and state colors. Final full suite: 107 PASS with unchanged
+comparison rules. See [evidence](evidence/color-motion-20260921/README.md).
+No physical Android or browser execution is inferred from golden variants.
+
 ## Focused validation baseline repair - 2026-09-16
 
 Commit a1b25d1 intentionally restores title focus after an invalid quick-create

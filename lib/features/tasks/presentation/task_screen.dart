@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
 import '../../../core/theme/app_theme.dart';
+import '../../../core/theme/app_motion.dart';
 import '../../../core/theme/ui_components.dart';
 
 import '../application/task_controller.dart';
@@ -439,181 +441,210 @@ class _TaskScreenState extends State<TaskScreen> {
                                 EmptyStateWidget(
                                   empty: controller.tasks.isEmpty,
                                 ),
-                              for (final task in tasks)
+                              for (final (index, task) in tasks.indexed)
                                 Padding(
+                                  key: ValueKey('task-card-${task.id}'),
                                   padding: const EdgeInsets.only(bottom: 16),
-                                  child: Card(
-                                    color: Colors.white,
-                                    clipBehavior: Clip.antiAlias,
-                                    child: Column(
-                                      children: [
-                                        CheckboxListTile(
-                                          value: task.completed,
-                                          onChanged: controller.busy
-                                              ? null
-                                              : (_) => controller.toggle(task),
-                                          title: Text(
-                                            task.title,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w600,
-                                              color: task.completed
-                                                  ? AppTheme.muted
-                                                  : AppTheme.ink,
-                                              decoration: task.completed
-                                                  ? TextDecoration.lineThrough
-                                                  : null,
+                                  child: Semantics(
+                                    container: true,
+                                    explicitChildNodes: true,
+                                    sortKey: OrdinalSortKey(index.toDouble()),
+                                    child: MotionSurface(
+                                      tint: task.completed
+                                          ? const Color(0xFFF2FAF7)
+                                          : switch (task.details.priority) {
+                                              TaskPriority.high => const Color(
+                                                0xFFFFF7FA,
+                                              ),
+                                              TaskPriority.low => const Color(
+                                                0xFFF4F9FF,
+                                              ),
+                                              TaskPriority.medium =>
+                                                const Color(0xFFFFFCF7),
+                                            },
+                                      accent: task.completed
+                                          ? AppTheme.tealInk
+                                          : AppTheme.accent,
+                                      child: Column(
+                                        children: [
+                                          CheckboxListTile(
+                                            value: task.completed,
+                                            onChanged: controller.busy
+                                                ? null
+                                                : (_) =>
+                                                      controller.toggle(task),
+                                            title: Text(
+                                              task.title,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                color: task.completed
+                                                    ? AppTheme.muted
+                                                    : AppTheme.ink,
+                                                decoration: task.completed
+                                                    ? TextDecoration.lineThrough
+                                                    : null,
+                                              ),
                                             ),
+                                            subtitle: Text(
+                                              task.completed
+                                                  ? 'Completed'
+                                                  : 'Pending',
+                                            ),
+                                            controlAffinity:
+                                                ListTileControlAffinity.leading,
                                           ),
-                                          subtitle: Text(
-                                            task.completed
-                                                ? 'Completed'
-                                                : 'Pending',
-                                          ),
-                                          controlAffinity:
-                                              ListTileControlAffinity.leading,
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 16,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.centerLeft,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                        horizontal: 10,
-                                                        vertical: 4,
-                                                      ),
-                                                  decoration: BoxDecoration(
-                                                    color:
-                                                        task.details.priority ==
-                                                            TaskPriority.high
-                                                        ? const Color(
-                                                            0xFFFFEFF1,
-                                                          )
-                                                        : task
-                                                                  .details
-                                                                  .priority ==
-                                                              TaskPriority.low
-                                                        ? AppTheme.mint
-                                                        : const Color(
-                                                            0xFFFFF2D5,
-                                                          ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          6,
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 16,
+                                            ),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    padding:
+                                                        const EdgeInsets.symmetric(
+                                                          horizontal: 10,
+                                                          vertical: 4,
                                                         ),
-                                                  ),
-                                                  child: Text(
-                                                    'Priority: ${task.details.priority.name}',
-                                                    style: TextStyle(
-                                                      fontSize: 12,
-                                                      fontWeight:
-                                                          FontWeight.w600,
+                                                    decoration: BoxDecoration(
                                                       color:
                                                           task
                                                                   .details
                                                                   .priority ==
                                                               TaskPriority.high
                                                           ? const Color(
-                                                              0xFFAB263D,
+                                                              0xFFFFEFF1,
                                                             )
                                                           : task
                                                                     .details
                                                                     .priority ==
                                                                 TaskPriority.low
-                                                          ? AppTheme.tealInk
-                                                          : AppTheme.amberInk,
+                                                          ? AppTheme.mint
+                                                          : const Color(
+                                                              0xFFFFF2D5,
+                                                            ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            6,
+                                                          ),
                                                     ),
-                                                  ),
-                                                ),
-                                                if (task.details.dueDate !=
-                                                    null)
-                                                  Text(
-                                                    'Due: ${TaskDetails.dateLabel(task.details.dueDate!)}',
-                                                  ),
-                                                if (task
-                                                    .details
-                                                    .notes
-                                                    .isNotEmpty)
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                          top: 8,
-                                                          bottom: 4,
-                                                        ),
                                                     child: Text(
-                                                      task.details.notes,
-                                                      style: const TextStyle(
-                                                        color: AppTheme.muted,
+                                                      'Priority: ${task.details.priority.name}',
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color:
+                                                            task
+                                                                    .details
+                                                                    .priority ==
+                                                                TaskPriority
+                                                                    .high
+                                                            ? const Color(
+                                                                0xFFAB263D,
+                                                              )
+                                                            : task
+                                                                      .details
+                                                                      .priority ==
+                                                                  TaskPriority
+                                                                      .low
+                                                            ? AppTheme.tealInk
+                                                            : AppTheme.amberInk,
                                                       ),
                                                     ),
                                                   ),
-                                                if (task
-                                                    .details
-                                                    .tags
-                                                    .isNotEmpty)
-                                                  Wrap(
-                                                    spacing: 6,
-                                                    children: task.details.tags
-                                                        .map(
-                                                          (tag) => Semantics(
-                                                            container: true,
-                                                            label: 'Tag: $tag',
-                                                            excludeSemantics:
-                                                                true,
-                                                            child: Chip(
-                                                              label: Text(tag),
-                                                            ),
+                                                  if (task.details.dueDate !=
+                                                      null)
+                                                    Text(
+                                                      'Due: ${TaskDetails.dateLabel(task.details.dueDate!)}',
+                                                    ),
+                                                  if (task
+                                                      .details
+                                                      .notes
+                                                      .isNotEmpty)
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                            top: 8,
+                                                            bottom: 4,
                                                           ),
-                                                        )
-                                                        .toList(),
+                                                      child: Text(
+                                                        task.details.notes,
+                                                        style: const TextStyle(
+                                                          color: AppTheme.muted,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  if (task
+                                                      .details
+                                                      .tags
+                                                      .isNotEmpty)
+                                                    Wrap(
+                                                      spacing: 6,
+                                                      children: task
+                                                          .details
+                                                          .tags
+                                                          .map(
+                                                            (tag) => Semantics(
+                                                              container: true,
+                                                              label:
+                                                                  'Tag: $tag',
+                                                              excludeSemantics:
+                                                                  true,
+                                                              child: Chip(
+                                                                label: Text(
+                                                                  tag,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          )
+                                                          .toList(),
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 12,
+                                              right: 12,
+                                              bottom: 8,
+                                            ),
+                                            child: Wrap(
+                                              alignment: WrapAlignment.end,
+                                              spacing: 8,
+                                              children: [
+                                                TextButton.icon(
+                                                  onPressed: controller.busy
+                                                      ? null
+                                                      : () => edit(task),
+                                                  icon: const Icon(
+                                                    Icons.edit_outlined,
                                                   ),
+                                                  label: const Text('Edit'),
+                                                ),
+                                                TextButton.icon(
+                                                  style: TextButton.styleFrom(
+                                                    foregroundColor: Theme.of(
+                                                      context,
+                                                    ).colorScheme.error,
+                                                  ),
+                                                  onPressed: controller.busy
+                                                      ? null
+                                                      : () => delete(task),
+                                                  icon: const Icon(
+                                                    Icons.delete_outline,
+                                                  ),
+                                                  label: const Text('Delete'),
+                                                ),
                                               ],
                                             ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            left: 12,
-                                            right: 12,
-                                            bottom: 8,
-                                          ),
-                                          child: Wrap(
-                                            alignment: WrapAlignment.end,
-                                            spacing: 8,
-                                            children: [
-                                              TextButton.icon(
-                                                onPressed: controller.busy
-                                                    ? null
-                                                    : () => edit(task),
-                                                icon: const Icon(
-                                                  Icons.edit_outlined,
-                                                ),
-                                                label: const Text('Edit'),
-                                              ),
-                                              TextButton.icon(
-                                                style: TextButton.styleFrom(
-                                                  foregroundColor: Theme.of(
-                                                    context,
-                                                  ).colorScheme.error,
-                                                ),
-                                                onPressed: controller.busy
-                                                    ? null
-                                                    : () => delete(task),
-                                                icon: const Icon(
-                                                  Icons.delete_outline,
-                                                ),
-                                                label: const Text('Delete'),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

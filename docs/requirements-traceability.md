@@ -1,5 +1,15 @@
 # Rubric traceability
 
+22 September automation audit: decorative-surface semantics regression,
+runtime reduced-motion and rebuild/draft tests -> color_motion_test.dart;
+unchanged browser recovery/discovery assertions -> edge-harness-check.js.
+See [audit](automation-audit-20260922.md) and its dated evidence for actual runs.
+
+21 September local UI increment: [color and motion plan](color-motion-ui-20260921.md)
+preserves Topic 4 scope. Reduced-motion/settling and editable-state preservation
+are covered by test/widget/color_motion_test.dart; responsive and accessibility
+cases remain in the existing suite. This is not frame-time profiling evidence.
+
 19 September addendum: [risk closure](risk-closure-20260919.md) maps the updated
 capacity regression, 104 Flutter / 17 API / 15 Windows results, one Android
 online rerun and report synchronization to existing requirements. Native CI

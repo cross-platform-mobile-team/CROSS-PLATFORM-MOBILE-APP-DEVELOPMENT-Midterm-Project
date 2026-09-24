@@ -1,0 +1,2 @@
+PASS: the real backend CI block stops on first/middle/last syntax failures and failing tests; preserves code 7 and working directory; valid run completes all eight commands.
+Synthetic workflow contract only; not a hosted CI result or application test.

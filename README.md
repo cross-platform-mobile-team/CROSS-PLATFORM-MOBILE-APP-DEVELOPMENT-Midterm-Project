@@ -1,5 +1,15 @@
 # TaskFlow QA Lab
 
+Latest automation audit (22 September): [scope and results](docs/automation-audit-20260922.md).
+The refreshed UI has a regression protecting separate accessibility labels;
+110 Flutter cases pass. Use the dated evidence index for platform/CI results
+and limitations rather than treating a passing suite as proof of zero defects.
+
+UI refresh (introduced 21 September): [color and motion refresh](docs/color-motion-ui-20260921.md)
+adds pastel task surfaces, gradient greeting, hover/focus feedback and finite
+reduced-motion-aware transitions. Verification is tracked separately from the
+published b4479e3 milestone; no new hosted CI result is implied.
+
 Local platform verification: [Android/Windows audit](docs/platform-audit-20260914.md),
 [Android SDK and emulator on D:](docs/android-local-setup.md), and
 [iOS Mac/Xcode handoff](docs/ios-validation.md). The iOS runner is scaffolded,

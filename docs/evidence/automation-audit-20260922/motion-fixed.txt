@@ -1,0 +1,31 @@
+00:00 +0: loading D:/flutter/test/widget/color_motion_test.dart
+00:00 +0: decorative surface preserves separate message semantics
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1969:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  decorative surface preserves separate message semantics
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -1: decorative surface preserves separate message semantics [E]
+  Test failed. See exception logs above.
+  The test description was: decorative surface preserves separate message semantics
+  
+00:04 +0 -1: entrance does not replay or replace draft on parent rebuild
+00:06 +1 -1: surface responds immediately to reduced motion preference
+00:08 +2 -1: hover and focus keep the same editable draft and settle
+00:09 +3 -1: header progress settles with reduced motion false
+00:10 +4 -1: header progress settles with reduced motion true
+00:10 +5 -1: Some tests failed.
+
+Failing tests:
+  D:/flutter/test/widget/color_motion_test.dart: decorative surface preserves separate message semantics

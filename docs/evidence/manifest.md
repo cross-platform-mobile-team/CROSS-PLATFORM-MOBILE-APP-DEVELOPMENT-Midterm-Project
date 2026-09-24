@@ -1,5 +1,26 @@
 # Evidence manifest
 
+## 2026-09-22/23 automation audit
+
+[Evidence index](automation-audit-20260922/README.md) records the decorative
+Focus semantics regression, Web task-order correction, retained failures,
+110-case Flutter suite and separately verified native/browser/build results.
+Publication is authorized for main-test; see the index for current gates.
+
+## 2026-09-21 local color and motion UI
+
+[Evidence and review](color-motion-20260921/README.md): 107 Flutter cases PASS,
+15 visually reviewed replacement golden baselines, format/analyze PASS.
+New motion cases protect draft/focus identity and finite/reduced-motion behavior.
+Initial Material/visibility failures are retained. Native/build logs are separate;
+no new hosted CI, Android execution, report refresh or publication is implied.
+
+22 September continuation: final format/analyze PASS, Windows 15 cases and API
+17 cases PASS. Windows and Web release build success is recorded in build-windows.txt
+and build-web-final.txt; the earlier incomplete Web attempt is preserved.
+Android release APK PASS in build-apk-final.txt (exit 0); the non-fatal SDK XML
+version warning is retained. No new Android runtime result is implied.
+
 ## 2026-09-19 risk closure
 
 [Original outputs and commands](risk-closure-20260919/README.md): 104 Flutter,

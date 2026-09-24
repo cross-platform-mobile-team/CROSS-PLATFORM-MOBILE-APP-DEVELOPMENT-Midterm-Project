@@ -20,6 +20,7 @@ void main() {
       );
       await tester.pumpWidget(TaskFlowApp(repository: repository));
       await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('Edit'));
       await tester.tap(find.text('Edit'));
       await tester.pumpAndSettle();
       await tester.enterText(find.byKey(const Key('edit-task-title')), ' ');

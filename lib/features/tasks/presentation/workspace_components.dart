@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_theme.dart';
+import '../../../core/theme/app_motion.dart';
 import '../../../core/theme/ui_components.dart';
 import '../domain/task_filters.dart';
 
@@ -27,7 +28,12 @@ class SidebarNavigation extends StatelessWidget {
   Widget build(BuildContext context) => Container(
     width: 248,
     decoration: const BoxDecoration(
-      color: Colors.white,
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [Colors.white, AppTheme.lavender, AppTheme.mint],
+        stops: [0, .7, 1],
+      ),
       border: Border(right: BorderSide(color: AppTheme.line)),
     ),
     child: LayoutBuilder(
@@ -89,52 +95,67 @@ class SidebarNavigation extends StatelessWidget {
                   ])
                     Padding(
                       padding: const EdgeInsets.only(bottom: 6),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: ListTile(
-                          selected: selected == item.$1,
-                          selectedTileColor: const Color(0xFFEEF2FF),
-                          selectedColor: AppTheme.accent,
-                          hoverColor: const Color(0xFFF1F5F9),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                      child: AnimatedContainer(
+                        duration: AppMotion.duration(context),
+                        curve: AppMotion.curve,
+                        decoration: BoxDecoration(
+                          color: selected == item.$1
+                              ? AppTheme.lavender
+                              : Colors.white.withValues(alpha: .45),
+                          borderRadius: BorderRadius.circular(14),
+                          border: Border.all(
+                            color: selected == item.$1
+                                ? AppTheme.accent.withValues(alpha: .25)
+                                : Colors.transparent,
                           ),
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                          ),
-                          minLeadingWidth: 20,
-                          horizontalTitleGap: 10,
-                          leading: Icon(item.$2, size: 20),
-                          title: Text(
-                            item.$3,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
+                        ),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: ListTile(
+                            selected: selected == item.$1,
+                            selectedTileColor: const Color(0xFFEEF2FF),
+                            selectedColor: AppTheme.accent,
+                            hoverColor: const Color(0xFFF1F5F9),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                          ),
-                          trailing: Semantics(
-                            label: '${item.$4} tasks',
-                            child: ExcludeSemantics(
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 7,
-                                  vertical: 3,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFF1F5F9),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                child: Text(
-                                  '${item.$4}',
-                                  style: const TextStyle(
-                                    fontSize: 11,
-                                    color: AppTheme.muted,
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                            ),
+                            minLeadingWidth: 20,
+                            horizontalTitleGap: 10,
+                            leading: Icon(item.$2, size: 20),
+                            title: Text(
+                              item.$3,
+                              style: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            trailing: Semantics(
+                              label: '${item.$4} tasks',
+                              child: ExcludeSemantics(
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 7,
+                                    vertical: 3,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFF1F5F9),
+                                    borderRadius: BorderRadius.circular(6),
+                                  ),
+                                  child: Text(
+                                    '${item.$4}',
+                                    style: const TextStyle(
+                                      fontSize: 11,
+                                      color: AppTheme.muted,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
+                            onTap: () => onSelected(item.$1),
                           ),
-                          onTap: () => onSelected(item.$1),
                         ),
                       ),
                     ),
@@ -205,53 +226,129 @@ class TaskHeader extends StatelessWidget {
   final int total;
   final int completed;
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.symmetric(vertical: 12),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'YOUR WORKSPACE',
-          style: TextStyle(
-            fontSize: 11,
-            letterSpacing: 1.6,
-            fontWeight: FontWeight.w600,
-            color: AppTheme.muted,
+  Widget build(BuildContext context) => WorkspaceEntrance(
+    child: Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [AppTheme.lavender, Color(0xFFF4ECFF), AppTheme.peach],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: const Color(0xFFDDD6FA)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'YOUR WORKSPACE',
+            style: TextStyle(
+              fontSize: 11,
+              letterSpacing: 1.6,
+              fontWeight: FontWeight.w600,
+              color: AppTheme.accent,
+            ),
           ),
-        ),
-        const SizedBox(height: 12),
-        Semantics(
-          header: true,
-          child: Text(
-            'Focus on what matters today.',
-            style: Theme.of(context).textTheme.headlineMedium,
+          const SizedBox(height: 12),
+          Semantics(
+            header: true,
+            child: Text(
+              'Focus on what matters today.',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
           ),
-        ),
-        const SizedBox(height: 12),
-        Text(
-          '$completed/$total completed',
-          style: const TextStyle(color: AppTheme.muted),
-        ),
-        const SizedBox(height: 12),
-        Semantics(
-          label: 'Task completion',
-          value: '$completed of $total completed',
-          child: SizedBox(
-            width: 220,
-            height: 4,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(4),
-              child: ColoredBox(
-                color: AppTheme.line,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: FractionallySizedBox(
-                    heightFactor: 1,
-                    widthFactor: total == 0 ? 0 : completed / total,
-                    child: const ColoredBox(color: AppTheme.accent),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              _ProgressPill(
+                icon: Icons.task_alt_rounded,
+                text: '$completed/$total completed',
+                color: AppTheme.mint,
+                ink: AppTheme.tealInk,
+              ),
+              _ProgressPill(
+                icon: Icons.bolt_rounded,
+                text: '${total - completed} to focus on',
+                color: Colors.white,
+                ink: AppTheme.accent,
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Semantics(
+            label: 'Task completion',
+            value: '$completed of $total completed',
+            child: SizedBox(
+              width: 220,
+              height: 6,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: ColoredBox(
+                  color: AppTheme.line,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: TweenAnimationBuilder<double>(
+                      tween: Tween(
+                        begin: 0,
+                        end: total == 0 ? 0 : completed / total,
+                      ),
+                      duration: AppMotion.duration(context, 360),
+                      curve: AppMotion.curve,
+                      builder: (context, value, _) => FractionallySizedBox(
+                        heightFactor: 1,
+                        widthFactor: value,
+                        child: const DecoratedBox(
+                          decoration: BoxDecoration(
+                            gradient: AppTheme.brandGradient,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+class _ProgressPill extends StatelessWidget {
+  const _ProgressPill({
+    required this.icon,
+    required this.text,
+    required this.color,
+    required this.ink,
+  });
+  final IconData icon;
+  final String text;
+  final Color color;
+  final Color ink;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    decoration: BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.circular(24),
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 16, color: ink),
+        const SizedBox(width: 6),
+        Flexible(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: ink,
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -271,7 +368,9 @@ class EmptyStateWidget extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            color: Colors.white,
+            gradient: const LinearGradient(
+              colors: [AppTheme.lavender, AppTheme.mint],
+            ),
             border: Border.all(color: AppTheme.line),
             borderRadius: BorderRadius.circular(22),
           ),

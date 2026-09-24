@@ -5,13 +5,20 @@ abstract final class AppTheme {
   static const ink = Color(0xFF17233C);
   static const muted = Color(0xFF54627A);
   static const accent = Color(0xFF4F46E5);
-  static const canvas = Color(0xFFF8FAFC);
-  static const line = Color(0xFFE2E8F0);
+  static const canvas = Color(0xFFF6F5FC);
+  static const line = Color(0xFFE4E2F0);
   static const mint = Color(0xFFE4F6EF);
   static const peach = Color(0xFFFFEDE3);
   static const lavender = Color(0xFFEEF2FF);
   static const tealInk = Color(0xFF186450);
   static const amberInk = Color(0xFF855216);
+  static const rose = Color(0xFFFDEAF2);
+  static const sky = Color(0xFFE9F4FF);
+  static const brandGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFF6957E8), Color(0xFF4F46E5), Color(0xFF306EAA)],
+  );
 
   static ThemeData get light {
     final scheme = ColorScheme.fromSeed(seedColor: accent).copyWith(

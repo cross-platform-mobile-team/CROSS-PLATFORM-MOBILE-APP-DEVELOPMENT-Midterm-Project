@@ -1,0 +1,92 @@
+Flutter 3.47.1 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 6655482ec0 (5 weeks ago) • 2026-08-19 10:07:23 -0700
+Engine • hash 11d79658c444477b06513d32b52c8c4ccb7276b0 (revision 5d53178869) (1 months ago) • 2026-08-18 23:36:01.000Z
+Tools • Dart 3.13.1 • DevTools 2.60.0
+Compiling lib/browser_test_harness.dart for the Web...          
+Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+Use --no-wasm-dry-run to disable these warnings.
+Font asset "CupertinoIcons.ttf" was tree-shaken, reducing it from 257628 to 1472 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 10492 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling lib/browser_test_harness.dart for the Web...             38,8s
+√ Built build\web
+### Browser `tf-2e3f2cbd6ae2-1` opened with pid 35012.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:7359/?scenario=discovery');
+```
+### Page
+- Page URL: http://127.0.0.1:7359/?scenario=discovery
+- Page Title: taskflow_qa_lab
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-09-22T15-06-26-295Z.yml)
+Raw results: D:\flutter\output\playwright\edge-sessions-2e3f2cbd6ae24324890c117b2e5bb49a\session-1
+TaskFlow Edge harness repeated-run experiment
+Started UTC: 2026-09-22T15:06:26.4552602Z
+CLI package: @playwright/cli@0.1.19
+Session: tf-2e3f2cbd6ae2-1
+Repetitions: 2
+### Error
+Error: page.waitForFunction: Timeout 5000ms exceeded.; expected=["Alpha ready Pending","Beta ready Pending"]; actual=[{"label":"Beta ready\nPending","top":1029},{"label":"Alpha ready\nPending","top":1212}]
+Edge harness run 1 failed with exit code 1; retaining result and continuing.
+### Error
+Error: page.waitForFunction: Timeout 5000ms exceeded.; expected=["Alpha ready Pending","Beta ready Pending"]; actual=[{"label":"Beta ready\nPending","top":1029},{"label":"Alpha ready\nPending","top":1212}]
+Edge harness run 2 failed with exit code 1; retaining result and continuing.
+
+Run Result Seconds StartedUtc                   ExitCode Session           Log       Command
+--- ------ ------- ----------                   -------- -------           ---       -------
+  1 FAIL     14,80 2026-09-22T15:06:26.4563092Z        1 tf-2e3f2cbd6ae2-1 run-1.txt @playwright/cli@0.1.19 playwright-…
+  2 FAIL     16,09 2026-09-22T15:06:41.3004971Z        1 tf-2e3f2cbd6ae2-1 run-2.txt @playwright/cli@0.1.19 playwright-…
+
+Passed: 0/2
+Mean seconds: 15.442
+Median seconds: 15.442
+Min seconds: 14.796
+Max seconds: 16.088
+Scope: one Edge version, one Windows host, one open isolated browser session.
+Browser 'tf-2e3f2cbd6ae2-1' closed
+
+### Browser `tf-2e3f2cbd6ae2-2` opened with pid 7064.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:7359/?scenario=discovery');
+```
+### Page
+- Page URL: http://127.0.0.1:7359/?scenario=discovery
+- Page Title: taskflow_qa_lab
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-09-22T15-07-05-651Z.yml)
+Raw results: D:\flutter\output\playwright\edge-sessions-2e3f2cbd6ae24324890c117b2e5bb49a\session-2
+TaskFlow Edge harness repeated-run experiment
+Started UTC: 2026-09-22T15:07:05.7898968Z
+CLI package: @playwright/cli@0.1.19
+Session: tf-2e3f2cbd6ae2-2
+Repetitions: 2
+### Error
+Error: page.waitForFunction: Timeout 5000ms exceeded.; expected=["Alpha ready Pending","Beta ready Pending"]; actual=[{"label":"Beta ready\nPending","top":1029},{"label":"Alpha ready\nPending","top":1212}]
+Edge harness run 1 failed with exit code 1; retaining result and continuing.
+### Error
+Error: page.waitForFunction: Timeout 5000ms exceeded.; expected=["Alpha ready Pending","Beta ready Pending"]; actual=[{"label":"Beta ready\nPending","top":1029},{"label":"Alpha ready\nPending","top":1212}]
+Edge harness run 2 failed with exit code 1; retaining result and continuing.
+
+Run Result Seconds StartedUtc                   ExitCode Session           Log       Command
+--- ------ ------- ----------                   -------- -------           ---       -------
+  1 FAIL     14,88 2026-09-22T15:07:05.7913465Z        1 tf-2e3f2cbd6ae2-2 run-1.txt @playwright/cli@0.1.19 playwright-…
+  2 FAIL     13,46 2026-09-22T15:07:20.6723836Z        1 tf-2e3f2cbd6ae2-2 run-2.txt @playwright/cli@0.1.19 playwright-…
+
+Passed: 0/2
+Mean seconds: 14.169
+Median seconds: 14.169
+Min seconds: 13.46
+Max seconds: 14.878
+Scope: one Edge version, one Windows host, one open isolated browser session.
+Browser 'tf-2e3f2cbd6ae2-2' closed
+
+Restoring the default Web release build (API 127.0.0.1:8080).
+Compiling lib\main.dart for the Web...                          
+Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+Use --no-wasm-dry-run to disable these warnings.
+Font asset "CupertinoIcons.ttf" was tree-shaken, reducing it from 257628 to 1472 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 12392 bytes (99.2% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling lib\main.dart for the Web...                             40,8s
+√ Built build\web
+Session evidence: D:\flutter\output\playwright\edge-sessions-2e3f2cbd6ae24324890c117b2e5bb49a

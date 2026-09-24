@@ -33,8 +33,15 @@ async (page) => {
     await enableSemantics();
     await page.getByText('Browser QA harness: synthetic in-memory data only.', { exact: true }).first().waitFor();
   };
+  // Flutter appends the title hint on focus; Playwright normalizes its newline
+  // to a space. Accept exactly these two observed names, not a loose substring.
+  const fieldNamed = name => page.getByRole('textbox', {
+    name: name === 'Task title'
+      ? /^Task title(?: What needs to get done\?)?$/ : name,
+    exact: true,
+  });
   const type = async (name, text) => {
-    const field = page.getByRole('textbox', { name, exact: true });
+    const field = fieldNamed(name);
     await field.click();
     // Flutter appends the visible hint to the focused input's accessible name.
     // Validate the exact first-line label, then type into that verified input.
@@ -51,9 +58,28 @@ async (page) => {
   const taskNames = async () => page.getByRole('checkbox').evaluateAll(nodes =>
     nodes.map(node => node.getAttribute('aria-label')?.replace(/\s+/g, ' ').trim()));
   const expectNames = async expected => {
+    // Apply/clear can return before Flutter publishes the next semantics frame.
+    // Wait for the exact observable list, not for an item already present in
+    // the previous list, and never replace the order assertion with a sleep.
+    await page.waitForFunction(expected => {
+      const names = [...document.querySelectorAll('[role="checkbox"]')].map(node =>
+        node.getAttribute('aria-label')?.replace(/\s+/g, ' ').trim());
+      return JSON.stringify(names) === JSON.stringify(expected);
+    }, expected, { timeout: 5000 }).catch(async error => {
+      const positions = await page.getByRole('checkbox').evaluateAll(nodes =>
+        nodes.map(node => ({ label: node.getAttribute('aria-label'),
+          top: node.getBoundingClientRect().top })));
+      throw new Error(`${error.message}; expected=${JSON.stringify(expected)}; actual=${JSON.stringify(positions)}`);
+    });
     const actual = await taskNames();
     if (JSON.stringify(actual) !== JSON.stringify(expected)) {
-      throw new Error(`Task order mismatch: ${JSON.stringify(actual)}`);
+      const positions = await page.getByRole('checkbox').evaluateAll(nodes =>
+        nodes.map(node => ({ label: node.getAttribute('aria-label'),
+          top: node.getBoundingClientRect().top,
+          left: node.getBoundingClientRect().left,
+          parentOwns: node.parentElement?.getAttribute('aria-owns'),
+        })));
+      throw new Error(`Task order mismatch: ${JSON.stringify({actual, expected, positions})}`);
     }
   };
 
@@ -63,7 +89,8 @@ async (page) => {
   await page.getByText('No tasks yet. Add your first task above.', { exact: true }).waitFor();
   await page.getByRole('button', { name: 'Add task', exact: true }).click();
   await page.waitForFunction(() => {
-    const field = document.querySelector('input[aria-label="Task title"]');
+    const field = [...document.querySelectorAll('input')].find(input =>
+      input.getAttribute('aria-label')?.split('\n')[0] === 'Task title');
     return field?.getAttribute('aria-invalid') === 'true' &&
       field.getAttribute('aria-description') === 'Enter a task title';
   }, null, { timeout: 5000 }).catch(async error => {
@@ -76,7 +103,7 @@ async (page) => {
   await type('Task title', 'Keep browser draft');
   await page.getByRole('button', { name: 'Add task', exact: true }).click();
   await page.getByText(error, { exact: true }).first().waitFor();
-  const title = page.getByRole('textbox', { name: 'Task title', exact: true });
+  const title = fieldNamed('Task title');
   if (await title.inputValue() !== 'Keep browser draft') throw new Error('Draft was lost');
   await page.getByRole('button', { name: 'Retry', exact: true }).click();
   if (await title.inputValue() !== 'Keep browser draft') throw new Error('Retry cleared draft');
@@ -96,11 +123,14 @@ async (page) => {
   await page.getByRole('button', { name: 'Filter and sort', exact: true }).click();
   await page.getByRole('button', { name: 'Status all', exact: true }).click();
   await page.getByRole('menuitem', { name: 'pending', exact: true }).click();
+  await page.getByRole('button', { name: 'Status pending', exact: true }).waitFor();
   await page.getByRole('button', { name: 'Priority all', exact: true }).click();
   await page.getByRole('menuitem', { name: 'high', exact: true }).click();
+  await page.getByRole('button', { name: 'Priority high', exact: true }).waitFor();
   await type('Exact tag', ' FLUTTER ');
   await page.getByRole('button', { name: 'Sort by newest', exact: true }).click();
   await page.getByRole('menuitem', { name: 'title', exact: true }).click();
+  await page.getByRole('button', { name: 'Sort by title', exact: true }).waitFor();
   await page.getByRole('button', { name: 'Apply', exact: true }).click();
   await page.getByRole('checkbox', { name: 'Alpha ready Pending', exact: true }).waitFor();
   await expectNames(['Alpha ready Pending', 'Beta ready Pending']);

@@ -1,0 +1,35 @@
+Running Gradle task 'assembleDebug'...                          
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Running Gradle task 'assembleDebug'...                             25.4s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        1,128ms
+W/HWUI    ( 9861): Unknown dataspace 0
+I/WindowExtensionsImpl( 9861): Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+D/FlutterRenderer( 9861): Width is zero. 0,0
+D/FlutterJNI( 9861): Sending viewport metrics to the engine.
+I/taskflow_qa_lab( 9861): Compiler allocated 5042KB to compile void android.view.ViewRootImpl.performTraversals()
+I/Choreographer( 9861): Skipped 71 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl( 9861): Register WindowLayoutInfoListener on Context=com.taskflow.taskflow_qa_lab.MainActivity@7dcccc2, of which baseContext=android.app.ContextImpl@2dff12f
+D/FlutterJNI( 9861): Sending viewport metrics to the engine.
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:54426/zZaSKD_eqVc=/
+D/ProfileInstaller( 9861): Installing profile for com.taskflow.taskflow_qa_lab
+VMServiceFlutterDriver: Isolate found with number: 517465941760983
+VMServiceFlutterDriver: Isolate 517465941760983 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/flutter ( 9861): 00:00 +0: native create, edit, complete, delete, undo and reload
+VMServiceFlutterDriver: Connected to Flutter application.
+I/Choreographer( 9861): Skipped 30 frames!  The application may be doing too much work on its main thread.
+I/Choreographer( 9861): Skipped 154 frames!  The application may be doing too much work on its main thread.
+I/HWUI    ( 9861): Davey! duration=3001ms; Flags=1, FrameTimelineVsyncId=162802, IntendedVsync=45692478451212, Vsync=45695045117776, InputEventId=0, HandleInputStart=45695051461676, AnimationStart=45695051463702, PerformTraversalsStart=45695051464256, DrawStart=45695056856330, FrameDeadline=45692495117878, FrameStartTime=45695050602958, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=45695058807120, SyncStart=45695059294485, IssueDrawCommandsStart=45695059707736, SwapBuffers=45695079487591, FrameCompleted=45695480097717, DequeueBufferDuration=5026500, QueueBufferDuration=251153, GpuCompleted=45695480097717, SwapBuffersCompleted=45695470510400, DisplayPresentTime=929, CommandSubmissionCompleted=45695079487591, 
+I/taskflow_qa_lab( 9861): AssetManager2(0x74708b8352d8) locale list changing from [] to [en-US]
+D/FlutterJNI( 9861): Sending viewport metrics to the engine.
+D/InsetsController( 9861): hide(ime(), fromIme=false)
+I/ImeTracker( 9861): com.taskflow.taskflow_qa_lab:76656ab4: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+W/WindowOnBackDispatcher( 9861): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@91be7df
+W/WindowOnBackDispatcher( 9861): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@91be7df
+I/flutter ( 9861): 00:13 +1: native metadata form and filters persist across remount
+I/taskflow_qa_lab( 9861): AssetManager2(0x74708b834018) locale list changing from [] to [en-US]
+I/flutter ( 9861): 00:29 +2: (tearDownAll)
+I/flutter ( 9861): 00:29 +3: All tests passed!
+All tests passed.

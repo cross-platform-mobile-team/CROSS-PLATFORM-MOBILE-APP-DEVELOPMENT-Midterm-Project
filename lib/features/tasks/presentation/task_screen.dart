@@ -3,7 +3,7 @@ import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
 import '../../../core/theme/app_theme.dart';
-import '../../../core/theme/app_motion.dart';
+import 'task_card.dart';
 import '../../../core/theme/ui_components.dart';
 
 import '../application/task_controller.dart';
@@ -25,6 +25,7 @@ class TaskScreen extends StatefulWidget {
     this.online = false,
     this.notice,
     this.temporary = false,
+    this.clock,
   });
   final TaskRepository repository;
   final List<Widget>? actions;
@@ -34,6 +35,7 @@ class TaskScreen extends StatefulWidget {
   final bool online;
   final String? notice;
   final bool temporary;
+  final DateTime Function()? clock;
   @override
   State<TaskScreen> createState() => _TaskScreenState();
 }
@@ -45,6 +47,7 @@ class _TaskScreenState extends State<TaskScreen> {
   String query = '';
   final search = TextEditingController();
   final searchFocus = FocusNode();
+  final newTaskFocus = FocusNode();
   TaskDetails draftDetails = TaskDetails();
   bool metadataDirty = false;
   bool confirmingExit = false;
@@ -116,6 +119,24 @@ class _TaskScreenState extends State<TaskScreen> {
     ...?widget.exitActions?.call(confirmExit),
   ];
 
+  bool get hasFilters =>
+      filters.status != TaskStatusFilter.all ||
+      filters.priority != null ||
+      filters.due != DueFilter.all ||
+      filters.tag.trim().isNotEmpty;
+  void clearSearch() {
+    search.clear();
+    setState(() => query = '');
+  }
+
+  void resetFilters() =>
+      setState(() => filters = TaskFilters(sort: filters.sort));
+  void focusNewTask() {
+    newTaskFocus.requestFocus();
+    final target = newTaskFocus.context;
+    if (target != null) Scrollable.ensureVisible(target);
+  }
+
   void focusSearch() {
     if (ModalRoute.of(context)?.isCurrent != true) return;
     searchFocus.requestFocus();
@@ -126,7 +147,7 @@ class _TaskScreenState extends State<TaskScreen> {
   @override
   void initState() {
     super.initState();
-    controller = TaskController(widget.repository);
+    controller = TaskController(widget.repository, clock: widget.clock);
     controller.load();
   }
 
@@ -136,6 +157,7 @@ class _TaskScreenState extends State<TaskScreen> {
     title.dispose();
     search.dispose();
     searchFocus.dispose();
+    newTaskFocus.dispose();
     super.dispose();
   }
 
@@ -148,6 +170,37 @@ class _TaskScreenState extends State<TaskScreen> {
       submittedTitle,
       details: submittedDetails,
     );
+    if (saved && mounted) {
+      final added = controller.lastAdded;
+      final hidden =
+          added != null &&
+          !controller
+              .matching(query, filters: filters)
+              .any((task) => task.id == added.id);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          margin: EdgeInsets.fromLTRB(isWide(context) ? 270 : 16, 0, 16, 16),
+          content: Text(
+            hidden ? 'Task added. Hidden by current filters.' : 'Task added.',
+          ),
+          action: hidden
+              ? SnackBarAction(
+                  label: 'View task',
+                  onPressed: () {
+                    search.clear();
+                    setState(() {
+                      query = '';
+                      filters = const TaskFilters();
+                    });
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      if (mounted) edit(added);
+                    });
+                  },
+                )
+              : null,
+        ),
+      );
+    }
     // A completed write owns only the draft it submitted, not newer input.
     if (saved &&
         mounted &&
@@ -163,19 +216,59 @@ class _TaskScreenState extends State<TaskScreen> {
     }
   }
 
-  Future<void> edit(TaskItem task) => showDialog<void>(
-    context: context,
-    barrierDismissible: false,
-    builder: (_) => EditTaskDialog(
-      task: task,
-      failureMessage: widget.online
-          ? () =>
-                '${controller.error ?? 'Could not save.'} Your draft is still here. If a reload is needed, copy your changes, cancel this dialog and reload tasks.'
-          : null,
-      save: (value, details) =>
-          controller.rename(task.id, value, details: details),
-    ),
-  );
+  Future<void> edit(TaskItem task) {
+    String? recreatedId;
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => EditTaskDialog(
+        task: task,
+        failureMessage: widget.online
+            ? () => switch (controller.errorCode) {
+                'revision_conflict' || 'conflict' => 'Another client changed the task list. Load the latest version to compare; your draft stays here.',
+                'network' => 'The response was not confirmed. The server may already have saved your changes. Load the latest version before deciding what to do.',
+                _ =>
+                  '${controller.error ?? "Could not save."} Load the latest version; your draft stays here.',
+              }
+            : null,
+        reload: widget.online
+            ? () async {
+                if (!await controller.load()) throw StateError('Reload failed');
+                return controller.tasks
+                    .where((item) => item.id == (recreatedId ?? task.id))
+                    .firstOrNull;
+              }
+            : null,
+        saveAsNew: widget.online
+            ? (value, details) {
+                recreatedId ??= controller.idGenerator();
+                return controller.add(value, details: details, id: recreatedId);
+              }
+            : null,
+        save: (value, details) async {
+          final saved = await controller.rename(
+            recreatedId ?? task.id,
+            value,
+            details: details,
+          );
+          if (saved && mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                margin: EdgeInsets.fromLTRB(
+                  isWide(context) ? 270 : 16,
+                  0,
+                  16,
+                  16,
+                ),
+                content: const Text('Task saved.'),
+              ),
+            );
+          }
+          return saved;
+        },
+      ),
+    );
+  }
 
   Future<void> delete(TaskItem task) async {
     final confirmed = await showDialog<bool>(
@@ -242,414 +335,334 @@ class _TaskScreenState extends State<TaskScreen> {
                         ),
                       Expanded(
                         key: const ValueKey('workspace-canvas'),
-                        child: SingleChildScrollView(
-                          padding: EdgeInsets.all(wide ? 28 : 16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              if (widget.notice != null)
-                                Container(
-                                  margin: const EdgeInsets.only(bottom: 16),
-                                  padding: const EdgeInsets.all(12),
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xFFEEF1FF),
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: Semantics(
-                                    liveRegion: true,
-                                    child: Text(
-                                      widget.notice!,
-                                      style: const TextStyle(
-                                        color: AppTheme.accent,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              TaskHeader(
-                                total: controller.tasks.length,
-                                completed: controller.tasks
-                                    .where((task) => task.completed)
-                                    .length,
+                        child: CustomScrollView(
+                          slivers: [
+                            SliverPadding(
+                              padding: EdgeInsets.fromLTRB(
+                                wide ? 28 : 16,
+                                wide ? 28 : 16,
+                                wide ? 28 : 16,
+                                0,
                               ),
-                              const SizedBox(height: 24),
-                              QuickTaskInput(
-                                key: ValueKey('quick-create-$draftRevision'),
-                                formKey: form,
-                                title: title,
-                                busy: controller.busy,
-                                onSubmit: add,
-                                onDetailsChanged: (value) =>
-                                    draftDetails = value,
-                                onDirtyChanged: (value) =>
-                                    metadataDirty = value,
-                              ),
-                              const SizedBox(height: 24),
-                              TextField(
-                                controller: search,
-                                focusNode: searchFocus,
-                                decoration: InputDecoration(
-                                  labelText: 'Search tasks',
-                                  prefixIcon: const Icon(Icons.search),
-                                  suffixIcon: wide
-                                      ? const Padding(
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
-                                            'Ctrl + K',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              color: AppTheme.muted,
-                                            ),
-                                          ),
-                                        )
-                                      : null,
-                                ),
-                                onChanged: (value) =>
-                                    setState(() => query = value),
-                              ),
-                              const SizedBox(height: 16),
-                              Wrap(
-                                spacing: 8,
-                                children: [
-                                  OutlinedButton.icon(
-                                    style: OutlinedButton.styleFrom(
-                                      shape: const StadiumBorder(),
-                                    ),
-                                    icon: const Icon(Icons.filter_list),
-                                    label: const Text('Filter and sort'),
-                                    onPressed: () async {
-                                      final value =
-                                          await showDialog<TaskFilters>(
-                                            context: context,
-                                            builder: (_) => TaskFilterDialog(
-                                              initial: filters,
-                                            ),
-                                          );
-                                      if (value != null && mounted) {
-                                        setState(() => filters = value);
-                                      }
-                                    },
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      search.clear();
-                                      setState(() {
-                                        query = '';
-                                        filters = const TaskFilters();
-                                      });
-                                    },
-                                    child: const Text('Clear filters'),
-                                  ),
-                                  PopupMenuButton<TaskSort>(
-                                    tooltip: 'Sort tasks',
-                                    initialValue: filters.sort,
-                                    onSelected: (sort) => setState(() {
-                                      filters = TaskFilters(
-                                        status: filters.status,
-                                        priority: filters.priority,
-                                        due: filters.due,
-                                        tag: filters.tag,
-                                        sort: sort,
-                                      );
-                                    }),
-                                    itemBuilder: (_) => TaskSort.values
-                                        .map(
-                                          (sort) => CheckedPopupMenuItem(
-                                            value: sort,
-                                            checked: sort == filters.sort,
-                                            child: Text(switch (sort) {
-                                              TaskSort.newest => 'Newest first',
-                                              TaskSort.priority => 'Priority',
-                                              TaskSort.dueDate => 'Due date',
-                                              TaskSort.title => 'Title A–Z',
-                                            }),
-                                          ),
-                                        )
-                                        .toList(),
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 16,
-                                        vertical: 14,
-                                      ),
-                                      decoration: ShapeDecoration(
-                                        shape: StadiumBorder(
-                                          side: BorderSide(
-                                            color: AppTheme.line,
+                              sliver: SliverToBoxAdapter(
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    if (widget.notice != null)
+                                      Container(
+                                        margin: const EdgeInsets.only(
+                                          bottom: 16,
+                                        ),
+                                        padding: const EdgeInsets.all(12),
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFEEF1FF),
+                                          borderRadius: BorderRadius.circular(
+                                            12,
                                           ),
                                         ),
-                                      ),
-                                      child: const Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Icon(Icons.sort, size: 18),
-                                          SizedBox(width: 8),
-                                          Text('Sort'),
-                                          SizedBox(width: 4),
-                                          Icon(Icons.expand_more, size: 18),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 16),
-                              if (controller.deletedTask != null)
-                                Card(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(12),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Semantics(
+                                        child: Semantics(
                                           liveRegion: true,
                                           child: Text(
-                                            'Deleted: ${controller.deletedTask!.title}',
+                                            widget.notice!,
+                                            style: const TextStyle(
+                                              color: AppTheme.accent,
+                                              fontSize: 13,
+                                            ),
                                           ),
                                         ),
-                                        TextButton.icon(
-                                          onPressed: controller.busy
-                                              ? null
-                                              : controller.undoDelete,
-                                          icon: const Icon(Icons.undo),
-                                          label: const Text('Undo delete'),
+                                      ),
+                                    if (!wide)
+                                      Text(
+                                        widget.temporary
+                                            ? 'Sample · changes discarded on exit'
+                                            : widget.online
+                                            ? 'Account · saved online'
+                                            : 'Local · saved on this device',
+                                        style: const TextStyle(
+                                          color: AppTheme.muted,
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                    TaskHeader(
+                                      total: controller.tasks.length,
+                                      completed: controller.tasks
+                                          .where((task) => task.completed)
+                                          .length,
+                                    ),
+                                    const SizedBox(height: 12),
+                                    QuickTaskInput(
+                                      key: ValueKey(
+                                        'quick-create-$draftRevision',
+                                      ),
+                                      formKey: form,
+                                      titleFocus: newTaskFocus,
+                                      title: title,
+                                      busy: controller.busy,
+                                      adding:
+                                          controller.operation ==
+                                          TaskOperation.add,
+                                      onSubmit: add,
+                                      onDetailsChanged: (value) =>
+                                          draftDetails = value,
+                                      onDirtyChanged: (value) =>
+                                          metadataDirty = value,
+                                    ),
+                                    const SizedBox(height: 12),
+                                    TextField(
+                                      controller: search,
+                                      focusNode: searchFocus,
+                                      decoration: InputDecoration(
+                                        labelText: 'Search tasks',
+                                        prefixIcon: const Icon(Icons.search),
+                                        suffixIcon: query.isNotEmpty
+                                            ? IconButton(
+                                                tooltip: 'Clear search',
+                                                onPressed: clearSearch,
+                                                icon: const Icon(Icons.close),
+                                              )
+                                            : wide
+                                            ? const Padding(
+                                                padding: EdgeInsets.all(14),
+                                                child: Text(
+                                                  'Ctrl + K',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: AppTheme.muted,
+                                                  ),
+                                                ),
+                                              )
+                                            : null,
+                                      ),
+                                      onChanged: (value) =>
+                                          setState(() => query = value),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    if (!wide)
+                                      Wrap(
+                                        spacing: 8,
+                                        children: TaskStatusFilter.values
+                                            .map(
+                                              (status) => ChoiceChip(
+                                                label: Text(status.label),
+                                                selected:
+                                                    filters.status == status,
+                                                onSelected: (_) =>
+                                                    selectStatus(status),
+                                              ),
+                                            )
+                                            .toList(),
+                                      ),
+                                    Wrap(
+                                      spacing: 8,
+                                      crossAxisAlignment:
+                                          WrapCrossAlignment.center,
+                                      children: [
+                                        OutlinedButton.icon(
+                                          style: OutlinedButton.styleFrom(
+                                            shape: const StadiumBorder(),
+                                          ),
+                                          icon: const Icon(Icons.filter_list),
+                                          label: const Text('Filter and sort'),
+                                          onPressed: () async {
+                                            final value =
+                                                await showDialog<TaskFilters>(
+                                                  context: context,
+                                                  builder: (_) =>
+                                                      TaskFilterDialog(
+                                                        initial: filters,
+                                                      ),
+                                                );
+                                            if (value != null && mounted) {
+                                              setState(() => filters = value);
+                                            }
+                                          },
+                                        ),
+                                        Text(
+                                          'Sort: ${filters.sort.label}',
+                                          style: const TextStyle(
+                                            color: AppTheme.ink,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        Text(
+                                          '${tasks.length} results',
+                                          style: const TextStyle(
+                                            color: AppTheme.ink,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                         ),
                                       ],
                                     ),
-                                  ),
-                                ),
-                              if (controller.busy)
-                                const LinearProgressIndicator(
-                                  semanticsLabel: 'Loading tasks',
-                                ),
-                              if (controller.error != null)
-                                StatePanel(
-                                  icon: Icons.cloud_off_rounded,
-                                  title: 'Let’s try that again',
-                                  message: controller.error!,
-                                  error: true,
-                                  action: TextButton(
-                                    onPressed: controller.busy
-                                        ? null
-                                        : controller.load,
-                                    child: const Text('Retry'),
-                                  ),
-                                ),
-                              if (!controller.busy &&
-                                  controller.error == null &&
-                                  tasks.isEmpty)
-                                EmptyStateWidget(
-                                  empty: controller.tasks.isEmpty,
-                                ),
-                              for (final (index, task) in tasks.indexed)
-                                Padding(
-                                  key: ValueKey('task-card-${task.id}'),
-                                  padding: const EdgeInsets.only(bottom: 16),
-                                  child: Semantics(
-                                    container: true,
-                                    explicitChildNodes: true,
-                                    sortKey: OrdinalSortKey(index.toDouble()),
-                                    child: MotionSurface(
-                                      tint: task.completed
-                                          ? const Color(0xFFF2FAF7)
-                                          : switch (task.details.priority) {
-                                              TaskPriority.high => const Color(
-                                                0xFFFFF7FA,
-                                              ),
-                                              TaskPriority.low => const Color(
-                                                0xFFF4F9FF,
-                                              ),
-                                              TaskPriority.medium =>
-                                                const Color(0xFFFFFCF7),
-                                            },
-                                      accent: task.completed
-                                          ? AppTheme.tealInk
-                                          : AppTheme.accent,
-                                      child: Column(
-                                        children: [
-                                          CheckboxListTile(
-                                            value: task.completed,
-                                            onChanged: controller.busy
-                                                ? null
-                                                : (_) =>
-                                                      controller.toggle(task),
-                                            title: Text(
-                                              task.title,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                color: task.completed
-                                                    ? AppTheme.muted
-                                                    : AppTheme.ink,
-                                                decoration: task.completed
-                                                    ? TextDecoration.lineThrough
-                                                    : null,
-                                              ),
+                                    const SizedBox(height: 16),
+                                    Wrap(
+                                      spacing: 8,
+                                      children: [
+                                        if (filters.priority != null)
+                                          InputChip(
+                                            label: Text(
+                                              'Priority: ${filters.priority!.name}',
                                             ),
-                                            subtitle: Text(
-                                              task.completed
-                                                  ? 'Completed'
-                                                  : 'Pending',
-                                            ),
-                                            controlAffinity:
-                                                ListTileControlAffinity.leading,
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 16,
-                                            ),
-                                            child: Align(
-                                              alignment: Alignment.centerLeft,
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    padding:
-                                                        const EdgeInsets.symmetric(
-                                                          horizontal: 10,
-                                                          vertical: 4,
-                                                        ),
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          task
-                                                                  .details
-                                                                  .priority ==
-                                                              TaskPriority.high
-                                                          ? const Color(
-                                                              0xFFFFEFF1,
-                                                            )
-                                                          : task
-                                                                    .details
-                                                                    .priority ==
-                                                                TaskPriority.low
-                                                          ? AppTheme.mint
-                                                          : const Color(
-                                                              0xFFFFF2D5,
-                                                            ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                            6,
-                                                          ),
-                                                    ),
-                                                    child: Text(
-                                                      'Priority: ${task.details.priority.name}',
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        color:
-                                                            task
-                                                                    .details
-                                                                    .priority ==
-                                                                TaskPriority
-                                                                    .high
-                                                            ? const Color(
-                                                                0xFFAB263D,
-                                                              )
-                                                            : task
-                                                                      .details
-                                                                      .priority ==
-                                                                  TaskPriority
-                                                                      .low
-                                                            ? AppTheme.tealInk
-                                                            : AppTheme.amberInk,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  if (task.details.dueDate !=
-                                                      null)
-                                                    Text(
-                                                      'Due: ${TaskDetails.dateLabel(task.details.dueDate!)}',
-                                                    ),
-                                                  if (task
-                                                      .details
-                                                      .notes
-                                                      .isNotEmpty)
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                            top: 8,
-                                                            bottom: 4,
-                                                          ),
-                                                      child: Text(
-                                                        task.details.notes,
-                                                        style: const TextStyle(
-                                                          color: AppTheme.muted,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  if (task
-                                                      .details
-                                                      .tags
-                                                      .isNotEmpty)
-                                                    Wrap(
-                                                      spacing: 6,
-                                                      children: task
-                                                          .details
-                                                          .tags
-                                                          .map(
-                                                            (tag) => Semantics(
-                                                              container: true,
-                                                              label:
-                                                                  'Tag: $tag',
-                                                              excludeSemantics:
-                                                                  true,
-                                                              child: Chip(
-                                                                label: Text(
-                                                                  tag,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          )
-                                                          .toList(),
-                                                    ),
-                                                ],
+                                            onDeleted: () => setState(
+                                              () => filters = TaskFilters(
+                                                status: filters.status,
+                                                due: filters.due,
+                                                tag: filters.tag,
+                                                sort: filters.sort,
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                              left: 12,
-                                              right: 12,
-                                              bottom: 8,
-                                            ),
-                                            child: Wrap(
-                                              alignment: WrapAlignment.end,
-                                              spacing: 8,
-                                              children: [
-                                                TextButton.icon(
-                                                  onPressed: controller.busy
-                                                      ? null
-                                                      : () => edit(task),
-                                                  icon: const Icon(
-                                                    Icons.edit_outlined,
-                                                  ),
-                                                  label: const Text('Edit'),
-                                                ),
-                                                TextButton.icon(
-                                                  style: TextButton.styleFrom(
-                                                    foregroundColor: Theme.of(
-                                                      context,
-                                                    ).colorScheme.error,
-                                                  ),
-                                                  onPressed: controller.busy
-                                                      ? null
-                                                      : () => delete(task),
-                                                  icon: const Icon(
-                                                    Icons.delete_outline,
-                                                  ),
-                                                  label: const Text('Delete'),
-                                                ),
-                                              ],
+                                        if (filters.due != DueFilter.all)
+                                          InputChip(
+                                            label: Text(filters.due.label),
+                                            onDeleted: () => setState(
+                                              () => filters = TaskFilters(
+                                                status: filters.status,
+                                                priority: filters.priority,
+                                                tag: filters.tag,
+                                                sort: filters.sort,
+                                              ),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        if (filters.tag.trim().isNotEmpty)
+                                          InputChip(
+                                            label: Text('Tag: ${filters.tag}'),
+                                            onDeleted: () => setState(
+                                              () => filters = TaskFilters(
+                                                status: filters.status,
+                                                priority: filters.priority,
+                                                due: filters.due,
+                                                sort: filters.sort,
+                                              ),
+                                            ),
+                                          ),
+                                        if (hasFilters)
+                                          TextButton(
+                                            onPressed: resetFilters,
+                                            child: const Text('Reset filters'),
+                                          ),
+                                      ],
                                     ),
-                                  ),
+                                    if (controller.deletedTask != null)
+                                      Card(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(12),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Semantics(
+                                                liveRegion: true,
+                                                child: Text(
+                                                  'Deleted: ${controller.deletedTask!.title}',
+                                                ),
+                                              ),
+                                              TextButton.icon(
+                                                onPressed: controller.busy
+                                                    ? null
+                                                    : controller.undoDelete,
+                                                icon: const Icon(Icons.undo),
+                                                label: Text(
+                                                  controller.operation ==
+                                                          TaskOperation.undo
+                                                      ? 'Restoring…'
+                                                      : 'Undo delete',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    if (controller.busy)
+                                      LinearProgressIndicator(
+                                        semanticsLabel:
+                                            controller.operation.label,
+                                      ),
+                                    if (controller.error != null)
+                                      StatePanel(
+                                        icon: Icons.cloud_off_rounded,
+                                        title: 'Let’s try that again',
+                                        message: controller.error!,
+                                        error: true,
+                                        action: TextButton(
+                                          onPressed: controller.busy
+                                              ? null
+                                              : controller.load,
+                                          child: const Text('Reload tasks'),
+                                        ),
+                                      ),
+                                    if (!controller.busy &&
+                                        controller.error == null &&
+                                        tasks.isEmpty)
+                                      EmptyStateWidget(
+                                        empty: controller.tasks.isEmpty,
+                                        action: TextButton(
+                                          onPressed: controller.tasks.isEmpty
+                                              ? focusNewTask
+                                              : query.isNotEmpty
+                                              ? clearSearch
+                                              : resetFilters,
+                                          child: Text(
+                                            controller.tasks.isEmpty
+                                                ? 'Add your first task'
+                                                : query.isNotEmpty
+                                                ? 'Clear search'
+                                                : 'Reset filters',
+                                          ),
+                                        ),
+                                      ),
+                                  ],
                                 ),
-                            ],
-                          ),
+                              ),
+                            ),
+                            SliverPadding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: wide ? 28 : 16,
+                              ),
+                              sliver: SliverList(
+                                delegate: SliverChildBuilderDelegate(
+                                  (context, index) {
+                                    final task = tasks[index];
+                                    return Padding(
+                                      key: ValueKey('task-card-${task.id}'),
+                                      padding: const EdgeInsets.only(
+                                        bottom: 16,
+                                      ),
+                                      child: Semantics(
+                                        container: true,
+                                        explicitChildNodes: true,
+                                        sortKey: OrdinalSortKey(
+                                          index.toDouble(),
+                                        ),
+                                        child: TaskCard(
+                                          task: task,
+                                          now: controller.clock(),
+                                          busy: controller.busy,
+                                          activity:
+                                              controller.activeTaskId == task.id
+                                              ? controller.operation.label
+                                              : null,
+                                          onToggle: () =>
+                                              controller.toggle(task),
+                                          onEdit: () => edit(task),
+                                          onDelete: () => delete(task),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  childCount: tasks.length,
+                                  findChildIndexCallback: (key) {
+                                    final index = tasks.indexWhere(
+                                      (task) =>
+                                          ValueKey('task-card-${task.id}') ==
+                                          key,
+                                    );
+                                    return index < 0 ? null : index;
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],

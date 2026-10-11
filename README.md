@@ -170,6 +170,16 @@ Preferences are for small non-critical demo data and do not guarantee durability
 
 ## Verify
 
+### Windows Java loopback build failure
+
+If Gradle fails in `PipeImpl` / `UnixDomainSockets.connect0` with `Unable to establish loopback connection`, use the scoped workaround:
+
+```powershell
+& ./scripts/with-java-tcp-fallback.ps1 { flutter build apk --release }
+```
+
+This invokes the JDK's TCP fallback only for the command and restores the environment afterward. It disables automatic SDK downloads; missing SDK components remain explicit errors. See [diagnosis, caveats and verification](docs/android-loopback-fix-20261011.md). It is not needed on hosts without this specific failure.
+
 ### Current local Android verification
 
 The 15 September verification host stores SDK, AVD, Pub and Gradle caches under `D:/Android`.

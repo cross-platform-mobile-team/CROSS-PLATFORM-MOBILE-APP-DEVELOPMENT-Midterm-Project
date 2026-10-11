@@ -226,143 +226,31 @@ class TaskHeader extends StatelessWidget {
   final int total;
   final int completed;
   @override
-  Widget build(BuildContext context) => WorkspaceEntrance(
-    child: Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [AppTheme.lavender, Color(0xFFF4ECFF), AppTheme.peach],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Semantics(
+        header: true,
+        child: Text(
+          'My tasks',
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: const Color(0xFFDDD6FA)),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'YOUR WORKSPACE',
-            style: TextStyle(
-              fontSize: 11,
-              letterSpacing: 1.6,
-              fontWeight: FontWeight.w600,
-              color: AppTheme.accent,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Semantics(
-            header: true,
-            child: Text(
-              'Focus on what matters today.',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: [
-              _ProgressPill(
-                icon: Icons.task_alt_rounded,
-                text: '$completed/$total completed',
-                color: AppTheme.mint,
-                ink: AppTheme.tealInk,
-              ),
-              _ProgressPill(
-                icon: Icons.bolt_rounded,
-                text: '${total - completed} to focus on',
-                color: Colors.white,
-                ink: AppTheme.accent,
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Semantics(
-            label: 'Task completion',
-            value: '$completed of $total completed',
-            child: SizedBox(
-              width: 220,
-              height: 6,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: ColoredBox(
-                  color: AppTheme.line,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: TweenAnimationBuilder<double>(
-                      tween: Tween(
-                        begin: 0,
-                        end: total == 0 ? 0 : completed / total,
-                      ),
-                      duration: AppMotion.duration(context, 360),
-                      curve: AppMotion.curve,
-                      builder: (context, value, _) => FractionallySizedBox(
-                        heightFactor: 1,
-                        widthFactor: value,
-                        child: const DecoratedBox(
-                          decoration: BoxDecoration(
-                            gradient: AppTheme.brandGradient,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
+      Text(
+        '$total tasks · ${total - completed} pending · $completed completed',
+        style: const TextStyle(color: AppTheme.muted),
       ),
-    ),
-  );
-}
-
-class _ProgressPill extends StatelessWidget {
-  const _ProgressPill({
-    required this.icon,
-    required this.text,
-    required this.color,
-    required this.ink,
-  });
-  final IconData icon;
-  final String text;
-  final Color color;
-  final Color ink;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-    decoration: BoxDecoration(
-      color: color,
-      borderRadius: BorderRadius.circular(24),
-    ),
-    child: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, size: 16, color: ink),
-        const SizedBox(width: 6),
-        Flexible(
-          child: Text(
-            text,
-            style: TextStyle(
-              color: ink,
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-      ],
-    ),
+    ],
   );
 }
 
 class EmptyStateWidget extends StatelessWidget {
-  const EmptyStateWidget({super.key, required this.empty});
+  const EmptyStateWidget({super.key, required this.empty, this.action});
   final bool empty;
+  final Widget? action;
   @override
   Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.symmetric(vertical: 44, horizontal: 24),
+    padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
     child: Column(
       children: [
         Container(
@@ -382,7 +270,7 @@ class EmptyStateWidget extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         Text(
-          empty ? 'All clear for today' : 'No tasks in this view',
+          empty ? 'Your first task starts here' : 'No tasks in this view',
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.titleMedium,
         ),
@@ -394,6 +282,7 @@ class EmptyStateWidget extends StatelessWidget {
           textAlign: TextAlign.center,
           style: const TextStyle(color: AppTheme.muted),
         ),
+        ?action,
       ],
     ),
   );

@@ -1,0 +1,29 @@
+Running Gradle task 'assembleDebug'...                          
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Running Gradle task 'assembleDebug'...                             13.6s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        1,156ms
+D/FlutterRenderer( 4743): Width is zero. 0,0
+D/FlutterJNI( 4743): Sending viewport metrics to the engine.
+I/taskflow_qa_lab( 4743): Compiler allocated 5042KB to compile void android.view.ViewRootImpl.performTraversals()
+I/Choreographer( 4743): Skipped 72 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl( 4743): Register WindowLayoutInfoListener on Context=com.taskflow.taskflow_qa_lab.MainActivity@ca0b083, of which baseContext=android.app.ContextImpl@4fc7e2c
+D/FlutterJNI( 4743): Sending viewport metrics to the engine.
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:51337/hsg5OK7R2aU=/
+VMServiceFlutterDriver: Isolate found with number: 8601035808245631
+VMServiceFlutterDriver: Isolate 8601035808245631 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/flutter ( 4743): 00:00 +0: independent persisted fresh create and remount
+VMServiceFlutterDriver: Connected to Flutter application.
+I/Choreographer( 4743): Skipped 30 frames!  The application may be doing too much work on its main thread.
+D/InsetsController( 4743): hide(ime(), fromIme=false)
+I/ImeTracker( 4743): com.taskflow.taskflow_qa_lab:8d01f416: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/ProfileInstaller( 4743): Installing profile for com.taskflow.taskflow_qa_lab
+I/taskflow_qa_lab( 4743): AssetManager2(0x79ec6c43cd58) locale list changing from [] to [en-US]
+D/FlutterJNI( 4743): Sending viewport metrics to the engine.
+I/flutter ( 4743): 00:08 +1: independent persisted edit complete and remount preserves metadata
+I/flutter ( 4743): 00:16 +2: independent persisted cancel delete undo preserves all records
+I/flutter ( 4743): 00:22 +3: (tearDownAll)
+I/flutter ( 4743): 00:22 +4: All tests passed!
+All tests passed.

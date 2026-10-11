@@ -67,6 +67,11 @@ void main() {
         find.byKey(const Key('account-password')),
         password,
       );
+      await visible(tester, find.byKey(const Key('account-confirm-password')));
+      await tester.enterText(
+        find.byKey(const Key('account-confirm-password')),
+        password,
+      );
       await tap(tester, find.byKey(const Key('account-submit')));
       await visible(tester, find.text('Save your recovery code'));
       await tap(tester, find.text('I saved my recovery code'));
@@ -95,7 +100,11 @@ void main() {
       );
       expect(await RemoteTaskRepository(stranger).load(), isEmpty);
       await tap(tester, find.byType(CheckboxListTile));
-      await visible(tester, find.text('Completed'));
+      final completedStatus = find.descendant(
+        of: find.byType(CheckboxListTile),
+        matching: find.text('Completed'),
+      );
+      await visible(tester, completedStatus);
       // Other session's revision is now stale; it must not erase the completed task.
       await expectLater(
         otherRepo.save([]),
@@ -113,7 +122,7 @@ void main() {
       );
       await tap(tester, find.text('Sign in'));
       await visible(tester, savedCard);
-      expect(find.text('Completed'), findsOneWidget);
+      expect(completedStatus, findsOneWidget);
       await api.deleteAccount(password);
       await stranger.deleteAccount(password);
       await visible(tester, find.text('Welcome back'));

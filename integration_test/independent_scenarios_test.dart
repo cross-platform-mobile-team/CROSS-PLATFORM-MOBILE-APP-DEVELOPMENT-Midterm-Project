@@ -92,9 +92,9 @@ void main() {
     await tester.pumpAndSettle();
     await tapVisible(tester, find.text('Filter and sort'));
     for (final choice in {
-      'filter-status': 'pending',
+      'filter-status': 'Pending',
       'filter-priority': 'high',
-      'filter-sort': 'title',
+      'filter-sort': 'Title A–Z',
     }.entries) {
       await tapVisible(tester, find.byKey(Key(choice.key)));
       await tapVisible(tester, find.text(choice.value).last);
@@ -109,12 +109,14 @@ void main() {
     await tester.enterText(search, 'missing');
     await tester.pumpAndSettle();
     expect(find.text('No matching tasks.'), findsOneWidget);
-    await tapVisible(tester, find.text('Clear filters'));
+    await tapVisible(tester, find.text('Reset filters').first);
+    expect(find.text('No matching tasks.'), findsOneWidget);
+    await tapVisible(tester, find.byTooltip('Clear search'));
     expect(titles(tester), [
+      'Alpha ready',
+      'Beta ready',
       'Delta ready',
       'Gamma ready',
-      'Beta ready',
-      'Alpha ready',
     ]);
     expect((await repository.load()).length, 4);
     expect(tester.takeException(), isNull);
@@ -130,7 +132,7 @@ void main() {
       // A completion gate makes loading observable without wall-clock sleeps.
       final gate = Completer<void>();
       repository.gate = gate.future;
-      await tester.tap(find.text('Retry'));
+      await tester.tap(find.text('Reload tasks'));
       await tester.pump();
       expect(find.byType(LinearProgressIndicator), findsOneWidget);
       expect(
@@ -152,7 +154,7 @@ void main() {
       expect(find.text(error), findsOneWidget);
       expect(await repository.load(), isEmpty);
       expect(titles(tester), isEmpty);
-      await tapVisible(tester, find.text('Retry'));
+      await tapVisible(tester, find.text('Reload tasks'));
       expect(
         tester
             .widget<TextFormField>(find.byKey(const Key('task-title')))

@@ -19,7 +19,7 @@ async (page) => {
     await page.getByRole('checkbox', { name: 'Transient Edge example Pending', exact: true }).waitFor();
     await type('Search tasks', '  TRANSIENT  ');
     await page.getByRole('checkbox', { name: 'Review Flutter testing Pending', exact: true }).waitFor({ state: 'hidden' });
-    await page.getByRole('button', { name: 'Clear filters', exact: true }).click();
+    await page.getByRole('button', { name: 'Clear search', exact: true }).click();
     await page.getByRole('button', { name: 'Exit sample sandbox', exact: true }).click();
     await page.getByRole('button', { name: 'Try sample sandbox', exact: true }).click();
     await page.getByRole('checkbox', { name: 'Review Flutter testing Pending', exact: true }).waitFor();

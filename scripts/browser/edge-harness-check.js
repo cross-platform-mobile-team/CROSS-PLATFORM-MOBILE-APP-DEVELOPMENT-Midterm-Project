@@ -85,7 +85,7 @@ async (page) => {
 
   await openScenario('failure');
   await page.getByText(error, { exact: true }).first().waitFor();
-  await page.getByRole('button', { name: 'Retry', exact: true }).click();
+  await page.getByRole('button', { name: 'Reload tasks', exact: true }).click();
   await page.getByText('No tasks yet. Add your first task above.', { exact: true }).waitFor();
   await page.getByRole('button', { name: 'Add task', exact: true }).click();
   await page.waitForFunction(() => {
@@ -105,7 +105,7 @@ async (page) => {
   await page.getByText(error, { exact: true }).first().waitFor();
   const title = fieldNamed('Task title');
   if (await title.inputValue() !== 'Keep browser draft') throw new Error('Draft was lost');
-  await page.getByRole('button', { name: 'Retry', exact: true }).click();
+  await page.getByRole('button', { name: 'Reload tasks', exact: true }).click();
   if (await title.inputValue() !== 'Keep browser draft') throw new Error('Retry cleared draft');
   await page.getByRole('button', { name: 'Add task', exact: true }).click();
   await page.getByRole('checkbox', { name: 'Keep browser draft Pending', exact: true }).waitFor();
@@ -121,28 +121,30 @@ async (page) => {
   ]);
   await type('Search tasks', '  READY  ');
   await page.getByRole('button', { name: 'Filter and sort', exact: true }).click();
-  await page.getByRole('button', { name: 'Status all', exact: true }).click();
-  await page.getByRole('menuitem', { name: 'pending', exact: true }).click();
-  await page.getByRole('button', { name: 'Status pending', exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Status All', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'Pending', exact: true }).click();
+  await page.getByRole('button', { name: 'Status Pending', exact: true }).waitFor();
   await page.getByRole('button', { name: 'Priority all', exact: true }).click();
   await page.getByRole('menuitem', { name: 'high', exact: true }).click();
   await page.getByRole('button', { name: 'Priority high', exact: true }).waitFor();
   await type('Exact tag', ' FLUTTER ');
-  await page.getByRole('button', { name: 'Sort by newest', exact: true }).click();
-  await page.getByRole('menuitem', { name: 'title', exact: true }).click();
-  await page.getByRole('button', { name: 'Sort by title', exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Sort by Newest first', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'Title A–Z', exact: true }).click();
+  await page.getByRole('button', { name: 'Sort by Title A–Z', exact: true }).waitFor();
   await page.getByRole('button', { name: 'Apply', exact: true }).click();
   await page.getByRole('checkbox', { name: 'Alpha ready Pending', exact: true }).waitFor();
   await expectNames(['Alpha ready Pending', 'Beta ready Pending']);
   await type('Search tasks', 'missing');
   await page.getByText('No matching tasks.', { exact: true }).waitFor();
-  await page.getByRole('button', { name: 'Clear filters', exact: true }).click();
+  await page.getByRole('button', { name: 'Reset filters', exact: true }).click();
+  await page.getByText('No matching tasks.', { exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Clear search', exact: true }).first().click();
   await page.getByRole('checkbox', { name: 'Delta ready Completed', exact: true }).waitFor();
   await expectNames([
+    'Alpha ready Pending',
+    'Beta ready Pending',
     'Delta ready Completed',
     'Gamma ready Pending',
-    'Beta ready Pending',
-    'Alpha ready Pending',
   ]);
 
   return {
@@ -158,7 +160,7 @@ async (page) => {
       'exact tag normalization',
       'deterministic title order',
       'no-match state',
-      'clear restores newest order',
+      'reset keeps search and sort; clear search restores all titles',
     ],
   };
   } finally {

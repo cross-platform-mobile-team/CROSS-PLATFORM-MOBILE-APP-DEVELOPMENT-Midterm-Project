@@ -1,0 +1,8 @@
+Analyzing CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project...     
+
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\widget\uiux_account_test.dart:48:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\widget\uiux_account_test.dart:50:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\widget\uiux_recovery_test.dart:43:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\widget\uiux_recovery_test.dart:47:15 - curly_braces_in_flow_control_structures
+
+4 issues found. (ran in 42.0s)

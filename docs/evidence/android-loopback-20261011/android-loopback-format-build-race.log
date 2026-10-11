@@ -1,0 +1,14 @@
+PathNotFoundException: Directory listing failed, path = '.\build\app\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\jar_af883abcfb8835bb024a15affff08512dd91241128cee8f2b5f9c9089b9a043f_bucket_0\*' (OS Error: The system cannot find the path specified, errno = 3)
+#0      _Directory._fillWithDirectoryListing (dart:io-patch/directory_patch.dart:49)
+#1      _Directory.listSync (dart:io/directory_impl.dart:259)
+#2      _processDirectory (package:dart_style/src/io.dart:144)
+#3      formatPaths (package:dart_style/src/io.dart:115)
+#4      FormatCommand.run (package:dart_style/src/cli/format_command.dart:341)
+#5      CommandRunner.runCommand (package:args/command_runner.dart:236)
+#6      DartdevRunner.runCommand (package:dartdev/dartdev.dart:326)
+<asynchronous suspension>
+#7      runDartdev (package:dartdev/dartdev.dart:54)
+<asynchronous suspension>
+#8      main (file:///C:/b/s/w/ir/x/w/sdk/pkg/dartdev/bin/dartdev.dart:13)
+<asynchronous suspension>
+

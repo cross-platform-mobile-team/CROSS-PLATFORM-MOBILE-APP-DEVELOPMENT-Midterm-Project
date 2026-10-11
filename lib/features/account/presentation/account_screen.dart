@@ -7,8 +7,11 @@ import '../../../core/errors/app_failure.dart';
 import '../../../core/network/api_client.dart';
 
 class AccountScreen extends StatefulWidget {
-  const AccountScreen({super.key, required this.api});
+  const AccountScreen({super.key, required this.api, this.toLocalTime});
   final ApiClient api;
+
+  /// Optional conversion seam for deterministic timezone rendering tests.
+  final DateTime Function(DateTime)? toLocalTime;
   @override
   State<AccountScreen> createState() => _AccountScreenState();
 }
@@ -27,6 +30,68 @@ class _AccountScreenState extends State<AccountScreen> {
   final newPasswordFocus = FocusNode(debugLabel: 'account new password');
   final changePasswordFocus = FocusNode(debugLabel: 'change account password');
   bool busy = false;
+  bool showCurrent = false,
+      showNext = false,
+      allowExit = false,
+      confirmingExit = false;
+  bool get dirty =>
+      name.text.trim() != (widget.api.user?.name ?? '') ||
+      current.text.isNotEmpty ||
+      next.text.isNotEmpty;
+  @override
+  void initState() {
+    super.initState();
+    name.addListener(draftChanged);
+    current.addListener(draftChanged);
+    next.addListener(draftChanged);
+  }
+
+  void draftChanged() {
+    if (mounted) setState(() {});
+  }
+
+  Future<void> requestClose() async {
+    if (busy || confirmingExit) return;
+    if (dirty) {
+      confirmingExit = true;
+      final discard = await showDialog<bool>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Discard account changes?'),
+          content: const Text(
+            'Unsaved profile changes will be lost. Password drafts are discarded when you leave and are never stored for recovery.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Continue editing'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('Discard and leave'),
+            ),
+          ],
+        ),
+      );
+      confirmingExit = false;
+      if (discard != true || !mounted) return;
+    }
+    setState(() => allowExit = true);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) Navigator.pop(context);
+    });
+  }
+
+  String sessionTime(dynamic value) {
+    final parsed = DateTime.tryParse(value.toString());
+    if (parsed == null) return 'Unknown time';
+    final time = widget.toLocalTime?.call(parsed) ?? parsed.toLocal();
+    final localizations = MaterialLocalizations.of(context);
+    final offset = time.timeZoneOffset;
+    final minutes = offset.inMinutes.abs();
+    return '${localizations.formatMediumDate(time)} ${localizations.formatTimeOfDay(TimeOfDay.fromDateTime(time))} (UTC${offset.isNegative ? "-" : "+"}${(minutes ~/ 60).toString().padLeft(2, "0")}:${(minutes % 60).toString().padLeft(2, "0")})';
+  }
+
   String? error;
   late Future<Map<String, dynamic>> sessions = widget.api.request(
     'GET',
@@ -148,10 +213,14 @@ class _AccountScreenState extends State<AccountScreen> {
 
   @override
   Widget build(BuildContext context) => PopScope(
-    canPop: !busy,
+    canPop: widget.api.user == null || allowExit || (!busy && !dirty),
+    onPopInvokedWithResult: (didPop, _) {
+      if (!didPop) requestClose();
+    },
     child: Scaffold(
       appBar: AppBar(title: const Text('Account settings')),
-      body: Center(
+      body: Align(
+        alignment: Alignment.topCenter,
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 800),
           child: SingleChildScrollView(
@@ -273,14 +342,27 @@ class _AccountScreenState extends State<AccountScreen> {
                                     controller: current,
                                     focusNode: currentPasswordFocus,
                                     enabled: !busy,
-                                    obscureText: true,
+                                    obscureText: !showCurrent,
                                     enableSuggestions: false,
                                     autocorrect: false,
                                     autofillHints: const [
                                       AutofillHints.password,
                                     ],
                                     textInputAction: TextInputAction.next,
-                                    decoration: const InputDecoration(
+                                    decoration: InputDecoration(
+                                      suffixIcon: IconButton(
+                                        tooltip: showCurrent
+                                            ? 'Hide current password'
+                                            : 'Show current password',
+                                        onPressed: () => setState(
+                                          () => showCurrent = !showCurrent,
+                                        ),
+                                        icon: Icon(
+                                          showCurrent
+                                              ? Icons.visibility_off
+                                              : Icons.visibility,
+                                        ),
+                                      ),
                                       labelText: 'Current password',
                                     ),
                                     onFieldSubmitted: (_) =>
@@ -298,14 +380,27 @@ class _AccountScreenState extends State<AccountScreen> {
                                     controller: next,
                                     focusNode: newPasswordFocus,
                                     enabled: !busy,
-                                    obscureText: true,
+                                    obscureText: !showNext,
                                     enableSuggestions: false,
                                     autocorrect: false,
                                     autofillHints: const [
                                       AutofillHints.newPassword,
                                     ],
                                     textInputAction: TextInputAction.done,
-                                    decoration: const InputDecoration(
+                                    decoration: InputDecoration(
+                                      suffixIcon: IconButton(
+                                        tooltip: showNext
+                                            ? 'Hide new password'
+                                            : 'Show new password',
+                                        onPressed: () => setState(
+                                          () => showNext = !showNext,
+                                        ),
+                                        icon: Icon(
+                                          showNext
+                                              ? Icons.visibility_off
+                                              : Icons.visibility,
+                                        ),
+                                      ),
                                       labelText: 'New password',
                                       helperText: '12-128 characters. Changing it signs out all sessions.',
                                     ),
@@ -382,7 +477,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                           : 'Another session',
                                     ),
                                     subtitle: Text(
-                                      'Started: ${s['createdAt']}\nExpires: ${s['expiresAt']}',
+                                      'Started: ${sessionTime(s['createdAt'])}\nExpires: ${sessionTime(s['expiresAt'])}',
                                     ),
                                     isThreeLine: true,
                                     trailing: s['current'] == true

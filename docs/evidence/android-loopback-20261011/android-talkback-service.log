@@ -1,0 +1,58 @@
+ACCESSIBILITY MANAGER (dumpsys accessibility)
+
+currentUserId=0
+hasMagnificationConnection=true
+Magnifier on display#0
+    MagnificationConfig[mode: 1, activated: false, scale: 1.0, centerX: 540.0, centerY: 1168.5] 
+    Magnification region=SkRegion((0,0,1080,2337))
+    IdOfLastServiceToMagnify=-1
+    SupportWindowMagnification=true
+    WindowMagnificationConnectionState=CONNECTED
+User state[
+     attributes:{id=0, touchExplorationEnabled=true, serviceHandlesDoubleTap=true, requestMultiFingerGestures=true, requestTwoFingerPassthrough=true, sendMotionEventsEnabledfalse, displayMagnificationEnabled=false, autoclickEnabled=false, nonInteractiveUiTimeout=0, interactiveUiTimeout=10000, installedServiceCount=5, magnificationModes={0=1}, magnificationCapabilities=3, audioDescriptionByDefaultEnabled=false, magnificationFollowTypingEnabled=true, alwaysOnMagnificationEnabled=true}
+     button mode: 1
+     shortcut key:{}
+     button:{}
+     button target:{null}
+     gesture:{}
+     qs shortcut targets:{}
+     a11y tiles in QS panel:{}
+     Bound services:{Service[label=TalkBack, feedbackType[FEEDBACK_SPOKEN, FEEDBACK_HAPTIC, FEEDBACK_AUDIBLE], capabilities=251, eventTypes=TYPES_ALL_MASK, notificationTimeout=0, requestA11yBtn=false]}
+     Enabled services:{{com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService}}
+     Binding services:{}
+     Crashed services:{}
+     Client list info:{
+          Client list callbacks: 12
+          Client list killed: false
+          Client list broadcasts count: -1
+          Registered clients:{
+[com.google.android.apps.nexuslauncher][com.google.android.googlequicksearchbox][com.google.android.apps.messaging][com.google.android.deskclock][com.google.android.marvin.talkback][com.google.android.as][com.google.android.apps.wellbeing][com.google.android.tts][com.google.android.inputmethod.latin][com.google.android.googlequicksearchbox][com.google.android.apps.photos][com.taskflow.taskflow_qa_lab]}]
+Global Info [ Top focused display Id = 0
+     Active Window Id = 21
+     Top Focused Window Id = 21
+     Accessibility Focused Window Id = 21 ]
+
+Display[0] : 
+A11yWindow[AccessibilityWindowInfo[title=null, displayId=0, id=19, taskId=-1, type=TYPE_SYSTEM, layer=1, region=SkRegion((0,0,1080,128)), bounds=Rect(0, 0 - 1080, 128), focused=false, active=false, pictureInPicture=false, transitionTime=7011739, hasParent=false, isAnchored=false, hasChildren=false]]
+WindowInfo[WindowInfo[title=null, displayId=0, taskId=-1, type=2000, layer=0, token=android.os.BinderProxy@6888c3e, region=SkRegion((0,0,1080,128)), bounds=Rect(0, 0 - 1080, 128), parent=null, focused=false, children=null, accessibility anchor=9223372034707292159, pictureInPicture=false, watchOutsideTouch=false, mTransformMatrix=Matrix{[1.0, 0.0, 0.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]}, mMagnificationSpec=<scale:1.0,offsetX:0.0,offsetY:0.0>, locales=[en_US]]]
+,
+A11yWindow[AccessibilityWindowInfo[title=Allow Android Accessibility Suite to send you notifications?, displayId=0, id=21, taskId=9, type=TYPE_APPLICATION, layer=0, region=SkRegion((28,817,1052,1648)), bounds=Rect(28, 817 - 1052, 1648), focused=true, active=true, pictureInPicture=false, transitionTime=7018127, hasParent=false, isAnchored=false, hasChildren=false]]
+WindowInfo[WindowInfo[title=Allow Android Accessibility Suite to send you notifications?, displayId=0, taskId=9, type=1, layer=1, token=android.os.BinderProxy@f13d848, region=SkRegion((28,817,1052,1648)), bounds=Rect(28, 817 - 1052, 1648), parent=null, focused=true, children=null, accessibility anchor=9223372034707292159, pictureInPicture=false, watchOutsideTouch=false, mTransformMatrix=Matrix{[1.0, 0.0, 28.0][0.0, 1.0, 817.0][0.0, 0.0, 1.0]}, mMagnificationSpec=<scale:1.0,offsetX:0.0,offsetY:0.0>, locales=[en_US]]]
+
+
+Window attributes:[{10=AccessibilityWindowAttributes{mAccessibilityWindowTitle=TaskFlowmLocales=[en_US]}, 11=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 12=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 13=AccessibilityWindowAttributes{mAccessibilityWindowTitle=HomemLocales=[en_US]}, 14=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 15=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 16=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 17=AccessibilityWindowAttributes{mAccessibilityWindowTitle=Navigation barmLocales=[en_US]}, 18=AccessibilityWindowAttributes{mAccessibilityWindowTitle=Navigation bar Edge PanelmLocales=[en_US]}, 19=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 20=AccessibilityWindowAttributes{mAccessibilityWindowTitle=Android Accessibility SuitemLocales=[en_US]}, 21=AccessibilityWindowAttributes{mAccessibilityWindowTitle=Allow Android Accessibility Suite to send you notifications?mLocales=[en_US]}}]
+A11yInputFilter Info : 
+Enabled features of Display [0] = [MagnificationKeyHandler,KeyboardInterceptor,MotionEventInjector,MagnificationGesture,TouchExplorer]
+Global client list info:{
+    Client list callbacks: 9
+    Client list killed: false
+    Client list broadcasts count: -1
+    Registered clients:{
+[com.android.inputdevices, com.android.providers.settings, com.android.settings, com.android.keychain, com.android.server.telecom, com.android.DeviceAsWebcam, com.android.dynsystem, android, com.android.emulator.multidisplay, com.android.localtransport, com.android.location.fused][com.google.android.permissioncontroller][com.google.android.documentsui][com.google.android.gms][com.android.emulator.multidisplay, com.android.settings, android, com.android.providers.settings, com.android.dynsystem, com.android.inputdevices, com.android.keychain, com.android.location.fused, com.android.localtransport, com.android.DeviceAsWebcam, com.android.server.telecom][com.google.android.settings.intelligence][com.google.android.gms][com.android.systemui][com.google.android.googlesdksetup]
+
+Proxy manager state:
+    Number of proxy connections: 0
+    Registered proxy connections:
+Accessibility Display Listener:
+    SystemUI uid: 10182
+    1 valid display: 0

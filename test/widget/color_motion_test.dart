@@ -150,19 +150,8 @@ void main() {
       await tester.pumpWidget(frame(2));
       await tester.pumpAndSettle();
       await tester.pumpWidget(frame(5));
-      final progress = tester.widgetList<TweenAnimationBuilder<double>>(
-        find.byType(TweenAnimationBuilder<double>),
-      );
-      expect(progress, isNotEmpty);
-      if (reduced) {
-        expect(
-          progress.every((widget) => widget.duration == Duration.zero),
-          isTrue,
-        );
-      }
       await tester.pumpAndSettle();
-      expect(find.text('5/8 completed'), findsOneWidget);
-      expect(find.text('3 to focus on'), findsOneWidget);
+      expect(find.text('8 tasks · 3 pending · 5 completed'), findsOneWidget);
       expect(tester.binding.hasScheduledFrame, isFalse);
       expect(tester.takeException(), isNull);
     });

@@ -32,7 +32,10 @@ void main() {
       expect(find.text('Read the test guide'), findsOneWidget);
       await tester.tap(find.byType(CheckboxListTile));
       await tester.pumpAndSettle();
-      expect(find.text('Completed'), findsOneWidget);
+      expect(
+        find.widgetWithText(CheckboxListTile, 'Completed'),
+        findsOneWidget,
+      );
       expect(tester.takeException(), isNull);
     });
   }
@@ -41,10 +44,10 @@ void main() {
       TaskFlowApp(repository: InMemoryTaskRepository()..failNext = true),
     );
     await tester.pumpAndSettle();
-    expect(find.text('Retry'), findsOneWidget);
-    await tester.ensureVisible(find.text('Retry'));
+    expect(find.text('Reload tasks'), findsOneWidget);
+    await tester.ensureVisible(find.text('Reload tasks'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Retry'));
+    await tester.tap(find.text('Reload tasks'));
     await tester.pumpAndSettle();
     expect(
       find.text('No tasks yet. Add your first task above.'),

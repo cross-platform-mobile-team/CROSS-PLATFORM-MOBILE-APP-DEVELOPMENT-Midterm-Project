@@ -9,15 +9,19 @@ class QuickTaskInput extends StatefulWidget {
   const QuickTaskInput({
     super.key,
     required this.formKey,
+    required this.titleFocus,
     required this.title,
     required this.busy,
+    this.adding = false,
     required this.onSubmit,
     required this.onDetailsChanged,
     required this.onDirtyChanged,
   });
   final GlobalKey<FormState> formKey;
+  final FocusNode titleFocus;
   final TextEditingController title;
   final bool busy;
+  final bool adding;
   final VoidCallback onSubmit;
   final ValueChanged<TaskDetails> onDetailsChanged;
   final ValueChanged<bool> onDirtyChanged;
@@ -28,7 +32,7 @@ class QuickTaskInput extends StatefulWidget {
 class _QuickTaskInputState extends State<QuickTaskInput> {
   final fields = GlobalKey<TaskDetailsFieldsState>();
   final expansion = ExpansibleController();
-  final titleFocus = FocusNode();
+  FocusNode get titleFocus => widget.titleFocus;
   TaskDetails details = TaskDetails();
 
   void submit() {
@@ -56,13 +60,12 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
   @override
   void dispose() {
     expansion.dispose();
-    titleFocus.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) => MotionSurface(
-    padding: const EdgeInsets.all(20),
+    padding: const EdgeInsets.all(12),
     tint: const Color(0xFFFFFEFF),
     child: Form(
       key: widget.formKey,
@@ -85,7 +88,6 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   contentPadding: EdgeInsets.symmetric(vertical: 12),
-                  helperText: 'Press Enter to add',
                 ),
                 onFieldSubmitted: (_) => submit(),
               );
@@ -93,6 +95,50 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
                 spacing: 8,
                 runSpacing: 8,
                 crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  FilledButton.icon(
+                    style: FilledButton.styleFrom(shape: const StadiumBorder()),
+                    onPressed: widget.busy ? null : submit,
+                    icon: const Icon(Icons.add, size: 18),
+                    label: Text(widget.adding ? 'Adding…' : 'Add task'),
+                  ),
+                ],
+              );
+              if (constraints.maxWidth >= 300 &&
+                  MediaQuery.textScalerOf(context).scale(14) <= 20) {
+                return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(child: input),
+                    const SizedBox(width: 8),
+                    actions,
+                  ],
+                );
+              }
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [input, const SizedBox(height: 12), actions],
+              );
+            },
+          ),
+          Wrap(
+            spacing: 8,
+            children: [
+              if (details.priority != TaskPriority.medium)
+                Text('Priority: ${details.priority.name}'),
+              if (details.dueDate != null)
+                Text('Due: ${TaskDetails.dateLabel(details.dueDate!)}'),
+            ],
+          ),
+          ExpansionTile(
+            key: ObjectKey(fields),
+            controller: expansion,
+            title: const Text('Task details (optional)'),
+            maintainState: true,
+            tilePadding: EdgeInsets.zero,
+            childrenPadding: const EdgeInsets.only(top: 12, bottom: 8),
+            children: [
+              Wrap(
                 children: [
                   IconButton.outlined(
                     tooltip: 'Choose due date',
@@ -116,44 +162,8 @@ class _QuickTaskInputState extends State<QuickTaskInput> {
                         )
                         .toList(),
                   ),
-                  FilledButton.icon(
-                    style: FilledButton.styleFrom(shape: const StadiumBorder()),
-                    onPressed: widget.busy ? null : submit,
-                    icon: const Icon(Icons.add, size: 18),
-                    label: const Text('Add task'),
-                  ),
-                  if (details.priority != TaskPriority.medium)
-                    Text('Priority: ${details.priority.name}'),
-                  if (details.dueDate != null)
-                    Text('Due: ${TaskDetails.dateLabel(details.dueDate!)}'),
                 ],
-              );
-              if (constraints.maxWidth >= 700 &&
-                  MediaQuery.textScalerOf(context).scale(14) <= 20) {
-                return Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(child: input),
-                    const SizedBox(width: 20),
-                    Flexible(child: actions),
-                  ],
-                );
-              }
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [input, const SizedBox(height: 12), actions],
-              );
-            },
-          ),
-          const SizedBox(height: 8),
-          ExpansionTile(
-            key: ObjectKey(fields),
-            controller: expansion,
-            title: const Text('Task details (optional)'),
-            maintainState: true,
-            tilePadding: EdgeInsets.zero,
-            childrenPadding: const EdgeInsets.only(top: 12, bottom: 8),
-            children: [
+              ),
               TaskDetailsFields(
                 key: fields,
                 initial: TaskDetails(),

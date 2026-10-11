@@ -27,8 +27,8 @@ void main() {
       tester.widget<TextFormField>(title).controller!.text,
       'Keep this draft',
     );
-    await tester.ensureVisible(find.text('Retry'));
-    await tester.tap(find.text('Retry'));
+    await tester.ensureVisible(find.text('Reload tasks'));
+    await tester.tap(find.text('Reload tasks'));
     await tester.pumpAndSettle();
     expect(find.text('Original record'), findsOneWidget);
     expect(

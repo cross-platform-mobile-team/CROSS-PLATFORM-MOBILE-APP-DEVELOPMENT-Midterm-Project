@@ -1,0 +1,16 @@
+00:00 +0: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/windows_workflow_test.dart
+Running Gradle task 'assembleDebug'...                          
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Running Gradle task 'assembleDebug'...                             30.0s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        1,354ms
+00:00 +0 -1: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/windows_workflow_test.dart [E]
+  Failed to load "C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/windows_workflow_test.dart": Failed to start Dart Development Service
+  
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/windows_workflow_test.dart: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/windows_workflow_test.dart
+adb uninstall failed: ProcessException: Process exited abnormally with exit code 1:
+adb.exe: device offline
+  Command: C:\Android\sdk\platform-tools\adb.exe -s emulator-5554 uninstall com.taskflow.taskflow_qa_lab

@@ -130,3 +130,7 @@ workflow executions on an Android 16/API 36 emulator.
 | User-authorized backend | Account/session/task API, SQLite, Flutter online/offline gateway | API/client/widget/native tests and Edge online/re-login evidence | Public deployment/hardening and email verification are not claimed |
 | CI execution | Pinned Windows quality, Android APK and API 36 emulator jobs in `.github/workflows/quality.yml` | Run #2 PASS; both APKs and checksum file uploaded | Re-run on later source changes; clean-machine/manual evidence |
 | Android native | SDK/NDK/JDK plus local API 36 AVD; 9 offline/controlled scenarios in CI | Hosted API 36 build/E2E PASS | Manual APK install/launch, physical device, online mode and production signing |
+
+## UI/UX audit follow-up, 11 October 2026
+
+Responsive/accessible discovery, form preservation and error recovery map to [the audit implementation matrix](uiux-audit-implementation-20261011.md). This is engineering evidence, not a new rubric score or submission-readiness claim.

@@ -4,7 +4,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:taskflow_qa_lab/app/app.dart';
 import 'package:taskflow_qa_lab/features/tasks/data/in_memory_task_repository.dart';
 import 'package:taskflow_qa_lab/features/tasks/domain/task_details.dart';
-import 'package:taskflow_qa_lab/features/tasks/domain/task_filters.dart';
 
 import '../support/visual_fixture.dart';
 import '../support/metadata_workflow.dart';
@@ -17,22 +16,20 @@ void main() {
     final repository = InMemoryTaskRepository(seed: visualTasks());
     await tester.pumpWidget(TaskFlowApp(repository: repository));
     await tester.pumpAndSettle();
-    expect(find.text('1/2 completed'), findsOneWidget);
-    await tapVisible(tester, find.byTooltip('Sort tasks'));
-    await tapVisible(
-      tester,
-      find.widgetWithText(CheckedPopupMenuItem<TaskSort>, 'Title A–Z'),
-    );
+    expect(find.text('2 tasks · 1 pending · 1 completed'), findsOneWidget);
+    await tapVisible(tester, find.text('Filter and sort'));
+    await tapVisible(tester, find.byKey(const Key('filter-sort')));
+    await tapVisible(tester, find.text('Title A–Z').last);
+    await tapVisible(tester, find.text('Apply'));
     final rows = tester
         .widgetList<CheckboxListTile>(find.byType(CheckboxListTile))
         .toList();
     expect((rows.first.title! as Text).data, 'Prepare sample data');
     await tapVisible(tester, find.widgetWithText(ListTile, 'To do'));
-    await tapVisible(tester, find.byTooltip('Sort tasks'));
-    await tapVisible(
-      tester,
-      find.widgetWithText(CheckedPopupMenuItem<TaskSort>, 'Priority'),
-    );
+    await tapVisible(tester, find.text('Filter and sort'));
+    await tapVisible(tester, find.byKey(const Key('filter-sort')));
+    await tapVisible(tester, find.text('Priority').last);
+    await tapVisible(tester, find.text('Apply'));
     expect(find.byType(CheckboxListTile), findsOneWidget);
     expect(
       find.widgetWithText(CheckboxListTile, 'Review the testing plan'),
@@ -70,6 +67,7 @@ void main() {
     final repository = InMemoryTaskRepository();
     await tester.pumpWidget(TaskFlowApp(repository: repository));
     await tester.pumpAndSettle();
+    await tapVisible(tester, find.text('Task details (optional)'));
     await tapVisible(tester, find.byTooltip('Quick priority'));
     await tapVisible(tester, find.text('high').last);
     await tapVisible(tester, find.byTooltip('Choose due date'));

@@ -1,0 +1,9 @@
+00:00 +0: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/pending_capture_test.dart
+Building Windows application...                                    25.4s
+√ Built build\windows\x64\runner\Debug\taskflow_qa_lab.exe
+00:00 +0: pending capture preserves newer title at 390.0 fail=false
+00:02 +1: pending capture preserves newer title at 390.0 fail=true
+00:04 +2: pending capture preserves newer title at 1280.0 fail=false
+00:05 +3: pending capture preserves newer title at 1280.0 fail=true
+00:06 +4: (tearDownAll)
+00:06 +4: All tests passed!

@@ -1,0 +1,31 @@
+Running Gradle task 'assembleDebug'...                          
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Running Gradle task 'assembleDebug'...                             24.8s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        1,158ms
+D/FlutterJNI( 5584): Sending viewport metrics to the engine.
+I/taskflow_qa_lab( 5584): Compiler allocated 5042KB to compile void android.view.ViewRootImpl.performTraversals()
+I/Choreographer( 5584): Skipped 65 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl( 5584): Register WindowLayoutInfoListener on Context=com.taskflow.taskflow_qa_lab.MainActivity@ca0b083, of which baseContext=android.app.ContextImpl@4fc7e2c
+D/FlutterJNI( 5584): Sending viewport metrics to the engine.
+D/ProfileInstaller( 5584): Installing profile for com.taskflow.taskflow_qa_lab
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:56411/nC0YR_SbtB8=/
+VMServiceFlutterDriver: Isolate found with number: 6319720175297031
+VMServiceFlutterDriver: Isolate 6319720175297031 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/flutter ( 5584): 00:00 +0: offline draft exit decisions preserve persisted tasks
+VMServiceFlutterDriver: Connected to Flutter application.
+I/Choreographer( 5584): Skipped 31 frames!  The application may be doing too much work on its main thread.
+I/Choreographer( 5584): Skipped 102 frames!  The application may be doing too much work on its main thread.
+I/HWUI    ( 5584): Davey! duration=2082ms; Flags=1, FrameTimelineVsyncId=41021, IntendedVsync=394920900879, Vsync=396620900811, InputEventId=0, HandleInputStart=396625676232, AnimationStart=396625677931, PerformTraversalsStart=396625678555, DrawStart=396631152476, FrameDeadline=394937567545, FrameStartTime=396624473974, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=396634089969, SyncStart=396634878947, IssueDrawCommandsStart=396635462171, SwapBuffers=396653938475, FrameCompleted=397004144214, DequeueBufferDuration=5997729, QueueBufferDuration=1218020, GpuCompleted=396997563564, SwapBuffersCompleted=397004144214, DisplayPresentTime=929, CommandSubmissionCompleted=396653938475, 
+I/taskflow_qa_lab( 5584): AssetManager2(0x79ec6c436f98) locale list changing from [] to [en-US]
+I/Choreographer( 5584): Skipped 70 frames!  The application may be doing too much work on its main thread.
+D/FlutterJNI( 5584): Sending viewport metrics to the engine.
+D/InsetsController( 5584): hide(ime(), fromIme=false)
+I/ImeTracker( 5584): com.taskflow.taskflow_qa_lab:e21aed27: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+W/WindowOnBackDispatcher( 5584): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@38057f9
+W/WindowOnBackDispatcher( 5584): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@38057f9
+I/flutter ( 5584): 00:12 +1: (tearDownAll)
+I/flutter ( 5584): 00:12 +2: All tests passed!
+All tests passed.

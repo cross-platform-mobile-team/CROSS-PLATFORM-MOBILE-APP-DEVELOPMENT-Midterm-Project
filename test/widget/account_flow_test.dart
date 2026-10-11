@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/testing.dart';
 import 'package:taskflow_qa_lab/app/app.dart';
@@ -37,10 +38,13 @@ void main() {
       );
       await tester.tap(find.text('Create account'));
       await tester.pumpAndSettle();
+      await tester.ensureVisible(find.byKey(const Key('account-submit')));
+      await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('account-submit')));
       await tester.pumpAndSettle();
       expect(registrations, 0);
       expect(find.text('Enter a valid email.'), findsOneWidget);
+      expect(find.text('Confirm your password.'), findsOneWidget);
       await tester.enterText(find.byKey(const Key('account-name')), 'Alice');
       await tester.enterText(
         find.byKey(const Key('account-email')),
@@ -50,12 +54,46 @@ void main() {
         find.byKey(const Key('account-password')),
         'a-test-only-password',
       );
+      await tester.enterText(
+        find.byKey(const Key('account-confirm-password')),
+        'a-test-only-password ',
+      );
+      await tester.ensureVisible(find.byKey(const Key('account-submit')));
+      await tester.tap(find.byKey(const Key('account-submit')));
+      await tester.pumpAndSettle();
+      expect(registrations, 0);
+      expect(find.text('Passwords do not match.'), findsOneWidget);
+      await tester.enterText(
+        find.byKey(const Key('account-confirm-password')),
+        'a-test-only-password',
+      );
       await tester.ensureVisible(find.byKey(const Key('account-submit')));
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('account-submit')));
       await tester.pumpAndSettle();
       expect(find.text('Save your recovery code'), findsOneWidget);
       expect(find.text('test-recovery-code'), findsOneWidget);
+      String? clipboardText;
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        SystemChannels.platform,
+        (call) async {
+          if (call.method == 'Clipboard.setData') {
+            clipboardText = (call.arguments as Map)['text'] as String;
+          }
+          return null;
+        },
+      );
+      addTearDown(() {
+        tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          SystemChannels.platform,
+          null,
+        );
+      });
+      await tester.tap(find.byKey(const Key('copy-recovery-code')));
+      await tester.pumpAndSettle();
+      expect(clipboardText, 'test-recovery-code');
+      expect(find.text('Copied!'), findsOneWidget);
+      expect(find.text('Save your recovery code'), findsOneWidget);
       await tester.tap(find.text('I saved my recovery code'));
       await tester.pumpAndSettle();
       expect(

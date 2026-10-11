@@ -21,15 +21,22 @@ void main() {
     return gate;
   }
 
-  void expectLoading(WidgetTester tester) {
+  void expectLoading(WidgetTester tester, {bool adding = false}) {
     expect(find.byType(LinearProgressIndicator), findsOneWidget);
     expect(
       tester
           .widget<LinearProgressIndicator>(find.byType(LinearProgressIndicator))
           .semanticsLabel,
-      'Loading tasks',
+      adding ? 'Adding task' : 'Loading tasks',
     );
-    expect(tester.widget<FilledButton>(addButton()).onPressed, isNull);
+    expect(
+      tester
+          .widget<FilledButton>(
+            find.widgetWithText(FilledButton, adding ? 'Adding…' : 'Add task'),
+          )
+          .onPressed,
+      isNull,
+    );
     expect(find.text(emptyMessage), findsNothing);
   }
 
@@ -98,8 +105,9 @@ void main() {
     expect(find.text(emptyMessage), findsNothing);
 
     final retry = hold(repository);
-    await tester.ensureVisible(find.text('Retry'));
-    await tester.tap(find.text('Retry'));
+    await tester.ensureVisible(find.text('Reload tasks'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Reload tasks'));
     await tester.pump();
     expectLoading(tester);
     expect(find.text(errorMessage), findsNothing);
@@ -124,7 +132,7 @@ void main() {
     await tester.enterText(title, 'Save exactly once');
     await tester.tap(addButton());
     await tester.pump();
-    expectLoading(tester);
+    expectLoading(tester, adding: true);
     expect(find.byType(CheckboxListTile), findsNothing);
     expect(
       tester.widget<TextFormField>(title).controller!.text,
@@ -132,7 +140,7 @@ void main() {
     );
     await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pump();
-    expectLoading(tester);
+    expectLoading(tester, adding: true);
 
     gate.complete();
     await tester.pumpAndSettle();

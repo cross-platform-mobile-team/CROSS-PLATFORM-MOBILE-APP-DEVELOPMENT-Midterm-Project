@@ -1,0 +1,32 @@
+Running Gradle task 'assembleDebug'...                          
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Running Gradle task 'assembleDebug'...                             24.4s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        1,082ms
+I/WindowExtensionsImpl( 5133): Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+D/FlutterRenderer( 5133): Width is zero. 0,0
+D/FlutterJNI( 5133): Sending viewport metrics to the engine.
+I/taskflow_qa_lab( 5133): Compiler allocated 5042KB to compile void android.view.ViewRootImpl.performTraversals()
+I/Choreographer( 5133): Skipped 55 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl( 5133): Register WindowLayoutInfoListener on Context=com.taskflow.taskflow_qa_lab.MainActivity@ca0b083, of which baseContext=android.app.ContextImpl@4fc7e2c
+D/FlutterJNI( 5133): Sending viewport metrics to the engine.
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:51455/_fQyOZ3hiGo=/
+VMServiceFlutterDriver: Isolate found with number: 780986108501607
+VMServiceFlutterDriver: Isolate 780986108501607 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/flutter ( 5133): 00:00 +0: independent empty validation correction at width 390.0
+VMServiceFlutterDriver: Connected to Flutter application.
+I/Choreographer( 5133): Skipped 31 frames!  The application may be doing too much work on its main thread.
+D/ProfileInstaller( 5133): Installing profile for com.taskflow.taskflow_qa_lab
+I/Choreographer( 5133): Skipped 140 frames!  The application may be doing too much work on its main thread.
+I/taskflow_qa_lab( 5133): AssetManager2(0x79ec6c440ef8) locale list changing from [] to [en-US]
+D/FlutterJNI( 5133): Sending viewport metrics to the engine.
+D/InsetsController( 5133): hide(ime(), fromIme=false)
+I/ImeTracker( 5133): com.taskflow.taskflow_qa_lab:8dc16915: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+I/flutter ( 5133): 00:06 +1: independent empty validation correction at width 1100.0
+I/flutter ( 5133): 00:09 +2: independent seeded search AND filters and deterministic order
+I/flutter ( 5133): 00:17 +3: independent load and save failure recover without losing draft
+I/flutter ( 5133): 00:20 +4: (tearDownAll)
+I/flutter ( 5133): 00:20 +5: All tests passed!
+All tests passed.

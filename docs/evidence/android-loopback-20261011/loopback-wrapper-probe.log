@@ -1,0 +1,4 @@
+Picked up JAVA_TOOL_OPTIONS: -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Selector PASS: sun.nio.ch.WEPollSelectorImpl
+Pipe PASS
+Probe exit=0; environment restored=True

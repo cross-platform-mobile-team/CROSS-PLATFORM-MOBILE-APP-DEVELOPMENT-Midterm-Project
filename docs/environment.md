@@ -175,3 +175,9 @@ the host's vi-VN locale is overridden to en-US in visual fixtures.
 Color-studio continuation recheck: Windows 10.0.26200.9445; Flutter 3.47.1,
 Dart 3.13.1, VS Build Tools 17.14.39, Edge 152.0.4191.66, Chrome
 149.0.7827.201. Android SDK still absent. SDK remains outside PATH.
+
+## UI/UX implementation recheck, 11 October 2026
+
+Windows 11 10.0.26200.9457; Flutter 3.47.0 (4cf2416426), Dart 3.13.0, SDK at C:/Users/Nguyen Long/develop/flutter. VS Build Tools 2022 17.14.39. Android SDK C:/Android/sdk 36.0.0, license status unknown; no Android device connected. Windows, Chrome 155.0.8059.39 and Edge 155.0.4283.45 detected. No SDK installed or updated.
+
+2026-10-11 Android follow-up: Java 17 selector/pipe AF_UNIX connect fails on this Windows host. The process-scoped `scripts/with-java-tcp-fallback.ps1` enables the JDK TCP fallback and disables automatic SDK downloads; release APK build and 15 API 36 emulator native scenarios passed. AGP had already extracted Platform 36 revision 2 during an interrupted first attempt; no JDK/global networking change was made. See [details](android-loopback-fix-20261011.md).

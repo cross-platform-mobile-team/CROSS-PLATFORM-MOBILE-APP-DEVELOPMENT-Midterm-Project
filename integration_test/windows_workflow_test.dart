@@ -43,7 +43,13 @@ void main() {
     expect(find.text('Updated on Windows'), findsOneWidget);
     await tester.tap(find.byType(CheckboxListTile));
     await tester.pumpAndSettle();
-    expect(find.text('Completed'), findsOneWidget);
+    expect(
+      find.descendant(
+        of: find.byType(CheckboxListTile),
+        matching: find.text('Completed'),
+      ),
+      findsOneWidget,
+    );
 
     await tapVisible(tester, find.text('Delete'));
     await tester.pumpAndSettle();
@@ -65,7 +71,13 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.text('Updated on Windows'), findsOneWidget);
-    expect(find.text('Completed'), findsOneWidget);
+    expect(
+      find.descendant(
+        of: find.byType(CheckboxListTile),
+        matching: find.text('Completed'),
+      ),
+      findsOneWidget,
+    );
     expect(
       (await LocalTaskRepository(key: key).load()).single.completed,
       isTrue,

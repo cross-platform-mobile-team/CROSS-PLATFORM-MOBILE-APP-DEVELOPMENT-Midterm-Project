@@ -1,0 +1,45 @@
+Running Gradle task 'assembleRelease'...                        
+Picked up JAVA_TOOL_OPTIONS: -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Checking the license for package Android SDK Platform 36 in C:\Android\sdk\licenses
+License for package Android SDK Platform 36 accepted.
+Preparing "Install Android SDK Platform 36 (revision 2)".
+The message received from the daemon indicates that the daemon has disappeared.
+Build request sent: Build{id=6f37a9b7-b6c1-4469-993f-0a35a4b4f5c3, currentDir=C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\android}
+Attempting to read last messages from the daemon log...
+Daemon pid: 21160
+  log file: C:\Users\Nguyen Long\.gradle\daemon\9.3.1\daemon-21160.out.log
+----- Last 20 lines from daemon log file - daemon-21160.out.log -----
+2026-10-11T10:44:30.160+0700 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as busy, address: [579a99a5-82d4-4a42-b85d-4a1614ee2dcb port:51657, addresses:[localhost/127.0.0.1]]
+2026-10-11T10:44:30.160+0700 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [579a99a5-82d4-4a42-b85d-4a1614ee2dcb port:51657, addresses:[localhost/127.0.0.1]]
+2026-10-11T10:44:30.161+0700 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-10-11T10:44:30.161+0700 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-10-11T10:44:30.162+0700 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-10-11T10:44:30.163+0700 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2026-10-11T10:44:30.163+0700 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2026-10-11T10:44:30.164+0700 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=6f37a9b7-b6c1-4469-993f-0a35a4b4f5c3, currentDir=C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\android}. Dispatching build started information...
+2026-10-11T10:44:30.164+0700 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 32: dispatching org.gradle.launcher.daemon.protocol.BuildStarted@5030f93c
+2026-10-11T10:44:30.165+0700 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: [PATH, BROWSER_USE_ACCESS_VERIFYING_IDENTITY, POWERSHELL_EXECUTABLE, ALLUSERSPROFILE, GH_PAGER, PROGRAMFILES, COLORTERM, PSMODULEPATH, DIRNAME, USERNAME, CODEX_TASK_WORKSPACE_VERIFYING_IDENTITY, CMD_LINE_ARGS, EXIT_WITH_ERRORLEVEL, PATHEXT, PAGER, SNAPSHOT_PATH, CODEX_WINDOWS_SANDBOX_PACKAGE_FAMILY, HOMEPATH, LC_ALL, PROCESSOR_IDENTIFIER, DOKANLIBRARY2_LIBRARYPATH_X86, PUBLIC, ZSH_TMUX_AUTOSTARTED, LC_CTYPE, CACHE_DIR, CODEX_SESSION_ID, _SKIP, JAVA_HOME, FLUTTER_TOOLS_DIR, PROMPT, RUST_LOG, PROGRAMFILES(X86), TERM, =C:, APPDATA, CODEX_APPLY_PATCH_PRESERVE_LINE_ENDINGS, JAVA_TOOL_OPTIONS, JAVA_EXE, CODEX_THREAD_ID, RLSSVCPORT, DART, DISABLE_AUTO_UPDATE, COMPUTERNAME, APP_BASE_NAME, ZSH_TMUX_AUTOSTART, FLUTTER_ALREADY_LOCKED, HOMEDRIVE, DOKANLIBRARY2_LIBRARYPATH_X64, CODEX_TECTONIC_PATH, NUMBER_OF_PROCESSORS, USERDOMAIN_ROAMINGPROFILE, PROCESSOR_LEVEL, SYSTEMDRIVE, GIT_PAGER, CODEX_MCP_NODE_PATH, CODEX_SHELL, PROCESSOR_ARCHITECTURE, DRIVERDATA, CODEX_CLI_PATH, CODEX_APP_TOOLS_PIPE_PATH, NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S, PROGRAMDATA, CODEX_INTERNAL_ORIGINATOR_OVERRIDE, ONEDRIVE, APP_HOME, CODEX_SAGE_BACKFILL_TRACKER_TAB_REUSE, MINGIT_PATH, SHELL, ACSETUPSVCPORT, DOKANLIBRARY2, ONEDRIVECONSUMER, DASH__TOOL, GOPATH, CODEX_PERMISSION_PROFILE, SHARED_BIN, WINDIR, LOG_FORMAT, GRAPHVIZ, DASH__SUPPRESS_ANALYTICS, LOCALAPPDATA, COMMONPROGRAMFILES(X86), USERDOMAIN, DART_SDK_PATH, LOGONSERVER, FLUTTER_ROOT, ASL.LOG, LANG, PROGRAMW6432, SYSTEMROOT, NO_COLOR, CODEX_CI, OS, COMMONPROGRAMW6432, COMMONPROGRAMFILES, COMSPEC, PROCESSOR_REVISION, CLASSPATH, TEMP, USERPROFILE, TMP, CODEX_VERSION]
+2026-10-11T10:44:30.170+0700 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+2026-10-11T10:44:30.171+0700 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 21160). The daemon log file: C:\Users\Nguyen Long\.gradle\daemon\9.3.1\daemon-21160.out.log
+2026-10-11T10:44:30.171+0700 [INFO] [org.gradle.launcher.daemon.server.exec.LogAndCheckHealth] Starting build in new daemon [memory: 8 GiB]
+2026-10-11T10:44:30.177+0700 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+2026-10-11T10:44:30.177+0700 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=f8624264-21bd-4715-a526-e35834a1a4f4,javaHome=C:\Program Files\Eclipse Adoptium\jdk-17.0.20.101-hotspot,javaVersion=17,javaVendor=Eclipse Adoptium,daemonRegistryDir=C:\Users\Nguyen Long\.gradle\daemon,pid=21160,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=4G,-XX:ReservedCodeCacheSize=512m,-XX:+HeapDumpOnOutOfMemoryError,-Xmx8G,-Dfile.encoding=windows-1252,-Duser.country=US,-Duser.language=en,-Duser.variant]
+Checking the license for package Android SDK Platform 36 in C:\Android\sdk\licenses
+License for package Android SDK Platform 36 accepted.
+Preparing "Install Android SDK Platform 36 (revision 2)".
+"Install Android SDK Platform 36 (revision 2)" ready.
+Installing Android SDK Platform 36 in C:\Android\sdk\platforms\android-36----- End of the daemon log -----
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Gradle build daemon disappeared unexpectedly (it may have been killed or may have crashed)
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+Running Gradle task 'assembleRelease'...                          104.6s
+Gradle task assembleRelease failed with exit code 1

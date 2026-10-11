@@ -1,0 +1,6 @@
+00:00 +0: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/task_dialog_golden_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: filter dialog at text scale 1.0 (variant: TargetPlatform.android)
+00:01 +1: filter dialog at text scale 2.0 (variant: TargetPlatform.android)
+00:01 +2: (tearDownAll)
+00:01 +2: All tests passed!

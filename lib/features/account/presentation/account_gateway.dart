@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../core/network/api_client.dart';
 import '../../tasks/data/local_task_repository.dart';
@@ -65,7 +66,7 @@ class _AccountGatewayState extends State<AccountGateway> {
                 'Store this code privately. It can reset your password and is shown only once. A new recovery code replaces the old one after a reset.',
               ),
               const SizedBox(height: 16),
-              SelectableText(code, key: const Key('recovery-code')),
+              _RecoveryCodeBox(code: code),
             ],
           ),
         ),
@@ -154,6 +155,77 @@ class _AccountGatewayState extends State<AccountGateway> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _RecoveryCodeBox extends StatefulWidget {
+  const _RecoveryCodeBox({required this.code});
+
+  final String code;
+
+  @override
+  State<_RecoveryCodeBox> createState() => _RecoveryCodeBoxState();
+}
+
+class _RecoveryCodeBoxState extends State<_RecoveryCodeBox> {
+  bool copied = false;
+  bool copying = false;
+  String? error;
+
+  Future<void> copy() async {
+    setState(() {
+      copying = true;
+      error = null;
+    });
+    try {
+      await Clipboard.setData(ClipboardData(text: widget.code));
+      if (mounted) setState(() => copied = true);
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => error = 'Could not copy. Select and copy the code manually.',
+        );
+      }
+    } finally {
+      if (mounted) setState(() => copying = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerLow,
+        border: Border.all(color: theme.colorScheme.outlineVariant),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SelectableText(
+            widget.code,
+            key: const Key('recovery-code'),
+            style: theme.textTheme.bodyLarge?.copyWith(fontFamily: 'monospace'),
+          ),
+          const SizedBox(height: 12),
+          Align(
+            alignment: Alignment.centerRight,
+            child: OutlinedButton.icon(
+              key: const Key('copy-recovery-code'),
+              onPressed: copying ? null : copy,
+              icon: Icon(copied ? Icons.check : Icons.copy_rounded, size: 18),
+              label: Text(copied ? 'Copied!' : 'Copy'),
+            ),
+          ),
+          if (error != null)
+            Text(error!, style: TextStyle(color: theme.colorScheme.error)),
+        ],
+      ),
     );
   }
 }

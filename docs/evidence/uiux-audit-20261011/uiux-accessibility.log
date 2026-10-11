@@ -1,0 +1,82 @@
+Resolving dependencies...
+Downloading packages...
+  clock 1.1.2 (1.1.3 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  platform 3.1.6 (3.2.0 available)
+  shared_preferences 2.5.5 (2.5.6 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  test_api 0.7.12 (0.7.15 available)
+  vector_math 2.4.0 (2.4.3 available)
+  webdriver 3.1.0 (3.2.0 available)
+Got dependencies!
+10 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart
+00:00 +0: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: (setUpAll)
+00:00 +0: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:01 +1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:01 +2: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:02 +3: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:02 +4: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+
+Warning: A call to tap() with finder "Found 1 widget with widget matching predicate: [
+  RawTooltip-[LabeledGlobalKey<RawTooltipState>#3f248]("Exit sample sandbox", hover delay: 0:00:00.000000, touch delay: 0:00:01.500000, dismiss delay: 0:00:00.100000, triggerMode: TooltipTriggerMode.longPress, enableFeedback: true, positionDelegate: Closure: (TooltipPositionContext) => Offset from Function '_getDefaultPositionDelegate@671220820':., dependencies: [_ScrollableScope], state: RawTooltipState#c2ca3(ticker inactive)),
+]" derived an Offset (Offset(40.0, 1548.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: _RenderLayoutSurrogateProxyBox#749e0 relayoutBoundary=up8
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#64608@Offset(25.0, 6.0), RenderCustomPaint#fc9ba@Offset(25.0, 6.0), RenderPhysicalShape#719cc@Offset(25.0, 6.0), RenderPadding#a3467@Offset(40.0, 11.0), RenderPadding#4ea1b@Offset(40.0, 11.0), RenderPointerListener#28e15@Offset(40.0, 11.0), RenderSemanticsGestureHandler#da3c2@Offset(40.0, 11.0), RenderSemanticsAnnotations#23afc@Offset(40.0, 11.0), RenderPositionedBox#2a3fb@Offset(40.0, 11.0), RenderAnimatedOpacity#70f44@Offset(40.0, 11.0), RenderClipRect#1cef2@Offset(40.0, 11.0), RenderOffstage#fb429@Offset(40.0, 11.0), RenderConstrainedBox#1f623@Offset(40.0, 11.0), RenderCustomMultiChildLayoutBox#84348@Offset(40.0, 1548.0), _RenderInkFeatures#ade82@Offset(40.0, 1548.0), RenderPhysicalModel#47792@Offset(40.0, 1548.0), RenderSemanticsAnnotations#97d67@Offset(40.0, 1548.0), RenderSemanticsAnnotations#68d90@Offset(40.0, 1548.0), RenderSemanticsAnnotations#721bc@Offset(40.0, 1548.0), RenderRepaintBoundary#5933a@Offset(40.0, 1548.0), RenderIgnorePointer#3610d@Offset(40.0, 1548.0), RenderAnimatedOpacity#db665@Offset(40.0, 1548.0), RenderAnimatedOpacity#dce03@Offset(40.0, 1548.0), _RenderColoredBox#fda44@Offset(40.0, 1548.0), RenderAnimatedOpacity#760a7@Offset(40.0, 1548.0), RenderIgnorePointer#72d51@Offset(40.0, 1548.0), RenderAnimatedOpacity#588a6@Offset(40.0, 1548.0), RenderRepaintBoundary#845be@Offset(40.0, 1548.0), RenderSemanticsAnnotations#75799@Offset(40.0, 1548.0), RenderOffstage#624ac@Offset(40.0, 1548.0), RenderSemanticsAnnotations#bbcdb@Offset(40.0, 1548.0), _RenderTheater#22032@Offset(40.0, 1548.0), RenderAbsorbPointer#b75b5@Offset(40.0, 1548.0), RenderPointerListener#14c6b@Offset(40.0, 1548.0), RenderSemanticsAnnotations#db63e@Offset(40.0, 1548.0), RenderSemanticsAnnotations#e1c02@Offset(40.0, 1548.0), RenderSemanticsAnnotations#81ad6@Offset(40.0, 1548.0), RenderSemanticsAnnotations#87065@Offset(40.0, 1548.0), RenderTapRegionSurface#22859@Offset(40.0, 1548.0), RenderSemanticsAnnotations#4637c@Offset(40.0, 1548.0), RenderSemanticsAnnotations#8c14d@Offset(40.0, 1548.0), HitTestEntry<HitTestTarget>#b2e57(_ReusableRenderView#17c65), HitTestEntry<HitTestTarget>#005eb(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      tapVisible (file:///C:/CROSS-PLATFORM%20MOBILE%20APP%20DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/support/metadata_workflow.dart:7:16)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///C:/CROSS-PLATFORM%20MOBILE%20APP%20DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart:48:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      tapVisible (file:///C:/CROSS-PLATFORM%20MOBILE%20APP%20DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/support/metadata_workflow.dart:5:16)
+#4      main.<anonymous closure> (file:///C:/CROSS-PLATFORM%20MOBILE%20APP%20DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart:49:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  sample sandbox resets and never touches offline data or network
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +4 -1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: keyboard traverses from title and submits a task (variant: TargetPlatform.windows)
+00:02 +4 -1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network [E]
+  Test failed. See exception logs above.
+  The test description was: sample sandbox resets and never touches offline data or network
+  
+00:03 +5 -1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: keyboard traverses from title and submits a task (variant: TargetPlatform.windows)
+00:03 +6 -1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: account register invalid form accessibility guidelines (variant: TargetPlatform.android)
+00:03 +7 -1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: large text at phone width keeps controls usable
+00:03 +8 -1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: large text at phone width keeps controls usable
+00:04 +9 -1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: account keyboard focus moves email to password and submits (variant: TargetPlatform.windows)
+00:04 +10 -1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: account register remains usable at 200 percent text
+00:04 +11 -1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: (tearDownAll)
+00:04 +11 -1: Some tests failed.
+
+Failing tests:
+  C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network

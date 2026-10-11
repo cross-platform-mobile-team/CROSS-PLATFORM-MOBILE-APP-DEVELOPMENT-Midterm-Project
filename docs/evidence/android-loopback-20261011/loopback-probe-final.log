@@ -1,0 +1,3 @@
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Selector PASS: sun.nio.ch.WEPollSelectorImpl
+Pipe PASS

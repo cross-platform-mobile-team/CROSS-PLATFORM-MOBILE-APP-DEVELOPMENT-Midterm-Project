@@ -1,0 +1,7 @@
+00:00 +0: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart
+00:00 +0: online edit recovery: conflict
+00:02 +1: online edit recovery: timeout after commit
+00:03 +2: online edit recovery: deleted
+00:05 +3: online edit recovery: recreate timeout
+00:06 +4: online edit recovery: reload fails
+00:08 +5: All tests passed!

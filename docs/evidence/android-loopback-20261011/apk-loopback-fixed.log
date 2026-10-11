@@ -1,0 +1,31 @@
+Running Gradle task 'assembleRelease'...                        
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 7076 bytes (99.6% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+
+C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\android\app\src\main\java\io\flutter\plugins\GeneratedPluginRegistrant.java:19: error: package dev.flutter.plugins.integration_test does not exist
+      flutterEngine.getPlugins().add(new dev.flutter.plugins.integration_test.IntegrationTestPlugin());
+                                                                             ^
+1 error
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileReleaseJavaWithJavac'.
+> Compilation failed; see the compiler output below.
+  C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\android\app\src\main\java\io\flutter\plugins\GeneratedPluginRegistrant.java:19: error: package dev.flutter.plugins.integration_test does not exist
+        flutterEngine.getPlugins().add(new dev.flutter.plugins.integration_test.IntegrationTestPlugin());
+                                                                               ^
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 3m 35s
+Running Gradle task 'assembleRelease'...                          216.1s
+Gradle task assembleRelease failed with exit code 1

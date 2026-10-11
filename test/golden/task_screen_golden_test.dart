@@ -5,6 +5,8 @@ import 'package:taskflow_qa_lab/features/tasks/data/in_memory_task_repository.da
 
 import '../support/visual_fixture.dart';
 
+import 'package:taskflow_qa_lab/features/tasks/presentation/task_screen.dart';
+
 void main() {
   setUpAll(loadVisualFonts);
   for (final scenario in [
@@ -27,7 +29,14 @@ void main() {
       final repository = InMemoryTaskRepository(
         seed: scenario.endsWith('populated') ? visualTasks() : [],
       )..failNext = scenario.endsWith('error');
-      await tester.pumpWidget(TaskFlowApp(repository: repository));
+      await tester.pumpWidget(
+        TaskFlowApp(
+          home: TaskScreen(
+            repository: repository,
+            clock: () => DateTime(2026, 10, 10),
+          ),
+        ),
+      );
       await tester.pumpAndSettle();
       if (scenario.endsWith('validation')) {
         await tester.tap(find.text('Add task'));

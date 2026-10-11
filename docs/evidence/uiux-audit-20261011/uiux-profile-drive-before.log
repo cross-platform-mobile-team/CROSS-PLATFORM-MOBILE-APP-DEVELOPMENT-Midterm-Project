@@ -1,0 +1,86 @@
+Building Windows application...                                    84.8s
+√ Built build\windows\x64\runner\Profile\taskflow_qa_lab.exe
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:59098/swLBD5G5eP4=/
+VMServiceFlutterDriver: Isolate found with number: 3473552411705155
+VMServiceFlutterDriver: Isolate 3473552411705155 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+00:00 +0: profile isolated 100 tasks: search, filter, scroll
+VMServiceFlutterDriver: Connected to Flutter application.
+UIUX_PROFILE {"tasks":100,"phase":"search","viewport":"Instance of 'Size'","mode":"profile","metrics":{"average_frame_build_time_millis":32.198,"90th_percentile_frame_build_time_millis":24.303,"99th_percentile_frame_build_time_millis":260.208,"worst_frame_build_time_millis":260.208,"missed_frame_build_budget_count":3,"average_frame_rasterizer_time_millis":5.271,"90th_percentile_frame_rasterizer_time_millis":6.281,"99th_percentile_frame_rasterizer_time_millis":6.657,"worst_frame_rasterizer_time_millis":6.657,"average_layer_cache_count":0.0,"90th_percentile_layer_cache_count":0,"99th_percentile_layer_cache_count":0,"worst_layer_cache_count":0,"average_layer_cache_memory":0.0,"90th_percentile_layer_cache_memory":0.0,"99th_percentile_layer_cache_memory":0.0,"worst_layer_cache_memory":0.0,"average_picture_cache_count":0.0,"90th_percentile_picture_cache_count":0,"99th_percentile_picture_cache_count":0,"worst_picture_cache_count":0,"average_picture_cache_memory":0.0,"90th_percentile_picture_cache_memory":0.0,"99th_percentile_picture_cache_memory":0.0,"worst_picture_cache_memory":0.0,"missed_frame_rasterizer_budget_count":0,"frame_count":10,"frame_build_times":[19611,24303,2123,151,14732,298,148,260208,261,151],"frame_rasterizer_times":[6099,6657,5304,4445,6166,4060,3876,5534,4297,6281],"new_gen_gc_count":20,"old_gen_gc_count":8}}
+The finder "Found 0 widgets with type "ChoiceChip" that are ancestors of widgets with text "Completed": []" (used in a call to "tap()") could not find any matching widgets.
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/CROSS-PLATFORM%20MOBILE%20APP%20DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/uiux_performance_test.dart:69)
+<asynchronous suspension>
+#4      IntegrationTestWidgetsFlutterBinding.traceTimeline (package:integration_test/integration_test.dart:304)
+<asynchronous suspension>
+#5      IntegrationTestWidgetsFlutterBinding._runAndGetGCInfo (package:integration_test/integration_test.dart:371)
+<asynchronous suspension>
+#6      IntegrationTestWidgetsFlutterBinding.watchPerformance (package:integration_test/integration_test.dart:420)
+<asynchronous suspension>
+#7      main.<anonymous closure> (file:///C:/CROSS-PLATFORM%20MOBILE%20APP%20DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/uiux_performance_test.dart:54)
+<asynchronous suspension>
+#8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192)
+<asynchronous suspension>
+#9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953)
+<asynchronous suspension>
+#10     TestWidgetsFlutterBinding._createTestCompletionHandler.<anonymous closure> (package:flutter_test/src/binding.dart:1707)
+<asynchronous suspension>
+00:06 +0: profile isolated 100 tasks: search, filter, scroll [E]
+  Test failed. See exception logs above.
+  The test description was: profile isolated 100 tasks: search, filter, scroll
+
+00:06 +0 -1: profile isolated 500 tasks: search, filter, scroll
+UIUX_PROFILE {"tasks":500,"phase":"search","viewport":"Instance of 'Size'","mode":"profile","metrics":{"average_frame_build_time_millis":445.737,"90th_percentile_frame_build_time_millis":1112.547,"99th_percentile_frame_build_time_millis":3352.462,"worst_frame_build_time_millis":3352.462,"missed_frame_build_budget_count":5,"average_frame_rasterizer_time_millis":9.223,"90th_percentile_frame_rasterizer_time_millis":11.301,"99th_percentile_frame_rasterizer_time_millis":13.369,"worst_frame_rasterizer_time_millis":13.369,"average_layer_cache_count":0.0,"90th_percentile_layer_cache_count":0,"99th_percentile_layer_cache_count":0,"worst_layer_cache_count":0,"average_layer_cache_memory":0.0,"90th_percentile_layer_cache_memory":0.0,"99th_percentile_layer_cache_memory":0.0,"worst_layer_cache_memory":0.0,"average_picture_cache_count":0.0,"90th_percentile_picture_cache_count":0,"99th_percentile_picture_cache_count":0,"worst_picture_cache_count":0,"average_picture_cache_memory":0.0,"90th_percentile_picture_cache_memory":0.0,"99th_percentile_picture_cache_memory":0.0,"worst_picture_cache_memory":0.0,"missed_frame_rasterizer_budget_count":0,"frame_count":11,"frame_build_times":[111001,242190,322,219,83041,310,264,3352462,365,391,1112547],"frame_rasterizer_times":[10543,13369,10236,8982,8974,8534,5722,7380,8793,7626,11301],"new_gen_gc_count":98,"old_gen_gc_count":14}}
+The finder "Found 0 widgets with type "ChoiceChip" that are ancestors of widgets with text "Completed": []" (used in a call to "tap()") could not find any matching widgets.
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/CROSS-PLATFORM%20MOBILE%20APP%20DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/uiux_performance_test.dart:69)
+<asynchronous suspension>
+#4      IntegrationTestWidgetsFlutterBinding.traceTimeline (package:integration_test/integration_test.dart:304)
+<asynchronous suspension>
+#5      IntegrationTestWidgetsFlutterBinding._runAndGetGCInfo (package:integration_test/integration_test.dart:371)
+<asynchronous suspension>
+#6      IntegrationTestWidgetsFlutterBinding.watchPerformance (package:integration_test/integration_test.dart:420)
+<asynchronous suspension>
+#7      main.<anonymous closure> (file:///C:/CROSS-PLATFORM%20MOBILE%20APP%20DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/integration_test/uiux_performance_test.dart:54)
+<asynchronous suspension>
+#8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192)
+<asynchronous suspension>
+#9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953)
+<asynchronous suspension>
+#10     TestWidgetsFlutterBinding._createTestCompletionHandler.<anonymous closure> (package:flutter_test/src/binding.dart:1707)
+<asynchronous suspension>
+00:32 +0 -1: profile isolated 500 tasks: search, filter, scroll [E]
+  Test failed. See exception logs above.
+  The test description was: profile isolated 500 tasks: search, filter, scroll
+
+00:32 +0 -2: (tearDownAll)
+Warning: integration_test plugin was not detected.
+
+If you're running the tests with `flutter drive`, please make sure your tests
+are in the `integration_test/` directory of your package and use
+`flutter test $path_to_test` to run it instead.
+
+If you're running the tests with Android instrumentation or XCTest, this means
+that you are not capturing test results properly! See the following link for
+how to set up the integration_test plugin:
+
+https://docs.flutter.dev/testing/integration-tests
+
+00:32 +1 -2: Some tests failed.
+Failure Details:
+Failure in method: profile isolated 100 tasks: search, filter, scroll
+Instance of 'FlutterErrorDetails'
+end of failure 1
+
+
+Failure in method: profile isolated 500 tasks: search, filter, scroll
+Instance of 'FlutterErrorDetails'
+end of failure 2
+
+
+

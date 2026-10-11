@@ -1,0 +1,49 @@
+--------- beginning of main
+I/adbd    (  573): Remote process closed the socket (on MSG_PEEK)
+I/adbd    (  573): jdwp connection from 8661
+I/adbd    (  573): host-15: read thread spawning
+I/adbd    (  573): host-15: read failed: Success
+I/adbd    (  573): host-15: connection terminated: read failed
+I/adbd    (  573): host-15: write thread spawning
+I/adbd    (  573): BlockingConnectionAdapter(host-15): stopping
+I/adbd    (  573): BlockingConnectionAdapter(host-15): stopped
+I/adbd    (  573): BlockingConnectionAdapter(host-15): destructing
+I/adbd    (  573): BlockingConnectionAdapter(host-15): already stopped
+I/flutter ( 9054): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+D/AndroidRuntime( 9103): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+I/AndroidRuntime( 9103): Using default boot image
+I/AndroidRuntime( 9103): Leaving lock profiling enabled
+D/AndroidRuntime( 9103): Calling main entry com.android.commands.uiautomator.Launcher
+D/AndroidRuntime( 9103): Shutting down VM
+I/adbd    (  573): jdwp connection from 9247
+I/flutter ( 9247): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter ( 9247): The Dart VM service is listening on http://127.0.0.1:43163/zxZqKUevbxU=/
+W/adbd    (  573): timeout expired while reading data after flushing socket, closing
+I/adbd    (  573): Remote process closed the socket (on MSG_PEEK)
+I/adbd    (  573): jdwp connection from 9462
+I/flutter ( 9462): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter ( 9462): The Dart VM service is listening on http://127.0.0.1:41241/uf-eS9YPEbM=/
+I/adbd    (  573): host-29: connection terminated: write failed
+I/adbd    (  573): BlockingConnectionAdapter(host-29): stopping
+I/adbd    (  573): host-29: read failed: Success
+I/adbd    (  573): BlockingConnectionAdapter(host-29): stopped
+I/adbd    (  573): BlockingConnectionAdapter(host-29): destructing
+I/adbd    (  573): BlockingConnectionAdapter(host-29): already stopped
+W/adbd    (  573): timeout expired while reading data after flushing socket, closing
+I/adbd    (  573): host-24: write thread spawning
+I/adbd    (  573): host-24: read thread spawning
+I/adbd    (  573): authentication not required
+I/adbd    (  573): Remote process closed the socket (on MSG_PEEK)
+I/adbd    (  573): jdwp connection from 9585
+I/flutter ( 9585): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter ( 9585): The Dart VM service is listening on http://127.0.0.1:40913/h1jtGIcX_7Q=/
+W/adbd    (  573): timeout expired while reading data after flushing socket, closing
+I/adbd    (  573): host-24: connection terminated: write failed
+I/adbd    (  573): BlockingConnectionAdapter(host-24): stopping
+I/adbd    (  573): host-24: read failed: Success
+I/adbd    (  573): BlockingConnectionAdapter(host-24): stopped
+I/adbd    (  573): BlockingConnectionAdapter(host-24): destructing
+I/adbd    (  573): BlockingConnectionAdapter(host-24): already stopped
+I/adbd    (  573): host-29: read thread spawning
+I/adbd    (  573): host-29: write thread spawning
+I/adbd    (  573): authentication not required

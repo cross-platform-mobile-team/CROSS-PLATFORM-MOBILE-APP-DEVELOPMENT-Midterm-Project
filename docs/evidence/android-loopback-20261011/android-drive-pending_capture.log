@@ -1,0 +1,41 @@
+Running Gradle task 'assembleDebug'...                          
+Picked up JAVA_TOOL_OPTIONS: -Dorg.gradle.project.android.builder.sdkDownload=false -Djdk.net.unixdomain.tmpdir="C:\CROSS-PLATFORM MOBILE APP DEVELOPMENT\Midterm\CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project\build\java-tcp-fallback.marker"
+Running Gradle task 'assembleDebug'...                             24.5s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        1,026ms
+I/taskflow_qa_lab( 5345): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityNodeInfo;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported,test-api) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+I/taskflow_qa_lab( 5345): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+I/taskflow_qa_lab( 5345): hiddenapi: Accessing hidden field Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray; (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+I/taskflow_qa_lab( 5345): hiddenapi: Accessing hidden method Landroid/util/LongArray;->get(I)J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+D/AccessibilityBridge( 5345): Setting not found: accessibility_display_inversion_enabled, using default: 0
+D/FlutterRenderer( 5345): Width is zero. 0,0
+D/CompatChangeReporter( 5345): Compat change id reported: 377864165; UID 10219; state: ENABLED
+W/HWUI    ( 5345): Unknown dataspace 0
+I/Choreographer( 5345): Skipped 127 frames!  The application may be doing too much work on its main thread.
+I/WindowExtensionsImpl( 5345): Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+D/FlutterRenderer( 5345): Width is zero. 0,0
+D/FlutterJNI( 5345): Sending viewport metrics to the engine.
+I/taskflow_qa_lab( 5345): Compiler allocated 5042KB to compile void android.view.ViewRootImpl.performTraversals()
+I/Choreographer( 5345): Skipped 65 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl( 5345): Register WindowLayoutInfoListener on Context=com.taskflow.taskflow_qa_lab.MainActivity@ca0b083, of which baseContext=android.app.ContextImpl@4fc7e2c
+D/FlutterJNI( 5345): Sending viewport metrics to the engine.
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:59384/rjYqngHCm08=/
+VMServiceFlutterDriver: Isolate found with number: 3116909013777583
+VMServiceFlutterDriver: Isolate 3116909013777583 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/flutter ( 5345): 00:00 +0: pending capture preserves newer title at 390.0 fail=false
+VMServiceFlutterDriver: Connected to Flutter application.
+I/Choreographer( 5345): Skipped 35 frames!  The application may be doing too much work on its main thread.
+I/Choreographer( 5345): Skipped 132 frames!  The application may be doing too much work on its main thread.
+D/ProfileInstaller( 5345): Installing profile for com.taskflow.taskflow_qa_lab
+I/taskflow_qa_lab( 5345): AssetManager2(0x79ec6c43fc38) locale list changing from [] to [en-US]
+D/FlutterJNI( 5345): Sending viewport metrics to the engine.
+D/InsetsController( 5345): hide(ime(), fromIme=false)
+I/ImeTracker( 5345): com.taskflow.taskflow_qa_lab:d6405f86: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+I/flutter ( 5345): 00:06 +1: pending capture preserves newer title at 390.0 fail=true
+I/flutter ( 5345): 00:08 +2: pending capture preserves newer title at 1280.0 fail=false
+I/flutter ( 5345): 00:10 +3: pending capture preserves newer title at 1280.0 fail=true
+I/flutter ( 5345): 00:11 +4: (tearDownAll)
+I/flutter ( 5345): 00:11 +5: All tests passed!
+All tests passed.

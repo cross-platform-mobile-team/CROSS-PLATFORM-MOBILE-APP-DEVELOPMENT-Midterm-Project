@@ -756,3 +756,11 @@ accessibility review, controlled defect experiment and repeated-run analysis.
   experiment. Native rendering/storage are real; native IME itself is excluded.
 - Final format/analyze, Web release build and Windows release build PASS with
   Flutter 3.47.1. Local Windows ZIP refreshed; generated artifacts remain ignored.
+
+## 2026-10-11 UI/UX audit
+
+[Evidence index](uiux-audit-20261011/README.md): 133 Flutter cases, 17 API cases, 15 Windows native cases, reviewed goldens and eager/lazy Windows profile timings. APK build blocked by Java loopback error; current browser interaction, Android/iOS native and manual screen-reader checks are not claimed.
+
+## 2026-10-11 Android loopback follow-up
+
+[Diagnosis](../android-loopback-fix-20261011.md) and [evidence](android-loopback-20261011/README.md): release APK build/install/cold launch/process-restart persistence PASS; 15 Android native scenarios PASS using a direct VM driver. TalkBack basic focus compatibility checked; full manual speech/gesture verification, Narrator and iOS remain unverified. Original Java/Gradle and runner failures are retained.

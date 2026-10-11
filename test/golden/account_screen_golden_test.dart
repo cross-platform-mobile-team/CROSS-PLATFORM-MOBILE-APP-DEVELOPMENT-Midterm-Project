@@ -35,7 +35,11 @@ void main() {
       email: 'alice@example.test',
       password: 'test-only-password',
     );
-    await tester.pumpWidget(TaskFlowApp(home: AccountScreen(api: api)));
+    await tester.pumpWidget(
+      TaskFlowApp(
+        home: AccountScreen(api: api, toLocalTime: (date) => date.toUtc()),
+      ),
+    );
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
     await expectLater(

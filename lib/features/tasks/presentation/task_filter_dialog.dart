@@ -39,7 +39,7 @@ class _TaskFilterDialogState extends State<TaskFilterDialog> {
               items: TaskStatusFilter.values
                   .map(
                     (item) =>
-                        DropdownMenuItem(value: item, child: Text(item.name)),
+                        DropdownMenuItem(value: item, child: Text(item.label)),
                   )
                   .toList(),
               onChanged: (item) => status = item!,
@@ -70,7 +70,7 @@ class _TaskFilterDialogState extends State<TaskFilterDialog> {
               items: DueFilter.values
                   .map(
                     (item) =>
-                        DropdownMenuItem(value: item, child: Text(item.name)),
+                        DropdownMenuItem(value: item, child: Text(item.label)),
                   )
                   .toList(),
               onChanged: (item) => due = item!,
@@ -91,7 +91,7 @@ class _TaskFilterDialogState extends State<TaskFilterDialog> {
               items: TaskSort.values
                   .map(
                     (item) =>
-                        DropdownMenuItem(value: item, child: Text(item.name)),
+                        DropdownMenuItem(value: item, child: Text(item.label)),
                   )
                   .toList(),
               onChanged: (item) => sort = item!,

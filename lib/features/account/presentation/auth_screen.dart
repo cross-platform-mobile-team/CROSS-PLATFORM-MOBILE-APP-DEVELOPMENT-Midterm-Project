@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/theme/app_theme.dart';
+
 import '../../../core/theme/ui_components.dart';
 
 import '../../../core/errors/app_failure.dart';
@@ -28,17 +30,27 @@ class _AuthScreenState extends State<AuthScreen> {
   final form = GlobalKey<FormState>();
   final email = TextEditingController();
   final password = TextEditingController();
+  final confirmPassword = TextEditingController();
+  final confirmPasswordFocus = FocusNode();
   final name = TextEditingController();
   final recovery = TextEditingController();
   AuthMode mode = AuthMode.login;
   bool busy = false;
   bool visible = false;
+  bool confirmVisible = false;
   String? error;
   @override
   void dispose() {
-    for (final controller in [email, password, name, recovery]) {
+    for (final controller in [
+      email,
+      password,
+      confirmPassword,
+      name,
+      recovery,
+    ]) {
       controller.dispose();
     }
+    confirmPasswordFocus.dispose();
     super.dispose();
   }
 
@@ -47,6 +59,9 @@ class _AuthScreenState extends State<AuthScreen> {
       mode = next;
       error = null;
       password.clear();
+      confirmPassword.clear();
+      visible = false;
+      confirmVisible = false;
       recovery.clear();
       form.currentState?.reset();
     });
@@ -194,7 +209,16 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                   ),
                 ),
-                onFieldSubmitted: (_) => submit(),
+                textInputAction: mode == AuthMode.register
+                    ? TextInputAction.next
+                    : TextInputAction.done,
+                onFieldSubmitted: (_) {
+                  if (mode == AuthMode.register) {
+                    confirmPasswordFocus.requestFocus();
+                  } else {
+                    submit();
+                  }
+                },
                 validator: (v) =>
                     v == null ||
                         v.isEmpty ||
@@ -203,6 +227,49 @@ class _AuthScreenState extends State<AuthScreen> {
                     ? 'Enter ${mode == AuthMode.login ? 'your password' : '12-128 characters'}.'
                     : null,
               ),
+              if (mode == AuthMode.register) ...[
+                const SizedBox(height: 12),
+                TextFormField(
+                  key: const Key('account-confirm-password'),
+                  controller: confirmPassword,
+                  focusNode: confirmPasswordFocus,
+                  enabled: !busy,
+                  obscureText: !confirmVisible,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                  autofillHints: const [AutofillHints.newPassword],
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(
+                    labelText: 'Confirm password',
+                    prefixIcon: const Icon(Icons.lock_outline_rounded),
+                    suffixIcon: IconButton(
+                      tooltip: confirmVisible
+                          ? 'Hide confirm password'
+                          : 'Show confirm password',
+                      onPressed: busy
+                          ? null
+                          : () => setState(
+                              () => confirmVisible = !confirmVisible,
+                            ),
+                      icon: Icon(
+                        confirmVisible
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                      ),
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Confirm your password.';
+                    }
+                    if (value != password.text) {
+                      return 'Passwords do not match.';
+                    }
+                    return null;
+                  },
+                  onFieldSubmitted: (_) => submit(),
+                ),
+              ],
               const SizedBox(height: 16),
               if (error != null)
                 Semantics(
@@ -252,6 +319,13 @@ class _AuthScreenState extends State<AuthScreen> {
                 onPressed: busy ? null : widget.offline,
                 child: const Text('Use offline demo'),
               ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                child: Text(
+                  'Saved on this device. No account or upload.',
+                  style: TextStyle(color: AppTheme.ink),
+                ),
+              ),
               if (widget.samples != null) ...[
                 const SizedBox(height: 10),
                 OutlinedButton(
@@ -260,7 +334,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Sample changes are discarded on exit. Your saved tasks are untouched.',
+                  'Temporary sample; changes are discarded on exit. Your saved tasks are untouched.',
                 ),
               ],
             ],

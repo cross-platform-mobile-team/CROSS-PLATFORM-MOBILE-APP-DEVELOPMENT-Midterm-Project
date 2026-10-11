@@ -278,3 +278,11 @@ or adding waits. Root cause below the runner launch boundary remains unconfirmed
 | Success depends on an already-used browser profile | Three newly named non-persistent Edge sessions; two existing harness workflows each | Validation, discovery, retry and draft assertions pass independently of prior session | `scripts/test-edge-harness.ps1 -Sessions 3 -Repetitions 2` with explicit Flutter path |
 | A failing CLI invocation is hidden by a later pass | Synthetic sequence: pass, missing PASS marker, exit 7 despite marker, pass | All four records retained; runner throws after finishing | `scripts/tests/edge-runner-contract.ps1` |
 | Evidence overwritten or even-count summary incorrect | Reuse result directory; two successful synthetic runs | Reuse rejected with identical original hash; median is average of middle pair | Same synthetic contract test; not browser/application evidence |
+
+## UI/UX audit, 2026-10-11
+
+See [implementation and measured performance](uiux-audit-implementation-20261011.md) and [evidence](evidence/uiux-audit-20261011/README.md). Added coverage includes eight viewport/text-scale combinations, filter conjunction and independent removal, hidden-add feedback, retained quick-create draft with lazy rows, calendar boundaries, dirty/reverted account exit, password visibility, and five controlled online edit-recovery cases. Fake HTTP recovery is distinct from the separately run real API/SQLite Windows lifecycle.
+
+## Android loopback follow-up, 2026-10-11
+
+All six native selections (15 named scenarios) passed on the API 36 emulator with the standard integration driver and `--no-dds`. Status assertions now scope Completed to the task card, avoiding the compact filter chip. Release process-restart persistence is checked separately from repository remount. See [diagnosis and limits](android-loopback-fix-20261011.md) and [raw evidence](evidence/android-loopback-20261011/README.md).

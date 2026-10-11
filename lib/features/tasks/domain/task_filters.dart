@@ -69,3 +69,30 @@ class TaskFilters {
     return result;
   }
 }
+
+extension TaskStatusLabel on TaskStatusFilter {
+  String get label => switch (this) {
+    TaskStatusFilter.all => 'All',
+    TaskStatusFilter.pending => 'Pending',
+    TaskStatusFilter.completed => 'Completed',
+  };
+}
+
+extension DueFilterLabel on DueFilter {
+  String get label => switch (this) {
+    DueFilter.all => 'Any date',
+    DueFilter.overdue => 'Overdue',
+    DueFilter.today => 'Today',
+    DueFilter.upcoming => 'Upcoming',
+    DueFilter.noDate => 'No due date',
+  };
+}
+
+extension TaskSortLabel on TaskSort {
+  String get label => switch (this) {
+    TaskSort.newest => 'Newest first',
+    TaskSort.priority => 'Priority',
+    TaskSort.dueDate => 'Due date',
+    TaskSort.title => 'Title A–Z',
+  };
+}

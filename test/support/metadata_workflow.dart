@@ -58,7 +58,7 @@ Future<void> metadataWorkflow(WidgetTester tester) async {
   );
   await tester.pumpAndSettle();
   expect(find.text('No matching tasks.'), findsOneWidget);
-  await tapVisible(tester, find.text('Clear filters'));
+  await tapVisible(tester, find.text('Reset filters').first);
   expect(find.text('Prepare presentation'), findsOneWidget);
 
   await tapVisible(tester, find.text('Edit'));

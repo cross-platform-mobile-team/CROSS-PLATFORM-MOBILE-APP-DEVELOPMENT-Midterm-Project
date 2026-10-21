@@ -1,5 +1,15 @@
 # Current verified state
 
+## Report publication — 21 October 2026
+
+Application source remains a153046; the report, figures, video script, LaTeX
+builder and evidence navigation were refreshed for user-authorized publication.
+[Fresh checks](evidence/publication-20261021/README.md): 133 Flutter cases,
+17 API cases, format/analyze and LaTeX compilation PASS. These do not constitute
+a new native or release run. For the October Android native and UI/UX profile
+evidence, use the [audit history](history/README.md). Original distinct evidence
+payloads remain available; duplicate filenames resolve via evidence/aliases.json.
+
 ## Automation audit — 2026-09-22
 
 See [audit](automation-audit-20260922.md) and

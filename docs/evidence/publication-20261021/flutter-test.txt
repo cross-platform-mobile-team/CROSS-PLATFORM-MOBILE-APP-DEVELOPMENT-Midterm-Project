@@ -1,0 +1,156 @@
+Resolving dependencies...
+Downloading packages...
+  clock 1.1.2 (1.1.3 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  platform 3.1.6 (3.2.0 available)
+  shared_preferences 2.5.5 (2.5.6 available)
+  shared_preferences_android 2.4.28 (2.5.1 available)
+  shared_preferences_foundation 2.5.7 (2.6.0 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  test_api 0.7.12 (0.7.15 available)
+  vector_math 2.4.0 (2.4.3 available)
+  vm_service 15.3.0 (15.4.0 available)
+  webdriver 3.1.0 (3.2.0 available)
+Got dependencies!
+13 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/account_screen_golden_test.dart
+00:00 +0: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/account_screen_golden_test.dart: (setUpAll)
+00:00 +0: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/task_dialog_golden_test.dart: (setUpAll)
+00:00 +0: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +1: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +2: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +3: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +4: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +5: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +6: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +7: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +8: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +9: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +10: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +11: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +12: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +13: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +14: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +15: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +16: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +17: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +18: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +19: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +20: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +21: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:00 +22: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:01 +23: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/auth_screen_golden_test.dart: golden phone-sign-in (variant: TargetPlatform.android)
+00:01 +24: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +25: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/account_screen_golden_test.dart: golden account settings with synthetic session (variant: TargetPlatform.android)
+00:01 +26: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:01 +27: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:01 +28: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +29: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/task_screen_golden_test.dart: golden phone-empty (variant: TargetPlatform.android)
+00:02 +30: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit phone 390x844 first complete task (variant: TargetPlatform.android)
+00:02 +31: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit phone 390x844 first complete task (variant: TargetPlatform.android)
+00:02 +32: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit phone 390x844 first complete task (variant: TargetPlatform.android)
+00:02 +33: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit phone 390x844 first complete task (variant: TargetPlatform.android)
+00:02 +34: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit phone 390x844 first complete task (variant: TargetPlatform.android)
+00:02 +35: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit phone 390x844 first complete task (variant: TargetPlatform.android)
+00:02 +36: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit phone 390x844 first complete task (variant: TargetPlatform.android)
+00:02 +37: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit phone 390x844 first complete task (variant: TargetPlatform.android)
+00:02 +38: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit phone 390x844 first complete task (variant: TargetPlatform.android)
+00:02 +39: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/task_screen_golden_test.dart: golden phone-populated (variant: TargetPlatform.android)
+00:02 +40: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/golden/uiux_audit_golden_test.dart: audit retained draft and latest version comparison (variant: TargetPlatform.android)
+00:03 +41: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:03 +42: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:03 +43: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:03 +44: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:04 +45: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:04 +46: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:04 +47: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:04 +48: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/accessibility_test.dart: accessibility guidelines: empty (variant: TargetPlatform.android)
+00:04 +49: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:04 +50: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:04 +51: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:04 +52: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +53: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +54: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +55: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +56: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +57: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +58: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +59: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +60: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:05 +61: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:06 +62: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/account_flow_test.dart: registration validates, shows recovery code and opens private tasks
+00:06 +63: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:06 +64: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:06 +65: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:06 +66: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/failed_load_safety_test.dart: failed initial load preserves saved records and new draft
+00:06 +67: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/minimal_workspace_test.dart: sort menu orders tasks and preserves status filter
+00:06 +68: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/minimal_workspace_test.dart: sort menu orders tasks and preserves status filter
+00:06 +69: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/minimal_workspace_test.dart: sort menu orders tasks and preserves status filter
+00:07 +70: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/minimal_workspace_test.dart: sort menu orders tasks and preserves status filter
+00:07 +71: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/minimal_workspace_test.dart: sort menu orders tasks and preserves status filter
+00:07 +72: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/pending_capture_test.dart: pending capture preserves newer title at 390.0 fail=false
+00:08 +73: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:08 +74: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:08 +75: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:09 +76: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/quick_create_exit_test.dart: offline exit keeps or discards draft without storage writes
+00:10 +77: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:10 +78: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:10 +79: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:10 +80: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:10 +81: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:10 +82: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:11 +83: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:11 +84: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:11 +85: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/sample_accessibility_test.dart: sample sandbox resets and never touches offline data or network
+00:11 +86: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:11 +87: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_crud_test.dart: edit, cancel deletion, delete and undo at 390.0
+00:12 +88: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:12 +89: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:12 +90: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:12 +91: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:12 +92: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:13 +93: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:13 +94: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:13 +95: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:13 +96: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:13 +97: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:13 +98: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:13 +99: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:13 +100: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:14 +101: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:14 +102: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_metadata_test.dart: metadata validation, filter and clear at 390.0
+00:14 +103: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_validation_recovery_test.dart: collapsed invalid details reveal and recover at 390.0
+00:14 +104: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_layout_test.dart: layout Size(360.0, 800.0) text 1.0 preserves draft and controls
+00:14 +105: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_layout_test.dart: layout Size(360.0, 800.0) text 1.0 preserves draft and controls
+00:15 +106: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:15 +107: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:15 +108: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:15 +109: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:15 +110: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:16 +111: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:16 +112: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:16 +113: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:16 +114: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:16 +115: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:16 +116: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:16 +117: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:16 +118: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:17 +119: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:17 +120: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: conflict
+00:17 +121: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_validation_recovery_test.dart: edit submit focuses first invalid field before saving
+00:17 +122: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/task_validation_recovery_test.dart: edit submit focuses first invalid field before saving
+00:17 +123: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_layout_test.dart: layout Size(1280.0, 900.0) text 1.0 preserves draft and controls
+00:17 +124: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: timeout after commit
+00:17 +125: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: timeout after commit
+00:18 +126: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_layout_test.dart: AND filters are visible and independently removable; search reset is separate
+00:18 +127: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: deleted
+00:19 +128: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_layout_test.dart: empty CTA focuses form; hidden addition can be viewed without losing newer draft
+00:19 +129: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_recovery_test.dart: online edit recovery: recreate timeout
+00:19 +130: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_layout_test.dart: lazy list keeps form draft and expanded notes across scrolling
+00:20 +131: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_layout_test.dart: lazy list keeps form draft and expanded notes across scrolling
+00:21 +132: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_layout_test.dart: calendar labels around midnight, leap day and completed overdue
+00:21 +133: C:/CROSS-PLATFORM MOBILE APP DEVELOPMENT/Midterm/CROSS-PLATFORM-MOBILE-APP-DEVELOPMENT-Midterm-Project/test/widget/uiux_layout_test.dart: (tearDownAll)
+00:21 +133: All tests passed!

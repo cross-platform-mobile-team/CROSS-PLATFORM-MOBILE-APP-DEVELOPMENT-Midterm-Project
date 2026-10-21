@@ -1,6 +1,17 @@
 # TaskFlow QA Lab
 
-Latest automation audit (22 September): [scope and results](docs/automation-audit-20260922.md).
+Current review material: [Word](output/pdf/taskflow-report.docx),
+[matching PDF](output/pdf/taskflow-report-word.pdf),
+[video script](docs/presentation/KICH-BAN-VIDEO-DEMO.md) and
+[cleanup record](docs/GITHUB-CLEANUP-REVIEW.md).
+[Audit history](docs/history/README.md) indexes the dated milestones below;
+use the October evidence linked there for the newer UI and Android results.
+
+[Publication checks on 21 October](docs/evidence/publication-20261021/README.md):
+format/analyze PASS, 133 Flutter cases and 17 API cases PASS; current LaTeX source
+compiles. Native platform and hosted CI results retain their own dated boundaries.
+
+Historical automation audit (22 September): [scope and results](docs/automation-audit-20260922.md).
 The refreshed UI has a regression protecting separate accessibility labels;
 110 Flutter cases pass. Use the dated evidence index for platform/CI results
 and limitations rather than treating a passing suite as proof of zero defects.
@@ -26,7 +37,7 @@ an isolated offline demo. This is not yet the final coursework submission.
 
 ## Verified state and upgrade plan
 
-Latest local review: `06d3790` plus the 19 September snapshot-capacity correction.
+Historical local review: `06d3790` plus the 19 September snapshot-capacity correction.
 The [risk closure](docs/risk-closure-20260919.md) and
 [raw verification](docs/evidence/risk-closure-20260919/README.md) record
 104 Flutter, 17 API and 15 Windows native cases PASS. The authenticated snapshot
@@ -321,7 +332,7 @@ It clears only its own test keys, never your offline tasks. See the
 
 ## Continue development
 
-Read [AGENTS.md](AGENTS.md), [implementation prompt](PROJECT_IMPLEMENTATION_PROMPT.md),
+Read [AGENTS.md](AGENTS.md), [implementation prompt](docs/process/PROJECT_IMPLEMENTATION_PROMPT.md),
 [plan](docs/project-plan.md), [traceability](docs/requirements-traceability.md),
 [tests](docs/test-matrix.md), [latest full review](docs/project-review-20260909.md),
 and [limitations](docs/limitations.md).
@@ -368,13 +379,13 @@ already verified; physical-device testing and production signing are separate.
 
 ## Report
 
-- [LaTeX PDF](output/pdf/taskflow-report.pdf).
 - [Editable Word](output/pdf/taskflow-report.docx).
 - [Matching Word PDF](output/pdf/taskflow-report-word.pdf).
 - [Sources and rebuild instructions](docs/report/README.md).
 
-The editions share manuscript content but paginate differently. Use the matching
-Word PDF when identical Word/PDF pagination is required. Submission date,
+The submission pair is the Word file and its matching PDF. LaTeX sources remain
+available for optional local compilation; the outdated LaTeX PDF was removed.
+Submission date,
 signatures and actual contribution allocation still require team confirmation.
 
 This bootstrap was created with AI assistance for team review and understanding.

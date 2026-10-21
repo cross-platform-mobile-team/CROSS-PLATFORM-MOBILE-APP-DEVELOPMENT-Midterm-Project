@@ -5,6 +5,7 @@ application source, golden baselines or test evidence. Word field refresh and
 PDF export are separate steps in render-report.ps1.
 """
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import re
@@ -39,9 +40,9 @@ ABSTRACT = (
     'by a permanent regression, with authentic baseline, failure and corrected outputs. Three '
     'rounds of selected test-level commands illustrate local wall-time differences, but unequal '
     'workloads and startup overhead prevent a universal speed ranking. During report preparation, '
-    'the 19 September Flutter suite passed 104 cases and the backend suite passed 17 cases. Retained '
-    'Windows and Android native suites each passed 15 cases on 14 and 15 September 2026, '
-    'respectively. Android release installation and process-restart persistence were verified '
+    'the 11 October Flutter suite passed 133 cases and the backend suite passed 17 cases. Retained '
+    'Windows and Android native suites each passed 15 cases in the October evidence, '
+    'with revision boundaries stated in the evaluation. Android release installation and process-restart persistence were verified '
     'on the local API 36 emulator. Edge and historical Android CI results retain their '
     'revision and platform boundaries. These selected checks do not establish absence of '
     'defects or unconditional release readiness. The study concludes that clear '
@@ -265,7 +266,12 @@ def build_docx(all_chapters):
             elif b[0]=='image':
                 p=doc.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER
                 p.paragraph_format.keep_with_next=True
-                r=p.add_run(); r.add_picture(str(LATEX/b[2]),width=Cm(15.2))
+                image_path=LATEX/b[2]
+                with Image.open(image_path) as source_image:
+                    image_width,image_height=source_image.size
+                max_height_cm=16.0 if image_path.name=='ui-edit-recovery.png' else 13.0
+                width_cm=min(15.2,max_height_cm*image_width/image_height)
+                r=p.add_run(); r.add_picture(str(image_path),width=Cm(width_cm))
                 pic=r._r.xpath('.//wp:docPr')[0]; pic.set('descr',b[1])
                 doc.add_paragraph(b[1],'Report Figure')
             elif b[0]=='table':
@@ -306,8 +312,8 @@ def tex_escape(s):
 def build_tex(all_chapters):
     pre=r'''\documentclass[12pt,a4paper,oneside]{report}
 \usepackage{fontspec}
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Arial}{\setsansfont{Arial}}{\setsansfont{TeX Gyre Heros}}
 \usepackage[top=3.5cm,bottom=3cm,left=3.5cm,right=2cm,headheight=16pt,headsep=1cm]{geometry}
 \usepackage{graphicx,array,longtable,booktabs,caption,titlesec,fancyhdr,xurl,hyperref}
 \hypersetup{hidelinks,pdftitle={UI Automation Testing in Flutter},pdfauthor={Nguyễn Bá Hùng and Nguyễn Bảo Long}}
@@ -356,7 +362,8 @@ def build_tex(all_chapters):
                 body.append((r'\noindent\hangindent=0.75cm\hangafter=1 '+text+r'\par\medskip') if refs else text+'\n')
             elif b[0]=='image':
                 caption=re.sub(r'^Figure \d+\.\d+ ','',b[1])
-                body.append(r'\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{'+b[2]+r'}\caption{'+tex_escape(caption)+r'}\end{figure}')
+                max_height='16cm' if Path(b[2]).name=='ui-edit-recovery.png' else '13cm'
+                body.append(r'\begin{figure}[htbp]\centering\includegraphics[width=\linewidth,height='+max_height+r',keepaspectratio]{'+b[2]+r'}\caption{'+tex_escape(caption)+r'}\end{figure}')
             elif b[0]=='table':
                 caption=re.sub(r'^Table [\dA-Z]+\.\d+ ','',b[1]); rows=b[2]
                 head=' & '.join(r'\textbf{'+tex_escape(c.upper())+'}' for c in rows[0])+r' \\ \midrule'
@@ -368,7 +375,24 @@ def build_tex(all_chapters):
 
 
 if __name__=='__main__':
-    assert hashlib.sha256(REF.read_bytes()).hexdigest()==REF_HASH, 'Reference template has changed'
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--latex-only',action='store_true',
+                        help='Regenerate LaTeX from manuscript and retained assets without the Word template')
+    args=parser.parse_args()
     chapters=sorted((SOURCE/'chapters').glob('*.md'))
-    assets(); build_docx(chapters); build_tex(chapters)
-    print(json.dumps({'docx':str(OUT/'taskflow-report.docx'),'latex':str(LATEX/'taskflow-report.tex'),'main_words':sum(len(p.read_text(encoding='utf-8').split()) for p in chapters)},indent=2))
+    if not args.latex_only:
+        assert hashlib.sha256(REF.read_bytes()).hexdigest()==REF_HASH, 'Reference template has changed'
+        assets(); build_docx(chapters)
+    else:
+        for path in chapters:
+            for block in blocks(path):
+                if block[0]=='image' and not (LATEX/block[2]).is_file():
+                    raise FileNotFoundError(f'Missing report image: {block[2]}')
+        if not (ASSETS/'tdtu-logo.png').is_file():
+            raise FileNotFoundError('Missing retained university logo')
+    LATEX.mkdir(parents=True,exist_ok=True)
+    build_tex(chapters)
+    result={'latex':str(LATEX/'taskflow-report.tex'),
+            'main_words':sum(len(p.read_text(encoding='utf-8').split()) for p in chapters)}
+    if not args.latex_only: result['docx']=str(OUT/'taskflow-report.docx')
+    print(json.dumps(result,indent=2))

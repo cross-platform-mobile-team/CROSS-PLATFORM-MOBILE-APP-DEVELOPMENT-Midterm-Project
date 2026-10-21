@@ -39,7 +39,7 @@ Nếu chỉ có lợi ích trang trí, hoặc không kiểm thử được trong
 
 Nguồn đối chiếu: đề gốc `503107-Essay-V2 (1).pdf`, trang 3–4 (Topic 4),
 5–7 (chiều sâu và chất lượng), 8–9 (đầu ra và điều kiện chấm); `AGENTS.md`,
-`PROJECT_IMPLEMENTATION_PROMPT.md`, `docs/evidence/manifest.md`.
+`docs/process/PROJECT_IMPLEMENTATION_PROMPT.md`, `docs/evidence/manifest.md`.
 Windows + Web đáp ứng lựa chọn hai nền tảng với một nền tảng native khi có bằng
 chứng phù hợp. Đề không bắt buộc backend, hosting công khai hoặc riêng Android.
 

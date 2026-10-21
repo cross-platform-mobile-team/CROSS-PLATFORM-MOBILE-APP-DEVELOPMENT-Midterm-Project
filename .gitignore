@@ -1,6 +1,9 @@
 # Miscellaneous
 *.class
 *.log
+# Reviewed raw evidence is source material, including failed attempts.
+!/docs/evidence/**/*.log
+!/docs/report/evidence/**/*.log
 *.pyc
 *.swp
 .DS_Store
@@ -51,6 +54,7 @@ backend/data/
 backend/.env
 backend/coverage/
 backend/node_modules/
+/node_modules/
 *.sqlite-wal
 *.sqlite-shm
 /.playwright-cli/
@@ -81,6 +85,11 @@ __pycache__/
 # Report rendering scratch files; retain final Word/PDF and LaTeX sources.
 /output/qa/
 /output/previews/
+# Machine-local service state and SDK configuration.
+/outputs/taskflow-running-services.json
+/android/local.properties
+# Optional LaTeX export; submit the reviewed Word and matching Word PDF.
+/output/pdf/taskflow-report.pdf
 /docs/report/latex/*.aux
 /docs/report/latex/*.toc
 /docs/report/latex/*.lof

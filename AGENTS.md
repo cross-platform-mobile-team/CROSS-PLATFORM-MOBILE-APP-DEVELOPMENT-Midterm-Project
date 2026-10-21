@@ -54,7 +54,7 @@ real logs, screenshots, and explanations.
 Read these files before making a plan or changing code:
 
 1. `AGENTS.md` - working rules and non-negotiable project scope.
-2. `PROJECT_IMPLEMENTATION_PROMPT.md` - detailed product, test, evidence, and
+2. `docs/process/PROJECT_IMPLEMENTATION_PROMPT.md` - detailed product, test, evidence, and
    submission specification.
 3. `C:/Users/LENOVO/Downloads/503107-Essay-V2 (1).pdf` - the original course
    brief, when it is accessible.

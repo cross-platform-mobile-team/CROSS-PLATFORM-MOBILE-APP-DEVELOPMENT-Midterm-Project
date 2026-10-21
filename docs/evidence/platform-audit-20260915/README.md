@@ -73,3 +73,14 @@ iOS remains NOT RUN on this Windows host; see ../../ios-validation.md.
   reports PATH and SDK 23 license-status warnings; no iOS toolchain is available.
 - Windows results remain the 15-case execution and release-build record from
   14 September, not relabelled as today's new execution.
+
+## Exact duplicate file aliases
+
+On 21 October 2026, byte-identical copies were consolidated. Original event
+identities and outcomes remain in the records above and the [alias manifest](../aliases.json). Shared bytes do not establish a new run, independent
+repetitions or a changed outcome. Use the retained file for the raw payload.
+
+| Original local filename | Retained raw output |
+| --- | --- |
+| `android-install.txt` | [docs/evidence/android-loopback-20261011/android-release-install.log](../android-loopback-20261011/android-release-install.log) |
+| `android-release-restore.txt` | [docs/evidence/android-loopback-20261011/android-release-install.log](../android-loopback-20261011/android-release-install.log) |

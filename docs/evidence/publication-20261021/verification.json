@@ -1,0 +1,9 @@
+{
+  "consolidated_files": 35,
+  "saved_bytes": 210385,
+  "original_raw_files_verified": 662,
+  "links_checked": 133,
+  "latex_generation": "PASS, deterministic",
+  "python_syntax": "PASS",
+  "desktop_latex_compiler": "PASS"
+}

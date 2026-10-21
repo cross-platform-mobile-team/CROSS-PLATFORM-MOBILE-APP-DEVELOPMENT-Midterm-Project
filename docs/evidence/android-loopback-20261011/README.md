@@ -28,3 +28,14 @@ The first post-loopback build was deliberately interrupted after AGP began extra
 Earlier `android-fixed-*` and failed `android-drive-*-adb-failure` logs preserve the ambiguous status finder, ADB/DDS connection failures, and unsupported golden proxy-stream failure. A format scan over the whole repository raced with generated Gradle directories; the retained failure was replaced by a successful scan of explicit Dart source directories. The emulator was cold-booted without loading/saving snapshots; later driver results are the successful evidence. Failed commands are not reclassified as passes.
 
 Total: **15 named Android native scenarios PASS** across six separate invocations. APK checksum was rechecked after native tests and is unchanged.
+
+## Exact duplicate file aliases
+
+On 21 October 2026, byte-identical copies were consolidated. Original event
+identities and outcomes remain in the records above and the [alias manifest](../aliases.json). Shared bytes do not establish a new run, independent
+repetitions or a changed outcome. Use the retained file for the raw payload.
+
+| Original local filename | Retained raw output |
+| --- | --- |
+| `android-fixed-windows_workflow.log` | [docs/evidence/android-loopback-20261011/android-fixed-windows_workflow-no-dds-runner-failure.log](android-fixed-windows_workflow-no-dds-runner-failure.log) |
+| `android-talkback-focus-next.png` | [docs/evidence/android-loopback-20261011/android-talkback-email-focus.png](android-talkback-email-focus.png) |

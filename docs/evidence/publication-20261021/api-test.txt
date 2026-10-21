@@ -1,0 +1,25 @@
+✔ maximum snapshot round-trips escaped Unicode metadata and preserves revision safety (940.1994ms)
+✔ snapshot byte budget rejects excess and unauthenticated writes without mutation (454.2839ms)
+✔ register, hashed credentials, normalized email, duplicate and login (975.0996ms)
+✔ validation rejects weak password and mass-assigned account privilege (214.0774ms)
+✔ refresh rotates credentials; replay revokes the entire session (438.4558ms)
+✔ absolute refresh expiration and logout cannot be bypassed (601.02ms)
+✔ per-user CRUD, read isolation, owner injection and no cross-user delete (678.9059ms)
+✔ snapshot validation and stale writers never partially replace saved data (539.0705ms)
+✔ createdAt rejects impossible calendar dates without changing saved tasks (543.3908ms)
+✔ search, filters, deterministic sort, stats and pagination (467.7934ms)
+✔ recovery is single-use, rotates the code and revokes all sessions (1034.8537ms)
+✔ profile, session ownership/revocation and password change (1274.3686ms)
+✔ account deletion requires password and cascades only its own data (1014.9482ms)
+✔ CORS, malformed bodies, rate limits and safe logs (423.738ms)
+✔ SQLite API persistence, sessions, schema and backup survive restart (716.4293ms)
+✔ body limits, content type, null bodies and contract endpoint (413.0148ms)
+✔ logout-all and one-session revocation do not sign out another user (852.4434ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11970.2481

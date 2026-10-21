@@ -33,7 +33,9 @@ Table B.1 Evidence packages used in this report
 | docs/evidence/test-levels-20260909 | Raw timing outputs | Whole-command wall time |
 | docs/evidence/android-ci-20260909.md | Hosted Android result | Historical revision 9ca2a96 |
 | docs/accessibility-testing.md | Automated scope and manual protocol | Manual protocol remains unexecuted |
-| docs/report/evidence | Fresh report-preparation suite logs | Additional review tracked separately |
+| docs/report/evidence | Historical report-preparation suite logs | Preserve original dates |
+| docs/evidence/uiux-audit-20261011 | 133 Flutter, 17 API, Windows native and profile | Final online rerun distinguished |
+| docs/evidence/android-loopback-20261011 | 15 Android scenarios and release restart | Basic TalkBack compatibility only |
 
 # Appendix C Submission verification
 

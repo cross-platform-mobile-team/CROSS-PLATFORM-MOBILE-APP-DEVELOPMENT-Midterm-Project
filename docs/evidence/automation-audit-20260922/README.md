@@ -104,3 +104,14 @@ Passing these finite scenarios cannot establish universal bug freedom. iOS is
 NOT RUN without macOS/Xcode. Physical-device, manual screen-reader, clean-host
 setup and frame-time profiling are not inferred from these checks. Reports and
 video were not modified. New hosted CI must be checked against the pushed SHA.
+
+## Exact duplicate file aliases
+
+On 21 October 2026, byte-identical copies were consolidated. Original event
+identities and outcomes remain in the records above and the [alias manifest](../aliases.json). Shared bytes do not establish a new run, independent
+repetitions or a changed outcome. Use the retained file for the raw payload.
+
+| Original local filename | Retained raw output |
+| --- | --- |
+| `edge-session-2-run-1.txt` | [docs/evidence/automation-audit-20260922/edge-session-1-run-1.txt](edge-session-1-run-1.txt) |
+| `edge-session-2-run-2.txt` | [docs/evidence/automation-audit-20260922/edge-session-1-run-2.txt](edge-session-1-run-2.txt) |

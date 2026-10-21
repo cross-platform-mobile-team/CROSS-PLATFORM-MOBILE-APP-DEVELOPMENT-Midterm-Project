@@ -64,3 +64,13 @@ A successful build does not establish manual use on that platform. No new
 Android emulator run, Edge interaction run, iOS run, Narrator audit or frame-time
 profile is claimed in this increment. Transitions use finite durations and
 respect disableAnimations; this is not a quantified performance improvement.
+
+## Exact duplicate file aliases
+
+On 21 October 2026, byte-identical copies were consolidated. Original event
+identities and outcomes remain in the records above and the [alias manifest](../aliases.json). Shared bytes do not establish a new run, independent
+repetitions or a changed outcome. Use the retained file for the raw payload.
+
+| Original local filename | Retained raw output |
+| --- | --- |
+| `analyze.txt` | [docs/evidence/quality-analyze-20260906.txt](../quality-analyze-20260906.txt) |

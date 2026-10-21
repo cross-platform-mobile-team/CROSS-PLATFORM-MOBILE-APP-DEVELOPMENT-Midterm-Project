@@ -8,10 +8,10 @@ For RQ2, the permanent search regression detected the temporary prefix-only defe
 
 For RQ3, isolated fixtures, injected dependencies and completion gates make pending, failed and committed states inspectable. The study demonstrates their use without claiming a measured reduction in flakiness.
 
-For RQ4, the retained platform selection passed 15 native cases on each of Windows and Android on 14 and 15 September. The latest local source checks passed 104 Flutter and 17 API cases on 19 September. Android release installation and offline process-restart persistence were verified on the emulator during the earlier audit. These observations support the required two-platform demonstration within the recorded conditions. iOS, physical-device HTTPS operation and manual screen-reader behavior remain outside the verified scope.
+For RQ4, October evidence records 133 Flutter cases, 17 API cases and 15 native scenarios per platform, with the Windows revision boundary stated in Chapter 1. Android release restart persistence was verified on the emulator. Windows profile results support lazy construction within the single-host experiment. Basic TalkBack compatibility was observed; a full screen-reader audit, iOS and physical-device HTTPS remain unverified.
 
 ## Prioritized continuation
 
 The project should complete its ongoing engineering review, execute the documented manual accessibility and clean-environment checks, and refresh platform evidence after relevant code changes. These actions address remaining evidence gaps without expanding the midterm into unrelated product features.
 
-Final submission requires student verification and presentation materials. The demonstration should explain each workflow's assertions, execution boundary and remaining uncertainty, using the retained success and failure records.
+Submission requires team verification, a usable English video and confirmed contributions. Each member must explain the workflow assertions, execution boundaries and remaining uncertainty.

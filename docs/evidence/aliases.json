@@ -1,0 +1,290 @@
+{
+  "date": "2026-10-21",
+  "method": "exact SHA-256 and byte comparison",
+  "interpretation": "Each original path retains its event identity. Shared output bytes do not prove a shared execution or independent repetitions. Original command, date and outcome remain in their event records.",
+  "aliases": [
+    {
+      "original_path": "docs/evidence/backend-syntax-20260907.txt",
+      "canonical_path": "docs/evidence/accessibility-api-check-20260909.txt",
+      "sha256": "f05a95560a3a92554bf4b5a6a7ef8785c34171455e7ee31c35c268025558797a",
+      "bytes": 245,
+      "working_tree_sha256": "ef1bb7978e9eda1f7909b35672cc7c394f94146b27d27fd2488f11aed34d51be",
+      "working_tree_bytes": 249
+    },
+    {
+      "original_path": "docs/evidence/edge-sessions-20260910/session-1/run-2.txt",
+      "canonical_path": "docs/evidence/browser-harness-final-20260909.txt",
+      "sha256": "fc8174ec6c2e8e3387260ad5a73db47ae8b15c1f3df016dd54c965aaffd5cdb5",
+      "bytes": 5207,
+      "working_tree_sha256": "d47d568849b6fe61c8bf38ff1c90b820efadd715b5e7d9f8ab949d804bb456d9",
+      "working_tree_bytes": 5315
+    },
+    {
+      "original_path": "docs/evidence/edge-sessions-20260910/session-2/run-2.txt",
+      "canonical_path": "docs/evidence/browser-harness-final-20260909.txt",
+      "sha256": "fc8174ec6c2e8e3387260ad5a73db47ae8b15c1f3df016dd54c965aaffd5cdb5",
+      "bytes": 5207,
+      "working_tree_sha256": "d47d568849b6fe61c8bf38ff1c90b820efadd715b5e7d9f8ab949d804bb456d9",
+      "working_tree_bytes": 5315
+    },
+    {
+      "original_path": "docs/evidence/edge-sessions-20260910/session-3/run-2.txt",
+      "canonical_path": "docs/evidence/browser-harness-final-20260909.txt",
+      "sha256": "fc8174ec6c2e8e3387260ad5a73db47ae8b15c1f3df016dd54c965aaffd5cdb5",
+      "bytes": 5207,
+      "working_tree_sha256": "d47d568849b6fe61c8bf38ff1c90b820efadd715b5e7d9f8ab949d804bb456d9",
+      "working_tree_bytes": 5315
+    },
+    {
+      "original_path": "docs/evidence/edge-sample-no-tab-20260908.txt",
+      "canonical_path": "docs/evidence/edge-sample-confirm-20260908.txt",
+      "sha256": "a91e3ee72637302e064bb30d3d6392255c27b66c30389fdba3e06be6d01626c6",
+      "bytes": 2246,
+      "working_tree_sha256": "9f0579af9f10a3ee979b88fa4b666c0a43eff19277a7a65df269d1fc5476d89f",
+      "working_tree_bytes": 2283
+    },
+    {
+      "original_path": "docs/evidence/edge-sample-rerun-20260907.txt",
+      "canonical_path": "docs/evidence/edge-sample-keyboard-20260908.txt",
+      "sha256": "bb5b51794d1748251079b4a3ae347a0b6ac95759c0757e78bb8c9e4c8e567fec",
+      "bytes": 196,
+      "working_tree_sha256": "f8ba584cff9a4cc7097d73056dc7b982bf551ff5298f2f5bb90ef2ba08aab93e",
+      "working_tree_bytes": 201
+    },
+    {
+      "original_path": "docs/evidence/edge-sample-result-rerun-20260908.txt",
+      "canonical_path": "docs/evidence/edge-sample-keyboard-20260908.txt",
+      "sha256": "bb5b51794d1748251079b4a3ae347a0b6ac95759c0757e78bb8c9e4c8e567fec",
+      "bytes": 196,
+      "working_tree_sha256": "f8ba584cff9a4cc7097d73056dc7b982bf551ff5298f2f5bb90ef2ba08aab93e",
+      "working_tree_bytes": 201
+    },
+    {
+      "original_path": "docs/evidence/test-levels-20260909/environment.txt",
+      "canonical_path": "docs/evidence/harness-flutter-version-20260909.txt",
+      "sha256": "c39e44bd9d036f3bd9f672a2cc3fd5f3fd61435d3f8cebae89b6a2ba719255a8",
+      "bytes": 319,
+      "working_tree_sha256": "67721ab31e1c7ea3bb143e50492531c5284420b36b84a1cbfc4bbd390306059a",
+      "working_tree_bytes": 323
+    },
+    {
+      "original_path": "docs/evidence/capture-fix/analyze.txt",
+      "canonical_path": "docs/evidence/loading-widget-analyze-20260910.txt",
+      "sha256": "d76804dcbb68637db41945fc2459c78aff22f1413caeabc7f281726af1193e06",
+      "bytes": 590,
+      "working_tree_sha256": "8a407025fc3caa2f616a64a07572d87d8b71582de890e1fdafab7f9097fc1298",
+      "working_tree_bytes": 605
+    },
+    {
+      "original_path": "docs/evidence/color-motion-20260921/analyze.txt",
+      "canonical_path": "docs/evidence/quality-analyze-20260906.txt",
+      "sha256": "5c1fad0f0821c9a893de0425bc679a74b86337b8894c82489a5b3801b645c38d",
+      "bytes": 96,
+      "working_tree_sha256": "0c92526b9c632832f88249c27e8a092ac9d5fc2154832bba8329179e5ec23e88",
+      "working_tree_bytes": 98
+    },
+    {
+      "original_path": "docs/evidence/quick-create-exit-20260912/analyze-verified.txt",
+      "canonical_path": "docs/evidence/quality-analyze-20260906.txt",
+      "sha256": "5c1fad0f0821c9a893de0425bc679a74b86337b8894c82489a5b3801b645c38d",
+      "bytes": 96,
+      "working_tree_sha256": "0c92526b9c632832f88249c27e8a092ac9d5fc2154832bba8329179e5ec23e88",
+      "working_tree_bytes": 98
+    },
+    {
+      "original_path": "docs/evidence/android-loopback-20261011/android-fixed-windows_workflow.log",
+      "canonical_path": "docs/evidence/android-loopback-20261011/android-fixed-windows_workflow-no-dds-runner-failure.log",
+      "sha256": "9f83c921ac8ccb32a3f89c9312543f1ed54762a43ffad667f844c55e2b9ddb10",
+      "bytes": 2501,
+      "working_tree_sha256": "55ab086e6659767dd1fe23371f5e8546b42e390621ec196229108bed0d238c77",
+      "working_tree_bytes": 2529
+    },
+    {
+      "original_path": "docs/evidence/platform-audit-20260915/android-install.txt",
+      "canonical_path": "docs/evidence/android-loopback-20261011/android-release-install.log",
+      "sha256": "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7",
+      "bytes": 36,
+      "working_tree_sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3",
+      "working_tree_bytes": 38
+    },
+    {
+      "original_path": "docs/evidence/platform-audit-20260915/android-release-restore.txt",
+      "canonical_path": "docs/evidence/android-loopback-20261011/android-release-install.log",
+      "sha256": "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7",
+      "bytes": 36,
+      "working_tree_sha256": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3",
+      "working_tree_bytes": 38
+    },
+    {
+      "original_path": "docs/evidence/android-loopback-20261011/android-talkback-focus-next.png",
+      "canonical_path": "docs/evidence/android-loopback-20261011/android-talkback-email-focus.png",
+      "sha256": "afb518d1db76fbcdf0f03499cdf6abc6009768fca4caa1bef6d7a4f19efdbfef",
+      "bytes": 148198,
+      "working_tree_sha256": "afb518d1db76fbcdf0f03499cdf6abc6009768fca4caa1bef6d7a4f19efdbfef",
+      "working_tree_bytes": 148198
+    },
+    {
+      "original_path": "docs/evidence/risk-closure-20260919/android-env-contract.txt",
+      "canonical_path": "docs/evidence/automation-audit-20260922/android-environment.txt",
+      "sha256": "3fe4b790782d38bbc0bc9030d41e991bbbe04d32cb8aaaf69c8af1d36d2de9f9",
+      "bytes": 245,
+      "working_tree_sha256": "50f891897714db7c33e02a52adba702474db5d09a792448ca0c72125175293f8",
+      "working_tree_bytes": 247
+    },
+    {
+      "original_path": "docs/evidence/system-fixes-20260916/android-environment-after.txt",
+      "canonical_path": "docs/evidence/automation-audit-20260922/android-environment.txt",
+      "sha256": "3fe4b790782d38bbc0bc9030d41e991bbbe04d32cb8aaaf69c8af1d36d2de9f9",
+      "bytes": 245,
+      "working_tree_sha256": "50f891897714db7c33e02a52adba702474db5d09a792448ca0c72125175293f8",
+      "working_tree_bytes": 247
+    },
+    {
+      "original_path": "docs/evidence/risk-closure-20260919/ci-contract.txt",
+      "canonical_path": "docs/evidence/automation-audit-20260922/backend-ci.txt",
+      "sha256": "0fb474f610d4cfac66ad24a190d5748736e2ba3863fbc264baf9ed3aabb2c62d",
+      "bytes": 252,
+      "working_tree_sha256": "7fa1a93386166ff76ccf9ced753cae91b04c4adb56b9f29e6080e0ba2f66042f",
+      "working_tree_bytes": 254
+    },
+    {
+      "original_path": "docs/evidence/system-fixes-20260916/backend-ci-after.txt",
+      "canonical_path": "docs/evidence/automation-audit-20260922/backend-ci.txt",
+      "sha256": "0fb474f610d4cfac66ad24a190d5748736e2ba3863fbc264baf9ed3aabb2c62d",
+      "bytes": 252,
+      "working_tree_sha256": "7fa1a93386166ff76ccf9ced753cae91b04c4adb56b9f29e6080e0ba2f66042f",
+      "working_tree_bytes": 254
+    },
+    {
+      "original_path": "docs/evidence/risk-closure-20260919/build-windows.txt",
+      "canonical_path": "docs/evidence/automation-audit-20260922/build-windows-order-fixed.txt",
+      "sha256": "fc417a577bbfa34b466a8344679385a8dd807db4270f310c8b83f2dd9a433ae7",
+      "bytes": 136,
+      "working_tree_sha256": "05041d0c484cc0e98c6b39e75df0c157cf805b75c2d3e05d197d44827040a710",
+      "working_tree_bytes": 138
+    },
+    {
+      "original_path": "docs/evidence/automation-audit-20260922/edge-session-2-run-1.txt",
+      "canonical_path": "docs/evidence/automation-audit-20260922/edge-session-1-run-1.txt",
+      "sha256": "15b800094f4588a16721e2089e567878c5e0f5acfc11a121ea8f5021e42ddbca",
+      "bytes": 9123,
+      "working_tree_sha256": "3fd3cad6e36490d362cd4c9fe4b55e2bf939c75121939409a36799434cad0817",
+      "working_tree_bytes": 9301
+    },
+    {
+      "original_path": "docs/evidence/automation-audit-20260922/edge-session-2-run-2.txt",
+      "canonical_path": "docs/evidence/automation-audit-20260922/edge-session-1-run-2.txt",
+      "sha256": "61b138a338a2aa9c46d677eb6fc41640c1e1a58e7c0aeb1d9a1970655db8fa11",
+      "bytes": 9030,
+      "working_tree_sha256": "2eb6aa24567c6a1f011c88392d702dfce2587e9d6e7b30764662523dbf67657c",
+      "working_tree_bytes": 9205
+    },
+    {
+      "original_path": "docs/evidence/color-studio/edge-local-run-1.txt",
+      "canonical_path": "docs/evidence/bug-audit-20260912/edge-workflow.txt",
+      "sha256": "36bed9d9847cb460141e1b3d72ae1f00269014cfc6cee126b3ed662e8b10f081",
+      "bytes": 6326,
+      "working_tree_sha256": "6f23940bd9fe1a48d94ec4907f649280ee339d24031113a3033b60d8bab46653",
+      "working_tree_bytes": 6461
+    },
+    {
+      "original_path": "docs/evidence/ui-refresh-20260911/format-final.txt",
+      "canonical_path": "docs/evidence/color-studio/format.txt",
+      "sha256": "2e1553112c5fce0998d9668f6d20b7bfad9e4bbb0aa233dc7c3cd1d0afd5acad",
+      "bytes": 48,
+      "working_tree_sha256": "7dfc17d436bf94e84107cd87bc549c7a3853cc3235df9906486fc6d979dd8e61",
+      "working_tree_bytes": 49
+    },
+    {
+      "original_path": "docs/evidence/platform-audit-20260914/pub-d-drive.txt",
+      "canonical_path": "docs/evidence/edge-sessions-20260910/post-sync-pub-get-20260910.txt",
+      "sha256": "20beb0427b652c8195b03885016693db7cac2d1b2a6905f6e6b71aa88e8716de",
+      "bytes": 494,
+      "working_tree_sha256": "612b17d98b21f5a7e95de36f497fb3aa3b01a92fb14421241248268e2bb332f7",
+      "working_tree_bytes": 507
+    },
+    {
+      "original_path": "docs/evidence/test-levels-20260909/widget-1.txt",
+      "canonical_path": "docs/evidence/intentional_defect/baseline.txt",
+      "sha256": "a048e40bcc1f3e1b93f40761aaa092fc5492a5de0d92b5edb6074946eb41e8e0",
+      "bytes": 166,
+      "working_tree_sha256": "a06a7418949d9e68183d3181300871209e2ab66e6aed352afbc6977b1a93b473",
+      "working_tree_bytes": 169
+    },
+    {
+      "original_path": "docs/evidence/test-levels-20260909/widget-2.txt",
+      "canonical_path": "docs/evidence/intentional_defect/baseline.txt",
+      "sha256": "a048e40bcc1f3e1b93f40761aaa092fc5492a5de0d92b5edb6074946eb41e8e0",
+      "bytes": 166,
+      "working_tree_sha256": "a06a7418949d9e68183d3181300871209e2ab66e6aed352afbc6977b1a93b473",
+      "working_tree_bytes": 169
+    },
+    {
+      "original_path": "docs/evidence/test-levels-20260909/widget-3.txt",
+      "canonical_path": "docs/evidence/intentional_defect/baseline.txt",
+      "sha256": "a048e40bcc1f3e1b93f40761aaa092fc5492a5de0d92b5edb6074946eb41e8e0",
+      "bytes": 166,
+      "working_tree_sha256": "a06a7418949d9e68183d3181300871209e2ab66e6aed352afbc6977b1a93b473",
+      "working_tree_bytes": 169
+    },
+    {
+      "original_path": "docs/evidence/platform-audit-20260914/sdk-install-retry.txt",
+      "canonical_path": "docs/evidence/platform-audit-20260914/ndk-install.txt",
+      "sha256": "96f049e4ce9707b7584ac2fff74176d885a18c1cff31287e28e84946cfb1fdc9",
+      "bytes": 341,
+      "working_tree_sha256": "0c0100fcf3f88efc6e4deda77615d6c5ab56eb6e77c0ac5b5f1a36136ffb6492",
+      "working_tree_bytes": 346
+    },
+    {
+      "original_path": "docs/evidence/test-levels-20260909/unit-2.txt",
+      "canonical_path": "docs/evidence/test-levels-20260909/unit-1.txt",
+      "sha256": "7c4304bfc490350cd126f72eabe0700b80509f9aeabca13427b1592142acf8a1",
+      "bytes": 340,
+      "working_tree_sha256": "89b9661c099e44751fc8a83e6ba23286916ee65c00f47ea0f932e0ae0329c0c7",
+      "working_tree_bytes": 346
+    },
+    {
+      "original_path": "docs/evidence/test-levels-20260909/unit-3.txt",
+      "canonical_path": "docs/evidence/test-levels-20260909/unit-1.txt",
+      "sha256": "7c4304bfc490350cd126f72eabe0700b80509f9aeabca13427b1592142acf8a1",
+      "bytes": 340,
+      "working_tree_sha256": "89b9661c099e44751fc8a83e6ba23286916ee65c00f47ea0f932e0ae0329c0c7",
+      "working_tree_bytes": 346
+    },
+    {
+      "original_path": "docs/evidence/ui-spacing-20260912/analyze.txt",
+      "canonical_path": "docs/evidence/ui-spacing-20260912/analyze-final.txt",
+      "sha256": "6cd3057fb51242b8f811e7286acd5563f7ac3adc06f17dd56fd029f0d5af56b0",
+      "bytes": 96,
+      "working_tree_sha256": "d4bb71129a5de04dd43ef203904844d6a1c6e5938cbeb344c379907b2023822e",
+      "working_tree_bytes": 98
+    },
+    {
+      "original_path": "docs/evidence/ui-spacing-20260912/new-goldens.txt",
+      "canonical_path": "docs/evidence/ui-spacing-20260912/goldens-reviewed.txt",
+      "sha256": "7b39296b09c3df8f0901a1bcf45efd9fd1c7efec5bea7657fec5c2235cb7ca82",
+      "bytes": 443,
+      "working_tree_sha256": "577e9942166d754edf1f864690ace588567af1d368ad7b3f88703ba7f9561518",
+      "working_tree_bytes": 451
+    },
+    {
+      "original_path": "docs/evidence/edge-sessions-20260910/session-2/run-1.txt",
+      "canonical_path": "docs/evidence/edge-sessions-20260910/session-1/run-1.txt",
+      "sha256": "13fc5ecfb6877bbbbf0ecb462ea00602a367b417fa5ef102089d4b078b360dca",
+      "bytes": 5300,
+      "working_tree_sha256": "2ab7c5ff513edc6f0c22d89a961c75c2e37fbf2468a40a307969a9397722abde",
+      "working_tree_bytes": 5411
+    },
+    {
+      "original_path": "docs/evidence/edge-sessions-20260910/session-3/run-1.txt",
+      "canonical_path": "docs/evidence/edge-sessions-20260910/session-1/run-1.txt",
+      "sha256": "13fc5ecfb6877bbbbf0ecb462ea00602a367b417fa5ef102089d4b078b360dca",
+      "bytes": 5300,
+      "working_tree_sha256": "2ab7c5ff513edc6f0c22d89a961c75c2e37fbf2468a40a307969a9397722abde",
+      "working_tree_bytes": 5411
+    }
+  ],
+  "hash_convention": "sha256/bytes use repository blob bytes; working_tree_sha256/working_tree_bytes preserve the Windows checkout at consolidation. CRLF/LF checkout conversion can change working-tree bytes.",
+  "saved_working_tree_bytes": 210385,
+  "saved_repository_blob_bytes": 209185
+}

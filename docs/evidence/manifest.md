@@ -1,5 +1,29 @@
 # Evidence manifest
 
+## 21 October report publication checks
+
+[Fresh local verification](publication-20261021/README.md): format/analyze PASS,
+133 Flutter and 17 API cases PASS, deterministic LaTeX regeneration and desktop
+compilation PASS. Native/release execution and hosted CI remain separate from
+this documentation increment. Duplicate evidence aliases preserve raw hashes.
+
+## Navigation and historical records
+
+[Exact duplicate aliases](aliases.json) maps 35 consolidated copies to retained
+raw payloads by SHA-256. Original event names remain in the map; byte-identical
+output does not establish independence of repetitions or a different outcome.
+Directory READMEs link each removed local filename to the retained output.
+
+[Engineering audit history](../history/README.md) groups dated project records.
+[Historical report-preparation logs](../report/evidence/README.md) classify the
+original 96-case Flutter, 14-case API and pending-capture diagnostic outputs.
+Their original paths and contents are preserved.
+
+For the October results used in the current report, see
+[UI/UX evidence](uiux-audit-20261011/README.md) and
+[Android follow-up evidence](android-loopback-20261011/README.md).
+This navigation update does not claim any additional test execution.
+
 ## 2026-09-22/23 automation audit
 
 [Evidence index](automation-audit-20260922/README.md) records the decorative
@@ -28,7 +52,7 @@ version warning is retained. No new Android runtime result is implied.
 1 PASS on the existing API 36 emulator. Snapshot regression first failed with
 413 instead of 200, then passed with an authenticated 8 MiB budget. Synthetic
 SDK/resolver/backend-CI contracts PASS. Hosted expanded CI remains NOT RUN.
-See [remaining acceptance](../risk-closure-20260919.md); video is excluded.
+See [remaining acceptance](../history/engineering-notes.md#risk-closure-20260919); video is excluded.
 
 ## 2026-09-16 system fixes
 
@@ -553,7 +577,7 @@ synthetic email and an empty password field; none includes tokens or recovery co
 
 Baseline source: 62190d8; unchanged Flutter 3.47.1 / Dart 3.13.1 and Windows
 10.0.26200.9168 after version/doctor/device recheck. Review and scope:
-docs/project-review-20260907.md (repository-relative path).
+docs/history/engineering-notes.md#project-review-20260907 (repository-relative path).
 
 | Command/check | Result | Raw artifact in this directory |
 |---|---|---|

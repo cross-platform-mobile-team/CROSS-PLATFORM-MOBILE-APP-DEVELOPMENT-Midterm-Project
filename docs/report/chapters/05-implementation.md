@@ -4,11 +4,15 @@
 
 The current interface uses a desktop-first workspace without removing the compact layout. A wide window places navigation beside the task canvas. The canvas groups progress, quick capture, search, discovery controls and task content. At smaller widths the layout adapts rather than retaining a desktop sidebar that would leave too little room for titles and form fields. Status and priority remain textually identifiable instead of being communicated by color alone.
 
-The visual system uses a pale neutral application background, white surfaces, a restrained indigo accent and clear typographic hierarchy. Small shadows and borders separate surfaces without turning every control into a prominent card. The design goal is legibility and predictable action placement. This goal should not be confused with a measured rendering-performance improvement: the repository does not contain a frame-time study proving that the redesign eliminated jank.
+The visual system combines violet, mint and peach accents with readable surfaces and explicit status text. The October audit makes compact capture and active filters clearer, adds removable conditions and separates search reset from filter reset. Figure 5.1 shows the current controlled wide fixture. Visual changes alone do not establish runtime speed; the profile experiment in Chapter 6 measures the separate transition to lazy list construction.
 
 ![Figure 5.1 Wide TaskFlow layout from the controlled golden fixture](assets/ui-wide.png)
 
 Figure 5.1 is a test-rendered fixture, not a photograph of a deployed production system. Its value is the inspectable arrangement and the maintained visual baseline. Runtime behavior requires the integration and browser evidence discussed later. The interface exposes a completion summary and navigation counts derived from task state, so a completion action has more than one observable effect that can be asserted.
+
+![Figure 5.2 Compact TaskFlow fixture at 390 by 844 logical pixels from the October audit](assets/ui-phone.png)
+
+Figure 5.2 shows the compact layout with quick capture, search, status selection and visible task metadata. This deterministic golden render uses synthetic records and an injected clock; it is not an Android device capture. The partially visible second card indicates scrollable content rather than a requirement to fit every record on one screen.
 
 ## Capture and edit forms
 
@@ -29,6 +33,10 @@ Search has a keyboard shortcut, and filter and sort controls retain meaningful l
 The loading state is not verified by waiting for an arbitrary delay and hoping the repository remains busy. A test-controlled completion gate holds the operation open. The test can then inspect disabled actions, the progress indication and draft state before releasing the operation. A separate failure path verifies the readable error and an explicit recovery action. This pattern makes intermediate UI states testable even when normal local storage is fast.
 
 Save failures are tested independently from initial-load failures. They have different data risks: a failed initial load must not permit replacement of unknown data, while a failed save must preserve the previously accepted collection and useful draft input. Remote write failures also require revision recovery. A generic error screen alone would not establish these invariants, so the assertions inspect both visible state and repository results.
+
+![Figure 5.3 Retained edit draft and latest saved version in the controlled recovery fixture](assets/ui-edit-recovery.png)
+
+Figure 5.3 makes the recovery decision visible: the form retains the user's draft while an expandable section shows the latest saved version. Applying the draft is an explicit action. This golden fixture illustrates presentation; the controlled recovery tests verify that reload does not write, server completion status is preserved and a lost replacement response does not create a duplicate.
 
 ## Account workflows and backend integration
 

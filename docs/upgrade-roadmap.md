@@ -38,8 +38,8 @@ Nếu chỉ có lợi ích trang trí, hoặc không kiểm thử được trong
   Android là nhánh bổ sung khi toolchain/CI có sẵn, không tự ý cài đặt.
 
 Nguồn đối chiếu: đề gốc `503107-Essay-V2 (1).pdf`, trang 3–4 (Topic 4),
-5–7 (chiều sâu và chất lượng), 8–9 (đầu ra và điều kiện chấm); `AGENTS.md`,
-`PROJECT_IMPLEMENTATION_PROMPT.md`, `docs/evidence/manifest.md`.
+5–7 (chiều sâu và chất lượng), 8–9 (đầu ra và điều kiện chấm);
+`README.md`, `docs/requirements-traceability.md`, `docs/evidence/manifest.md`.
 Windows + Web đáp ứng lựa chọn hai nền tảng với một nền tảng native khi có bằng
 chứng phù hợp. Đề không bắt buộc backend, hosting công khai hoặc riêng Android.
 
@@ -115,7 +115,7 @@ Các gói B–G bên dưới vẫn là kế hoạch, chưa được triển khai
 - Script nếu được thêm phải có contract test cho FAIL, lệnh thiếu và output trùng.
 
 File chính: `docs/requirements-traceability.md`, `docs/test-matrix.md`,
-`docs/evidence/manifest.md`, `README.md`, `AGENTS.md`, `scripts/`.
+`docs/evidence/manifest.md`, `README.md`, `scripts/`.
 
 ## 6. Gói B — Form và thao tác an toàn hơn
 

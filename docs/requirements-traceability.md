@@ -3,14 +3,14 @@
 22 September automation audit: decorative-surface semantics regression,
 runtime reduced-motion and rebuild/draft tests -> color_motion_test.dart;
 unchanged browser recovery/discovery assertions -> edge-harness-check.js.
-See [audit](automation-audit-20260922.md) and its dated evidence for actual runs.
+See [audit](history/engineering-notes.md#automation-audit-20260922) and its dated evidence for actual runs.
 
-21 September local UI increment: [color and motion plan](color-motion-ui-20260921.md)
+21 September local UI increment: [color and motion plan](history/engineering-notes.md#color-motion-ui-20260921)
 preserves Topic 4 scope. Reduced-motion/settling and editable-state preservation
 are covered by test/widget/color_motion_test.dart; responsive and accessibility
 cases remain in the existing suite. This is not frame-time profiling evidence.
 
-19 September addendum: [risk closure](risk-closure-20260919.md) maps the updated
+19 September addendum: [risk closure](history/engineering-notes.md#risk-closure-20260919) maps the updated
 capacity regression, 104 Flutter / 17 API / 15 Windows results, one Android
 online rerun and report synchronization to existing requirements. Native CI
 expansion is configured but not hosted-verified. Manual accessibility and clean
@@ -25,7 +25,7 @@ goldens -> `test/golden/task_screen_golden_test.dart` and
 
 2026-09-14 platform review -> Android debug-only local network configuration,
 iOS runner scaffold, native pending-capture scenarios ->
-docs/platform-audit-20260914.md. On 15 September, Android release build,
+docs/history/engineering-notes.md#platform-audit-20260914. On 15 September, Android release build,
 install/launch, process-restart persistence and 15 native cases passed. Windows
 has 15 native executions from 14 September. iOS is NOT RUN without a Mac.
 
@@ -37,7 +37,7 @@ Current patch does not refresh historical Android or complete browser evidence.
 2026-09-13 responsive/accessibility UI refinement -> SidebarNavigation,
 TaskHeader, QuickTaskInput, EmptyStateWidget -> minimal_workspace_test.dart
 (shortcuts, metadata, sorting, resize/200% text) plus existing suites and 15
-reviewed goldens -> docs/minimal-desktop-ui.md and latest evidence manifest.
+reviewed goldens -> docs/history/engineering-notes.md#minimal-desktop-ui and latest evidence manifest.
 Product/test scope is unchanged; no report or scoring claim.
 
 B1 quick-create: accidental offline/sample exit -> TaskScreen.exitActions and

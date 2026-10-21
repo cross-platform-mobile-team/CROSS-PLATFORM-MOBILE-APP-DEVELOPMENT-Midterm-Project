@@ -1,8 +1,18 @@
 # Current verified state
 
+## Report publication — 21 October 2026
+
+Application source remains a153046; the report, figures, video script, LaTeX
+builder and evidence navigation were refreshed for user-authorized publication.
+[Fresh checks](evidence/publication-20261021/README.md): 133 Flutter cases,
+17 API cases, format/analyze and LaTeX compilation PASS. These do not constitute
+a new native or release run. For the October Android native and UI/UX profile
+evidence, use the [audit history](history/README.md). Original distinct evidence
+payloads remain available; duplicate filenames resolve via evidence/aliases.json.
+
 ## Automation audit — 2026-09-22
 
-See [audit](automation-audit-20260922.md) and
+See [audit](history/engineering-notes.md#automation-audit-20260922) and
 [raw evidence](evidence/automation-audit-20260922/README.md). The repaired
 decorative-focus semantics and new motion tests pass in the 110-case Flutter
 suite, with the 15 reviewed color/motion golden baselines unchanged. User now
@@ -35,7 +45,7 @@ release builds PASS; the older no-push statement below describes capture time.
 
 Baseline 06d3790 plus local snapshot-capacity correction: 104 Flutter,
 17 API and 15 Windows native cases PASS; analyze and format PASS.
-See [scope and remaining acceptance](risk-closure-20260919.md) and
+See [scope and remaining acceptance](history/engineering-notes.md#risk-closure-20260919) and
 [original logs](evidence/risk-closure-20260919/README.md).
 Expanded Windows/Android CI is not yet hosted-verified. Only Windows hardware
 is available; iOS, physical Android and manual Narrator remain unverified.
@@ -54,7 +64,7 @@ connected emulator. Previous platform and report evidence below remains dated.
 
 ## Platform audit and publication review — 2026-09-15
 
-Latest: [progress review](project-progress-20260915.md) and
+Latest: [progress review](history/engineering-notes.md#project-progress-20260915) and
 [platform evidence](evidence/platform-audit-20260915/README.md).
 100 Flutter cases and 14 API cases PASS, repeated during publication review.
 Android: 15 native cases and release install/launch/restart persistence PASS.
@@ -87,7 +97,7 @@ Hosted results for older SHAs must not be assigned to this increment.
 After abbc203: form gaps, enlarged dropdowns, floating-label clipping and
 redundant dirty-state rebuilds fixed. Flutter coverage invocation passes 84
 cases with 15 goldens (four added/reviewed, eleven unchanged). See
-[UI audit](ui-spacing-20260912.md) and latest manifest. This was uncommitted at
+[UI audit](history/engineering-notes.md#ui-spacing-20260912) and latest manifest. This was uncommitted at
 capture time, then published as 4913c2d; run 34697153061 subsequently succeeded.
 
 ## B1 edit-slice update - 2026-09-12
@@ -96,7 +106,7 @@ Application changes after c57407a: dirty Cancel/Escape/Back confirmation, raw
 invalid-date protection and five widget regressions. Final coverage run passes
 77 cases (11 unchanged goldens). The persisted edit scenario adds keep-draft /
 storage-before-save checks; native case counts are not increased. See
-[B1 scope](upgrade-b1.md) and [latest gates](evidence/manifest.md).
+[B1 scope](history/engineering-notes.md#upgrade-b1) and [latest gates](evidence/manifest.md).
 The 0753db1 results below are the pre-upgrade baseline, not CI for this source.
 
 ## Pre-upgrade verified baseline
@@ -128,7 +138,7 @@ creates a different SHA; it must not inherit this hosted PASS automatically.
 
 | Risk | Implementation | Test | Result |
 |---|---|---|---|
-| Unknown snapshot overwrites saved data | `TaskController` load gate | `test/unit/snapshot_safety_test.dart`, `test/widget/failed_load_safety_test.dart` | [Fail/fix audit](bug-audit-20260912.md) |
+| Unknown snapshot overwrites saved data | `TaskController` load gate | `test/unit/snapshot_safety_test.dart`, `test/widget/failed_load_safety_test.dart` | [Fail/fix audit](history/engineering-notes.md#bug-audit-20260912) |
 | Stale logout clears newer session | `ApiClient` generation-scoped cleanup | `test/unit/session_race_test.dart` | [Final suite](evidence/bug-audit-20260912/tests-final.txt) |
 | Search silently becomes prefix-only | Domain substring search | `test/widget/search_regression_test.dart` | [Intentional defect](evidence/intentional_defect/README.md) |
 | False browser-runner PASS | Exit-code and unique-output safeguards | `scripts/tests/edge-runner-contract.ps1` | [Synthetic contract log](evidence/bug-audit-20260912/runner-contract.txt); not app evidence |

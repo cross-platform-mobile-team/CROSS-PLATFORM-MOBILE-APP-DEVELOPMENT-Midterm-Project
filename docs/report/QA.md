@@ -1,5 +1,61 @@
 # Report verification
 
+## Publication and LaTeX repair 21 October 2026
+
+User authorized publication under the configured Long-D176 identity. The current
+LaTeX source now supports font fallback for preview and regenerates with
+`python scripts/build-report.py --latex-only` without the absent Word reference.
+The desktop compiler returned success for the current source. Regeneration is
+deterministic; image assets are checked before output. Word/PDF remain the
+reviewed matching pair with 47 physical and 35 main-content pages.
+
+[Publication checks](../evidence/publication-20261021/README.md) record fresh
+format/analyze PASS, 133 Flutter cases and 17 API cases PASS. Exact duplicate
+evidence copies resolve through aliases.json; distinct raw payloads are intact.
+The earlier failed compilation and no-publication notes below remain historical.
+
+## October figure update 21 October 2026
+
+Added Figures 5.2 (390×844 compact golden fixture), 5.3 (retained-draft recovery
+golden fixture) and 6.1 (API 36 emulator release restart capture). Source images
+are copied without pixel modification from the checked-in October baselines and
+Android evidence. All figures have captions, source context and explanatory text.
+The controlled fixtures are explicitly distinguished from emulator screenshots.
+
+Word and matching PDF: 47 physical pages, 35 main-content pages (physical 7–41).
+References start on physical page 42. TOC and list of figures refreshed by Word;
+all pages rendered with PDFium, review sheets inspected and new figures checked
+in full-page images. The recovery image was enlarged to improve label legibility.
+Images retain their aspect ratios, remain with captions, and fit page boundaries.
+Builder and LaTeX source constrain portrait figure dimensions for future rebuilds.
+The historical LaTeX PDF remains excluded from the current review deliverables.
+`git diff --check` passes; no application code, baseline or raw evidence changed.
+No commit or push.
+
+## Review refresh 21 October 2026
+
+- Original brief read from `C:/Users/Nguyen Long/Downloads/503107-Essay-V2 (1).pdf`.
+- Current report source identity: a153046; results trace to the October UI/UX and
+  Android follow-up packages. Historical experiments retain original dates.
+- Existing faculty Word layout and cover preserved; absent retained reference
+  template prevents a full `build-report.py` rebuild on this host.
+- Word COM refreshed fields/TOC and exported the matching PDF: 44 physical pages,
+  32 main-content pages (physical 7–38); references begin at physical page 39.
+- Canonical `render_docx.py` attempted; missing bundled soffice.exe prevents it.
+  Microsoft Word export plus bundled PDFium rendered all 44 pages. Review sheets
+  cover every page; detailed images cover changed results/profile/conclusion and
+  appendix pages. Removed a nearly empty conclusion overflow page by shortening
+  prose, without reducing font size. Updated current UI fixture and evidence rows.
+- `git diff --check` PASS. Application source/tests, golden baselines and original
+  logs unchanged. No application suite rerun, coverage percentage or new CI claim.
+- LaTeX source updated; its older PDF is explicitly excluded from current review.
+  Built-in compiler attempt returned `compile-failed: Compilation timed out`.
+  Current Word and matching PDF are the deliverables for review.
+- No commit/push/deletion. Git identity remains Long-D176 with the configured
+  student email; report coauthors remain both team members.
+
+The dated sections below are historical verification records.
+
 ## Refresh 19 September 2026
 
 Shared source and both editions now distinguish baseline 06d3790 plus the local

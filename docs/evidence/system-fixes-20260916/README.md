@@ -39,9 +39,9 @@ successful dependency resolution with the existing lockfile.
 | `scripts/test-online-windows.ps1 -NoPub` | PASS, 1 native API/SQLite case, SDK resolved from PATH | [windows-online.txt](windows-online.txt) |
 | `flutter build windows --release --no-pub` | PASS | [windows-release.txt](windows-release.txt) |
 | `flutter build web --release --no-web-resources-cdn --no-pub` | PASS, compilation only | [web-release.txt](web-release.txt) |
-| `scripts/tests/android-environment-contract.ps1` | FAIL before, PASS after | [before](android-environment-before.txt), [after](android-environment-after.txt) |
+| `scripts/tests/android-environment-contract.ps1` | FAIL before, PASS after | [before](android-environment-before.txt), [after](../automation-audit-20260922/android-environment.txt) |
 | `scripts/tests/flutter-resolver-contract.ps1` | PASS | [flutter-resolver.txt](flutter-resolver.txt) |
-| `scripts/tests/backend-ci-contract.ps1` | FAIL before, PASS after | [before](backend-ci-before.txt), [after](backend-ci-after.txt) |
+| `scripts/tests/backend-ci-contract.ps1` | FAIL before, PASS after | [before](backend-ci-before.txt), [after](../automation-audit-20260922/backend-ci.txt) |
 
 Environment: Flutter 3.47.0, Dart 3.13.0, Windows 11 10.0.26200.9445,
 Node 24.19.0, PowerShell 7.6.5. Exact paths, toolchain/device output and source
@@ -65,3 +65,14 @@ checked against the pushed SHA. The existing Word/PDF report remains tied to
 `3e4f733` and its 100 Flutter / 14 API measurements. It has not been re-exported
 as part of these system fixes. Video, team contribution confirmation, manual
 screen-reader checks and clean-machine submission acceptance remain open.
+
+## Exact duplicate file aliases
+
+On 21 October 2026, byte-identical copies were consolidated. Original event
+identities and outcomes remain in the records above and the [alias manifest](../aliases.json). Shared bytes do not establish a new run, independent
+repetitions or a changed outcome. Use the retained file for the raw payload.
+
+| Original local filename | Retained raw output |
+| --- | --- |
+| `android-environment-after.txt` | [docs/evidence/automation-audit-20260922/android-environment.txt](../automation-audit-20260922/android-environment.txt) |
+| `backend-ci-after.txt` | [docs/evidence/automation-audit-20260922/backend-ci.txt](../automation-audit-20260922/backend-ci.txt) |

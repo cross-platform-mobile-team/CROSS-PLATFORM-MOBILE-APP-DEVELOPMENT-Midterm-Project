@@ -3,7 +3,7 @@
 Current review material: [Word](output/pdf/taskflow-report.docx),
 [matching PDF](output/pdf/taskflow-report-word.pdf),
 [video script](docs/presentation/KICH-BAN-VIDEO-DEMO.md) and
-[cleanup record](docs/GITHUB-CLEANUP-REVIEW.md).
+[cleanup record](docs/history/engineering-notes.md#github-cleanup-review).
 [Audit history](docs/history/README.md) indexes the dated milestones below;
 use the October evidence linked there for the newer UI and Android results.
 
@@ -11,22 +11,22 @@ use the October evidence linked there for the newer UI and Android results.
 format/analyze PASS, 133 Flutter cases and 17 API cases PASS; current LaTeX source
 compiles. Native platform and hosted CI results retain their own dated boundaries.
 
-Historical automation audit (22 September): [scope and results](docs/automation-audit-20260922.md).
+Historical automation audit (22 September): [scope and results](docs/history/engineering-notes.md#automation-audit-20260922).
 The refreshed UI has a regression protecting separate accessibility labels;
 110 Flutter cases pass. Use the dated evidence index for platform/CI results
 and limitations rather than treating a passing suite as proof of zero defects.
 
-UI refresh (introduced 21 September): [color and motion refresh](docs/color-motion-ui-20260921.md)
+UI refresh (introduced 21 September): [color and motion refresh](docs/history/engineering-notes.md#color-motion-ui-20260921)
 adds pastel task surfaces, gradient greeting, hover/focus feedback and finite
 reduced-motion-aware transitions. Verification is tracked separately from the
 published b4479e3 milestone; no new hosted CI result is implied.
 
-Local platform verification: [Android/Windows audit](docs/platform-audit-20260914.md),
+Local platform verification: [Android/Windows audit](docs/history/engineering-notes.md#platform-audit-20260914),
 [Android SDK and emulator on D:](docs/android-local-setup.md), and
 [iOS Mac/Xcode handoff](docs/ios-validation.md). The iOS runner is scaffolded,
 not yet build/run verified. Do not infer iOS support from the folder alone.
 
-Desktop UI refresh: [minimal TaskFlow workspace](docs/minimal-desktop-ui.md).
+Desktop UI refresh: [minimal TaskFlow workspace](docs/history/engineering-notes.md#minimal-desktop-ui).
 The sidebar shows real task counts; quick capture supports Enter, date/priority
 shortcuts, and Ctrl+K / Command+K focuses search. Sort uses a popup; the advanced
 filter dialog remains available. Compact and large-text layouts retain drafts.
@@ -38,7 +38,7 @@ an isolated offline demo. This is not yet the final coursework submission.
 ## Verified state and upgrade plan
 
 Historical local review: `06d3790` plus the 19 September snapshot-capacity correction.
-The [risk closure](docs/risk-closure-20260919.md) and
+The [risk closure](docs/history/engineering-notes.md#risk-closure-20260919) and
 [raw verification](docs/evidence/risk-closure-20260919/README.md) record
 104 Flutter, 17 API and 15 Windows native cases PASS. The authenticated snapshot
 budget is now 8 MiB for up to 500 records; other JSON routes retain 1 MiB.
@@ -58,20 +58,20 @@ Platform milestone at `3e4f733` (14–15 September 2026):
 | iOS | Scaffold only; build/run NOT RUN without Mac/Xcode |
 
 See [15 September evidence](docs/evidence/platform-audit-20260915/README.md)
-and [progress breakdown](docs/project-progress-20260915.md). The approximate 80%
+and [progress breakdown](docs/history/engineering-notes.md#project-progress-20260915). The approximate 80%
 submission-readiness estimate is not a grade prediction. Edge evidence below
 is historical; no new browser or hosted CI run is claimed by this update.
 
-[Quick-create exit protection](docs/quick-create-exit.md) asks before discarding
+[Quick-create exit protection](docs/history/engineering-notes.md#quick-create-exit) asks before discarding
 drafts when leaving offline/sample workspaces and prevents exit during saves.
 Run its native scenario separately:
 `flutter test integration_test/quick_create_exit_test.dart -d windows`.
 
-[UI spacing fixes](docs/ui-spacing-20260912.md) improve field gaps, large-text
+[UI spacing fixes](docs/history/engineering-notes.md#ui-spacing-20260912) improve field gaps, large-text
 dropdowns and floating labels, and avoid redundant Edit form rebuilds.
 No measured FPS improvement is claimed.
 
-[B1 edit-draft protection](docs/upgrade-b1.md) adds explicit Continue editing /
+[B1 edit-draft protection](docs/history/engineering-notes.md#upgrade-b1) adds explicit Continue editing /
 Discard on dirty Cancel, Escape or Back, while blocking dismissal during save.
 Quick-create exit protection is implemented; remaining B2 work stays on the roadmap.
 
@@ -91,14 +91,14 @@ remaining form protection and conflict-recovery upgrades are still next steps.
 - Loading, empty, error and retry states; constrained responsive layout.
 - Feature-first repository/controller/UI layers, injectable clock/ID and fake storage.
 - Shared modern indigo theme, responsive status navigation, task cards and
-  cohesive sign-in/settings panels. See [UI review](docs/ui-refresh-20260911.md).
-- Historical [color studio refinement](docs/color-studio-ui.md): violet actions,
+  cohesive sign-in/settings panels. See [UI review](docs/history/engineering-notes.md#ui-refresh-20260911).
+- Historical [color studio refinement](docs/history/engineering-notes.md#color-studio-ui): violet actions,
   mint/peach task surfaces and original geometric header with readable labels.
 
 - 103 unit/widget/golden tests, including 15 task/auth/settings/dialog visual baselines,
   accessibility guidelines, text scaling, keyboard interaction and signed-in
   account-settings validation/focus coverage.
-- [Bug audit](docs/bug-audit-20260912.md): snapshot-load safety and session-race
+- [Bug audit](docs/history/engineering-notes.md#bug-audit-20260912): snapshot-load safety and session-race
   regressions. Controller consumers must successfully load before mutations.
 - Reproducible intentional search-defect experiment with real fail/fix logs.
 - Account registration/login, profile/password/recovery, session revocation and
@@ -328,13 +328,12 @@ evidence manifest; this is not a claim that the runner failure is fully diagnose
 The persisted suite independently checks fresh create, edit/complete and
 cancel/delete/undo with native storage, full metadata comparison and UI remount.
 It clears only its own test keys, never your offline tasks. See the
-[project review and next priorities](docs/project-review-20260907.md).
+[project review and next priorities](docs/history/engineering-notes.md#project-review-20260907).
 
 ## Continue development
 
-Read [AGENTS.md](AGENTS.md), [implementation prompt](docs/process/PROJECT_IMPLEMENTATION_PROMPT.md),
-[plan](docs/project-plan.md), [traceability](docs/requirements-traceability.md),
-[tests](docs/test-matrix.md), [latest full review](docs/project-review-20260909.md),
+Read the [plan](docs/project-plan.md), [traceability](docs/requirements-traceability.md),
+[tests](docs/test-matrix.md), [latest full review](docs/history/engineering-notes.md#project-review-20260909),
 and [limitations](docs/limitations.md).
 
 Edge now has real API CRUD/undo/re-login evidence and an executable sample

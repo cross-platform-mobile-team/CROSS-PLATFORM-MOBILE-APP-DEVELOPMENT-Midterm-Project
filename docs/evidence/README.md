@@ -1,5 +1,11 @@
 # Evidence outputs
 
+This central index replaces the directory READMEs that only repeated duplicate
+file aliases. Use [aliases.json](aliases.json) for all original names and retained
+payloads, the [master manifest](manifest.md) for dated evidence, and
+[historical engineering records](../history/engineering-notes.md) for older audit
+notes. Directory READMEs with experiment methods and interpretation are retained.
+
 The alias manifest records `sha256` and `bytes` for repository blob bytes so
 verification is independent of checkout CRLF/LF conversion. It also retains
 `working_tree_sha256` and `working_tree_bytes` from the Windows consolidation.

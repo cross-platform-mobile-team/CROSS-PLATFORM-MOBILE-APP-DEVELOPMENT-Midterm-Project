@@ -52,7 +52,7 @@ version warning is retained. No new Android runtime result is implied.
 1 PASS on the existing API 36 emulator. Snapshot regression first failed with
 413 instead of 200, then passed with an authenticated 8 MiB budget. Synthetic
 SDK/resolver/backend-CI contracts PASS. Hosted expanded CI remains NOT RUN.
-See [remaining acceptance](../risk-closure-20260919.md); video is excluded.
+See [remaining acceptance](../history/engineering-notes.md#risk-closure-20260919); video is excluded.
 
 ## 2026-09-16 system fixes
 
@@ -577,7 +577,7 @@ synthetic email and an empty password field; none includes tokens or recovery co
 
 Baseline source: 62190d8; unchanged Flutter 3.47.1 / Dart 3.13.1 and Windows
 10.0.26200.9168 after version/doctor/device recheck. Review and scope:
-docs/project-review-20260907.md (repository-relative path).
+docs/history/engineering-notes.md#project-review-20260907 (repository-relative path).
 
 | Command/check | Result | Raw artifact in this directory |
 |---|---|---|

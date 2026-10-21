@@ -19,7 +19,7 @@ preserves the existing Word template layout directly. A full builder run still
 requires the original reference with the expected hash; do not bypass that check.
 
 Video script: `docs/presentation/KICH-BAN-VIDEO-DEMO.md`. Repository cleanup
-record: `docs/GITHUB-CLEANUP-REVIEW.md`. Publication of the current report and
+record: `docs/history/engineering-notes.md#github-cleanup-review`. Publication of the current report and
 cleanup was authorized on 21 October; student verification remains required
 before coursework submission.
 

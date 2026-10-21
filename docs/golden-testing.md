@@ -30,7 +30,7 @@ changed. Hosted CI and merge remain pending; this is local verification only.
 The original eight task states below retain their fixtures and dimensions but
 their baselines were deliberately replaced after reviewing the redesign diffs.
 Three new baselines cover phone/wide sign-in and synthetic account settings
-(11 golden cases total). See [UI review](ui-refresh-20260911.md) for dimensions,
+(11 golden cases total). See [UI review](history/engineering-notes.md#ui-refresh-20260911) for dimensions,
 reviewed differences, test adjustments and scope. Older results below describe
 the original visual milestone, not the redesigned pixels.
 

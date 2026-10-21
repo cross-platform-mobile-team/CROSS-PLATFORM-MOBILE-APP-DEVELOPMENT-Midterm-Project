@@ -1,6 +1,6 @@
 # Remaining work
 
-Latest consolidated status: [15 September progress review](project-progress-20260915.md).
+Latest consolidated status: [15 September progress review](history/engineering-notes.md#project-progress-20260915).
 Android release/emulator and 15 native cases now PASS; Windows has 15 native
 cases from 14 September. Older platform gaps below are historical where superseded.
 iOS, manual screen-reader/full keyboard audit, clean-machine setup, final report
